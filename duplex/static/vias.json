@@ -1,0 +1,242 @@
+[
+    {
+
+        "code": "Al.",
+        "name": "Aldea",
+        "show": 1
+    },
+    {
+
+        "code": "Apdo.",
+        "name": "Apartado de correos",
+        "show": 1
+    },
+    {
+
+        "code": "Ar.",
+        "name": "Arraval",
+        "show": 1
+    },
+    {
+
+        "code": "Au.",
+        "name": "Autovía/Autopista",
+        "show": 1
+    },
+    {
+
+        "code": "Avda.",
+        "name": "Avenida",
+        "show": 1
+    },
+    {
+
+        "code": "Bc.",
+        "name": "Barranco",
+        "show": 1
+    },
+    {
+
+        "code": "Bjda.",
+        "name": "Bajada",
+        "show": 1
+    },
+    {
+
+        "code": "Br.",
+        "name": "Barriada/Barrio",
+        "show": 1
+    },
+    {
+
+        "code": "C.",
+        "name": "Calle",
+        "show": 1
+    },
+    {
+
+        "code": "Ca.",
+        "name": "Caserío",
+        "show": 1
+    },
+    {
+
+        "code": "Cj.",
+        "name": "Callejón",
+        "show": 1
+    },
+    {
+
+        "code": "Cm.",
+        "name": "Camino",
+        "show": 1
+    },
+    {
+
+        "code": "Col.",
+        "name": "Colonia",
+        "show": 1
+    },
+    {
+
+        "code": "Coop.",
+        "name": "Cooperativa",
+        "show": 1
+    },
+    {
+
+        "code": "Crta.",
+        "name": "Carretera",
+        "show": 1
+    },
+    {
+
+        "code": "Cs.",
+        "name": "Cuesta",
+        "show": 1
+    },
+    {
+
+        "code": "Ctjo.",
+        "name": "Cortijo",
+        "show": 1
+    },
+    {
+
+        "code": "Ch.",
+        "name": "Chalet",
+        "show": 1
+    },
+    {
+
+        "code": "Edf.",
+        "name": "Edificio",
+        "show": 1
+    },
+    {
+
+        "code": "Fc.",
+        "name": "Finca",
+        "show": 1
+    },
+    {
+
+        "code": "Glta.",
+        "name": "Glorieta",
+        "show": 1
+    },
+    {
+
+        "code": "Gp.",
+        "name": "Grupo",
+        "show": 1
+    },
+    {
+
+        "code": "Lu.",
+        "name": "Lugar",
+        "show": 1
+    },
+    {
+
+        "code": "Ma.",
+        "name": "Masía",
+        "show": 1
+    },
+    {
+
+        "code": "Mc.",
+        "name": "Mercado",
+        "show": 1
+    },
+    {
+
+        "code": "Mn.",
+        "name": "Manzana",
+        "show": 1
+    },
+    {
+
+        "code": "Nu.",
+        "name": "Núcleo",
+        "show": 1
+    },
+    {
+
+        "code": "Pa.",
+        "name": "Patio",
+        "show": 1
+    },
+    {
+
+        "code": "Pje.",
+        "name": "Pasaje",
+        "show": 1
+    },
+    {
+
+        "code": "Pl.",
+        "name": "Plaza",
+        "show": 1
+    },
+    {
+
+        "code": "Pol.",
+        "name": "Polígono",
+        "show": 1
+    },
+    {
+
+        "code": "Pq.",
+        "name": "Parque",
+        "show": 1
+    },
+    {
+
+        "code": "Pso.",
+        "name": "Paseio",
+        "show": 1
+    },
+    {
+
+        "code": "Rbla.",
+        "name": "Rambla",
+        "show": 1
+    },
+    {
+
+        "code": "Res.",
+        "name": "Residencia",
+        "show": 1
+    },
+    {
+
+        "code": "Rnda.",
+        "name": "Ronda",
+        "show": 1
+    },
+    {
+
+        "code": "Sub.",
+        "name": "Subida",
+        "show": 1
+    },
+    {
+
+        "code": "Trva.",
+        "name": "Travesía",
+        "show": 1
+    },
+    {
+
+        "code": "Urb.",
+        "name": "Urbanicación",
+        "show": 1
+    },
+    {
+
+        "code": "Zn.",
+        "name": "Zona",
+        "show": 1
+    }
+]

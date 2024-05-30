@@ -1,0 +1,48 @@
+<?php
+
+    namespace App\Models;
+
+    use Carbon\Carbon;
+    use DB;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Support\Collection;
+
+    class Game extends Model
+    {
+        use HasFactory;
+
+        protected $fillable = [
+            'state',
+            'token',
+            'user_id',
+            'decline_reason',
+
+            // 'comment',
+            // 'is_favourite
+        ];
+
+        public static function getTotalPlaysForUser(int $userId): \stdClass
+        {
+            $totalToday = DB::table('games')
+                ->selectRaw('COUNT(*) total')
+                ->where('user_id', $userId)
+                ->where('created_at', '>=', now()->format('Y-m-d'));
+
+            return DB::table('games')
+                ->selectSub($totalToday, 'today')
+                ->selectRaw('COUNT(*) total')
+                ->where('user_id', $userId)
+                ->get()->first();
+        }
+
+        public function user(): Collection
+        {
+            return $this->belongsTo(User::class)->get();
+        }
+
+        public function files(): Collection
+        {
+            return $this->hasMany(File::class)->get();
+        }
+    }

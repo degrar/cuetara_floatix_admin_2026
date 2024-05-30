@@ -1,0 +1,253 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@import "fonts/stylesheet.css";
+@import 'hamburgers/hamburgers.scss';
+@import 'hamburgers/_base.scss';
+@import "fonts/stylesheet.css";
+
+[x-cloak] {
+    display: none;
+}
+.bdi-local-activation-menu--main a.bdi-local-activation-skip-link {
+    position: absolute;
+    z-index: -1;
+}
+.bdi-local-activation-menu--main a.bdi-local-activation-skip-link:focus-visible,
+.bdi-local-activation-menu--main a.bdi-local-activation-skip-link:focus-within {
+    z-index: 1;
+}
+
+
+input {
+    --tw-ring-shadow: 0 0 transparent !important;
+}
+
+input:-webkit-autofill,
+input:-webkit-autofill:hover,
+input:-webkit-autofill:focus,
+textarea:-webkit-autofill,
+textarea:-webkit-autofill:hover,
+textarea:-webkit-autofill:focus,
+select:-webkit-autofill,
+select:-webkit-autofill:hover,
+select:-webkit-autofill:focus {
+    -webkit-box-shadow: 0 0 0 1000px #ffffff inset !important;
+    -webkit-text-fill-color: rgb(75 85 99 / var(--tw-text-opacity));
+}
+
+html {
+    font-size: 16px;
+}
+
+body {
+    font-size: 16px;
+    background-color: #ffffff;
+}
+
+h1, h2, h3, h4, h5, h6{
+    @apply font-roboto;
+}
+
+.backgroundpattern{
+    background-image: url("/resources/images/pattern.png");
+    //background-position: center;
+    background-size: 375px 43px;
+    background-repeat: repeat-x;
+    height: 43px;
+
+    @screen md  {
+        background-size: 980px 96px;
+        height: 95px;
+
+    }
+}
+/* -------- HEADER -------- */
+
+div#header {
+    z-index: 4;
+}
+
+header#duplex-header {
+    z-index: 3;
+    @apply relative top-[80px] px-[15px] sticky;
+
+
+    .wrapper-menu {
+        .wrapper-mobile {
+            @apply flex justify-end items-center;
+        }
+        #menu-btn {
+            @apply block rounded-[8px] bg-orange;
+            padding: 5px 9px 3px;
+        }
+        nav {
+            display: none;
+            &.active {
+                display: block;
+                position: absolute;
+                right: 15px;
+                left: 15px;
+                margin: 10px auto 0;
+                @apply block rounded-[20px] bg-orange;
+                ul.menu-header {
+                    @apply rounded-[0px] ;
+                }
+            }
+            ul.menu-header {
+                list-style: none;
+                margin: 0;
+                padding: 25px 0;
+                @apply flex items-start flex-col rounded-[90px] shadow-lg;
+
+                li {
+                    display: block;
+                    padding: 15px 0;
+                    position: relative;
+                    width: 100%;
+                    text-align: center;
+                    a {
+                        @apply text-[18px] leading-[21px] font-bemio;
+                        color: rgba(white, 1);
+                        text-transform: uppercase;
+                        background-color: transparent;
+                        cursor: pointer;
+                        letter-spacing: 0.15px;
+                        text-decoration: none;
+                        &.active {
+                            color: rgba(white, 1);
+                        }
+                        &:hover {
+                            color: rgba(white, 1);
+                        }
+                    }
+                    &:first-child {
+                        border-top: none;
+                    }
+                }
+            }
+        }
+    }
+    @screen md  {
+       //top: 70px;
+        top: 90px;
+        position: sticky;
+        .wrapper-menu {
+            #menu-btn {
+                display: none;
+            }
+            nav {
+                display: block;
+                text-align: center;
+                &.active {
+                    background-color: rgba(#ffffff, 0);
+                }
+                ul.menu-header {
+                    @apply inline-flex justify-center items-center flex-row bg-orange;
+                    margin: 0 auto;
+                    padding: 0;
+                    li {
+                        display: inline-block;
+                        padding: 0 10px;
+                        border: none;
+                        width: auto;
+                        &:first-child {
+                            margin-left: 30px;
+                        }
+                        &:last-child {
+                            margin-right: 30px;
+                        }
+                        a{
+                            display: block;
+                            padding: 15px 20px;
+                            @apply text-[18px] leading-[21px];
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @screen lg  {
+        top: 90px;
+        .wrapper-menu {
+            //max-width: 970px;
+            nav {
+                ul.menu-header {
+                    li {
+                        padding: 0 20px;
+                    }
+                }
+            }
+        }
+    }
+}
+/* -------- HEADER -------- */
+
+/* -------- FOOTER -------- */
+footer{
+    nav{
+        ul {
+            @apply flex justify-center items-center flex-col;
+            margin: 0;
+            padding: 0;
+            li {
+                display: inline-block;
+                margin: 5px 0;
+                border: none;
+                width: auto;
+                text-align: center;
+                position: relative;
+                a{
+                    cursor: pointer;
+                    letter-spacing: -0.14px;
+                    &:after{
+                        content: "·";
+                        position: absolute;
+                        color: #6B330F;
+                        margin: auto;
+                        right: -12px;
+                        top:0;
+                        bottom: 0;
+                        display: none;
+                    }
+                }
+                &:first-child{
+                    margin-left: 0;
+                }
+                &:last-child{
+                    margin-right: 0;
+                    a{
+                        &:after{
+                            display: none;
+
+                        }
+                    }
+                }
+            }
+        }
+    }
+    @screen lg {
+        nav {
+            ul {
+                @apply flex-row;
+                li {
+                    display: inline-block;
+                    margin: 0 10px;
+                    a{
+                        text-align: center;
+                        &:after{
+                            display: inline-block;
+                        }
+                    }
+                }
+            }
+        }
+    }
+}
+/* -------- FOOTER -------- */
+
+.form-error {
+    @apply text-red;
+}

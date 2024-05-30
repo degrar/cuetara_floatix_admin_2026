@@ -1,0 +1,366 @@
+[
+    {
+
+        "code": "Acoruna",
+        "name": "A Coruña",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Alava",
+        "name": "Álava",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Albacete",
+        "name": "Albacete",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Alicante",
+        "name": "Alicante",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Almeria",
+        "name": "Almería",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Asturias",
+        "name": "Asturias",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Avila",
+        "name": "Ávila",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Badajoz",
+        "name": "Badajoz",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Baleares",
+        "name": "Baleares",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Barcelona",
+        "name": "Barcelona",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Burgos",
+        "name": "Burgos",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Caceres",
+        "name": "Cáceres",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Cadiz",
+        "name": "Cádiz",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Cantabria",
+        "name": "Cantabria",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Castellon",
+        "name": "Castellón",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Ceuta",
+        "name": "Ceuta",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "CiudadReal",
+        "name": "Ciudad Real",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Cordoba",
+        "name": "Córdoba",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Cuenca",
+        "name": "Cuenca",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Girona",
+        "name": "Girona",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Granada",
+        "name": "Granada",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Guadalajara",
+        "name": "Guadalajara",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Gipuzkoa",
+        "name": "Gipuzkoa",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Huelva",
+        "name": "Huelva",
+        "show": 0,
+        "country": "es"
+    },
+    {
+
+        "code": "Huesca",
+        "name": "Huesca",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Jaen",
+        "name": "Jaén",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "LaRioja",
+        "name": "La Rioja",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "LasPalmas",
+        "name": "Las Palmas",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "leon",
+        "name": "León",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Lleida",
+        "name": "Lleida",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Lugo",
+        "name": "Lugo",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Madrid",
+        "name": "Madrid",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Malaga",
+        "name": "Málaga",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Melilla",
+        "name": "Melilla",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Murcia",
+        "name": "Murcia",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Navarra",
+        "name": "Navarra",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Ourense",
+        "name": "Ourense",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Palencia",
+        "name": "Palencia",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Pontevedra",
+        "name": "Pontevedra",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Salamanca",
+        "name": "Salamanca",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Tenerife",
+        "name": "Santa C. de Tenerife",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Segovia",
+        "name": "Segovia",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Sevilla",
+        "name": "Sevilla",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Soria",
+        "name": "Soria",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Tarragona",
+        "name": "Tarragona",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Teruel",
+        "name": "Teruel",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Toledo",
+        "name": "Toledo",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Valencia",
+        "name": "Valencia",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Valladolid",
+        "name": "Valladolid",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Bizkaia",
+        "name": "Bizkaia",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Zamora",
+        "name": "Zamora",
+        "show": 1,
+        "country": "es"
+    },
+    {
+
+        "code": "Zaragoza",
+        "name": "Zaragoza",
+        "show": 1,
+        "country": "es"
+    }
+]
