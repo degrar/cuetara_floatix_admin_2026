@@ -23,9 +23,9 @@ docker run --rm \
 2. Make a copy of `.env.example`, to `.env`.
 3. Start docker `./vendor/bin/sail up -d`, visit `http://localhost`
 4. Install Telescope `./vendor/bin/sail artisan telescope:install`
-5. Create tables `./vendor/bin/sail artisan migrate`
-6. Generate app key `./vendor/bin/sail artisan key:generate`
-7. Install npm packages `./vendor/bin/sail pnpm install`
+5. Generate app key `./vendor/bin/sail artisan key:generate`
+6. Install npm packages `./vendor/bin/sail pnpm install`
+7. Create tables `./vendor/bin/sail artisan migrate`
 
 ## Packages
 1. Install packages tailwindcss-convert-px-to-rem `./vendor/bin/sail pnpm install tailwindcss-convert-px-to-rem`
