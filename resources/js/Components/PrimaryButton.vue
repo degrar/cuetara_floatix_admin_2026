@@ -35,7 +35,7 @@ const scrollToSection = (scroll) => {
 </script>
 
 <template>
-    <a @click="onClick" class="font-bemio uppercase bg-orange rounded-full text-white cursor-pointer rem:text-[21px] border-[1px] border-orange hover:bg-white hover:text-orange hover:border-orange rem:py-[10px] rem:px-[30px]" :class="{ 'underline': active }">
+    <a @click="onClick" class="cursor-pointer text-[16px] leading-[21px] font-hermes bg-blue border-2 border-solid border-white rounded-full text-white py-[15px] px-[25px] mx-2 uppercase drop-shadow-menu hover:bg-gradient-to-b hover:from-[#FEE900] hover:to-[#F39B00]" :class="{ 'underline': active }">
         <slot />
     </a>
 </template>

@@ -47,6 +47,7 @@ Route::middleware(PromotionRedirect::class)->group(function () {
 
     Route::get('legal', [LegalPrivacyController::class, 'legal'])->name('legal');
     Route::get('privacidad', [LegalPrivacyController::class, 'privacy'])->name('privacy');
+    Route::get('faqs', [LegalPrivacyController::class, 'faqs'])->name('faqs');
 
 
 });

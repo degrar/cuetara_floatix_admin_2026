@@ -1,4 +1,4 @@
-import defaultTheme from 'tailwindcss/defaultTheme';
+ import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
 
@@ -23,10 +23,24 @@ export default {
                 tahoma: ['Tahoma', ...defaultTheme.fontFamily.sans],
                 tahomaBold: ['TahomaBold', ...defaultTheme.fontFamily.sans],
                 bemio: ['Bemio', ...defaultTheme.fontFamily.sans],
+                hermes: ['Hermes', ...defaultTheme.fontFamily.sans],
+                tekoMedium: ['TekoMedium', ...defaultTheme.fontFamily.sans],
+                tekoSemiBold: ['TekoSemiBold', ...defaultTheme.fontFamily.sans],
+                tekoRegular: ['TekoRegular', ...defaultTheme.fontFamily.sans],
             },
-            // backgroundImage: {
-            //     'background-home': "url('/images/background.jpg')",
-            // }
+            dropShadow: {
+                'menu': '0px 2px 2px rgba(0, 0, 0, 0.25)',
+            },
+            boxShadow: {
+                'menu': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+            },
+            backgroundImage: {
+                'home': "url('/resources/images/desktop.jpg')",
+                'inside': "url('/resources/images/insideHeader.jpg')",
+                'curveOrange': "url('/resources/images/curve-orange.png')",
+                'curveYellow': "url('/resources/images/curve-yellow.png')",
+            },
+
         },
         container: {
             screens: {
@@ -37,11 +51,15 @@ export default {
         },colors: {
             ...colors,
             red: '#C82800',
-            orange: '#E74115',
-            brown: '#6B330F',
-            yellow: '#F0B72B',
-            grey: '#9D9D9D',
-            error: '#F00',
+
+            'error': '#FF0202',
+            'brown': '#7D2A25',
+            'blue': '#11368F',
+            'yellow': '#FEE900',
+            'grey': '#919090',
+            'orange': '#F39B00',
+
+
         }
     },
 

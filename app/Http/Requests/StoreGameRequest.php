@@ -29,8 +29,6 @@ class StoreGameRequest extends FormRequest
             'nombre' => 'required|string',
             'first_surname' => 'required|string',
             'email' => 'required|email',
-            //'province' => 'required|exists:App\Models\Province,id',
-            'phone' => 'required|int|digits:9',
             'adult' => 'required|accepted',
             'legal' => 'required|accepted',
             'privacy' => 'required|accepted',

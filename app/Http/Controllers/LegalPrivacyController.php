@@ -19,4 +19,9 @@ class LegalPrivacyController extends Controller
         header('Location: https://www.kinder.com/es/es/politica-de-privacidad');
         die();
     }
+
+    public function faqs()
+    {
+        return Inertia::render('Public/Legal');
+    }
 }

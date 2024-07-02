@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-white py-8">
+    <footer class="bg-white py-8 relative after:absolute after:top-[-92px] after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveYellow after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
         <div class="container mx-auto px-[15px]">
 
             <nav>
@@ -11,7 +11,7 @@
                         <PrimaryLinkFooter  :href="route('legal')" :active="route().current('legal')">Bases promocionales</PrimaryLinkFooter>
                     </li>
                     <li>
-                        <PrimaryLinkFooter :href="route('privacy')" :active="route().current('privacy')">Política de privacidad</PrimaryLinkFooter>
+                        <PrimaryLinkFooter :href="route('faqs')" :active="route().current('faqs')">FAQS</PrimaryLinkFooter>
                     </li>
                     <li>
                         <PrimaryLinkFooter :href="route('contact')" :active="route().current('contact')">Contacto</PrimaryLinkFooter>
@@ -19,10 +19,9 @@
 
                 </ul>
             </nav>
-            <p class="text-brown font-roboto rem:text-[14px] mt-[15px] text-center w-full max-w-[1024px] mx-auto">
-                Promoción válida en España mayores de 18 años del 20/5/2024 al 7/07/2024. Imprescindible conservar el ticket de compra original. Máximo 1 participaciones diarias por persona. Limitada a 1 premio por momento ganador por persona en todo el período promocional. Se entregan 14 premios por momento ganador. <br>Consulta bases legales y detalles de la promoción <a class="underline font-robotoBold" :href="route('legal')">aquí</a>.
+            <p class="text-center w-full max-w-[1024px] mx-auto mt-[20px]">
+                Promoción válida en España para mayores de 18 años del 9/9/2024 al 9/11/2024. Máximo 1 participación al día por persona durante la promoción. Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción <a class="underline" :href="route('legal')">aquí</a>.
             </p>
-            <p class="text-brown font-roboto rem:text-[14px] mt-[15px] text-center w-full max-w-[1024px] mx-auto">©Funko2024 ©WBEI<br>©Ferrero Group. All rights reserved.</p>
         </div>
     </footer>
 </template>

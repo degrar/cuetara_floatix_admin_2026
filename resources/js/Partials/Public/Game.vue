@@ -1,70 +1,90 @@
 <template>
-    <div class="container mx-auto px-[15px]">
-        <h1 class="w-full max-w-[870px] mx-auto text-center font-bemio text-brown rem:text-[35px] rem:leading-[35px] tracking-[0.7px] lg:rem:text-[50px] lg:rem:leading-[50px] lg:tracking-[1px] uppercase mb-[50px] p-0">
-            PUEDES GANAR LA VITRINA CON LA COLECCIÓN COMPLETA
-        </h1>
-        <form @submit.prevent="submitForm" class="mx-auto  w-12/12 lg:w-8/12 mb-[25px]">
-            <div class="grid grid-cols-1 gap-5 md:grid-cols-3">
-                <TextInput type="text" v-model="form.nombre" placeholder="Nombre*" :error="form.errors.nombre"  />
+    <div class="bg-yellow py-[100px] relative after:absolute after:top-[-92px]  after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveYellow after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
+        <div class="container mx-auto px-[15px]">
+             <h1 class="w-full max-w-[870px] mx-auto mt-[5px] mb-[60px] font-hermes text-brown text-[48px] leading-[50px] tracking-[-0.48px] uppercase text-center">
+                EL ESPACIO TE ESPERA, ¡SUERTE!
+            </h1>
 
-                <TextInput type="text" v-model="form.first_surname" :key="0" placeholder="Primer apellido*" class="md:mb-4" :error="form.errors.first_surname" />
+            <div class="flex flex-row justify-center items-start">
 
-                <TextInput type="text" v-model="form.second_surname" :key="1" placeholder="Segundo apellido" :error="form.errors.second_surname" />
+                <div class="mx-auto w-12/12 lg:w-5/12  ml-0">
+                    <img src="../../../../resources/images/astro.png" alt="kinder" class="max-w-[520px] w-full mx-auto ml-0 pb-5"/>
+                </div>
+                <form @submit.prevent="submitForm" class="mx-auto w-12/12 lg:w-6/12 ml-0">
+                    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+                        <TextInput type="text" v-model="form.nombre" label="Nombre*" :error="form.errors.nombre"  />
+
+                        <TextInput type="text" v-model="form.first_surname" :key="0" label="Primer apellido*" :error="form.errors.first_surname" />
+
+                        <TextInput type="text" v-model="form.second_surname" :key="1" label="Segundo apellido" :error="form.errors.second_surname" />
+
+                        <TextInput type="text" v-model="form.email" label="Correo electrónico*" :error="form.errors.email" />
+
+                        <div class="w-full col-span-2">
+                            <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" label="Imagen de tu pack*"/>
+                        </div>
+                    </div>
+
+
+                    <div id="legals" class="my-8 space-y-2 checkbox block">
+                        <div class="wrapper-checkbox flex flex-row items-start justify-start cursor-pointer">
+                            <Checkbox v-model:checked="form.adult" :error="form.errors.adult" id="adult" />
+                            <label class="flex flex-row items-center justify-center cursor-pointer" for="adult" v-on:click="onClickLabel"></label>
+                            <InputLabelCheckbox for="adult" class="" :error="form.errors.adult">Confirmo que soy mayor de 18 años*.</InputLabelCheckbox>
+                        </div>
+                        <div class="wrapper-checkbox flex flex-row items-start justify-start cursor-pointer">
+                            <Checkbox v-model:checked="form.legal" :error="form.errors.legal" id="legal" />
+                            <label class="flex flex-row items-center justify-center cursor-pointer" for="legal" v-on:click="onClickLabel" :class="{ 'error': form.errors.legal }"></label>
+                            <InputLabelCheckbox for="legal" class="" :error="form.errors.legal">Acepto las <a class="underline hover:underline-none" target="_blank" :href="route('legal')">bases legales</a> de la promoción*</InputLabelCheckbox>
+                        </div>
+
+                        <div class="wrapper-checkbox flex flex-row items-start justify-start cursor-pointer">
+                            <Checkbox v-model:checked="form.privacy" :error="form.errors.privacy" id="privacy" />
+                            <label class="flex flex-row items-center justify-center cursor-pointer" for="privacy" v-on:click="onClickLabel" :class="{ 'error': form.errors.privacy }"></label>
+                            <InputLabelCheckbox for="privacy" class="" :error="form.errors.privacy">Acepto la <a class="underline hover:underline-none" target="_blank" :href="route('privacy')">política de privacidad</a> de Ferrero Ibérica, S.A*</InputLabelCheckbox>
+                        </div>
+
+                        <div class="wrapper-checkbox flex flex-row items-start justify-start cursor-pointer">
+                            <Checkbox v-model:checked="form.ads" id="ads" />
+                            <label class="flex flex-row items-center justify-center cursor-pointer" for="ads" v-on:click="onClickLabel"></label>
+                            <InputLabelCheckbox for="ads" >Deseo recibir comunicaciones comerciales de los productos de Ferrero Ibérica S.A.</InputLabelCheckbox>
+                        </div>
+                    </div>
+
+                    <div id="legals" class="my-8 space-y-2 checkbox block">
+                        <p class="rem:text-[16px] text-brown font-tekoRegular ml-[10px]">*Campos obligatorios</p>
+                    </div>
+
+
+                    <div class="mt-[25px]">
+                        <FormButton type="submit" class="mx-auto" :disabled="form.processing">
+                            Participa
+                            <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
+                        </FormButton>
+                    </div>
+
+
+                </form>
+
             </div>
-            <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
-                <TextInput type="text" v-model="form.email" placeholder="Correo electrónico*" :error="form.errors.email" />
 
-                <TextInput type="text" v-model="form.phone" placeholder="Teléfono*" maxlength="9"  class="md:mb-4" :error="form.errors.phone" />
-            </div>
-
-            <div class="justify-items-center mt-5 md:mt-0">
-                <div class="w-full col-span-3">
-                    <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" />
+            <div class="mx-auto  w-12/12 lg:w-10/12 ">
+                <div v-if="form.hasErrors" id="error" class="mx-auto text-center px-2 py-4 my-[15px] border-error bg-error border-[1px] mt-8 rounded-md">
+                    <span class="text-white block font-hermes rem:text-[14px] rem:leading-[21px] uppercase">Formulario incompleto o erróneo.</span>
+                    <span class="text-white block font-hermes rem:text-[14px] rem:leading-[21px]">Por favor, revisa o completa los campos remarcados. Gracias.</span>
                 </div>
             </div>
 
-            <div id="legals" class="mt-8 space-y-2 text-sm">
-                <div>
-                    <Checkbox v-model:checked="form.adult" :error="form.errors.adult" id="adult" />
-                    <InputLabel for="legal" class="" :error="form.errors.adult">Confirmo que soy mayor de 18 años*.</InputLabel>
-                </div>
-                <div>
-                    <Checkbox v-model:checked="form.legal" :error="form.errors.legal" id="legal" />
-                    <InputLabel for="legal" class="" :error="form.errors.legal">Acepto las <a class="underline font-robotoBold hover:underline-none" target="_blank" :href="route('legal')">bases legales</a> de la promoción*</InputLabel>
-                </div>
-                <div>
-                    <Checkbox v-model:checked="form.privacy" :error="form.errors.privacy" id="legal" />
-                    <InputLabel for="legal" class="" :error="form.errors.privacy">Acepto la <a class="underline font-robotoBold hover:underline-none" target="_blank" :href="route('privacy')">política de privacidad</a> de Ferrero Ibérica, S.A*</InputLabel>
-                </div>
-                <div>
-                    <p class="text-brown font-roboto rem:text-[14px] text-left w-full mt-[25px]">* Campos obligatorios.</p>
-                </div>
-            </div>
+            <div class="mx-auto  w-12/12 lg:w-10/12 my-[30px]">
+                <p class="text-brown font-tekoRegular rem:text-[17px] rem:leading-[18px] mb-[15px] text-center"><span class="font-tekoSemiBold">Ferrero Ibérica, S.A.</span> (en adelante,<span class="font-robotoBold">“Ferrero”</span>) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="font-tekoSemiBold">link</a></p>
 
-            <div class="my-[25px] flex block">
-                <SecondaryButton type="submit" class="mx-auto" :disabled="form.processing">
-                    Participa
-                    <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
-                </SecondaryButton>
             </div>
-
-            <div v-if="form.hasErrors" id="error" class="mx-auto text-center px-2 py-4 border-error bg-error border-[1px] mt-8">
-                <span class="text-white block font-bold uppercase">Formulario incompleto o erróneo.</span>
-                <span class="text-white block font-normal">Por favor, revisa o completa los campos remarcados. Gracias.</span>
-            </div>
-        </form>
-        <pre>
-            {{ form }}
-        </pre>
-        <div class="mx-auto  w-12/12 lg:w-8/12 ">
-            <p class="text-brown font-roboto rem:text-[14px] rem:leading-[18px] mb-[15px]"><span class="font-robotoBold">Ferrero Ibérica, S.A.</span> (en adelante,<span class="font-robotoBold">“Ferrero”</span>) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="font-robotoBold">link</a></p>
-            <p class="text-brown font-roboto rem:text-[14px] rem:leading-[18px]"><span class="font-robotoBold">Warner Bros. Discovery</span> no está afiliada a este sorteo y no asume responsabilidad alguna relacionada con el mismo. Los participantes reconocen que Warner Bros. Discovery no es responsable de la organización, gestión ni resultados del sorteo.</p>
         </div>
     </div>
 </template>
 
 <script setup>
-import SecondaryButton from '@/Components/SecondaryButton.vue';
+import FormButton from '@/Components/FormButton.vue';
 import TextInput from '@/Components/TextInput.vue';
 import FileUpload from '@/Components/FileUpload.vue';
 import SelectInput from '@/Components/SelectInput.vue';
@@ -73,6 +93,8 @@ import {useForm, usePage} from '@inertiajs/vue3';
 import {OhVueIcon, addIcons} from "oh-vue-icons";
 import {BiUpload, FaCircleNotch} from "oh-vue-icons/icons";
 import InputLabel from "@/Components/InputLabel.vue";
+import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
+
 
 addIcons(BiUpload, FaCircleNotch);
 

@@ -2,15 +2,15 @@
     <GuestLayout title="Kinder" useRecaptcha menu>
         <Intro />
 
-        <div class="bg-yellow" id="como-participar">
+        <div class="" id="como-participar">
             <HowToPlay />
         </div>
 
-        <div class="bg-yellow py-8" id="participa">
+        <div class="" id="participa">
             <Game />
         </div>
 
-        <div class="bg-yellow py-8" id="premio">
+        <div class="" id="premio">
             <Prize />
         </div>
 

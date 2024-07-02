@@ -25,7 +25,7 @@ const onClick = e => {
 </script>
 
 <template>
-    <a @click="onClick" class="text-brown font-robotoBold uppercase rem:text-[14px]" :class="{ 'text-brown': active }">
+    <a @click="onClick" class="font-tekoMedium text-[16px] leading-[21px] text-brown uppercase" :class="{ 'underline': active }">
         <slot />
     </a>
 </template>

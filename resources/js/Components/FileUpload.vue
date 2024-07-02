@@ -4,11 +4,11 @@ import SecondaryButton from  '@/Components/SecondaryButton.vue';
 import {OhVueIcon, addIcons} from "oh-vue-icons";
 import {BiUpload} from "oh-vue-icons/icons";
 import {FaCircleNotch} from "oh-vue-icons/icons";
-import ButtonFile from "@/Components/ButtonFile.vue";
+import InputLabel from "@/Components/InputLabel.vue";
 
 addIcons(BiUpload, FaCircleNotch);
 
-const placeholder = "Imagen de tu figura dorada*";
+const placeholder = "";
 const emit = defineEmits(['update:select']);
 
 const fileInput = ref(null);
@@ -18,6 +18,10 @@ let fileName = reactive({
 
 const props = defineProps({
     label: {
+        type: String,
+        default: '',
+    },
+    button: {
         type: String,
         default: 'Adjuntar',
     },
@@ -30,7 +34,7 @@ const props = defineProps({
         default: null
     },
     error: {
-        type: String,
+        type: [String, Boolean],
         default: null
     },
 });
@@ -49,17 +53,17 @@ const openFileExplorer = () => fileInput.value.click();
 
 
 <template>
-    <div class="max-w-full w-full">
+    <div class="relative">
         <input ref="fileInput" type="file" class="hidden" @change="inputChange">
-        <div class="text-brown font-bemio rem:text-[14px] std-input w-full rounded-[48px] appearance-none px-[10px] py-[8px] rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[4px] border-white std-input px-4 py-2 rem:h-[45px] relative bg-white"
-            :class="{ '!border-error': error }">
-            <div class="text-ellipsis overflow-hidden whitespace-nowrap placeholder-brown opacity-40 focus:opacity-50" @click="openFileExplorer">{{
-                    fileName.value
-                }}
+        <InputLabel v-if="label">{{ label }}</InputLabel>
+        <div class="">
+            <div class="relative text-black font-century rem:text-[14px] bg-white std-input rounded-[6px] appearance-none px-2 py-2 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[4px] border-white placeholder-brown placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none" :class="{ '!border-error text-error': error }">
+                <div class="text-ellipsis overflow-hidden whitespace-nowrap placeholder-brown" @click="openFileExplorer">{{ fileName.value }} </div>
+                <SecondaryButton @click.prevent="openFileExplorer" class="transition-all relative lg:absolute lg:top-0 lg:bottom-0 lg:right-0 m-auto hidden lg:block">{{ button }}</SecondaryButton>
             </div>
-            <ButtonFile @click.prevent="openFileExplorer" class="transition-all">{{ label }}</ButtonFile>
+            <SecondaryButton @click.prevent="openFileExplorer" class="transition-all relative lg:absolute lg:top-0 lg:bottom-0 lg:right-0 m-auto block lg:hidden w-full" >{{ button }}</SecondaryButton>
+            <div v-if="help" class="rem:text-[16px] text-brown font-tekoRegular mt-[5px]">{{ help }}</div>
+            <div v-if="error" class="rem:text-[16px] font-tekoSemiBold text-error inline-block">{{ error }}</div>
         </div>
-        <div class="text-brown rem:text-[14px] mt-4">{{ help }}</div>
-<!--        <div v-if="error" class="form-error text-error rem:text-[12px]">{{ error }}</div>-->
     </div>
 </template>

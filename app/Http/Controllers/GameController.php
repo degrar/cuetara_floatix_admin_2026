@@ -60,10 +60,10 @@ class GameController extends Controller
                 'address_id' => $address->id,
                 'name' => $request->nombre,
                 'surname' => join(' ', [$request->first_surname, $request->second_surname]),
-                'phone' => $request->phone,
                 'email' => $request->email,
                 'role' => Role::User,
                 'legal' => $request->legal ?? false,
+                'privacy' => $request->privacy ?? false,
                 'adult' => $request->adult ?? false,
                 'ads' => $request->ads ?? false,
             ]);
