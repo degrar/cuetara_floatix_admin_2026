@@ -73,15 +73,15 @@ div#header {
 
 header#duplex-header {
     z-index: 3;
-    @apply relative top-[80px] px-[15px] sticky;
+    @apply relative top-[100px] px-[15px] sticky;
 
 
     .wrapper-menu {
         .wrapper-mobile {
-            @apply flex justify-end items-center;
+            @apply flex justify-center items-center;
         }
         #menu-btn {
-            @apply block rounded-[8px] bg-orange;
+            @apply block rounded-[8px] bg-blue border-[1px] border-white;
             padding: 5px 9px 3px;
         }
         nav {
@@ -92,25 +92,26 @@ header#duplex-header {
                 right: 15px;
                 left: 15px;
                 margin: 10px auto 0;
-                @apply block rounded-[20px] bg-orange;
+                @apply block rounded-[20px];
                 ul.menu-header {
-                    @apply rounded-[0px] ;
+                   // background: linear-gradient(180deg, #2A4B9B 0%, #2A4B9B 100%);
+                    @apply rounded-[0px] bg-blue rounded-lg p-4;
                 }
             }
             ul.menu-header {
                 list-style: none;
                 margin: 0;
                 padding: 25px 0;
-                @apply flex items-start flex-col rounded-[90px];
+                @apply flex items-start flex-col rounded-[90px] border-[1px] border-white;
 
                 li {
                     display: block;
-                    padding: 15px 0;
+                    padding: 10px 0;
                     position: relative;
                     width: 100%;
                     text-align: center;
-                    background: linear-gradient(180deg, #2A4B9B 0%, #2A4B9B 100%);
-                    @apply border-t-[1px] border-solid border-white rounded-full transition-all ease-in-out duration-0 hover:duration-500;
+                    //background: linear-gradient(180deg, #2A4B9B 0%, #2A4B9B 100%);
+                    @apply  border-none rounded-full transition-all ease-in-out duration-0 hover:duration-500;
                     a {
                         @apply text-[18px] leading-[21px] font-hermes;
                         color: rgba(white, 1);
@@ -125,7 +126,7 @@ header#duplex-header {
                         }
                     }
                     &:hover{
-                        background: linear-gradient(180deg, #FEE900 0%, #F39B00 100%);
+                        background: transparent;
                         @apply bg-transparent;
                     }
                 }
@@ -145,14 +146,19 @@ header#duplex-header {
                 text-align: center;
                 &.active {
                     background-color: rgba(#ffffff, 0);
+                    ul.menu-header {
+                        // background: linear-gradient(180deg, #2A4B9B 0%, #2A4B9B 100%);
+                        @apply  bg-transparent;
+                    }
                 }
                 ul.menu-header {
-                    @apply inline-flex justify-center items-center flex-row bg-transparent;
+                    @apply inline-flex justify-center items-center flex-row bg-transparent border-none;
                     margin: 0 auto;
                     padding: 0;
                     li {
                         display: inline-block;
                         padding: 0 10px;
+                        //background: linear-gradient(180deg, #2A4B9B 0%, #2A4B9B 100%);
                         @apply border-2 border-solid border-white bg-blue rounded-full mx-2 shadow-menu;
                         width: auto;
                         &:first-child {
@@ -166,6 +172,10 @@ header#duplex-header {
                             padding: 15px 20px;
                             @apply text-[18px] leading-[21px] drop-shadow-menu;
 
+                        }
+                        &:hover{
+                            background: linear-gradient(180deg, #FEE900 0%, #F39B00 100%);
+                            @apply bg-transparent;
                         }
                     }
                 }
