@@ -1,20 +1,17 @@
 <template>
     <GuestLayout title="404" menu>
-        <div class="bg-white" :style="{ marginTop: headerHeight + 'px' }">
-            <div class="container mx-auto px-[15px]">
-                <div class="flex justify-center flex-wrap items-stretch w-full">
-                    <img :src="getImagePath('logos')" alt="50%" class="w-[620px] mx-auto pb-[15px]"/>
-                </div>
-            </div>
-        </div>
-        <div class="backgroundpattern bg-center bg-no-repeat"></div>
+        <InsideHeaderPage />
         <div class="bg-yellow">
-            <div class="container mx-auto px-[15px] flex justify-center items-center flex-col py-[40px] lg:flex-row lg:py-[80px]">
-                <div class="w-12/12  pt-[15px]">
-                    <h1 class="text-orange uppercase font-bemio uppercase rem:text-[26px] rem:leading-[30px] lg:rem:text-[50px] lg:rem:leading-[54px] tracking-[1px] text-center p-0 m-0">Página no encontrada</h1>
-                    <p class="w-full max-w-[500px] mx-auto  text-brown uppercase font-bemio uppercase rem:text-[18px] rem:leading-[20px] lg:rem:text-[21px] lg:rem:leading-[24px] text-center  pt-4 pb-1">La página que buscas no existe o ha sido eliminada. Por favor, ve al inicio y vuelve a intentarlo.</p>
+            <div class="container mx-auto px-[15px] py-10">
+                <div class="flex flex-col-reverse lg:flex-row justify-center">
+                    <div class="max-w-[420px] w-full mx-auto">
+                        <img src="../../../images/404.png" alt="kinder" class=""/>
+                    </div>
+                    <div class="max-w-[600px] w-full mx-auto">
+                        <h1 class="rem:text-[60px] font-hermes text-brown uppercase leading-[62px] tracking-[-0.6px] text-center mb-6">PÁGINA NO ENCONTRADA</h1>
+                        <p class="w-full mx-auto rem:text-[35px] font-tekoMedium text-brown leading-[36px] tracking-[-0.35px] text-center mb-6 ">La página que buscas no existe o ha sido eliminada. Por favor, ve al inicio y vuelve a intentarlo.</p>
+                    </div>
                 </div>
-
             </div>
         </div>
     </GuestLayout>
@@ -23,6 +20,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+import InsideHeaderPage from "@/Components/inside/insideHeaderPage.vue";
 
 const headerHeight = ref(0);
 

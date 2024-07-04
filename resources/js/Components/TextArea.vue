@@ -1,9 +1,9 @@
 <template>
     <div :class="$attrs.class">
         <InputLabel v-if="label" :for="id">{{ label }}</InputLabel>
-        <textarea :placeholder="placeholder" :id="id" ref="input" v-bind="{ ...$attrs, class: null }" class="text-brown font-bemio rem:text-[14px] std-input w-full rounded-[11px] appearance-none px-2 py-3 rem:mt-[5px] rem:mb-[5px] border-[4px] border-white placeholder-brown placeholder-opacity-40 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none rem:mb-[15px] resize-none"
+        <textarea :placeholder="placeholder" :id="id" ref="input" v-bind="{ ...$attrs, class: null }" class="text-black tracking-[.6px]  font-tekoRegular rem:text-[18px] std-input w-full rounded-[11px] appearance-none px-2 py-3 rem:mt-[5px] rem:mb-[5px] border-[4px] border-white placeholder-brown placeholder-opacity-40 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none rem:mb-[15px] resize-none"
                   :class="{ '!border-error': error }" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" />
-            <div v-if="error" class="rem:text-[12px] form-error text-error">{{ error }}</div>
+        <div v-if="error" class="rem:text-[16px] font-tekoSemiBold text-error inline-block">{{ error }}</div>
     </div>
 </template>
 

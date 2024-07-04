@@ -36,6 +36,7 @@ export default {
             },
             backgroundImage: {
                 'home': "url('/resources/images/desktop.jpg')",
+                'nextEnd': "url('/resources/images/nextEnd.png')",
                 'inside': "url('/resources/images/insideHeader.jpg')",
                 'curveOrange': "url('/resources/images/curve-orange.png')",
                 'curveYellow': "url('/resources/images/curve-yellow.png')",

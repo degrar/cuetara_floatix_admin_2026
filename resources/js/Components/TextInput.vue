@@ -1,7 +1,7 @@
 <template>
     <div :class="$attrs.class">
         <InputLabel v-if="label" :for="id">{{ label }}</InputLabel>
-        <input :id="id" ref="input" v-bind="{ ...$attrs, class: null }" class="text-black tracking-[.6px]  font-century rem:text-[14px] std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[4px] border-white placeholder-brown placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none"
+        <input :id="id" ref="input" v-bind="{ ...$attrs, class: null }" class="text-black tracking-[.6px]  font-tekoRegular rem:text-[18px] std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[4px] border-white placeholder-brown placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none"
                :class="{ '!border-error text-error': error }" :type="type" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" />
 
         <div v-if="help" class="rem:text-[12px] text-brown">{{ help }}</div>

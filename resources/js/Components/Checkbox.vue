@@ -40,7 +40,13 @@ const proxyChecked = computed({
 
 
 <template>
-    <input v-model="proxyChecked" type="checkbox" :value="value" :id="id" class="font-montserrat bg-white !rem:text-[16px] rounded border-white shadow-sm border-2 " :class="{ '!border-error': error }">
-    <label v-if="label" :for="id" class="font-roboto !rem:text-[16px]">&nbsp; {{ label }} </label>
-
+    <input
+        v-model="proxyChecked"
+        type="checkbox"
+        :value="value"
+        :id="id"
+        class="border-white border-[2px] font-montserrat !rem:text-[16px] text-indigo-600 shadow-sm focus:border-indigo-300 focus:ring focus:ring-indigo-200 focus:ring-opacity-50"
+        :class="{ '!border-error': error }"
+    >
+    <label v-if="label" :for="id" class="font-montserrat !rem:text-[16px] text-medium " :class="{ 'text-red': error }">&nbsp; {{ label }}</label>
 </template>

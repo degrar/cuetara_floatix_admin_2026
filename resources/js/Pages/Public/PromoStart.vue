@@ -1,7 +1,5 @@
 <template>
     <GuestLayout title="Proximamente">
-        <Intro end/>
-
         <div id="end" class="">
             <Start />
         </div>

@@ -1,14 +1,12 @@
 <script setup>
 defineProps({
     value: String,
-    error: String,
 });
 </script>
 
 <template>
-    <label class="text-brown font-tekoMedium rem:text-[21px] text-left w-full leading-[21px]" :class="{ '!text-error': error }">
+    <label class="rem:text-[21px] text-brown font-tekoRegular ml-[10px]  text-left w-full">
         <span v-if="value">{{ value }}</span>
         <span v-else><slot /></span>
     </label>
-
 </template>

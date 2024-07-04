@@ -243,6 +243,70 @@ footer{
 }
 /* -------- FOOTER -------- */
 
+.checkbox {
+    padding-left: 0;
+
+    .wrapper-checkbox {
+        .radio-text {
+            cursor: pointer;
+
+        }
+        input[type="checkbox"] {
+            display: none;
+            &+label {
+                position: relative;
+                margin: 3px 10px 0 0;
+                padding-left: 0;
+                width: auto;
+                background-color: transparent;
+
+                &.error {
+                    &:before {
+                        border: 2px solid theme('colors.error');
+                    }
+                }
+
+                &:after {
+                    display: inline-block;
+                    position: absolute;
+                    width: 8px;
+                    height: 8px;
+                    left: 0;
+                    right: 0;
+                    bottom: 0;
+                    top: 0;
+                    margin: auto;
+                    background-color: transparent;
+                    content: '';
+                    border: 0;
+
+                }
+                &:before {
+                    content: '';
+                    display: inline-block;
+                    width: 18px;
+                    height: 18px;
+                    cursor: pointer;
+                    background-color: theme('colors.white');
+                    border: 2px solid theme('colors.white');
+                    @apply rounded-md;
+
+                }
+
+            }
+            &:checked+label {
+                &:after {
+                    background-color: theme('colors.brown');
+                }
+                &:before {
+                    &+label {}
+                }
+            }
+        }
+
+    }
+}
+
 .form-error {
     @apply text-red;
 }

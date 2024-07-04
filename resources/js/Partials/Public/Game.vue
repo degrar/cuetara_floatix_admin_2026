@@ -29,7 +29,7 @@
                     <div id="legals" class="my-8 space-y-2 checkbox block">
                         <div class="wrapper-checkbox flex flex-row items-start justify-start cursor-pointer">
                             <Checkbox v-model:checked="form.adult" :error="form.errors.adult" id="adult" />
-                            <label class="flex flex-row items-center justify-center cursor-pointer" for="adult" v-on:click="onClickLabel"></label>
+                            <label class="flex flex-row items-center justify-center cursor-pointer" for="adult" v-on:click="onClickLabel" :class="{ 'error': form.errors.adult }"></label>
                             <InputLabelCheckbox for="adult" class="" :error="form.errors.adult">Confirmo que soy mayor de 18 años*.</InputLabelCheckbox>
                         </div>
                         <div class="wrapper-checkbox flex flex-row items-start justify-start cursor-pointer">
@@ -127,4 +127,25 @@ const submitForm = () => {
         });
     });
 };
+
+//RADIOBUTTON
+const onClickText = (e) => {
+    e.target.classList.toggle('active');
+    let radio = e.target.parentElement.querySelector('[type="radio"]');
+    if (!radio.checked) {
+        radio.checked = true;
+        let event = new Event('change');
+        radio.dispatchEvent(event);
+    }
+};
+
+const onClickLabel = (e) => {
+    let parent = e.target.parentElement;
+    let radioButtonTextElements = parent.querySelectorAll('.radio-text');
+
+    radioButtonTextElements.forEach(function (element) {
+        element.classList.toggle('active');
+    });
+}
+
 </script>
