@@ -22,7 +22,7 @@ class GameController extends Controller
     {
         return Inertia::render('Public/Game', [
             'site_key' => config('duplex.recaptcha.public'),
-            'provinces' => Province::query()->where('show', 1)->get(['id', 'name'])
+            //'provinces' => Province::query()->where('show', 1)->get(['id', 'name'])
         ]);
     }
 
@@ -50,16 +50,16 @@ class GameController extends Controller
 
     private function createUser(StoreGameRequest $request): User
     {
-        $address = Address::query()
-            ->create([
-                'province_id' => $request->province
-            ]);
+//        $address = Address::query()
+//            ->create([
+//                'province_id' => $request->province
+//            ]);
 
         return User::query()
             ->create([
-                'address_id' => $address->id,
+                //'address_id' => $address->id,
                 'name' => $request->nombre,
-                'surname' => join(' ', [$request->first_surname, $request->second_surname]),
+                'surname' => $request->first_surname,
                 'email' => $request->email,
                 'role' => Role::User,
                 'legal' => $request->legal ?? false,

@@ -15,13 +15,13 @@ return [
         'type' => \Duplex\Enums\Game::Mmgg,
 
         'date' => [
-            'start' => Carbon\Carbon::create(2024, 04, 20, 00, 00, 00),
-            'end' => Carbon\Carbon::create(2024, 07, 07, 23,59,59),
+            'start' => Carbon\Carbon::create(2024, 6, 9, 00, 00, 00),
+            'end' => Carbon\Carbon::create(2024, 11, 9, 23,59,59),
         ],
 
         'attemps' => [
             'day' => 1,
-            'total' => 1
+            'total' => 10000
         ],
 
         'onepage' => true,

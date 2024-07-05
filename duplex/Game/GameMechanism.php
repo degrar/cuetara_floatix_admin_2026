@@ -37,7 +37,8 @@ class GameMechanism
         if ($maxAttemps !== null)
             return $maxAttemps;
 
-        $game = $this->createGame();
+        $attempts = GameModel::getTotalPlaysForUser($this->user->id);
+        $game = $this->createGame($attempts->total);
 
 
         if (GameType::Mmgg === $this->type)
@@ -71,7 +72,7 @@ class GameMechanism
         {
             $gameAttrs = [
                 ...$gameAttrs,
-                //$this->getMmggAttrs()
+                $this->getMmggAttrs()
             ];
         } else if($this->type === GameType::Comment) {
             $gameAttrs = [
@@ -103,12 +104,7 @@ class GameMechanism
 
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
 
-        if (
-            $attempts->today >= $this->maxDailyAttemps ||
-            $attempts->total >= $this->maxAttemps
-        )
-            return GameResult::MaxDay;
-
+        if ($attempts->today >= $this->maxDailyAttemps) return GameResult::MaxDay;
         return null;
     }
 
