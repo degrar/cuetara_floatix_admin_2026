@@ -40,6 +40,7 @@ export default {
                 'inside': "url('/resources/images/insideHeader.jpg')",
                 'curveOrange': "url('/resources/images/curve-orange.png')",
                 'curveYellow': "url('/resources/images/curve-yellow.png')",
+                'curveFooter': "url('/resources/images/curve-white.png')",
             },
 
         },

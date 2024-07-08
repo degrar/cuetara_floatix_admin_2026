@@ -2,26 +2,29 @@
     <div class="bg-orange py-[100px]  relative after:absolute after:top-[-92px] after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveOrange after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
         <div class="container mx-auto px-[15px] ">
             <div class="flex items-center justify-center mb-8">
-                <h1 class="font-hermes text-white text-[48px] leading-[50px] tracking-[-0.48px] mb-8 uppercase text-center max-w-[760px] w-full mx-auto ">
+                <h1 class="font-hermes text-white text-[33px] leading-[35px] tracking-[-0.33px] md:text-[48px] md:leading-[50px] md:tracking-[-0.48px] mb-8 uppercase text-center max-w-[760px] w-full mx-auto ">
                     EXPLORA EL ESPACIO CON ESTE <span class="text-blue">MAGNÍFICO TELESCOPIO</span>
                 </h1>
             </div>
 
 
-            <div class="grid md:grid-cols-2 grid-cols-1">
-                <div class="max-w-[560px] w-full m-0">
-                    <h4 class="max-w-[450px] w-full font-tekoMedium uppercase text-blue text-[48px] leading-[50px] tracking-[-0.48px]">¡Viaja por el espacio con este súper telescopio!</h4>
-                    <p class="my-8 font-tekoRegular text-white text-[38px] leading-[50px] tracking-[-0.38px]">¡Descubre planetas, estrellas y galaxias como nunca antes! ¡Incluso los más peques disfrutarán observando las estrellas con él!</p>
-                    <PrimaryButton  @click="toggleDiv" class="inline-block py-[20px] px-[35px]">{{ buttonText }}</PrimaryButton>
+            <div class="grid lg:grid-cols-2 grid-cols-1">
+                <div class="max-w-[560px] w-full mx-auto lg:m-0">
+                    <h4 class="max-w-[450px] w-full mx-auto lg:mx-0 font-tekoMedium uppercase text-blue text-[28px] leading-[30px] tracking-[-0.28px] md:text-[48px] md:leading-[50px] md:tracking-[-0.48px] text-center lg:text-left">¡Viaja por el espacio con este súper telescopio!</h4>
+                    <p class="my-8 font-tekoRegular text-white text-[28px] leading-[30px] tracking-[-0.28px] text-center lg:text-left md:text-[38px] md:leading-[50px] md:tracking-[-0.38px]">¡Descubre planetas, estrellas y galaxias como nunca antes! ¡Incluso los más peques disfrutarán observando las estrellas con él!</p>
+                    <PrimaryButton  @click="toggleDiv" class=" py-[20px] px-[35px] hidden lg:inline-block">{{ buttonText }}</PrimaryButton>
                 </div>
-                <img src="../../../../resources/images/telescopio.png" alt="Telescopio" class="max-w-[480px] w-full mx-auto mr-0 pb-5"/>
+                <div class="flex flex-col justify-center">
+                    <img src="../../../../resources/images/telescopio.png" alt="Telescopio" class="max-w-[250px] lg:max-w-[480px] w-full mx-auto lg:mr-0 pb-5 "/>
+                    <PrimaryButton  @click="toggleDiv" class="inline-block py-[20px] px-[35px] lg:hidden block mx-auto">{{ buttonText }}</PrimaryButton>
+                </div>
             </div>
 
 
             <div id="specs" >
-                <div class="grid grid-cols-2 items-start justify-center relative" v-if="show">
+                <div class="grid grid-cols-1 lg:grid-cols-2 items-center lg:items-start justify-center relative" v-if="show">
 
-                    <PrimaryButton  @click="toggleDiv" class="absolute py-[15px] px-[25px] top-0 right-[15px]">x</PrimaryButton>
+                    <PrimaryButton  @click="toggleDiv" class="absolute py-[15px] px-[25px] top-0 right-[15px] lg:block hidden">x</PrimaryButton>
                     <div>
                         <div>
                             <h6>Sistema óptico</h6>
@@ -139,13 +142,13 @@ const buttonText = computed(() => {
 #specs{
     div{
         div{
-            @apply max-w-[400px] w-full;
+            @apply max-w-[400px] w-full mx-auto;
             ul{
                 list-style-type: none;
                 padding: 0;
                 @apply marker:text-white list-outside list-disc ml-10 ;
                 li{
-                    @apply font-tekoRegular text-white text-[30px] leading-[31px] tracking-[-0.3px] mb-[5px];
+                    @apply font-tekoRegular text-white text-[21px] rem:leading-[22px] rem:tracking-[-0.21px] lg:text-[30px] lg:leading-[31px] lg:tracking-[-0.3px] mb-[5px];
                 }
             }
             h6{
@@ -153,5 +156,7 @@ const buttonText = computed(() => {
             }
         }
     }
+
+
 }
 </style>

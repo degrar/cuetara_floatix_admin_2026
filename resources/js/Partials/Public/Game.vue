@@ -1,17 +1,24 @@
 <template>
     <div class="bg-yellow py-[100px] relative after:absolute after:top-[-92px]  after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveYellow after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
         <div class="container mx-auto px-[15px]">
-             <h1 class="w-full max-w-[870px] mx-auto mt-[5px] mb-[60px] font-hermes text-brown text-[48px] leading-[50px] tracking-[-0.48px] uppercase text-center">
-                EL ESPACIO TE ESPERA, ¡SUERTE!
-            </h1>
+
+            <div class="flex flex-row justify-center items-center">
+
+                <div class="mx-auto w-12/12 md:w-5/12  ml-0 block lg:hidden">
+                    <img src="../../../../resources/images/astro.png" alt="kinder" class="max-w-[250px] w-full mx-auto ml-0 pb-5"/>
+                </div>
+                 <h1 class="w-full max-w-[870px] mx-auto mt-[5px] mb-[60px] font-hermes text-brown text-[33px] leading-[35px] tracking-[-0.33px] md:text-[48px] md:leading-[50px] md:tracking-[-0.48px] uppercase text-center">
+                    EL ESPACIO TE ESPERA, ¡SUERTE!
+                </h1>
+            </div>
 
             <div class="flex flex-row justify-center items-start">
 
-                <div class="mx-auto w-12/12 lg:w-5/12  ml-0">
+                <div class="mx-auto w-12/12 md:w-5/12  ml-0 hidden lg:block">
                     <img src="../../../../resources/images/astro.png" alt="kinder" class="max-w-[520px] w-full mx-auto ml-0 pb-5"/>
                 </div>
-                <form @submit.prevent="submitForm" class="mx-auto w-12/12 lg:w-6/12 ml-0">
-                    <div class="grid grid-cols-1 gap-5 md:grid-cols-2">
+                <form @submit.prevent="submitForm" class="mx-auto w-full lg:w-6/12 ml-0">
+                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
                         <TextInput type="text" v-model="form.nombre" label="Nombre*" :error="form.errors.nombre"  />
 
                         <TextInput type="text" v-model="form.first_surname" :key="0" label="Primer apellido*" :error="form.errors.first_surname" />
@@ -20,7 +27,7 @@
 
                         <TextInput type="text" v-model="form.email" label="Correo electrónico*" :error="form.errors.email" />
 
-                        <div class="w-full col-span-2">
+                        <div class="w-full lg:col-span-2">
                             <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" label="Imagen de tu pack*"/>
                         </div>
                     </div>
@@ -56,8 +63,8 @@
                     </div>
 
 
-                    <div class="mt-[25px]">
-                        <FormButton type="submit" class="mx-auto" :disabled="form.processing">
+                    <div class="mt-[25px] flex items-center lg:items-start lg:justify-start flex-row ">
+                        <FormButton type="submit" class="mx-auto lg:mx-0" :disabled="form.processing">
                             Participa
                             <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
                         </FormButton>
