@@ -1,19 +1,25 @@
 <?php
 
-namespace App\Models;
+    namespace App\Models;
 
-use Illuminate\Database\Eloquent\Factories\HasFactory;
-use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Factories\HasFactory;
+    use Illuminate\Database\Eloquent\Model;
 
-class Address extends Model
-{
-    use HasFactory;
-
-    protected $fillable = [
-        'address',
-        'type',
-        'number',
-        'city',
-        'province_id'
-    ];
-}
+    class Address extends Model
+    {
+        protected $fillable = [
+            'type', // 'game', 'more-info'
+            'address',
+            'number',
+            'stair',
+            'floor',
+            'door',
+            'postal_code',
+            'city',
+            'phone',
+            'via_id',
+            'province_id',
+            'user_id',
+            'game_id',
+        ];
+    }

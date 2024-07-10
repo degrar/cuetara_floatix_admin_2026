@@ -3,240 +3,280 @@
 
         "code": "Al.",
         "name": "Aldea",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Apdo.",
         "name": "Apartado de correos",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Ar.",
         "name": "Arraval",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Au.",
         "name": "Autovía/Autopista",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Avda.",
         "name": "Avenida",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Bc.",
         "name": "Barranco",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Bjda.",
         "name": "Bajada",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Br.",
         "name": "Barriada/Barrio",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "C.",
         "name": "Calle",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Ca.",
         "name": "Caserío",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Cj.",
         "name": "Callejón",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Cm.",
         "name": "Camino",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Col.",
         "name": "Colonia",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Coop.",
         "name": "Cooperativa",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Crta.",
         "name": "Carretera",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Cs.",
         "name": "Cuesta",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Ctjo.",
         "name": "Cortijo",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Ch.",
         "name": "Chalet",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Edf.",
         "name": "Edificio",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Fc.",
         "name": "Finca",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Glta.",
         "name": "Glorieta",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Gp.",
         "name": "Grupo",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Lu.",
         "name": "Lugar",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Ma.",
         "name": "Masía",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Mc.",
         "name": "Mercado",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Mn.",
         "name": "Manzana",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Nu.",
         "name": "Núcleo",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Pa.",
         "name": "Patio",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Pje.",
         "name": "Pasaje",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Pl.",
         "name": "Plaza",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Pol.",
         "name": "Polígono",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Pq.",
         "name": "Parque",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Pso.",
         "name": "Paseio",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Rbla.",
         "name": "Rambla",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Res.",
         "name": "Residencia",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Rnda.",
         "name": "Ronda",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Sub.",
         "name": "Subida",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Trva.",
         "name": "Travesía",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Urb.",
         "name": "Urbanicación",
-        "show": 1
+        "show": 1,
+        "country": "es"
     },
     {
 
         "code": "Zn.",
         "name": "Zona",
-        "show": 1
+        "show": 1,
+        "country": "es"
     }
 ]

@@ -16,6 +16,7 @@ class GameMechanism
     private const DefaultStorageFolder = 'tickets';
     private int $maxDailyAttemps = 1;
     private int $maxAttemps = 30;
+    private GameModel $game;
 
     public function __construct(
         private readonly GameType         $type,
@@ -47,7 +48,9 @@ class GameMechanism
 
             if ($mmggAvailable !== null)
             {
+
                 $mmggAvailable->assign($this->user->id, $game->id);
+                $this->game->update(['state' => GameState::Pending]);
 
                 return GameResult::Winner;
             }
@@ -65,7 +68,7 @@ class GameMechanism
         $gameAttrs = [
             'user_id' => $this->user->id,
             'token' => Str::random(32),
-            'state' => GameState::Pending
+            'state' => GameState::Loser
         ];
 
         if ($this->type === GameType::Mmgg)
@@ -81,7 +84,7 @@ class GameMechanism
             ];
         }
 
-        $game = GameModel::create($gameAttrs);
+        $this->game = GameModel::query()->create($gameAttrs);
 
         $this->storeFile($game->id);
 
@@ -100,7 +103,7 @@ class GameMechanism
     {
         // Ha guanyat una vegada ya?
         if (Mmgg::getTotalForUser($this->user->id) > 0)
-            return GameResult::Won;
+            return GameResult::Lost;
 
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
 

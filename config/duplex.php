@@ -8,7 +8,8 @@ return [
      */
     'recaptcha' => [
         'secret' => env('RECAPTCHA_SECRET'),
-        'public' => env('RECAPTCHA_SITE_KEY')
+        'public' => env('RECAPTCHA_SITE_KEY'),
+        'lang' => env('APP_LOCALE')
     ],
 
     'promo' => [

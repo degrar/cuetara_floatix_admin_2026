@@ -50,22 +50,26 @@ class GameController extends Controller
 
     private function createUser(StoreGameRequest $request): User
     {
-//        $address = Address::query()
+
+        $user = User::query()
+            ->create([
+                'name' => $request->nombre,
+                'first_surname' => $request->first_surname,
+                'second_surname' => $request->second_surname ?? '',
+                'email' => $request->email,
+                'phone' => $request->phone,
+                'legal' => true,
+                'adult' => true,
+                'ads' => $request->ads ?? false,
+                'role' => Role::User->value,
+            ]);
+
+//        Address::query()
 //            ->create([
-//                'province_id' => $request->province
+//                'province_id' => 0,
+//                'user_id' => $user->id,
 //            ]);
 
-        return User::query()
-            ->create([
-                //'address_id' => $address->id,
-                'name' => $request->nombre,
-                'surname' => $request->first_surname,
-                'email' => $request->email,
-                'role' => Role::User,
-                'legal' => $request->legal ?? false,
-                'privacy' => $request->privacy ?? false,
-                'adult' => $request->adult ?? false,
-                'ads' => $request->ads ?? false,
-            ]);
+        return $user;
     }
 }

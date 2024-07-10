@@ -19,6 +19,7 @@ return new class extends Migration
             $table->foreignIdFor(Game::class);
             $table->string('hash');
             $table->integer('is_valid')->default(0);
+            $table->integer('type');
             $table->timestamps();
         });
     }

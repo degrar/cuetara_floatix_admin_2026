@@ -20,5 +20,6 @@ class DatabaseSeeder extends Seeder
         // ]);
 
         (new ProvinceSeeder())->run();
+        (new ViaSeeder())->run();
     }
 }

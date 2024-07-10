@@ -13,6 +13,7 @@
         protected $fillable = [
             'user_id',
             'game_id',
+            'assigned',
             'date_assigned'
         ];
 
@@ -25,6 +26,7 @@
         {
             $this->user_id = $userId;
             $this->game_id = $gameId;
+            $this->assigned = '1';
             $this->date_assigned = now();
             $this->save();
         }
@@ -38,6 +40,7 @@
         {
             return self::query()
                 ->where('date_moment', '<=', now())
+                ->where('assigned', '!=', 1)
                 ->whereNull('user_id')
                 ->orderBy('date_moment')
                 ->first();

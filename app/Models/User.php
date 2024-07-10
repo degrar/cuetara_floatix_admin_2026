@@ -25,7 +25,7 @@
          */
         protected $fillable = [
             'name',
-            'surname',
+            'first_surname',
             'email',
             'phone',
             'password',

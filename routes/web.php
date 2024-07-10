@@ -9,6 +9,7 @@
     use Inertia\Inertia;
     use App\Http\Controllers\HomeController;
     use App\Http\Controllers\GameController;
+    use App\Http\Controllers\MoreInfoController;
 
     /*
     |--------------------------------------------------------------------------
@@ -37,6 +38,12 @@ Route::middleware(PromotionRedirect::class)->group(function () {
         Route::get('lost', 'lost')->name('lost');
         Route::get('max', 'max')->name('max');
         Route::get('winners', 'winners')->name('winners');
+    });
+
+    Route::controller(MoreInfoController::class)->group(function (){
+        Route::get('user-info', 'show')->name('more-info');
+        Route::post('user-info', 'store');
+        Route::get('thanks', 'thanks')->name('thanks');
     });
 
     // Contact
