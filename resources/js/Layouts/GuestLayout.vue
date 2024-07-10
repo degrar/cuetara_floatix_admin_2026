@@ -22,7 +22,7 @@ defineProps({
 
         <Header :menu="menu" :header="header"/>
 
-        <main class="flex-grow">
+        <main class="flex-grow ">
             <slot :end="end" />
         </main>
 

@@ -5,13 +5,13 @@
 
             <div class="bg-yellow">
                 <div class="container mx-auto px-[15px] py-10">
-                    <div class="flex flex-col-reverse lg:flex-row justify-center">
-                        <div class="max-w-[380px] w-full mx-auto hidden lg:block">
-                            <img src="../../../images/contact.png" alt="kinder" class=""/>
+                    <div class="flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
+                        <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
+                            <img src="../../../images/contact.png" alt="kinder" class="mt-[50px] lg:mt-0"/>
                         </div>
-                        <div class="max-w-[600px] w-full mx-auto">
-                            <h1 class="rem:text-[60px] font-hermes text-brown uppercase leading-[62px] tracking-[-0.6px] text-center mb-6">¿EN QUÉ PODEMOS AYUDARTE?</h1>
-                            <p class="w-full mx-auto rem:text-[35px] font-tekoMedium text-brown leading-[36px] tracking-[-0.35px] text-center mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
+                        <div class="max-w-[600px] w-full mx-auto ">
+                            <h1 class="font-hermes text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:rem:leading-[62px] lg:rem:tracking-[-0.6px] text-center mb-6">¿EN QUÉ PODEMOS AYUDARTE?</h1>
+                            <p class="w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[-0.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[-0.35px] text-center mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
                             <div class="flex justify-center flex-col">
                                 <div class="w-full mx-auto">
                                     <form @submit.prevent="submitForm">
@@ -60,12 +60,12 @@
             <div class="bg-yellow">
                 <div class="container mx-auto px-[15px] py-10">
                     <div class="flex flex-col-reverse lg:flex-row justify-center">
-                        <div class="max-w-[380px] w-full mx-auto hidden lg:block">
-                            <img src="../../../images/contact.png" alt="kinder" class=""/>
+                        <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
+                            <img src="../../../images/contact.png" alt="kinder" class="my-[50px] lg:my-0"/>
                         </div>
                         <div class="max-w-[600px] w-full mx-auto">
-                            <h1 class="rem:text-[60px] font-hermes text-brown uppercase leading-[62px] tracking-[-0.6px] text-center mb-6">¡Mensaje recibido!</h1>
-                            <p class="w-full mx-auto rem:text-[35px] font-tekoMedium text-brown leading-[36px] tracking-[-0.35px] text-center mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
+                            <h1 class="font-hermes text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:rem:leading-[62px] lg:rem:tracking-[-0.6px] text-center mb-6">¡Mensaje recibido!</h1>
+                            <p class="w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[-0.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[-0.35px] text-center mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
                         </div>
                     </div>
                 </div>
