@@ -8,7 +8,7 @@ use App\Models\Game as GameModel;
 use App\Models\GameLog;
 use App\Models\Mmgg;
 use App\Models\User;
-use Duplex\Enums\{Game, GameResult, Game as GameType, GameState};
+use Duplex\Enums\{FileType, Game, GameResult, Game as GameType, GameState};
 use Illuminate\Support\Facades\Session;
 use Str;
 
@@ -118,7 +118,8 @@ class GameMechanism
             'hash' => $hash,
             'user_id' => $this->user->id,
             'game_id' => $gameId,
-            'is_valid' => 0
+            'is_valid' => 0,
+            'type' => FileType::Ticket
         ]);
     }
 
