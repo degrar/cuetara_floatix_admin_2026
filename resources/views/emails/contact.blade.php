@@ -26,11 +26,12 @@
                                                     <tbody><tr>
                                                         <td style="padding-right: 0px;padding-left: 0px;" align="center">
 
-                                                            <img align="center" border="0" src="{{ asset('images/mail/mail_header.jpg') }}" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 600px;" width="600" height="400">
+                                                            <img align="center" border="0" src="{{ asset('assets/email/header.png') }}" alt="" title="" style="outline: none;text-decoration: none;-ms-interpolation-mode: bicubic;clear: both;display: inline-block !important;border: none;height: auto;float: none;width: 100%;max-width: 600px;" width="600" height="278">
 
                                                         </td>
                                                     </tr>
-                                                    </tbody></table>
+                                                    </tbody>
+                                                </table>
 
                                             </td>
                                         </tr>
@@ -61,12 +62,12 @@
                                     <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                         <tbody>
                                         <tr>
-                                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family:Tahoma, Arial,helvetica,sans-serif;" align="left">
+                                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family: Arial,helvetica,sans-serif;" align="left">
 
                                                 <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                    <p style="line-height: 140%;"><span style="color: #6B330F; line-height: 18px; font-size: 18px;">From: {{ $name }} ({{ $email }})</span></p>
+                                                    <p style="line-height: 140%;"><span style="color: #7D2A25; line-height: 18px; font-size: 18px;">From: {{ $name }} ({{ $email }})</span></p>
                                                     <p style="line-height: 140%;">&nbsp;</p>
-                                                    <p style="line-height: 140%;"><span style="color: #6B330F; line-height: 18px; font-size: 18px;">{{ $mensaje }}</span></p>
+                                                    <p style="line-height: 140%;"><span style="color: #7D2A25; line-height: 18px; font-size: 18px;">{{ $mensaje }}</span></p>
                                                     <p style="line-height: 140%;">&nbsp;</p>
                                                 </div>
 
@@ -91,4 +92,3 @@
 </table>
 <!--[if mso]></div><![endif]-->
 <!--[if IE]></div><![endif]-->
-
