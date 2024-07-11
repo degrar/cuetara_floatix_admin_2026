@@ -119,6 +119,7 @@ const form = useForm({
     privacy: null,
     legal: null,
     adult: null,
+    ads: false,
 
     recaptcha: null
 });
