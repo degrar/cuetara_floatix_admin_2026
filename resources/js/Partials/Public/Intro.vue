@@ -1,14 +1,14 @@
 <template>
-    <div class="bg-yellow lg:bg-transparent bg-[url('/resources/images/mobile.jpg')] lg:bg-[url('/resources/images/image-lg.jpg')] xl:bg-[url('/resources/images/image-xl.jpg')] bg-contain bg-top md:bg-cover md:bg-center bg-no-repeat min-h-[980px]r bg-yellow">
+    <div class="relative bg-yellow bg-transparent bg-[url('/resources/images/mobile.jpg')] lg:bg-[url('/resources/images/image-lg.jpg')] xl:bg-[url('/resources/images/image-xl.jpg')] bg-cover bg-top md:bg-cover md:bg-center bg-no-repeat min-h-[800px] lg:min-h-[980px] bg-yellow">
         <div :style="{ paddingTop: headerHeight + 'px' }"></div>
         <div class="container mx-auto">
-            <img :src="imageToShow" alt="home" class="max-w-[350px] md:max-w-[500px] lg:max-w-[800px] w-full mx-auto pb-5" @load="handleResize"/>
+            <img :src="imageToShow" alt="home" class=" max-w-[350px] md:max-w-[500px] lg:max-w-[800px] w-full mx-auto pb-5" @load="handleResize"/>
         </div>
 
-        <div class="container mx-auto py-[30px] md:py-[50px] md:pb-[100px]">
+        <div class="container mx-auto py-[30px] md:py-[50px] md:pb-[100px] ">
             <div class="text-center mb-[100px]">
-                <img src="../../../../resources/images/tele.png" alt="home" class="max-w-[177px] w-full mx-auto pb-5 mb-[25px] md:hidden" />
-                <PrimaryButton scroll="#participa" class="text-[25px] py-[20px] px-[35px]">¡Participa ya!</PrimaryButton>
+                <PrimaryButton scroll="#participa" class="text-[25px] py-[20px] px-[35px] inline-block">¡Participa ya!</PrimaryButton>
+                <img src="../../../../resources/images/tele.png" alt="home" class="max-w-[177px] w-full mx-auto pb-5 mt-[25px] lg:hidden" />
 
             </div>
         </div>

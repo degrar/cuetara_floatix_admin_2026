@@ -18,7 +18,7 @@ class HomeController extends Controller
     {
         return Inertia::render('Public/Home', [
             'site_key' => config('duplex.recaptcha.public'),
-
+            'lang' => config('duplex.recaptcha.lang'),
         ]);
     }
 

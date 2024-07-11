@@ -22,7 +22,7 @@ class GameController extends Controller
     {
         return Inertia::render('Public/Game', [
             'site_key' => config('duplex.recaptcha.public'),
-            //'provinces' => Province::query()->where('show', 1)->get(['id', 'name'])
+            'lang' => config('duplex.recaptcha.lang'),
         ]);
     }
 
