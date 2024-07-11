@@ -34,6 +34,13 @@ class MoreInfoController extends Controller
 
     public function store(StoreGameWinnerRequest $request)
     {
+        /*
+         * TOKEN sempre obligatori i amb la validació ja mirem si existeix
+         * TYPE
+         * 0 - Tota la documentació DNI + Adreça
+         * 3 - Només DNI
+         */
+
         $game = Game::query()->where('token', $request->token)->firstOrFail();
 
         File::query()->create([
@@ -64,7 +71,7 @@ class MoreInfoController extends Controller
             'token' => Str::random(32),
         ]);
 
-        return redirect()->route('game-result.thanks');
+        return redirect()->route('thanks');
     }
 
     public function thanks(): Response

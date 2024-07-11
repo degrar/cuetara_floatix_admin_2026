@@ -18,8 +18,7 @@ class HomeController extends Controller
     {
         return Inertia::render('Public/Home', [
             'site_key' => config('duplex.recaptcha.public'),
-            //'provinces' => Province::query()->where('show', 1)->get(['id', 'name']),
-            //'winners' => ['Gerard A.', 'Sara J.'],
+
         ]);
     }
 

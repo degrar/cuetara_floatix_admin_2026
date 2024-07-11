@@ -9,6 +9,7 @@ use App\Models\GameLog;
 use App\Models\Mmgg;
 use App\Models\User;
 use Duplex\Enums\{Game, GameResult, Game as GameType, GameState};
+use Illuminate\Support\Facades\Session;
 use Str;
 
 class GameMechanism
@@ -35,8 +36,7 @@ class GameMechanism
 
         $maxAttemps = $this->hasReachedMaxAttemps();
 
-        if ($maxAttemps !== null)
-            return $maxAttemps;
+        if ($maxAttemps !== null) return $maxAttemps;
 
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
         $game = $this->createGame($attempts->total);
@@ -48,13 +48,13 @@ class GameMechanism
 
             if ($mmggAvailable !== null)
             {
-
                 $mmggAvailable->assign($this->user->id, $game->id);
                 $this->game->update(['state' => GameState::Pending]);
-
+                Session::put('winner', true);
                 return GameResult::Winner;
             }
             else {
+
                 return GameResult::Lost;
             }
         }
@@ -86,9 +86,9 @@ class GameMechanism
 
         $this->game = GameModel::query()->create($gameAttrs);
 
-        $this->storeFile($game->id);
+        $this->storeFile($this->game->id);
 
-        return $game;
+        return $this->game;
     }
 
     private function createGameLog(): void
@@ -113,7 +113,7 @@ class GameMechanism
 
     private function storeFile(int $gameId): void
     {
-        $hash = $this->request->file('file')->store(self::DefaultStorageFolder);
+        $hash = $this->request->file('file')->store('packs');
         File::query()->create([
             'hash' => $hash,
             'user_id' => $this->user->id,

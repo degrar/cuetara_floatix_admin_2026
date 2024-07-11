@@ -37,12 +37,12 @@ enum GameState: int
     case Loser = 4;
 
     /**
-     * Serveix per marcar participacions que estan pendents de validar Ticket/DNI/PDF.
+     * Serveix per marcar participacions que estan pendents de validar Ticket/DNI/PDF. Pendent de Duplex
      */
     case Awaiting = 5;
 
     /**
-     * Serveix per marcar participacions que estan pendents de validar Ticket/DNI/PDF ja que li ha tornat a demanar a través de l'admin.
+     * Serveix per marcar participacions que estan pendents de validar Ticket/DNI/PDF ja que li ha tornat a demanar a través de l'admin. Pendent d'usuari
      */
     case Requested = 6;
 

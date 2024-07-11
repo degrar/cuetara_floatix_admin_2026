@@ -27,17 +27,19 @@ class StoreGameWinnerRequest extends FormRequest
     public function rules(): array
     {
         return [
+
             'file' => ['required', File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(8 * 1024)],
-            'via' => 'required|exists:vias,id',
-            'address' => 'required|string',
-            'number' => 'required|string',
-            'zipNumber' => ['required', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'], // Pete si te un pipe el regex, ha de ser un array
-            'city' => 'required|string',
-            'province' => 'required|exists:provinces,id',
-            'stair' => 'nullable|string',
-            'floor' => 'nullable|string',
-            'door' => 'nullable|string',
-            'phone' => 'required|regex:/^[0-9]{9}$/',
+
+            'via' => 'exclude_if:type,3|required|exists:vias,id',
+            'address' => 'exclude_if:type,3|required|string',
+            'number' => 'exclude_if:type,3|required|string',
+            'zipNumber' => ['exclude_if:type,3', 'required', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
+            'city' => 'exclude_if:type,3|required|string',
+            'province' => 'exclude_if:type,3|required|exists:provinces,id',
+            'stair' => 'exclude_if:type,3|nullable|string',
+            'floor' => 'exclude_if:type,3|nullable|string',
+            'door' => 'exclude_if:type,3|nullable|string',
+            'phone' => 'exclude_if:type,3|required|regex:/^[0-9]{9}$/',
 
             'token' => ['required', 'string', 'exists:\App\Models\Game,token'],
 

@@ -2,14 +2,20 @@
 
 namespace App\Http\Controllers;
 
+use Illuminate\Support\Facades\Session;
 use Inertia\Inertia;
 use Inertia\Response;
 
 class GameResultController extends Controller
 {
-    public function winner(): Response
+    public function winner()
     {
-        return Inertia::render('Public/Game/Winner');
+        if (Session::has('winner')) {
+            Session::remove('winner');
+            return Inertia::render('Public/Game/Winner');
+        }
+        return redirect()->route('home');
+
     }
 
     public function lost(): Response
