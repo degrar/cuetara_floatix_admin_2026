@@ -8,6 +8,9 @@
     use Duplex\Enums\GameState;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
+    use Illuminate\Database\Eloquent\Relations\BelongsTo;
+    use Illuminate\Database\Eloquent\Relations\HasMany;
+    use Illuminate\Database\Eloquent\Relations\HasOne;
     use Illuminate\Support\Collection;
 
     class Game extends Model
@@ -48,13 +51,18 @@
                 ->get()->first();
         }
 
-        public function user(): Collection
+        public function user(): BelongsTo
         {
-            return $this->belongsTo(User::class)->get();
+            return $this->belongsTo(User::class);
         }
 
-        public function files(): Collection
+        public function files(): HasMany
         {
-            return $this->hasMany(File::class)->get();
+            return $this->hasMany(File::class);
+        }
+
+        public function mmgg(): HasOne
+        {
+            return $this->hasOne(Mmgg::class);
         }
     }

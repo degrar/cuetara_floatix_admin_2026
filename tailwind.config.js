@@ -41,6 +41,7 @@ export default {
                 'curveOrange': "url('/resources/images/curve-orange.png')",
                 'curveYellow': "url('/resources/images/curve-yellow.png')",
                 'curveFooter': "url('/resources/images/curve-white.png')",
+                'AdminBackground': "url('/resources/images/admin/background-image-admin.jpg')",
             },
 
         },
@@ -60,6 +61,9 @@ export default {
             'yellow': '#FEE900',
             'grey': '#919090',
             'orange': '#F39B00',
+
+            // Admin
+            duplex: '#f4375b',
 
 
         }

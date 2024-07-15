@@ -26,7 +26,6 @@ class UserController extends Controller
                 'Nombre',
                 'E-mail',
                 'Tlf.',
-                'BBDD',
                 'Anuncios',
                 'Fecha creación'
             ]

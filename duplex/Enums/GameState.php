@@ -55,4 +55,18 @@ enum GameState: int
      * Participació amb el comentari aprovat
      */
     case CommentApproved = 8;
+
+    public static function fromString(string $state): self
+    {
+        return match ($state) {
+            'pending' => self::Pending, //1
+            'valid' => self::Valid, //2
+            'winner' => self::Winner, //3
+            'loser' => self::Loser, //4
+            'awaiting' => self::Awaiting, //5
+            'requested' => self::Requested, //6
+            'denied' => self::Denied, //7
+            'comment' => self::CommentApproved, //8
+        };
+    }
 }

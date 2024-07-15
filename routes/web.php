@@ -63,4 +63,18 @@ Route::get('proximamente', [HomeController::class, 'start'])->name('proximamente
 Route::get('promo-finalizada', [HomeController::class, 'end'])->name('promo-finalizada');
 
 
+//ADMIN
+
+Route::get('mail', function () {
+    return new App\Mail\Confirmed('1234567890');
+});
+Route::middleware([
+    'auth:sanctum',
+    config('jetstream.auth_session'),
+    'can:access-dashboard',
+    //    new class implements
+])->as('admin.')->prefix('dashboard')->group(function () {
+    require __DIR__ . '/admin.php';
+});
+
 Route::any('{catchall}', [HomeController::class, 'notFound'])->name ('404');

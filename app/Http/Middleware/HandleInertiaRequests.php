@@ -37,7 +37,16 @@ class HandleInertiaRequests extends Middleware
     public function share(Request $request): array
     {
         return array_merge(parent::share($request), [
-            //
+            'site_key' => config('duplex.recaptcha.public'),
         ]);
+    }
+
+    public function handle(Request $request, $next)
+    {
+        if ($request->routeIs('login', 'admin.*')) {
+            $this->rootView = 'dashboard';
+        }
+
+        return parent::handle($request, $next);
     }
 }

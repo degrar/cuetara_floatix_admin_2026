@@ -1,9 +1,12 @@
 import './bootstrap';
 import '../css/app.scss';
+import '../css/_admin.scss';
+import "vue-toastification/dist/index.css";
 
 import { createApp, h } from 'vue';
 import { createInertiaApp } from '@inertiajs/vue3';
 import { resolvePageComponent } from 'laravel-vite-plugin/inertia-helpers';
+import Toast from "vue-toastification";
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 
 // import Cookieconsent from "@/plugins/cookieconsent";
@@ -16,6 +19,7 @@ createInertiaApp({
     setup({ el, App, props, plugin }) {
         return createApp({ render: () => h(App, props) })
             .use(plugin)
+            .use(Toast)
             .use(ZiggyVue)
             // .use(Cookieconsent)
             .mount(el);

@@ -24,12 +24,11 @@ class PromotionRedirect
         $start = config('duplex.promo.date.start');
         /** @var Carbon $startDate */
         $end = config('duplex.promo.date.end');
-
         $now = now();
 
-        if ($now->lt($start) && !$request->route()->named(  'legal', 'privacy')) return redirect()->route(Route::PromoSoon->value);
+        if ($now->lt($start) && !$request->routeIs( 'legal', 'privacy')) return redirect()->route(Route::PromoSoon->value);
 
-        if ($now->gt($end) && !$request->route()->named('contact','legal', 'privacy')) return redirect()->route(Route::PromoEnded->value);
+        if ($now->gt($end) && !$request->routeIs('contact','legal', 'privacy')) return redirect()->route(Route::PromoEnded->value);
 
         return $next($request);
     }

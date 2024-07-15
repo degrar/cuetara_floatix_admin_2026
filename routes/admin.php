@@ -1,16 +1,13 @@
 <?php
 
+use App\Actions\Admin\ChangeGameState;
 use App\Actions\Admin\ExportGames;
-use App\Actions\Admin\ExportUsers;
 use App\Http\Controllers\Admin\{DashboardController,
     SettingController,
-    SettingsController,
     UserController,
     GameController,
     FileController};
 use Illuminate\Support\Facades\Route;
-use Spatie\Health\Http\Controllers\HealthCheckJsonResultsController;
-use Spatie\Health\Http\Controllers\HealthCheckResultsController;
 
 /*
 |--------------------------------------------------------------------------
@@ -26,10 +23,20 @@ use Spatie\Health\Http\Controllers\HealthCheckResultsController;
 
 Route::get('/', [DashboardController::class, 'show'])->name('dashboard');
 Route::get('/users', [UserController::class, 'show'])->name('users');
-Route::get('/games', [GameController::class, 'show'])->name('games');
-Route::get('/games/export', ExportGames::class)->name('games.export');
-Route::get('/users/export', ExportUsers::class)->name('users.export');
 Route::get('/messages', [DashboardController::class, 'show'])->name('messages');
+
+Route::as('games.')->prefix('games')->group(function () {
+    Route::get('/', [GameController::class, 'show'])->name('home');
+    Route::get('winners', [GameController::class, 'winners'])->name('winners');
+    Route::get('pending', [GameController::class, 'pending'])->name('pending');
+    Route::get('losers', [GameController::class, 'losers'])->name('losers');
+    Route::get('awaiting', [GameController::class, 'awaiting'])->name('awaiting');
+    Route::get('search', [GameController::class, 'search'])->name('search');
+
+    Route::patch('/state/{game}/{action}', ChangeGameState::class)->name('state');
+
+    Route::get('export', ExportGames::class)->name('export');
+});
 
 Route::as('files.')->prefix('files')->group(function() {
     Route::get('/image/{id?}', [FileController::class, 'image'])->name('image');
@@ -37,8 +44,13 @@ Route::as('files.')->prefix('files')->group(function() {
 });
 
 Route::middleware('can:is-admin')->group(function (){
-    Route::get('/settings', [SettingController::class, 'show'])->name('settings');
+    Route::prefix('settings')->as('settings.')->group(function() {
+        Route::get('/', [SettingController::class, 'show'])->name('home');
+        Route::get('/legal', [SettingController::class, 'legal'])->name('legal');
+        Route::post('/legal', [SettingController::class, 'legalStore']);
+
+        Route::get('emails', [SettingController::class, 'emails'])->name('emails');
+    });
+
     Route::name('logs')->get('/logs', fn() => redirect(url('/log-viewer')));
-    //Route::get('health', HealthCheckResultsController::class)->name('health');
-    //Route::get('health-json', HealthCheckJsonResultsController::class)->name('health-json');
 });

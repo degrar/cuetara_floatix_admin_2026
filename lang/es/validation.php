@@ -156,7 +156,14 @@ return [
         'code' => [
             'exists' => 'Este código ya ha sido utilizado.',
             'required' => '0'
-        ]
+        ],
+         'acceptance' => [
+            'required_if' => 'Este campo es obligatorio.',
+        ],
+
+                'dni' => [
+            'required_if' => 'Este campo es obligatorio.',
+        ],
     ],
 
     /*
