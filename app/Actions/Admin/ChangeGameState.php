@@ -4,7 +4,9 @@ namespace App\Actions\Admin;
 
 use App\Jobs\SendMail;
 use App\Mail\Confirmed;
+use App\Mail\MoreInfo;
 use App\Models\Game;
+use Carbon\Carbon;
 use Duplex\Enums\GameState;
 use Illuminate\Http\JsonResponse;
 use Illuminate\Support\Facades\Mail;
@@ -14,36 +16,39 @@ class ChangeGameState
 {
     private const MIN_DECLINE_REASON_LENGTH = 3;
     private const ACTIONS = [
-        'awaiting',
+        'valid',
+        'request',
         'winner',
-        'loser',
+        'denied',
     ];
 
     public function __invoke(Game $game, string $action)
     {
-        if (!in_array($action, self::ACTIONS))
+        if ( !in_array($action, self::ACTIONS) )
             return response()->setStatusCode(403);
 
-		$futureState = GameState::fromString($action);
+        $futureState = GameState::fromString($action);
 
         request()->validate([
-            'code' => 'required_if:action,=,winner',
-            'message' => 'required_if:action,=,loser|min:' . self::MIN_DECLINE_REASON_LENGTH,
-            'type' => 'required_if:action,=,awaiting|integer|in:1,2'
+            'message' => 'required_if:action,=,denied|min:' . self::MIN_DECLINE_REASON_LENGTH,
+            'type' => 'required_if:action,=,request|integer|in:0,1'
         ]);
 
-        if ($futureState === GameState::Loser)
-            $game->decline_reason = (string) request('message');
+        if ( $futureState === GameState::Denied ) $game->decline_reason = (string)request('message');
 
         $game->update([
             'state' => $futureState
         ]);
 
-        $type = $futureState === GameState::Awaiting ? ((int) request('type')) : null;
+        $type = $futureState === GameState::Valid ? ( (int)request('type') ) : null;
 
-        if ($futureState === GameState::Winner)
+        if ( $futureState === GameState::Valid || $futureState === GameState::Denied )
+            $game->update(['validated_at' => Carbon::now()]);
+
+        if ( $futureState === GameState::Winner ){
+            $game->update(['confirmed_at' => Carbon::now()]);
             $this->sendConfirmedMail($game);
-        else
+        } else
             SendMail::dispatchAfterResponse($game, $type);
 
         return response(null, 200);
@@ -51,7 +56,7 @@ class ChangeGameState
 
     private function sendConfirmedMail(Game $game): void
     {
-        Mail::to([['email' => $game->user->email, 'name' => $game->user->name]])
-            ->send(new Confirmed(request('code')));
+        Mail::to([['email' => $game->user->email, 'name' => $game->user->name]])->send(new Confirmed());
     }
+
 }

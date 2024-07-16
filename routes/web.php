@@ -41,8 +41,8 @@ Route::middleware(PromotionRedirect::class)->group(function () {
     });
 
     Route::controller(MoreInfoController::class)->group(function (){
-        Route::get('user-info', 'show')->name('more-info');
-        Route::post('user-info', 'store');
+        Route::get('user-info/{token}', 'show')->name('user-info');
+        Route::post('user-info/{token}', 'store');
         Route::get('thanks', 'thanks')->name('thanks');
     });
 

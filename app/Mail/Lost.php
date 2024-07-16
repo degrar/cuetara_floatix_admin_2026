@@ -37,7 +37,7 @@ class Lost extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.loser',
+            view: 'emails.denied',
             with: [
                 'declineReason' => $this->declineReason,
             ]

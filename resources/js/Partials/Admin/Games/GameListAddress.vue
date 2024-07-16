@@ -4,7 +4,7 @@
             <div class="flex justify-center items-center font-semibold" v-for="(item, key) in header" :key="key">{{ item }}</div>
         </div>
 
-        <GameItem v-for="(item, key) in data" :data="item" :key="key" @dialog="imagesDialog" @deleted="onItemDeleted" />
+        <GameItemAddress v-for="(item, key) in data" :data="item" :key="key" @dialog="imagesDialog" @deleted="onItemDeleted" />
 
         <div v-if="!props.data.length" class="text-center py-4 font-bold bg-gray-200">
             (No hay datos)
@@ -17,7 +17,7 @@
         </template>
 
         <template #content>
-            <div class="flex gap-6">
+            <div class="flex gap-6 justify-center">
                 <a v-for="(item, key) in files" :key="key" :href="route('admin.files.' + (item.hash.endsWith('.pdf') ? 'pdf' : 'image'), item.id)" target="_blank" class="w-1/4 group">
                     <div>
                         <!-- PDF -->
@@ -38,9 +38,10 @@
 </template>
 
 <script setup>
-import GameItem from "@/Partials/Admin/Games/GameItem.vue";
+
 import DialogModal from "@/Components/Admin/DialogModal.vue";
 import {ref, defineProps} from "vue";
+import GameItemAddress from "@/Partials/Admin/Games/GameItemAddress.vue";
 
 const emit = defineEmits(['deleted']);
 

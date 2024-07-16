@@ -11,6 +11,9 @@ dependencies:
   '@vuepic/vue-datepicker':
     specifier: ^4.5.1
     version: 4.5.1(vue@3.4.27)
+  dayjs:
+    specifier: ^1.11.11
+    version: 1.11.11
   jenesius-vue-modal:
     specifier: ^1.11.4
     version: 1.11.5(vue@3.4.27)
@@ -658,6 +661,10 @@ packages:
     engines: {node: '>=0.11'}
     dependencies:
       '@babel/runtime': 7.24.6
+    dev: false
+
+  /dayjs@1.11.11:
+    resolution: {integrity: sha512-okzr3f11N6WuqYtZSvm+F776mB41wRZMhKP+hc34YdW+KmtYYK9iqvHSwo2k9FEH3fhGXvOPV6yz2IcSrfRUDg==}
     dev: false
 
   /debug@4.3.4:

@@ -40,11 +40,12 @@ class SendMail
     {
         switch($this->game->state)
         {
-            case GameState::Awaiting:
+            case GameState::Requested:
+            case GameState::Valid:
                 $this->sendAwaitingMail();
                 break;
 
-            case GameState::Loser:
+            case GameState::Denied:
                 $this->sendLoserMail();
                 break;
         }

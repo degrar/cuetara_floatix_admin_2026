@@ -101,20 +101,30 @@ const logout = () => {
                                     </span>
                                 </NavLink>
 
-                                <ul class="space-y-1 pl-4 mt-2">
+                                <ul class="space-y-1 pl-4 my-2">
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.home')" :active="route().current('admin.games.home')">
                                             Todas las participaciones
                                         </NavLink>
                                     </li>
+                                </ul>
+                                <li>
+                                    <hr class="md:w-[50%] mx-auto bg-gray-200">
+                                </li>
+                                <ul class="space-y-1 pl-4 mt-2">
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.pending')" :active="route().current('admin.games.pending')">
-                                            Validar
+                                            Validar Pack
+                                        </NavLink>
+                                    </li>
+                                    <li>
+                                        <NavLink class="!text-sm" :href="route('admin.games.requested')" :active="route().current('admin.games.requested')">
+                                            Datos Reclamados
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.awaiting')" :active="route().current('admin.games.awaiting')">
-                                                A la espera
+                                            Validar DNI/Dirección
                                         </NavLink>
                                     </li>
                                     <li>
@@ -123,10 +133,11 @@ const logout = () => {
                                         </NavLink>
                                     </li>
                                     <li>
-                                        <NavLink class="!text-sm" :href="route('admin.games.losers')" :active="route().current('admin.games.losers')">
+                                        <NavLink class="!text-sm" :href="route('admin.games.denied')" :active="route().current('admin.games.denied')">
                                             Rechazados
                                         </NavLink>
                                     </li>
+
                                 </ul>
                             </li>
                             <li>

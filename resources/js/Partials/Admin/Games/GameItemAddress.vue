@@ -31,31 +31,40 @@
             </div>
 
             <div class="field scrollbar overflow-x-auto">
-                <span v-if="data.validated_at">
-                    {{ formatDate(data.validated_at) }}
+                <div class="flex justify-center items-center">
+                <span>
+                    <span class="font-semibold" >Dirección: </span>{{ data.address[0].via.name }} {{ data.address[0].name }}<br>
+                    <span class="font-semibold">Número: </span> {{ data.address[0].number }}<br>
+
+                    <span  v-if="data?.address[0].stair">
+                        <span class="font-semibold">Escalera: </span> {{ data.address[0].stair }}<br>
+                    </span>
+
+                    <span  v-if="data?.address[0].floor">
+                        <span class="font-semibold">Piso: </span> {{ data.address[0].floor }}<br>
+                    </span>
+
+                    <span  v-if="data?.address[0].door">
+                        <span class="font-semibold">Puerta: </span> {{ data.address[0].door }}<br>
+                    </span>
+
+                    <span class="font-semibold">Código postal: </span> {{ data.address[0].postal_code }}<br>
+                    <span class="font-semibold">Ciudad: </span> {{ data.address[0].city }}<br>
+                    <span class="font-semibold">Provincia: </span> {{ data.address[0].province.name }}<br>
+                    <span class="font-semibold">Teléfono: </span> {{ data.address[0].phone }}<br>
+
                 </span>
-                <span v-else-if="data.created_at">
-                    {{ formatDate(data.created_at) }}
-                </span>
+
+                </div>
             </div>
 
             <div class="field scrollbar overflow-x-auto">
-                <span v-if="data.decline_reason">
-                    {{ data.decline_reason }}
-                </span>
-                <span v-else-if="data.validated_at">
-                    {{ formatDate(data.validated_at) }}
-                </span>
-                <span v-else-if="data?.mmgg">
-                    {{ formatDate(data.date_moment) }}
-                </span>
-                <span v-else-if="data?.mmgg">
-                    {{ formatDate(data.date_moment) }}
-                </span>
-                <span v-else>
-                    -
+                <span>
+                    {{ formatDate(data.confirmed_at) }}
                 </span>
             </div>
+
+
 
             <div class="field scrollbar overflow-x-auto space-x-1" v-if="!hideActions">
 
@@ -69,7 +78,7 @@
                 <span class="mx-2" v-if="personalImage">
                     |
                 </span>
-                <span class="w-[28px] cursor-pointer" @click="updateGameState('valid', 0)">
+                <span class="w-[28px] cursor-pointer" @click="updateGameState('winner')">
                     <img title="Accept" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADPUlEQVR4nO2YT0gUURzHRwnqUgdt9/3errbV2iWIOkn+2fdctSgRRSFiKaIiXYu0QEhELA8lIR6CqIQSEudPDR1DunQwkDpFkjukl6KgS4cOQVlYE29o1tlxxp2VdncG5gO/w+4sO5/v29/7M8txPj4+Pj4+LgChmiDCZBoB+YIw+QBAb0YidAvnBQKBeBQB/QiYqhkFdK68vHYr50l57IEQAZM8Avo9GKLNCJM+wPSPq0NUVDSG18o3NOnXEaa9rg4BQPrt5HUi0eZ+YwiE6SzH0U2cGwiE4/sRkK9aoVij+brwTtguKOKbntEhFYca0nOCtRfnFqqqjmxmZX5fXpIDfEqaFxRJZXV2+MrqpA7TZ0WRDQbrdyOgL1iVV9aG7D4nm+T5BVFtPd2dDlDXkvg8szSzJnRhl0og/U7l284kM5bVgYlRlU9JTzcUIhCK1SKgPGD6HICMlpVVb8tVnk3YUIgesOp5Pot8+7ke7ZpWKVHISR5hehEwWcncaMh7JpiLvNVqI5jlU6La0X0+Q77tdFILlQ6gSKr0Voo6lc9ckw3FBK1C5FueT4krDxflcO7yQOcwjp1gQnYh8i0vaC0kDWWVB4glzfJ63wPECGDybVWSfApU0CqAeIS1lvl4kHXCppzL84p4zYE87cm2lbNRBdzww/hLFGDkRxzI1+9FQJaznUOmFbHj6vTYcuXOJqu5URx5BgAZMqw0L63keUXqFBTpF/viEWFcNYawk8972+ggTK8bvvQxx3GldvJ6sRC79hxSI9Gm39WNx49xxZJfnaAZ/T+ph7CS12tqnteKV0RFXpChKPI6AOS26clocuo1324nv+bGTJidKAvR8zaUMmnjjVpPdS07kTeGKJa8bYgbT245DmDaOQsubwzxgN0wXBn/eWf2vqfkdUqCQXoQ47odgiIN5Eue3+iEzZVEX++jfdXtauLyJetRXOdIzF4XVZ6BgC5mFXKrPANhOr6emKvl/1GCMLln1deu7HmnS2zLyS6t3DzyWUN4SV6nFGFy1yzfmbzgCfk0AOQownSi5nDi1fDUmPWy6lZ5M1abnWfkdXhFHGT/HGiliIOcF5EXZDA+F/j4+HD/nb83fOooKWIiJgAAAABJRU5ErkJggg==">
                 </span>
                 <span class="w-[28px] cursor-pointer" @click="showMessageDialog = true">
@@ -179,11 +188,6 @@ const updateGameState = async (action, message) => {
     if (action === 'valid' || action === 'request')
     {
         data['type'] = message;
-    }
-
-    if (action === 'winner')
-    {
-        data['code'] = message;
     }
 
     try {

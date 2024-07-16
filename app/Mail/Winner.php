@@ -39,7 +39,7 @@ class Winner extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.winner',
+            view: 'emails.moreinfo_all',
             with: [
                 'formLink' => route('winner-form', $this->gameToken),
             ]

@@ -22,7 +22,7 @@
                 $table->foreignIdFor(Province::class);
                 $table->foreignIdFor(Via::class)->nullable();
                 $table->foreignIdFor(\App\Models\Game::class)->nullable();
-                $table->string('address')->nullable();
+                $table->string('name')->nullable();
                 $table->string('number')->nullable();
                 $table->string('stair')->nullable();
                 $table->string('floor')->nullable();

@@ -16,7 +16,7 @@ class Confirmed extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct(private string $code)
+    public function __construct()
     {
         //
     }
@@ -38,9 +38,6 @@ class Confirmed extends Mailable
     {
         return new Content(
             view: 'emails.confirmed',
-            with: [
-                'code' => $this->code,
-            ]
         );
     }
 

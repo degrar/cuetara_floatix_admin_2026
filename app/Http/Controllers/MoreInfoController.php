@@ -16,15 +16,14 @@ use Inertia\Response;
 
 class MoreInfoController extends Controller
 {
-    public function show()
+    public function show(string $token)
     {
-        $token = request('token');
-
-        if (!$token || !Game::query()->where('token', $token)->exists()){
+        if (!Game::query()->where('token', $token)->first())
             return redirect()->route('home');
-        }
 
         return Inertia::render('Public/Game/WinnerInfo', [
+            'token' => $token,
+            'type' => request('type', 0),
             'site_key' => config('duplex.recaptcha.public'),
             'lang' => config('duplex.recaptcha.lang'),
             'provinces' => Province::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
@@ -41,20 +40,24 @@ class MoreInfoController extends Controller
          * 3 - Només DNI
          */
 
-        $game = Game::query()->where('token', $request->token)->firstOrFail();
+        $type = (int) request('type');
 
-        File::query()->create([
-            'user_id' => $game->user_id,
-            'game_id' => $game->id,
-            'type' => FileType::FrontDni,
-            'hash' => $request->file,
-        ]);
+        $game = Game::query()->where('token', $request->token)->firstOrFail();
+        $hash = $request->file('file')->store('personal');
+        if ($type === 0 || $type === 3) {
+            File::query()->create([
+                'user_id' => $game->user_id,
+                'game_id' => $game->id,
+                'type' => FileType::FrontDni,
+                'hash' => $hash,
+            ]);
+        }
 
         Address::query()->create([
             'user_id' => $game->user_id,
             'type' => 'prize', // 'game', 'prize'
             'via_id' => $request->via,
-            'address' => $request->address,
+            'name' => $request->name,
             'number' => $request->number,
             'stair' => $request->stair,
             'floor' => $request->floor,

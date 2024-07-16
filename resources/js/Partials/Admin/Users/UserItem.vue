@@ -1,32 +1,37 @@
 <template>
     <div class="grid grid-cols-5 py-4 px-4 border-b last:border-none group relative">
+
         <div class="field scrollbar overflow-x-auto">
-            <div class="flex items-center">
-                <img class="profile-img" :src="data.profile_photo_url" alt="">
-                <span>
-                    {{ data.name }} {{ data.surname }}
-                </span>
-            </div>
+            {{ data.id }}
+        </div>
+
+        <div class="field scrollbar overflow-x-auto">
+            {{ data.name }} {{ data.surname }}
         </div>
 
         <div class="field scrollbar overflow-x-auto">
             <a :href="emailLink" class="underline">{{ data.email }}</a>
         </div>
 
-        <div class="field scrollbar overflow-x-auto">
-            {{ data.phone }}
-        </div>
 
         <div class="field scrollbar overflow-x-auto">
             <span class="bg-fuchsia-300 rounded-3xl px-4 py-1.5" :class="ads.bg">{{ ads.value }}</span>
         </div>
 
-        <div class="field scrollbar overflow-x-auto">{{ data.created_at }}</div>
+        <div class="field scrollbar overflow-x-auto">{{ formatDate(data.created_at) }}</div>
     </div>
 </template>
 
 <script setup>
 import {computed} from "vue";
+
+import dayjs from 'dayjs';
+
+function formatDate (dateString)  {
+    const date = dayjs(dateString);
+    return date.format('D-MM-YYYY HH:MM:s');
+}
+
 
 const props = defineProps({
     data: Object

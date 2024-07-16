@@ -29,8 +29,9 @@ Route::as('games.')->prefix('games')->group(function () {
     Route::get('/', [GameController::class, 'show'])->name('home');
     Route::get('winners', [GameController::class, 'winners'])->name('winners');
     Route::get('pending', [GameController::class, 'pending'])->name('pending');
-    Route::get('losers', [GameController::class, 'losers'])->name('losers');
+    Route::get('denied', [GameController::class, 'denied'])->name('denied');
     Route::get('awaiting', [GameController::class, 'awaiting'])->name('awaiting');
+    Route::get('requested', [GameController::class, 'requested'])->name('requested');
     Route::get('search', [GameController::class, 'search'])->name('search');
 
     Route::patch('/state/{game}/{action}', ChangeGameState::class)->name('state');

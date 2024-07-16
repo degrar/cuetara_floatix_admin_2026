@@ -9,8 +9,8 @@ const props = defineProps({
 
 const classes = computed(() => {
     return props.active
-        ? 'flex transition text-charm text-xl border-l-4 px-6 rounded border-[#FC6680]'
-        : 'flex transition text-police text-xl focus:text-charm hover:text-charm px-6 rounded';
+        ? 'flex transition text-charm text-xl border-l-4 px-6 py-1 rounded border-[#FC6680] font-bold text-duplex bg-grey bg-opacity-30'
+        : 'flex transition text-police text-xl focus:text-charm hover:text-charm px-6 rounded py-1';
 });
 </script>
 

@@ -13,19 +13,20 @@ use Inertia\Response;
 
 class UserController extends Controller
 {
-    const ITEMS_PER_PAGE = 15;
+    const ITEMS_PER_PAGE = 25;
 
     public function show(): Response
     {
-        $items = User::orderByDesc('created_at')
+        $items = User::orderBy('created_at', 'asc')
+            ->where('role', '!=', 'admin')
             ->paginate(self::ITEMS_PER_PAGE);
 
         return Inertia::render('Admin/Users', [
             'items' => $items,
             'tableHeader' => [
+                'ID',
                 'Nombre',
                 'E-mail',
-                'Tlf.',
                 'Anuncios',
                 'Fecha creación'
             ]

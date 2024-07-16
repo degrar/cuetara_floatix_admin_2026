@@ -4,7 +4,7 @@
 
     use Carbon\Carbon;
     use DB;
-    use Duplex\Enums\Game as GameType;
+    use Duplex\Enums\FileType as GameType;
     use Duplex\Enums\GameState;
     use Illuminate\Database\Eloquent\Factories\HasFactory;
     use Illuminate\Database\Eloquent\Model;
@@ -17,6 +17,8 @@
     {
         use HasFactory;
 
+
+
         protected $fillable = [
             'state',
             'type',
@@ -25,14 +27,13 @@
             'decline_reason',
             // 'comment',
             // 'is_favourite
-            'date_validated',
-            'date_confirmed',
+            'validated_at',
+            'confirmed_at',
         ];
 
         protected function casts(): array
         {
             return [
-                'type' => GameType::class,
                 'state' => GameState::class,
             ];
         }
@@ -65,4 +66,10 @@
         {
             return $this->hasOne(Mmgg::class);
         }
+
+        public function address(): hasMany
+        {
+            return $this->hasMany(Address::class);
+        }
+
     }

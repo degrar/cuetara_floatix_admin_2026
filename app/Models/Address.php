@@ -1,25 +1,40 @@
 <?php
 
-    namespace App\Models;
+namespace App\Models;
 
-    use Illuminate\Database\Eloquent\Factories\HasFactory;
-    use Illuminate\Database\Eloquent\Model;
+use Duplex\Enums\FileType;
+use Illuminate\Database\Eloquent\Factories\HasFactory;
+use Illuminate\Database\Eloquent\Model;
+use Illuminate\Database\Eloquent\Relations\BelongsTo;
+use Illuminate\Database\Eloquent\Relations\HasOne;
 
-    class Address extends Model
+class Address extends Model
+{
+    protected $fillable = [
+        'type', // 'game', 'prize'
+        'name',
+        'number',
+        'stair',
+        'floor',
+        'door',
+        'postal_code',
+        'city',
+        'phone',
+        'via_id',
+        'province_id',
+        'user_id',
+        'game_id',
+    ];
+
+    public function province(): HasOne
     {
-        protected $fillable = [
-            'type', // 'game', 'more-info'
-            'address',
-            'number',
-            'stair',
-            'floor',
-            'door',
-            'postal_code',
-            'city',
-            'phone',
-            'via_id',
-            'province_id',
-            'user_id',
-            'game_id',
-        ];
+        return $this->hasOne(Province::class, 'id', 'province_id');
     }
+
+    public function via(): HasOne
+    {
+        return $this->hasOne(Via::class, 'id', 'via_id');
+    }
+}
+
+

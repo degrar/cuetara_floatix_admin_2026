@@ -20,7 +20,7 @@
 
                             <SelectInput v-model:select="form.via" :options="vias" :default-value="-1" :error="form.errors.via" value="id" placeholder="Tipo de vía*" label="name" />
 
-                            <TextInput type="text" v-model="form.address" label="Nombre de la vía*" :error="form.errors.address"  />
+                            <TextInput type="text" v-model="form.name" label="Nombre de la vía*" :error="form.errors.name"  />
 
                             <TextInput type="text" v-model="form.number" label="Número*" :error="form.errors.number"  />
 
@@ -99,13 +99,21 @@ addIcons(BiUpload, FaCircleNotch);
 const provinces = usePage().props.provinces;
 const vias = usePage().props.vias;
 
+const props = defineProps({
+    token: String,
+    type: {
+        type: Number,
+        default: 0,
+    },
+});
+
 const form = useForm({
     // File upload
     file: null,
 
     //Address
     via: null,
-    address: null,
+    name: null,
     number: null,
     stair: null,
     floor: null,
@@ -119,7 +127,7 @@ const form = useForm({
     privacy: null,
 
     recaptcha: null,
-    token: null,
+    type: 0
 });
 
 console.log(usePage().props.site_key);
@@ -127,15 +135,12 @@ console.log(usePage().props.lang);
 
 const submitForm = () => {
     const siteKey = usePage().props.site_key;
-    const gameToken = new URLSearchParams(window.location.search).get('token');
-
-    if (!gameToken) alert('Token no encontrado.');
 
     grecaptcha.ready(function() {
         grecaptcha.execute(siteKey, {action: 'submit'}).then(function(token) {
             form.recaptcha = token;
-            form.token = gameToken;
-            form.post(route('more-info'), {
+            form.type = props.type;
+            form.post(route('user-info', props.token), {
                 preserveScroll: true,
                 onError:  () => {
                     //console.log('error');
