@@ -42,6 +42,7 @@ class StoreGameWinnerRequest extends FormRequest
             'floor' => 'exclude_if:type,3|nullable|string',
             'door' => 'exclude_if:type,3|nullable|string',
             'phone' => 'exclude_if:type,3|required|regex:/^[0-9]{9}$/',
+            'privacy' => 'required|accepted',
 
             'recaptcha' => new GoogleRecaptcha(),
         ];
