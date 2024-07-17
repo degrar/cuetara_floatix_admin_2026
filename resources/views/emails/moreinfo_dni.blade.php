@@ -112,15 +112,12 @@
                                                 <p style="color: #7D2A25;text-align: center;font-family: Arial, 'sans-serif'; font-size: 27px; text-transform: uppercase">
                                                     Nos alegra confirmarte que has <span style="color:#FF0202 ">ganado un telescopio.</span>
                                                 </p>
-                                                <br>
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     Por favor, accede a nuestro formulario en un plazo máximo de 10 días y sube una <strong>imagen de tu DNI y la dirección</strong> en la que deseas recibir tu premio.
                                                 </p>
-                                                <br>
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
-                                                <br>
                                                 <div style="text-align: left">
                                                     <a href="{{ $formLink }}">
                                                         <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 59px; width: 223px;" height="59" width="223">
