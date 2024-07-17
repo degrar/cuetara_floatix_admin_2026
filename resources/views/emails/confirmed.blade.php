@@ -111,7 +111,7 @@
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
 
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
-                                                    Hemos validado la documentación recibida y en un plazo máximo de 15 días laborables recibirás tu premio en la dirección que nos has facilitado.
+                                                    Hemos validado la documentación recibida y en un plazo máximo de 30 días laborables recibirás tu premio en la dirección que nos has facilitado.
                                                 </p>
 
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
