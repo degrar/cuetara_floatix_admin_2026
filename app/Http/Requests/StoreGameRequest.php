@@ -28,7 +28,7 @@ class StoreGameRequest extends FormRequest
         return [
             'nombre' => 'required|string',
             'first_surname' => 'required|string',
-            'email' => 'required|email',
+            'email' => 'required|email:dns',
             'adult' => 'required|accepted',
             'legal' => 'required|accepted',
             'privacy' => 'required|accepted',

@@ -22,6 +22,8 @@ class GameController extends Controller
     {
         $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
             //->leftJoin('mmggs', 'games.user_id', '=', 'mmggs.user_id')
+            ->join('users', 'games.user_id', '=', 'users.id')
+            ->where('role', '=', 'user')
             ->orderBy('games.created_at', 'asc')
             ->paginate(self::ITEMS_PER_PAGE);
 
@@ -115,10 +117,6 @@ class GameController extends Controller
     }
     public function winners(): Response //TOT ESTÀ VALIDAT (adreça, dni i pack)
     {
-//        $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
-//            ->where('state', GameState::Winner->value)
-//            ->orderByDesc('games.created_at')
-//            ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
 
         $items = Game::with(['user', 'files:id,hash,game_id', 'address', 'address.via:id,name', 'address.province:id,name'])
             ->where('state', GameState::Winner->value)

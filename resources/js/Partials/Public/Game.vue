@@ -2,12 +2,12 @@
     <div class="bg-yellow py-[100px] relative after:absolute after:top-[-92px]  after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveYellow after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
         <div class="container mx-auto px-[15px]">
 
-            <div class="flex flex-row justify-center items-center">
+            <div class="flex flex-row justify-center items-center mb-[40px] lg:mb-0">
 
-                <div class="mx-auto w-12/12 md:w-5/12  ml-0 block lg:hidden">
-                    <img src="../../../../resources/images/astro.png" alt="kinder" class="max-w-[250px] w-full mx-auto ml-0 pb-5"/>
+                <div class="mx-auto w-6/12  ml-0 block lg:hidden">
+                    <img src="../../../../resources/images/astro.png" alt="kinder" class="max-w-[200px] w-full mx-auto"/>
                 </div>
-                 <h1 class="w-full max-w-[870px] mx-auto mt-[5px] mb-[60px] font-hermes text-brown text-[33px] leading-[35px] tracking-[-0.33px] md:text-[48px] md:leading-[50px] md:tracking-[-0.48px] uppercase text-center">
+                 <h1 class="w-full max-w-[870px] mx-auto mt-[5px] lg:mb-[60px] font-hermes text-brown text-[30px] leading-[35px] tracking-[-0.33px] md:text-[48px] md:leading-[50px] md:tracking-[-0.48px] uppercase text-center">
                     EL ESPACIO TE ESPERA, ¡SUERTE!
                 </h1>
             </div>

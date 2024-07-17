@@ -43,9 +43,12 @@ const inputChange = () => {
     const file = fileInput.value.files.length ?
         fileInput?.value.files[0] : null;
 
-    fileName.value = file ? file.name : placeholder;
-
-    emit('update:select', file);
+    if (file.size > 8 * 1024 * 1024) {
+        alert('El tamaño del fichero excede el límite permitido.');
+    }else {
+        fileName.value = file ? file.name : placeholder;
+        emit('update:select', file);
+    }
 };
 
 const openFileExplorer = () => fileInput.value.click();

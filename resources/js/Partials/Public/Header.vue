@@ -18,13 +18,13 @@
                         <PrimaryLink :href="route('home')">Inicio</PrimaryLink>
                     </li>
                     <li>
-                        <PrimaryLink scroll="#como-participar">Cómo participar</PrimaryLink>
+                        <PrimaryLink scroll="#como-participar" @click="toggleMenu">Cómo participar</PrimaryLink>
                     </li>
                     <li>
-                        <PrimaryLink scroll="#participa">Participa</PrimaryLink>
+                        <PrimaryLink scroll="#participa" @click="toggleMenu">Participa</PrimaryLink>
                     </li>
                     <li>
-                        <PrimaryLink scroll="#premio">Premio</PrimaryLink>
+                        <PrimaryLink scroll="#premio" @click="toggleMenu">Premio</PrimaryLink>
                     </li>
                 </ul>
             </nav>
@@ -46,14 +46,13 @@ defineProps({
 });
 
 
-
 const toggleMenu = (e) => {
     let menuBtn = e.target;
     let wrapperMenuNav = document.querySelector(".wrapper-menu nav");
     let header = document.querySelector("header");
     let hamburger = document.querySelector(".hamburger");
 
-    if (menuBtn.classList.contains("active")) {
+    if (hamburger.classList.contains("is-active")) {
         wrapperMenuNav.classList.remove("active");
         header.classList.remove("active");
         menuBtn.classList.remove("active");

@@ -15,14 +15,15 @@
                     <PrimaryButton  @click="toggleDiv" class=" py-[20px] px-[35px] hidden lg:inline-block">{{ buttonText }}</PrimaryButton>
                 </div>
                 <div class="flex flex-col justify-center">
-                    <img src="../../../../resources/images/telescopio.png" alt="Telescopio" class="max-w-[250px] lg:max-w-[480px] w-full mx-auto lg:mr-0 pb-5 "/>
+                    <img src="../../../../resources/images/telescopio.png" alt="Telescopio" class="max-w-[250px] lg:max-w-[400px] w-full mx-auto lg:mr-0 pb-5 "/>
                     <PrimaryButton  @click="toggleDiv" class="inline-block py-[20px] px-[35px] lg:hidden block mx-auto">{{ buttonText }}</PrimaryButton>
                 </div>
             </div>
 
 
-            <div id="specs" >
-                <div class="grid grid-cols-1 lg:grid-cols-2 items-center lg:items-start justify-center relative" v-if="show">
+            <div v-if="show" ref="telescopioRef">
+
+                <div id="specs" class="grid grid-cols-1 lg:grid-cols-2 items-center lg:items-start justify-center relative">
 
                     <PrimaryButton  @click="toggleDiv" class="absolute py-[15px] px-[25px] top-0 right-[15px] lg:block hidden">x</PrimaryButton>
                     <div>
@@ -100,26 +101,33 @@
 <script setup>
 
 import PrimaryButton from "@/Components/PrimaryButton.vue";
-import { ref, computed, onMounted  } from 'vue';
+import { ref, computed, onMounted, nextTick } from 'vue';
 
 const show = ref(false);
-const telescopioRef = ref(null); // Referencia al elemento telescopio
+const telescopioRef = ref(null);
 
 function toggleDiv() {
     show.value = !show.value;
 
-    // Hacer scroll al div specs cuando se muestra
     if (show.value) {
-        scrollToSpecs();
+        nextTick(() => {
+            scrollToSpecs();
+        });
     }
 }
 
 function scrollToSpecs() {
-    console.log('dentro');
+
     if (telescopioRef.value) {
         const specsElement = telescopioRef.value.querySelector('#specs');
+        console.log(specsElement);
         if (specsElement) {
-            specsElement.scrollIntoView({ behavior: 'smooth', block: 'start' });
+            const headerHeight = document.querySelector('#header').offsetHeight;
+            let nav = 0;
+            if (window.innerWidth >= 1024) nav = document.querySelector('#duplex-header').offsetHeight;
+            else  nav = document.querySelector('div.wrapper-mobile').offsetHeight;
+            const offsetTop = specsElement.getBoundingClientRect().top + window.scrollY - (headerHeight + nav);
+            window.scrollTo({ top: offsetTop, behavior: 'smooth' });
         }
     }
 }
@@ -127,7 +135,9 @@ function scrollToSpecs() {
 // Hacer scroll al div specs cuando se monta el componente
 onMounted(() => {
     if (show.value) {
-        scrollToSpecs();
+        nextTick(() => {
+            scrollToSpecs();
+        });
     }
 });
 

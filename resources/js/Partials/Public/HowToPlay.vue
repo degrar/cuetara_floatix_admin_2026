@@ -9,17 +9,17 @@
             </div>
             <div class="flex justify-center flex-wrap items-stretch w-full">
                 <div class="rem:max-w-[340px] w-full box rem:mx-[15px] rem:mb-[10px]">
-                    <img src="../../../../resources/images/htw/step01.png" alt="paso 1" class="max-w-[300px] w-full mx-auto pb-5"/>
+                    <img src="../../../../resources/images/htw/step01.png" alt="paso 1" class="max-w-[200px] lg:max-w-[300px] w-full mx-auto pb-5"/>
                     <p class="font-tekoMedium text-white rem:text-[35px] rem:leading-[36px] lg:rem:leading-[40px] tracking-[-0.35px] text-center max-w-[300px] w-full mx-auto">Compra tu pack de <span class="text-blue">Kinder Sorpresa</span> o <span class="text-blue">Kinder Chocolate.</span></p>
                 </div>
 
                 <div class="rem:max-w-[340px] w-full box rem:mx-[15px] rem:mb-[10px]">
-                    <img src="../../../../resources/images/htw/step02.png" alt="paso 1" class="max-w-[300px] w-full mx-auto pb-5"/>
+                    <img src="../../../../resources/images/htw/step02.png" alt="paso 1" class="max-w-[200px] lg:max-w-[300px] w-full mx-auto pb-5"/>
                     <p class="font-tekoMedium text-white rem:text-[35px] rem:leading-[40px] tracking-[-0.35px] text-center max-w-[300px] w-full mx-auto">Sube una <span class="text-blue">foto de tu pack.</span></p>
                 </div>
 
                 <div class="rem:max-w-[340px] w-full box rem:mx-[15px] rem:mb-[10px]">
-                    <img src="../../../../resources/images/htw/step03.png" alt="paso 3" class="max-w-[300px] w-full mx-auto pb-5"/>
+                    <img src="../../../../resources/images/htw/step03.png" alt="paso 3" class="max-w-[200px] lg:max-w-[300px] w-full mx-auto pb-5"/>
                     <p class="font-tekoMedium text-white rem:text-[35px] rem:leading-[40px] tracking-[-0.35px] text-center max-w-[300px] w-full mx-auto">¡Al momento sabrás si has ganado un <span class="text-blue">telescopio!</span> ¡2 cada semana!</p>
                 </div>
 
