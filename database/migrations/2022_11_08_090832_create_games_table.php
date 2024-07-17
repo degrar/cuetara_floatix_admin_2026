@@ -24,8 +24,8 @@ return new class extends Migration
             $table->string('decline_reason')->nullable();
             $table->string('token');
             $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Pending->value);
-            $table->timestamp('validated_at', 0)->default('null')->nullable();
-            $table->timestamp('confirmed_at', 0)->default('null')->nullable();
+            $table->timestamp('validated_at', 0)->nullable();
+            $table->timestamp('confirmed_at', 0)->nullable();
 
             if (config('duplex.promo.type') === GameType::Mmgg) {
                 $this->createMmggBlueprint($table);
