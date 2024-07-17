@@ -113,11 +113,11 @@
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     Hemos validado la documentación recibida y en un plazo máximo de 15 días laborables recibirás tu premio en la dirección que nos has facilitado.
                                                 </p>
-                                                <br>
+
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
-                                                <br>
+
                                                 <br>
                                                 <div>
                                                     <a href="{{ route('home') }}">
@@ -129,6 +129,7 @@
                                                     Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción
                                                     <a href="{{ route('legal') }}" style="font-size: 12px;font-weight: bold;text-decoration: underline;color: #6B330F">aquí</a>.
                                                 </p>
+                                                <br>
                                             </td>
                                         </tr>
                                     </table>

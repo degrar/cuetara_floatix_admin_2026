@@ -87,7 +87,7 @@
 </head>
 
 <body style="margin: 0; background-color: #000000; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
-<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #000000;">
+<table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #cecece;">
     <tbody>
     <tr>
         <td>
@@ -113,23 +113,19 @@
                                                     Nos alegra confirmarte que has <span style="color:#FF0202 ">ganado un telescopio.</span>
                                                 </p>
                                                 <br>
-                                                <br>
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     Por favor, accede a nuestro formulario en un plazo máximo de 10 días y sube una <strong>imagen de tu DNI y la dirección</strong> en la que deseas recibir tu premio.
                                                 </p>
-                                                <br>
                                                 <br>
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
                                                 <br>
-                                                <br>
                                                 <div style="text-align: left">
                                                     <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 31px; width: 135px;" height="31" width="135">
+                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 59px; width: 223px;" height="59" width="223">
                                                     </a>
                                                 </div>
-                                                <br>
                                                 <br>
                                                 <div style="text-align: left">
                                                     <a href="{{ $formLink }}">
@@ -148,6 +144,7 @@
                                                     Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción
                                                     <a href="{{ route('legal') }}" style="font-size: 12px;font-weight: bold;text-decoration: underline;color: #6B330F">aquí</a>.
                                                 </p>
+                                                <br>
                                             </td>
                                         </tr>
                                     </table>

@@ -55,7 +55,7 @@ class ExportGames
             'fecha_confirmacion' => Carbon::parse($game->confirmed_at)->format('d-m-Y H:i:s'),
 
             // address
-            'direccion' => $address?->name.' '.$address?->via->name,
+            'direccion' => $address?->via->name.' '.$address?->name,
             'numero' => $address?->number,
             'escalera' => $address?->strair,
             'puerta' => $address?->door,

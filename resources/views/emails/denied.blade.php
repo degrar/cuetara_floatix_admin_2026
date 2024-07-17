@@ -116,11 +116,9 @@
                                                     Lamentamos mucho comunicarte que tu participación no se ha validado correctamente porque no cumple con las condiciones especificadas en las bases de la promoción y que puedes
                                                     <a href="{{ route('legal') }}" style="text-decoration: underline;color: #7D2A25"><strong>consultar aquí</strong></a>.
                                                 </p>
-                                                <br>
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
                                                     <strong>Tu premio se ha descartado por esta razón:</strong>
                                                 </p>
-                                                <br>
                                                 <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;font-weight: bold">
                                                     {{ $declineReason }}
                                                 </p>
@@ -136,6 +134,7 @@
                                                     Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción
                                                     <a href="{{ route('legal') }}" style="font-size: 12px;font-weight: bold;text-decoration: underline;color: #6B330F">aquí</a>.
                                                 </p>
+                                                <br>
                                             </td>
                                         </tr>
                                     </table>
