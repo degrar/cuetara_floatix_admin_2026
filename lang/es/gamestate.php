@@ -1,9 +1,10 @@
 <?php
 
 return [
-    'Winner' => 'Ganador',
-    'Pending' => 'Pendiente',
-    'Loser' => 'Perdedor',
-    'Awaiting' => 'A la espera / Incidencia',
     'Valid' => 'Validado',
+    'Pending' => 'Pendiente',
+    'Awaiting' => 'Documentación pendiente',
+    'Winner' => 'Ganador',
+    'Denied' => 'Rechazado',
+    'Loser' => 'Perdedor',
 ];
