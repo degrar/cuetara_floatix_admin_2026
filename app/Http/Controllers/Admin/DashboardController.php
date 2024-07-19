@@ -21,7 +21,7 @@
 
         private function getStats(): array
         {
-            $usersSelect = DB::table('users')->selectRaw('COUNT(*)');
+            $usersSelect = DB::table('users')->where('role', '=', 'user')->selectRaw('COUNT(*)');
 
             return (array) DB::table('games')
                 ->selectSub($usersSelect, 'users')

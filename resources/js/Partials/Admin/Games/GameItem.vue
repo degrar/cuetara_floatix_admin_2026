@@ -1,6 +1,6 @@
 <template>
     <div>
-        <div class="game-item grid grid-cols-5 py-4 px-4 border-b last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-6': !hideActions }" v-bind="$attrs">
+        <div class="game-item grid grid-cols-5 py-4 px-4 border-b last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-6': !hideActions, 'bg-green-200': data.state === 3 , 'bg-rose-200': data.state === 7 }" v-bind="$attrs">
             <div class="field scrollbar overflow-x-auto">
                 <span class="text-center">
                     <template v-if="route().current('admin.games.pending')">
@@ -31,30 +31,19 @@
             </div>
 
             <div class="field scrollbar overflow-x-auto">
-                <span v-if="data.validated_at">
-                    {{ formatDate(data.validated_at) }}
+                <span>
+                    <span class="font-semibold">Fecha participación:</span> {{ formatDate(data.created_at) }} <br>
+                    <span v-if="data.validated_at"><span class="font-semibold">Fecha validación:</span> {{ formatDate(data.validated_at) }} <br></span>
+                    <span v-if="data.confirmed_at"><span class="font-semibold">Fecha confirmación:</span> {{ formatDate(data.confirmed_at) }} <br></span>
                 </span>
-                <span v-else-if="data.created_at">
-                    {{ formatDate(data.created_at) }}
-                </span>
+
             </div>
 
             <div class="field scrollbar overflow-x-auto">
-                <span v-if="data.decline_reason">
-                    {{ data.decline_reason }}
-                </span>
-                <span v-else-if="data.validated_at">
-                    {{ formatDate(data.validated_at) }}
-                </span>
-                <span v-else-if="data?.mmgg">
-                    {{ formatDate(data.date_moment) }}
-                </span>
-                <span v-else-if="data?.mmgg">
-                    {{ formatDate(data.date_moment) }}
-                </span>
-                <span v-else>
-                    -
-                </span>
+                 <span>
+                     <span v-if="data?.mmgg"><span class="font-semibold">Fecha validación:</span> {{ formatDate(data.date_moment) }}<br></span>
+                     <span v-if="data.decline_reason"><span class="font-semibold">Razón rechazado:</span> {{ data.decline_reason }} <br></span>
+                 </span>
             </div>
 
             <div class="field scrollbar overflow-x-auto space-x-1" v-if="!hideActions">

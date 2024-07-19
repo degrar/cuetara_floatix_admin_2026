@@ -1,7 +1,7 @@
 <template>
     <div class="game-list border-2 rounded-3xl overflow-hidden">
-        <div class="grid py-4 px-4 border-b" :class="`grid-cols-${header.length}`">
-            <div class="flex justify-center items-center font-semibold" v-for="(item, key) in header" :key="key">{{ item }}</div>
+        <div class="grid grid-flow-row-dense py-4 px-4 border-b" :class="`grid-cols-${header.length}`">
+            <div class="flex justify-center items-center font-semibold text-center px-2" v-for="(item, key) in header" :key="key">{{ item }}</div>
         </div>
 
         <GameItem v-for="(item, key) in data" :data="item" :key="key" @dialog="imagesDialog" @deleted="onItemDeleted" />
