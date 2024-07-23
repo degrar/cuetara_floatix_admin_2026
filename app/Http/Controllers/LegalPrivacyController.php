@@ -22,6 +22,6 @@ class LegalPrivacyController extends Controller
 
     public function faqs()
     {
-        return Inertia::render('Public/Legal');
+        return Inertia::render('Public/Faqs');
     }
 }

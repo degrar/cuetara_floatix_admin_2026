@@ -4,7 +4,8 @@
         <div class="bg-yellow pb-[100px]">
             <div class="container mx-auto px-[15px] flex justify-center items-center flex-col py-[40px] lg:flex-row lg:py-[80px] ">
                 <div class="w-12/12  pt-[15px]">
-                    <h1 class="rem:text-[60px] font-hermes text-brown uppercase leading-[62px] tracking-[-0.6px] text-center mb-6">Bases legales</h1>
+                    <h1 class="rem:text-[60px] font-hermes text-brown uppercase rem:leading-[62px] tracking-[-0.6px] text-center mb-6 block">BASES LEGALES DE LA PROMOCIÓN:</h1>
+                    <h2 class="rem:text-[30px] font-hermes text-brown uppercase rem:leading-[38px] tracking-[-0.6px] text-center rem:mb-[80px] block">"Space Mission, Un universo para crecer"<br>Del 9 de septiembre de 2024 al 9 de noviembre de 2024</h2>
 
                     <h4>I. OBJETO DE LA PROMOCIÓN</h4>
                     <p>
@@ -23,28 +24,29 @@
                     <p>FERRERO se reserva el derecho de emprender acciones judiciales contra aquellas personas que realicen cualquier tipo de acto susceptible de ser considerado manipulación o falsificación de la Promoción.</p>
 
                     <h4>IV. MECÁNICA DE LA PROMOCIÓN</h4>
-                    <p>La participación en la promoción es de carácter gratuito y está dirigida a personas mayores de edad que residan en España y que sean consumidores de Kinder® Chocolate y Kinder® Joy. Requiere únicamente compra de producto.</p>
+                    <p>La participación en la promoción es de carácter gratuito y está dirigida a personas mayores de edad que residan en España y que sean consumidores de Kinder® Chocolate y Kinder® Sorpresa. Requiere únicamente compra de producto. </p>
                     <p>Los productos que dan derecho a participar en la presente Promoción serán:</p>
                     <ul>
-                        <li>Kinder® Joy: T1, T3 y T3x2. Todos los formatos que participen en la promoción deben llevar la comunicación promocional.</li>
-                        <li>Kinder® Chocolate:</li>
+                        <li>Kinder® Sorpresa: T1, T3 y T3x2. Todos los formatos que participen en la promoción deben llevar la comunicación promocional de Space Mission.</li>
+                        <li>Kinder® Chocolate: T4, T8, T12, T16 y T24. Los formatos de Kinder Chocolate no llevan la promoción anunciada en el pack.</li>
                     </ul>
-                    <p>Cada pack individual o multipack que lleven comunicada la promoción en el pack podrá ser utilizado una (1) sola vez por un (1) único participante y equivaldrá a una única (1) participación.</p>
-                    <p>Todas las personas que cumplan con los requisitos anteriormente mencionados y que deseen participar en la Promoción deberán adquirir al menos uno de los Productos Kinder® Chocolate y Kinder® Joy anteriormente mencionados a lo largo del PERIODO PROMOCIONAL.</p>
+
+                    <p>Cada pack individual o multipack podrá ser utilizado una (1) sola vez por un (1) único participante y equivaldrá a una única (1) participación.</p>
+                    <p>Todas las personas que cumplan con los requisitos anteriormente mencionados y que deseen participar en la Promoción deberán adquirir al menos uno de los Productos Kinder® Chocolate y Kinder® Sorpresa anteriormente mencionados a lo largo del PERIODO PROMOCIONAL.</p>
                     <p>A efectos de esta Promoción, se considerará que un correo electrónico equivale a un único “participante”, “consumidor” o “usuario” (términos que tendrán el mismo significado), y siempre correspondiente a una persona física. La primera participación que se realice con un email generará la vinculación de ese email con el nombre y apellidos de la persona física que se indique.</p>
-                    <p>El participante deberá acceder a la página oficial de la Promoción https://www.kinder.com/es/es y rellenar un primer formulario de participación, donde se requerirá detallar el nombre, apellidos y email. A continuación deberá subir una imagen del pack que ha comprado de cualquier formato que se detalla anteriormente en este mismo apartado. La imagen debe ser un archivo jpg, pdf o png y no podrá superar los 8Mb de peso.</p>
-                    <p>Será requisito indispensable que el participante acepte los siguientes checkbox correspondientes a:  ser mayor de edad, las bases legales y la política de privacidad de FERRERO que estarán a su disposición en el footer de la página oficial de la Promoción: https://www.kinder.com/es/es. El participante además podrá manifestar si desea recibir comunicaciones comerciales de los productos de Ferrero Ibérica S.A.</p>
+                    <p>El participante deberá acceder a la página oficial de la Promoción https://www.kinder.com/es/es y rellenar un primer formulario de participación, donde se requerirá detallar el nombre, apellidos y email. A continuación, deberá subir una imagen del pack que ha comprado de cualquier formato que se detalla anteriormente en este mismo apartado. La imagen debe ser un archivo jpg, pdf o png y no podrá superar los 8Mb de peso.</p>
+                    <p>Será requisito indispensable que el participante acepte los siguientes checkbox correspondientes a: ser mayor de edad, las bases legales y la política de privacidad de FERRERO que estarán a su disposición en el footer de la página oficial de la Promoción: https://www.kinder.com/es/es. El participante además podrá manifestar si desea recibir comunicaciones comerciales de los productos de Ferrero Ibérica S.A.</p>
                     <p>Adicionalmente, el participante deberá cumplimentar correctamente el checkbox correspondiente al sistema Captcha.</p>
                     <p>No está permitido utilizar nicknames, iniciales, nombre falsos, incompletos o erróneos puesto que la persona no queda correctamente identificada. En caso de resultar ganador no se le podrá validar como participante y, por tanto, podrá perder el derecho al premio.</p>
-                    <p>Una vez introducidos todos los datos anteriormente requeridos, el participante quedará registrado y conocerá al instante si ha sido premiado con uno de los dieciocho (18) premios de Telescopios a través del sistema de momento ganador.</p>
+                    <p>Una vez introducidos todos los datos anteriormente requeridos, el participante quedará registrado y conocerá al instante si ha sido premiado con uno de los dieciocho (18) premios de Telescopios a través del sistema de “momento ganador”.</p>
                     <p>El “momento ganador” se atribuye a un momento concreto (hora, minuto y segundo). Con anterioridad al inicio de la Promoción, se establecerán 18 “momentos ganadores” (que se depositarán notarialmente) correspondientes a los 18 premios.</p>
                     <p>Si la inscripción del participante coincide con un “momento ganador”, se le mostrará un mensaje comunicándole que es el ganador del premio; en caso contrario, se le informará que no ha resultado ganador. En el caso de no coincidir ninguna participación con un “momento ganador”, ganará el participante posterior más próximo a un “momento ganador”.</p>
                     <p>Cada participación quedará automáticamente registrada en el momento en que pulse el botón de la pantalla “ENVIAR”, permitiendo al usuario optar al premio del sorteo del “momento ganador”.</p>
-                    <p>Una misma persona podrá participar hasta un máximo de una (1) vez al día con imágenes distintas que muestren la compra de otro producto (misma variedad o distinto producto).</p>
+                    <p>Una misma persona podrá participar hasta un máximo de una (1) vez al día.</p>
                     <p>El participante deberá conservar el/los envoltorio/s original/es, con los que haya participado en la Promoción, hasta la finalización de la presente Promoción, ya que podrán ser solicitados si resulta ganador.</p>
 
                     <h4>V. PREMIOS</h4>
-                    <p>El premio en la presente Promoción es un "Telescopio” Omegon telescopio AC 6/700 AZ-1 Set. Las características del premio son las siguientes:</p>
+                    <p>El premio en la presente Promoción es un Telescopio Omegon AC 60/700 AZ-1 Set. Las características del premio son las siguientes:</p>
 
                     <h6>Sistema óptico</h6>
                     <ul>
@@ -93,17 +95,18 @@
                     <h4>VI SELECCIÓN DE LOS GANADORES Y ENTREGA DE LOS PREMIOS</h4>
 
                     <h5>VI. 1 SELECCIÓN DE LOS GANADORES:</h5>
-                    <p>El sistema de Momento Ganador otorgará dieciocho (18) telescopios, mediante una plataforma informática que habrá determinado, de forma aleatoria y con carácter previo al inicio de la Promoción, cuál será el Momento Ganador para cada uno de los dieciocho (18) premios previstos.</p>
+
+                    <p>El sistema de Momento Ganador otorgará dieciocho (18) telescopios, que equivaldrá a la entrega de dos premios por semana, mediante una plataforma informática que habrá determinado, de forma aleatoria y con carácter previo al inicio de la Promoción, cuál será el Momento Ganador para cada uno de los dieciocho (18) premios previstos.</p>
                     <p>Cada vez que un consumidor participe en la Promoción, a través de la web https://www.kinder.com/es/es, el programa informático comprobará si el momento en el que participa, coincide con un Momento Ganador. El participante conocerá en ese momento si ha resultado ganador o no.</p>
                     <p>Si no se produjese ninguna participación en ese momento, el Premio se adjudicará a la participación registrada más próxima en el tiempo, una vez superada la hora marcada como Momento Ganador.</p>
-                    <p>El participante que resulte ganador deberá especificar en el formulario habilitado únicamente para los ganadores, a efectos de gestionar el envío del Premio, los siguientes datos: imagen DNI/NIE cara y la dirección de entrega del premio.</p>
-                    <p>Desde el mismo día en que se le comunique que ha resultado premiado, el ganador tendrá hasta diez (10) días naturales para cargar la documentación solicitada a través de la plataforma habilitada para tal efecto para la obtención del premio. De no respetar este plazo, se entenderá que no desea acceder al Premio.</p>
+                    <p>Tras la validación de su participación, vía imagen del producto de compra, el  ganador recibirá un email en el que se le solicitará que acceda a la plataforma web, a través de un link en el mismo email, y deberá especificar los siguientes datos:  imagen DNI/NIE cara y la dirección de entrega del premio</p>
+                    <p>Desde el mismo día en que se le comunique que se ha validado su participación, el ganador tendrá hasta diez (10) días naturales para cargar la documentación solicitada a través de la plataforma habilitada para tal efecto para la obtención del premio. De no respetar este plazo, se entenderá que no desea acceder al Premio.</p>
                     <p>En el supuesto de que la participación o la documentación no sea correcta, el participante recibirá un email en el que se le informará de los motivos de la invalidación de su participación.</p>
                     <p>Una misma persona podrá resultar ganadora de un (1) solo premio en toda la promoción.</p>
-                    <p>Con la intención de entregar el máximo número de premios, FERRERO se reserva la posibilidad de reintroducir nuevos momentos ganadores antes de la finalización del Periodo Promocional para la concesión de los Premios que hubieran quedado desiertos o invalidados.</p>
+                    <p>Con la intención de entregar el máximo número de premios, FERRERO se reserva la posibilidad de reintroducir nuevos momentos ganadores antes de la finalización del Periodo Promocional para la concesión de los Premios que hubieran quedado desiertos o invalidados o de realizar un sorteo final.</p>
                     <p>PREMIOS DESIERTOS O INVALIDADOS: Ferrero se reserva la posibilidad de declarar desierto o invalidado uno o varios de los premios al menos en los siguientes casos:</p>
-                    <p>Que no se registre ninguna participación entre un momento ganador y el inmediatamente siguiente;</p>
                     <ul>
+                        <li>Que no se registre ninguna participación entre un momento ganador y el inmediatamente siguiente;</li>
                         <li>Que no se facilite una imagen del producto promocional comprado o la imagen y el producto mostrado ya hayan sido utilizados por el mismo u otro participante.</li>
                         <li>Que, una vez concedido un premio, el ganador no responda a la solicitud de documentación o lo haga de forma incompleta en el plazo establecido en estas Bases Legales;</li>
                         <li>Que existan irregularidades injustificadas o indicios de fraude en la participación: Se considerarán irregularidades los comportamientos contradictorios, confusos y/o contrarios a estas Bases Legales. En tales casos se someterá la participación a valoración interna para verificar y probar, en la medida de lo posible, si ha habido mala fe o intento de fraude en la misma.</li>
@@ -113,7 +116,7 @@
                     <h4>VII ENTREGAS DE LOS PREMIOS</h4>
                     <h5>PREMIO “TELESCOPIO”</h5>
                     <p>Sólo se realizará el envío del Premio a la dirección dentro del territorio de España que el participante haya registrado su participación ganadora. El envío será totalmente gratuito y no comportará ningún coste para el participante.</p>
-                    <p>En circunstancias normales, la entrega de los premios a los ganadores se realizará en el plazo máximo de treinta (30) días desde la fecha en que se comunica al participante que ha resultado ganador.  En caso de que por alguna circunstancia excepcional y ajena al control de FERRERO no sea posible cumplir este plazo se comunicará debidamente a los ganadores acordándose nuevos plazos de entrega.</p>
+                    <p>En circunstancias normales, la entrega de los premios a los ganadores se realizará en el plazo máximo de treinta (30) días desde la fecha en que se comunica al participante que ha resultado ganador.  En caso de que por alguna circunstania excepcional y ajena al control de FERRERO no sea posible cumplir este plazo se comunicará debidamente a los ganadores acordándose nuevos plazos de entrega.</p>
                     <p>FERRERO no se responsabiliza de las posibles incidencias en la entrega o cualquier otra circunstancia imputable a terceros o de la que FERRERO no sea directamente responsable que afecte a los regalos de esta Promoción.</p>
                     <p>La aceptación del Premio por parte de los ganadores es de carácter voluntario y gratuito, por lo que no podrán efectuarse reclamaciones por este motivo. Los ganadores deberán evaluar las posibles consecuencias fiscales derivadas de la aceptación de cualquiera de los premios</p>
                     <p>En ningún caso será posible que los participantes ganadores realicen el cambio del Premio por la percepción en metálico del valor económico del mismo ni por cualquier otro regalo.</p>
@@ -125,10 +128,9 @@
                     <p>El plazo máximo establecido para cualquier tipo de reclamación referida y/o relacionada con la Promoción se extingue a los dos (2) meses desde la finalización de la presente Promoción. Tras finalizar dicho plazo, se perderá todo derecho a reclamación.</p>
                     <p>La empresa organizadora queda exonerada de toda responsabilidad en caso de que existan interrupciones del servicio, demoras, errores, mal funcionamiento y, en general, demás inconvenientes de las redes de comunicación electrónicas que tengan su origen en causas que escapan al control de FERRERO e impidan el normal desarrollo de la promoción por causas ajenas a la empresa y especialmente por actos externos de mala fe.</p>
                     <p>Tampoco será responsable la empresa organizadora por los problemas de transmisión o pérdida de datos no imputables a la misma.</p>
-                    <p>FERRERO no se responsabilizará en el caso de que cualquiera de los Premios no pudiera disfrutarse de forma satisfactoria o completa por negligencia del ganador (omisión en la confirmación de datos, perdida de vuelos/trenes, etc) y en general por cualquier causa ajena a FERRERO. Así como tampoco se responsabilizará por los posibles daños y perjuicios de toda naturaleza que puedan resultar de la falta de disponibilidad de vuelos o alojamientos para disfrutar del viaje derivada de una tardía confirmación por parte del ganador.</p>
-                    <p>FERRERO no se responsabilizará por los servicios que terceras empresas deban prestar con motivo de los Premios objeto de la presente Promoción. Así como tampoco lo hará por las incidencias que puedan ocurrir durante el transcurso del viaje o uso de los premios, en cualquier momento del disfrute de los mismos que pudieran ocurrir.</p>
-                    <p>FERRERO exonera expresa y completamente a Facebook®, Twitter® e Instagram® de toda responsabilidad por parte de la actuación y contenidos que cada concursante o participante pueda subir a la red social en relación con la presente promoción.</p>
-                    <p>FERRERO manifiesta y reconoce expresamente que la Promoción no está patrocinada, apoyada ni administrada por Facebook®, Twitter® o Instagram®, ni asociada en modo alguno a Facebook® e Instagram®.</p>
+                    <p>FERRERO exonera expresa y completamente a Facebook® e Instagram® de toda responsabilidad por parte de la actuación y contenidos que cada concursante o participante pueda subir a la red social en relación con la presente promoción.</p>
+                    <p>FERRERO manifiesta y reconoce expresamente que la Promoción no está patrocinada, apoyada ni administrada por Facebook® o Instagram®, ni asociada en modo alguno a Facebook® e Instagram®.</p>
+
 
                     <h4>VIII ACEPTACIÓN Y DEPÓSITO DE LAS BASES LEGALES</h4>
                     <p>La participación en la presente Promoción supone la aceptación íntegra de las presentes bases. La empresa organizadora se reserva el derecho a variar estas bases en aspectos no sustanciales si así lo exigieran las circunstancias y dirimir cuantas dudas pudieran surgir en lo no previsto en las mismas. En ese caso, la empresa organizadora lo notificará en los mismos canales donde la Promoción se haya anunciado previamente y le dará a la modificación el mismo grado de publicidad que a la presente Promoción.</p>
@@ -136,7 +138,6 @@
                     <p>FERRERO se reserva también el derecho de anular, prorrogar, ampliar, recortar o modificar la Promoción si las circunstancias lo obligan, sin tener que justificar la decisión y sin que se le pueda reclamar ningún tipo de responsabilidad como consecuencia de ello, siempre que no perjudiquen los derechos adquiridos por los participantes.</p>
                     <p>Las Bases Legales de la Promoción serán depositadas ante Notario y podrán consultarse en la sección ÁBACO de la página Web www.notariado.org.</p>
                     <p>Para resolver cualquier duda o consulta sobre el funcionamiento de la Promoción, los participantes pueden dirigirse a la sección de Atención al Consumidor habilitada a tal efecto en la propia página web promocional https://www.kinder.com/es/es que permanecerá operativo hasta dos (2) meses después de finalizada la Promoción. Adicionalmente los usuarios pueden contactar a través del correo electrónico: info@promokinder.es</p>
-
 
                     <h4>IX  PROPIEDAD INTELECTUAL E INDUSTRIAL </h4>
                     <p>Los derechos de propiedad intelectual e industrial sobre las creaciones, logos, contenidos publicados, informaciones, imágenes, videos, marcas y demás contenidos audiovisuales o sonoros, así como cualquier otro susceptible de protección, contenidos en los medios de publicidad y desarrollo de la Promoción corresponden en exclusiva a FERRERO o a terceros que han autorizado su inclusión en la misma.</p>

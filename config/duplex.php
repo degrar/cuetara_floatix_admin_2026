@@ -25,6 +25,8 @@ return [
             'total' => 10000
         ],
 
+        'url_project_name' => env('URL_PROJECT_NAME', ''),
+
         'onepage' => true,
     ],
 

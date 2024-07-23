@@ -29,7 +29,7 @@ class AppServiceProvider extends ServiceProvider
 	    });
 
         if (config('app.env') === 'production') {
-            \URL::forceRootUrl(str_replace('es/es/xp/harrypotterquidditch', '', config('app.url')));
+            \URL::forceRootUrl(str_replace(config('duplex.promo.url_project_name'), '', config('app.url')));
         }
     }
 }

@@ -5,7 +5,7 @@
                 <div class="py-[30px]">
                     <h1 class="font-hermes text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:leading-[62px] lg:tracking-[.6px] text-center my-6">¡ENHORABUENA!</h1>
                     <h2 class="font-tekoRegular text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:leading-[62px] lg:tracking-[.6px] text-center my-6">¡EL TELESCOPIO YA CASI ES TUYO!</h2>
-                    <p class="max-w-[800px] w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[.35px] text-center">Completa este formulario y, tras validar tu participación, realizaremos el envío de tu premio.</p>
+                    <p class="max-w-[800px] w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[.35px] text-center">Completa este formulario y, si todo está correcto, realizaremos el envío de tu premio.</p>
                 </div>
 
                 <form @submit.prevent="submitForm" class="mx-auto py-[50px]">
