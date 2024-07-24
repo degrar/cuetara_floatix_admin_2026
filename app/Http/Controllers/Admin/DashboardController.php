@@ -15,8 +15,13 @@
 
             return Inertia::render('Admin/Dashboard', [
                 'recent_login' => session('recent_login'),
-                'stats' => $this->getStats()
-            ]);
+                'stats' => $this->getStats(),
+                'start_date' => config('duplex.promo.date.start'),
+                'end_date' => config('duplex.promo.date.end'),
+                'timezone' => config('duplex.promo.date.timezone'),
+                'attempts_day' => config('duplex.promo.attemps.day'),
+                'attempts_total' => config('duplex.promo.attemps.total'),
+                ]);
         }
 
         private function getStats(): array

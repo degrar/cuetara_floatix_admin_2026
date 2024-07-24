@@ -8,8 +8,41 @@
             </SectionTitle>
 
             <div class="bg-snow min-h-[50vh] px-8 py-8 rounded-3xl">
-                <h4 class="text-xl font-semibold font-poppins text-police">Resumen</h4>
 
+                <h4 class="text-xl font-medium mb-2">Campaña</h4>
+
+                <div class="border rounded-xl border-dark shadow-sm p-6 bg-white">
+                    <div class="inline-flex items-center">
+                        <span class="text-black mr-2"><strong>Inicio de la campaña: </strong></span>
+                        <span class="text-gray-600">{{ formatDate($page.props.start_date) }} a las {{ formatHours($page.props.start_date) }} - <span class="text-black">Check página</span> <a class="underline" target="_blank" :href="route('proximamente')">Próximamente</a></span>
+                    </div>
+                    <br>
+                    <div class="inline-flex items-center">
+                        <span class="text-black mr-2"><strong>Finalización de la campaña: </strong></span>
+                        <span class="text-gray-600">{{ formatDate($page.props.end_date) }} a las {{ formatHours($page.props.end_date) }} - <span class="text-black">Check página</span> <a class="underline" target="_blank" :href="route('promo-finalizada')">Promo Finalizada</a></span>
+                    </div>
+                    <br>
+                    <div class="inline-flex items-center">
+                        <span class="text-black mr-2"><strong>Timezone: </strong></span>
+                        <span class="text-gray-600">{{ $page.props.timezone }} </span>
+                    </div>
+                    <br>
+                    <br>
+                    <div class="inline-flex items-center">
+                        <span class="text-black mr-2"><strong>Límite participaciones diarias: </strong></span>
+                        <span class="text-gray-600">{{ $page.props.attempts_day }} </span>
+                    </div>
+                    <br>
+                    <div class="inline-flex items-center">
+                        <span class="text-black mr-2"><strong>Límite participaciones totales: </strong></span>
+                        <span class="text-gray-600">{{ $page.props.attempts_total }} </span>
+                    </div>
+
+                </div>
+
+                <hr class="my-4">
+
+                <h4 class="text-xl font-medium mb-2">Resumen</h4>
                 <div class="md:grid grid-cols-4 mt-4 gap-5 font-poppins">
                     <div class="border-2 rounded-xl p-4">
                         <div class="flex">
@@ -56,9 +89,20 @@ import {usePage} from "@inertiajs/vue3";
 import {useToast} from "vue-toastification";
 import Banner from "@/Components/Admin/Banner.vue";
 import SectionTitle from "@/Components/Admin/SectionTitle.vue";
+import dayjs from 'dayjs';
 
 if (usePage().props.recent_login)
 {
     useToast().success(`Bienvenid@! 👋😄`);
+}
+
+function formatDate (dateString)  {
+    const date = dayjs(dateString);
+    return date.format('DD-MM-YYYY');
+}
+
+function formatHours (dateString)  {
+    const date = dayjs(dateString);
+    return date.format('HH:mm:ss');
 }
 </script>
