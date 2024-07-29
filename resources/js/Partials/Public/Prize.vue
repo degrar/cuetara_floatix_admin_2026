@@ -122,7 +122,7 @@ function scrollToSpecs() {
         const specsElement = telescopioRef.value.querySelector('#specs');
         console.log(specsElement);
         if (specsElement) {
-            const headerHeight = document.querySelector('#header').offsetHeight;
+            const headerHeight = document.querySelector('#nutella-header').offsetHeight;
             let nav = 0;
             if (window.innerWidth >= 1024) nav = document.querySelector('#duplex-header').offsetHeight;
             else  nav = document.querySelector('div.wrapper-mobile').offsetHeight;

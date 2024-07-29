@@ -6,6 +6,7 @@ use App\Http\Requests\StoreGameWinnerRequest;
 use App\Models\Address;
 use App\Models\Game;
 use App\Models\Province;
+use App\Models\Stock;
 use App\Models\Via;
 use App\Models\File;
 use Duplex\Enums\GameState;
@@ -28,6 +29,7 @@ class MoreInfoController extends Controller
             'lang' => config('duplex.recaptcha.lang'),
             'provinces' => Province::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
             'vias' => Via::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
+            'stock' => Stock::query()->orderBy('id')->get(['id', 'name', 'units', 'used']),
         ]);
     }
 

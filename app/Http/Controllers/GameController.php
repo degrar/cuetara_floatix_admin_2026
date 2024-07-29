@@ -3,12 +3,14 @@
 namespace App\Http\Controllers;
 
 use App\Http\Requests\StoreGameRequest;
+use App\Mail\MoreInfo;
+use App\Mail\Winner;
 use App\Models\Address;
 use App\Models\Province;
 use App\Models\User;
 
 use Duplex\Game\GameMechanism;
-use Duplex\Enums\{GameResult, Role, Game as GameType};
+use Duplex\Enums\{Game, GameResult, Role, Game as GameType};
 
 use Illuminate\Http\RedirectResponse;
 use Illuminate\Http\Request;
@@ -31,6 +33,11 @@ class GameController extends Controller
         $user = User::where('email', $request->getEmail())->get()->first();
 
         if (!$user) $user = $this->createUser($request);
+        else{
+            $user->update([
+                'ads' => $request->ads ?? false,
+            ]);
+        }
 
         $gameSystem = new GameMechanism(
             type: GameType::Mmgg,
@@ -40,8 +47,14 @@ class GameController extends Controller
 
         $result = $gameSystem->play();
 
+        if ($result === GameResult::Winner)
+        {
+            $this->sendWinnerMail($gameSystem->getGame());
+        }
+
         return match ($result) {
-            GameResult::Winner => Redirect::route('game-result.winner'),
+            GameResult::Winner => Redirect::route('user-info', ['token' => $gameSystem->getGame()->token]),
+            GameResult::WinnerPending => Redirect::route('game-result.winner'),
             GameResult::Won => Redirect::route('game-result.lost'),
             GameResult::Lost => Redirect::route('game-result.lost'),
             GameResult::MaxDay => Redirect::route('game-result.max')
@@ -72,4 +85,13 @@ class GameController extends Controller
 
         return $user;
     }
+
+    private function sendWinnerMail(\App\Models\Game $game)
+    {
+        dispatch(function () use ($game) {
+            \Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new MoreInfo($game->token, '0'));
+        })->afterResponse();
+    }
+
+
 }

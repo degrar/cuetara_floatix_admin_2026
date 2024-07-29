@@ -22,7 +22,7 @@ return [
         ],
 
         'attemps' => [
-            'day' => 1,
+            'day' => 10,
             'total' => 10000
         ],
 

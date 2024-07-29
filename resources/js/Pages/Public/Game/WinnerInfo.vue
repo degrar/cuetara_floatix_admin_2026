@@ -13,9 +13,13 @@
 
                     <form @submit.prevent="submitForm" class="mx-auto py-[50px]">
                         <div class="space-y-4">
+                            <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2 block">
+                                <SelectInput v-model:select="form.stock1" :options="stock" :default-value="-1" :error="form.errors.stock1" value="id" placeholder="Talla 1*" label="name" />
+                                <SelectInput v-model:select="form.stock2" :options="stock" :default-value="-1" :error="form.errors.stock2" value="id" placeholder="Talla 1*" label="name" />
+
+                            </div>
 
 
-                            <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" label="Imagen de tu DNI(cara)*"/>
 
 
                             <p class="font-tekoMedium text-brown rem:text-[25px] rem:leading-[26px] rem:tracking-[-0.25px] !mt-6 block">Dirección de entre de tu premio</p>
@@ -103,6 +107,7 @@ addIcons(BiUpload, FaCircleNotch);
 
 const provinces = usePage().props.provinces;
 const vias = usePage().props.vias;
+const stock = usePage().props.stock;
 
 const props = defineProps({
     token: String,
@@ -114,7 +119,8 @@ const props = defineProps({
 
 const form = useForm({
     // File upload
-    file: null,
+    stock1: null,
+    stock2: null,
 
     //Address
     via: null,

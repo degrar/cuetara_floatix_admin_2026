@@ -3,6 +3,7 @@
 namespace Duplex\Game;
 
 use App\Http\Requests\StoreGameRequest;
+use App\Models\Code;
 use App\Models\File;
 use App\Models\Game as GameModel;
 use App\Models\GameLog;
@@ -41,7 +42,6 @@ class GameMechanism
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
         $game = $this->createGame($attempts->total);
 
-
         if (GameType::Mmgg === $this->type)
         {
             $mmggAvailable = Mmgg::firstAvailable();
@@ -49,12 +49,18 @@ class GameMechanism
             if ($mmggAvailable !== null)
             {
                 $mmggAvailable->assign($this->user->id, $game->id);
-                $this->game->update(['state' => GameState::Pending]);
                 Session::put('winner', true);
-                return GameResult::Winner;
+                if($this->request->option == '1') //Code
+                {
+                    $this->game->update(['state' => GameState::Requested]);
+                    return GameResult::Winner;
+                }
+                else if ($this->request->option == '2'){ //Ticket
+                    $this->game->update(['state' => GameState::Pending]);
+                    return GameResult::WinnerPending;
+                }
             }
             else {
-
                 return GameResult::Lost;
             }
         }
@@ -63,30 +69,45 @@ class GameMechanism
         return GameResult::Won;
     }
 
+
+    public function getGame(): ?GameModel
+    {
+        return $this->game;
+    }
+
     private function createGame(): GameModel
     {
         $gameAttrs = [
             'user_id' => $this->user->id,
             'token' => Str::random(32),
-            'state' => GameState::Loser
+            'state' => GameState::Loser,
+            'option' => $this->request->option,
+            'code' => $this->request->code,
+            'amount' => $this->request->amount,
+            'buydate' => $this->request->buydate,
         ];
 
         if ($this->type === GameType::Mmgg)
         {
             $gameAttrs = [
                 ...$gameAttrs,
-                $this->getMmggAttrs()
+                ...$this->getMmggAttrs()
             ];
         } else if($this->type === GameType::Comment) {
             $gameAttrs = [
                 ...$gameAttrs,
-                $this->getCommentAttrs()
+                ...$this->getCommentAttrs()
             ];
         }
 
         $this->game = GameModel::query()->create($gameAttrs);
 
-        $this->storeFile($this->game->id);
+        if ($this->request->option == '1') //Code
+            Code::updateStatus($this->request->code, 1, $this->user->id);
+
+        if ($this->request->option == '2') //Ticket
+            $this->storeFile($this->game->id);
+
 
         return $this->game;
     }
@@ -102,8 +123,10 @@ class GameMechanism
     private function hasReachedMaxAttemps(): ?GameResult
     {
         // Ha guanyat una vegada ya?
-        if (Mmgg::getTotalForUser($this->user->id) > 0)
+        if (Mmgg::getTotalForUser($this->user->id) > 0){
+            //Code::updateStatus($this->request->code, 1, $this->user->id);
             return GameResult::Lost;
+        }
 
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
 
@@ -113,7 +136,7 @@ class GameMechanism
 
     private function storeFile(int $gameId): void
     {
-        $hash = $this->request->file('file')->store('packs');
+        $hash = $this->request->file('file')->store(self::DefaultStorageFolder);
         File::query()->create([
             'hash' => $hash,
             'user_id' => $this->user->id,
@@ -133,7 +156,7 @@ class GameMechanism
     private function getMmggAttrs(): array
     {
         return [
-            'amount' => $this->request->total
+
         ];
     }
 }

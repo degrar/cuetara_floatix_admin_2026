@@ -169,7 +169,7 @@ import InsideHeaderPage from "@/Components/inside/insideHeaderPage.vue";
 const headerHeight = ref(0);
 
 const getHeaderHeight = () => {
-    headerHeight.value = document.querySelector('#header').offsetHeight ;
+    headerHeight.value = document.querySelector('#nutella-header').offsetHeight ;
 };
 
 onMounted(() => {

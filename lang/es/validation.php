@@ -14,7 +14,7 @@ return [
     */
 
     'accepted' => 'Por favor, acepta las condiciones.',
-    'accepted_if' => 'The :attribute must be accepted when :other is :value.',
+    'accepted_if' => 'Este campo es obligatorio.',
     'active_url' => 'The :attribute is not a valid URL.',
     'after' => 'The :attribute must be a date after :date.',
     'after_or_equal' => 'The :attribute must be a date after or equal to :date.',
@@ -119,7 +119,7 @@ return [
     'regex' => 'The :attribute format is invalid.',
     'required' => 'Este campo es obligatorio.',
     'required_array_keys' => 'The :attribute field must contain entries for: :values.',
-    'required_if' => 'The :attribute field is required when :other is :value.',
+    'required_if' => 'Este campo es obligatorio.',
     'required_if_accepted' => 'The :attribute field is required when :other is accepted.',
     'required_unless' => 'The :attribute field is required unless :other is in :values.',
     'required_with' => 'The :attribute field is required when :values is present.',
@@ -134,7 +134,7 @@ return [
         'string' => 'Este campo debe tener :size caracteres.',
     ],
     'starts_with' => 'The :attribute must start with one of the following: :values.',
-    'string' => 'The :attribute must be a string.',
+    'string' => 'Este campo es obligatorio.',
     'timezone' => 'The :attribute must be a valid timezone.',
     'unique' => 'Código ya registrado.',
     'uploaded' => 'The :attribute failed to upload.',
@@ -154,14 +154,16 @@ return [
 
     'custom' => [
         'code' => [
+            'not_found' => 'Código no encontrado.',
             'exists' => 'Este código ya ha sido utilizado.',
-            'required' => '0'
+            'required' => 'Este campo es obligatorio.'
         ],
+
          'acceptance' => [
             'required_if' => 'Este campo es obligatorio.',
         ],
 
-                'dni' => [
+        'dni' => [
             'required_if' => 'Este campo es obligatorio.',
         ],
     ],

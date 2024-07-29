@@ -1,8 +1,16 @@
 <template>
-    <div id='header'></div>
-    <header id="duplex-header" class="" :class="{ '!sticky': inside, 'hidden': !menu }">
+    <header id="nutella-header" class="nutella-embed-container">
+        <div class="container">
+            <div class="main-menu">
+                <div class="region-header-top" id="nutella-embed-header-top"></div>
+                <div class="m-group" id="nutella-embed-header"><button class="navToggle"><span></span></button></div>
+                <svg class="shape-overlays" viewBox="0 0 100 100" preserveAspectRatio="none"><path class="shape-overlays__path"></path><path class="shape-overlays__path"></path><path class="shape-overlays__path"></path><path class="shape-overlays__path"></path></svg>
+            </div>
+        </div>
+    </header>
 
-        <div class="wrapper-menu">
+    <header id="duplex-header" class="" :class="{ '!sticky': inside, 'hidden': !menu }">
+        <div class="container wrapper-menu">
             <div class="wrapper-mobile">
                 <div id="menu-btn" v-on:click="toggleMenu">
                     <div class="hamburger hamburger--squeeze js-hamburger">

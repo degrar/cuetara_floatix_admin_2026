@@ -18,19 +18,92 @@
                     <img src="../../../../resources/images/astro.png" alt="kinder" class="max-w-[520px] w-full mx-auto ml-0 pb-5"/>
                 </div>
                 <form @submit.prevent="submitForm" class="mx-auto w-full lg:w-6/12 ml-0">
-                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
+                    <h5>Indica tus datos personales</h5>
+                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-3">
                         <TextInput type="text" v-model="form.nombre" label="Nombre*" :error="form.errors.nombre"  />
 
                         <TextInput type="text" v-model="form.first_surname" :key="0" label="Primer apellido*" :error="form.errors.first_surname" />
 
                         <TextInput type="text" v-model="form.second_surname" :key="1" label="Segundo apellido" :error="form.errors.second_surname" />
+                    </div>
+                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
 
-                        <TextInput type="text" v-model="form.email" label="Correo electrónico*" :error="form.errors.email" />
+                        <TextInput type="text" v-model="form.email" label="E-mail*" :error="form.errors.email" />
 
+                        <TextInput type="text" v-model="form.phone" label="Teléfono*" :error="form.errors.phone" />
+                    </div>
+                    <h5>¿Cómo quieres participar?</h5>
+                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
                         <div class="w-full lg:col-span-2">
-                            <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" label="Imagen de tu pack*"/>
+                            <div class="radiobutton line flex flex-col items-start  justify-start">
+
+                                    <div class="wrapper-radiobutton flex flex-row items-center justify-center cursor-pointer " >
+                                        <RadioButton v-model:checked="form.option" :value=1 :id ="1"/>
+                                        <label class="flex flex-row items-center justify-center cursor-pointer " :for="1" v-on:click="onClickLabel"></label>
+                                        <span class="radio-text text-black rem:text-[16px] font-century" v-on:click="onClickText" @click="form.option = 1">Código</span>
+                                    </div>
+
+                                    <div class="wrapper-radiobutton flex flex-row items-center justify-center cursor-pointer" >
+                                        <RadioButton v-model:checked="form.option" :value=2 :id ="2"/>
+                                        <label class="flex flex-row items-center justify-center cursor-pointer " :for="2" v-on:click="onClickLabel"></label>
+                                        <span class="radio-text text-black rem:text-[16px] font-century" v-on:click="onClickText" @click="form.option = 2">Ticket de compra</span>
+                                    </div>
+
+                            </div>
                         </div>
                     </div>
+
+                        <Transition
+                            enter-active-class="transition ease-out duration-200"
+                            enter-from-class="transform opacity-0 scale-95"
+                            enter-to-class="transform opacity-100 scale-100"
+                            leave-active-class="transition ease-in duration-75"
+                            leave-from-class="transform opacity-100 scale-100"
+                            leave-to-class="transform opacity-0 scale-95">
+                            <div id="ticket" class="space-y-4" v-show="form.option === 2">
+                                <div class="relative">
+                                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
+                                        <div class="w-full lg:col-span-2">
+                                            <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" label="Imagen de tu pack*"/>
+                                        </div>
+                                        <div class="">
+                                            <TextInput :error="form.errors.buydate"  type="date" :min="minDate" :max="maxDate" v-model="form.buydate" label="Fecha de compra*" />
+                                        </div>
+                                        <div class="">
+                                            <TextInput type="text" :error="form.errors.amount" v-model="form.amount" label="Importe*" help="Ejemplo: 6,51€"/>
+                                        </div>
+                                    </div>
+
+
+
+                                </div>
+                            </div>
+                        </Transition>
+
+                        <Transition
+                            enter-active-class="transition ease-out duration-200"
+                            enter-from-class="transform opacity-0 scale-95"
+                            enter-to-class="transform opacity-100 scale-100"
+                            leave-active-class="transition ease-in duration-75"
+                            leave-from-class="transform opacity-100 scale-100"
+                            leave-to-class="transform opacity-0 scale-95">
+                            <div id="ticket" class="space-y-4" v-show="form.option === 1">
+                                <div class="relative">
+                                    <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
+                                        <div class="w-full lg:col-span-2">
+                                            <TextInput type="text" :error="form.errors.code" v-model="form.code" label="Código*"/>
+                                        </div>
+                                    </div>
+                                </div>
+                            </div>
+                        </Transition>
+
+
+
+
+
+
+
 
 
                     <div id="legals" class="my-8 space-y-2 checkbox block">
@@ -101,6 +174,7 @@ import {OhVueIcon, addIcons} from "oh-vue-icons";
 import {BiUpload, FaCircleNotch} from "oh-vue-icons/icons";
 import InputLabel from "@/Components/InputLabel.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
+import RadioButton from "@/Components/RadioButton.vue";
 
 
 addIcons(BiUpload, FaCircleNotch);
@@ -111,9 +185,15 @@ const form = useForm({
     second_surname: null,
     email: null,
     phone: null,
+    option: null,
 
-    // File upload
+    // Ticket
     file: null,
+    buydate: null,
+    amount: null,
+
+    // Code
+    code: null,
 
     // Legals
     privacy: null,
@@ -155,5 +235,16 @@ const onClickLabel = (e) => {
         element.classList.toggle('active');
     });
 }
+
+//DATE TICKET
+const minDate = '2024-05-01';
+
+let maxDate;
+if (new Date().getMonth() === 8) {
+    maxDate = '2024-08-31';
+} else {
+    maxDate = new Date().toISOString().split('T')[0];
+}
+
 
 </script>

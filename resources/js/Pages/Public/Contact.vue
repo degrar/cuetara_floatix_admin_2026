@@ -140,7 +140,7 @@ const scrollToError = () => {
 const headerHeight = ref(0);
 
 const getHeaderHeight = () => {
-    headerHeight.value = document.querySelector('#header').offsetHeight ;
+    headerHeight.value = document.querySelector('#nutella-header').offsetHeight ;
 };
 
 onMounted(() => {

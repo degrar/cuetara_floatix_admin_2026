@@ -1,5 +1,5 @@
 <template>
-    <footer class="bg-white py-8 relative after:absolute after:top-[-92px] after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveFooter after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
+    <footer id="duplex" class="bg-white py-8 relative after:absolute after:top-[-92px] after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveFooter after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
         <div class="container mx-auto px-[15px]">
 
             <nav>

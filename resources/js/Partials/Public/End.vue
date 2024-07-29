@@ -1,6 +1,6 @@
 <template>
     <div class="bg-[url('/resources/images/nextEndMobile.jpg')] lg:bg-[url('/resources/images/nextEnd.jpg')] 2xl:bg-[url('/resources/images/image-xl.jpg')] bg-cover bg-center bg-no-repeat min-h-[1300px] lg:min-h-[1200px] bg-yellow" >
-        <div :style="{ paddingTop: headerHeight + 'px' }"></div>
+
         <div class="container mx-auto">
             <img :src="imageToShow" alt="home" class=" max-w-[400px]  lg:max-w-[800px] w-full mx-auto pb-5" @load="handleResize"/>
         </div>
@@ -33,7 +33,7 @@ const handleResize = () => {
 const headerHeight = ref(0);
 
 const getHeaderHeight = () => {
-    headerHeight.value = document.querySelector('#header').offsetHeight ;
+    headerHeight.value = document.querySelector('#nutella-header').offsetHeight ;
 };
 
 

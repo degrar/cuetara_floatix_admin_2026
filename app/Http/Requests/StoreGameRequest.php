@@ -26,13 +26,25 @@ class StoreGameRequest extends FormRequest
     public function rules(): array
     {
         return [
+            //Personal
             'nombre' => 'required|string',
             'first_surname' => 'required|string',
             'email' => 'required|email:dns',
+            'phone' => 'required|regex:/^[0-9]{9}$/', // 9 digits
+            'option' => 'required|numeric|in:1,2',
+
+            // OPTION 1 - Código
+            'code' => ['required_if:option,1', 'nullable', 'string', 'exists:App\Models\Code,code,status,0'],
+
+            // OPTION 2 - Ticket
+            'file' => ['required_if:option,2', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            'buydate' => 'required_if:option,2|nullable|date',
+            'amount' => 'required_if:option,2|nullable|regex:/^\d+(\,\d{1,2})?$/',
+
+            // Legal
             'adult' => 'required|accepted',
             'legal' => 'required|accepted',
             'privacy' => 'required|accepted',
-            'file' => File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024),
             'recaptcha' => new GoogleRecaptcha(),
         ];
     }

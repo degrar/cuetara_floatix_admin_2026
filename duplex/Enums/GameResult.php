@@ -8,4 +8,5 @@ enum GameResult: int
     case Won = 2;
     case Lost = 3;
     case MaxDay = 4;
+    case WinnerPending = 5;
 }

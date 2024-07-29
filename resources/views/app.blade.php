@@ -1,64 +1,94 @@
 <!DOCTYPE html>
-<html lang="es-ES">
+<html dir="ltr" lang="es-ES">
     <head>
-        <meta charset="utf-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1">
-
         <title inertia>{{ config('app.name', 'Laravel') }}</title>
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
+
+        <link rel="preload" href="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson" as="script">
+
 
         <!-- Ferrero -->
-        <link rel='stylesheet' href='{{ asset('ferrero/css/header-footer.css') }}' media='all'>
-
+        <link rel="apple-touch-icon" sizes="180x180"href='{{ asset('ferrero/images/favicon/apple-touch-icon.png') }}'>
+        <link rel="icon" type="image/png" sizes="32x32" href='{{ asset('ferrero/images/favicon/favicon-32x32.png') }}'>
+        <link rel="icon" type="image/png" sizes="16x16" href='{{ asset('ferrero/images/favicon/favicon-16x16.png') }}'>
+        <link rel="manifest" href='{{ asset('ferrero/images/favicon/site.webmanifest') }}'>
+        <link rel="mask-icon" href='{{ asset('ferrero/images/favicon/safari-pinned-tab.svg') }}' color="#5bbad5">
+        <link rel="shortcut icon" href='{{ asset('ferrero/images/favicon/favicon.ico') }}'>
+        <meta name="msapplication-TileColor" content="#ffffff">
+        <meta name="msapplication-config" content='{{ asset('ferrero/images/favicon/browserconfig.xml') }}'>
         <meta name="theme-color" content="#e20019">
 
-        <link href='https://www.kinder.com/es/header-footer.html?callback=localActivationProcessJson' rel='preload' as='script'>
-        <script src='https://www.kinder.com/es/sites/kinder_es/files/google_tag/primary/google_tag.script.js'></script>
-        <noscript aria-hidden="true"><iframe src=https://www.googletagmanager.com/ns.html?id=GTM-PQNTV62 height="0" width="0" title="Google Tag Manager">Google Tag Manager</iframe></noscript>
+        <link rel="stylesheet" href='{{ asset('ferrero/css/header-footer.css') }}' >
 
         @routes
         @if(app()->isProduction())
             <script type='application/javascript'>
-                Ziggy.url = 'https://www.kinder.com'
+                Ziggy.url = 'https://www.nutella.com'
             </script>
         @endif
 	    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
         @inertiaHead
+
+
     </head>
     <body class="font-roboto antialiased" lang="es-ES">
 
         @inertia
+        
 
 
-        <!-- Ferrero -->
-        <div class="footer-wrapper"><div id='footer'></div></div>
-        <!-- This is external library needed for the Menu and footer. -->
-        <script src="//code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+        <!-- Nutella -->
 
-        <!-- The src should be changed with your domain for example. -->
-        <script src='//www.kinder.com/es/header-footer.js'></script>
+        <div class="region-footer-pre" id="nutella-embed-footer-pre"></div>
+        <footer id="nutella-footer" class="nutella-embed-container">
+            <div class="container">
+                <div class="region-footer" id="nutella-embed-footer"></div>
+                <div class="region-copywrite" id="nutella-embed-copywrite"></div>
+            </div>
+        </footer>
+
+
+
+        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
+
+        <script src="https://www.nutella.com/es/es/header-footer.js"></script>
+
+        <script src="https://static.addtoany.com/menu/page.js?t=1624611617" async></script>
+
         <script>
             // You are allowed to override block's configuration. List here blocks which you want to attach to header and footer.
+            bdiHeaderFooterConfig.header_top.blocks = [
+                "headersociallinksblock"
+            ];
             bdiHeaderFooterConfig.header.blocks = [
-                "kinder_theme_branding", "mainnavigation"
+                "nutella20_theme_branding", "nutella20_theme_main_menu"
+            ];
+            bdiHeaderFooterConfig.footer_pre.blocks = [
+                "addtoanybuttons", "newslettersubscription"
             ];
 
-            // If you use only one language remove "kinder_theme_languageswitchercontent"
             bdiHeaderFooterConfig.footer.blocks = [
-                "kinder_theme_footer_copyright", "kinder_theme_footer", "kinder_theme_languageswitchercontent", "internationalglobe"
+                "nutella20_theme_footer", "mainnavigation", //scripts,
             ];
-            jQuery(document).ready(function () {
-                jQuery('#header').bdiHeader();
-                jQuery('#footer').bdiFooter();
-            });
+            bdiHeaderFooterConfig.copywrite.blocks = [
+                "changecountryblock", "headersociallinksblock_2", "copyright", "badges"
+            ];
 
+            jQuery(document).ready(function () {
+                jQuery('#nutella-embed-header').bdiHeader();
+                jQuery('#nutella-embed-header-top').bdiTopHeader();
+                jQuery('#nutella-embed-footer-pre').bdiPreFooter();
+                jQuery('#nutella-embed-footer').bdiFooter();
+                jQuery('#nutella-embed-copywrite').bdiCopy();
+            });
         </script>
 
-        <script type='application/javascript' src='//www.kinder.com/es/header-footer.html?callback=localActivationProcessJson'></script>
-        <script src='//cdnjs.cloudflare.com/ajax/libs/gsap/3.9.1/gsap.min.js'></script>
+        <script type="application/javascript" src="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson"></script>
 
-        <!-- This js file contains Menu and Footer JS. -->
-{{--        <script src='/ferrero/js/header-footer.js'></script>--}}
-        <script async src="https://static.addtoany.com/menu/page.js"></script>
+
+
 
     </body>
 </html>

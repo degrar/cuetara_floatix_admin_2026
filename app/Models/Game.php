@@ -21,7 +21,10 @@
 
         protected $fillable = [
             'state',
-            'type',
+            'option',
+            'code',
+            'amount',
+            'buydate',
             'token',
             'user_id',
             'decline_reason',

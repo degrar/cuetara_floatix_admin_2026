@@ -18,12 +18,14 @@ return new class extends Migration
         Schema::create('games', function (Blueprint $table) {
             $table->id();
             $table->timestamps();
-
             $table->foreignIdFor(User::class);
-
-            $table->string('decline_reason')->nullable();
             $table->string('token');
-            $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Pending->value);
+            $table->integer('option'); //code = 1 / Ticket = 2
+            $table->string('code')->nullable();
+            $table->string('amount')->nullable();
+            $table->dateTime('buydate')->nullable();
+            $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Loser->value);
+            $table->string('decline_reason')->nullable();
             $table->timestamp('validated_at', 0)->nullable();
             $table->timestamp('confirmed_at', 0)->nullable();
 
