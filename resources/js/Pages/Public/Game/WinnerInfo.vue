@@ -14,14 +14,10 @@
                     <form @submit.prevent="submitForm" class="mx-auto py-[50px]">
                         <div class="space-y-4">
                             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-2 block">
-                                <SelectInput v-model:select="form.stock1" :options="stock" :default-value="-1" :error="form.errors.stock1" value="id" placeholder="Talla 1*" label="name" />
-                                <SelectInput v-model:select="form.stock2" :options="stock" :default-value="-1" :error="form.errors.stock2" value="id" placeholder="Talla 1*" label="name" />
+                                <SelectInputStock v-model:select="form.stock1" :options="stock" :default-value="-1" :error="form.errors.stock1" value="id" placeholder="Talla 1*" label="name"  units="" used=""/>
+                                <SelectInputStock v-model:select="form.stock2" :options="stock" :default-value="-1" :error="form.errors.stock2" value="id" placeholder="Talla 2*" label="name"  units="" used=""/>
 
                             </div>
-
-
-
-
                             <p class="font-tekoMedium text-brown rem:text-[25px] rem:leading-[26px] rem:tracking-[-0.25px] !mt-6 block">Dirección de entre de tu premio</p>
                             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-4 block">
 
@@ -103,6 +99,7 @@ import FileUpload from "@/Components/FileUpload.vue";
 import FormButton from "@/Components/FormButton.vue";
 import Checkbox from "@/Components/Checkbox.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
+import SelectInputStock from "@/Components/SelectInputStock.vue";
 addIcons(BiUpload, FaCircleNotch);
 
 const provinces = usePage().props.provinces;
@@ -118,7 +115,7 @@ const props = defineProps({
 });
 
 const form = useForm({
-    // File upload
+    // Tallas
     stock1: null,
     stock2: null,
 
@@ -138,7 +135,6 @@ const form = useForm({
     privacy: null,
 
     recaptcha: null,
-    type: 0
 });
 
 const submitForm = () => {
@@ -147,8 +143,7 @@ const submitForm = () => {
     grecaptcha.ready(function() {
         grecaptcha.execute(siteKey, {action: 'submit'}).then(function(token) {
             form.recaptcha = token;
-            form.type = props.type;
-            form.post(route('user-info', props.token), {
+            form.post(route('more-info', props.token), {
                 preserveScroll: true,
                 onError:  () => {
                     //console.log('error');

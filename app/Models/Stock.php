@@ -9,5 +9,10 @@ class Stock extends Model
 {
     use HasFactory;
 
+    protected $fillable = [
+        'name',
+        'units',
+        'used',
+    ];
 
 }

@@ -35,25 +35,8 @@ class MoreInfoController extends Controller
 
     public function store(StoreGameWinnerRequest $request)
     {
-        /*
-         * TOKEN sempre obligatori i amb la validació ja mirem si existeix
-         * TYPE
-         * 0 - Tota la documentació DNI + Adreça
-         * 3 - Només DNI
-         */
-
-        $type = (int) request('type');
 
         $game = Game::query()->where('token', $request->token)->firstOrFail();
-        $hash = $request->file('file')->store('personal');
-        if ($type === 0 || $type === 3) {
-            File::query()->create([
-                'user_id' => $game->user_id,
-                'game_id' => $game->id,
-                'type' => FileType::FrontDni,
-                'hash' => $hash,
-            ]);
-        }
 
         Address::query()->create([
             'user_id' => $game->user_id,
@@ -74,7 +57,12 @@ class MoreInfoController extends Controller
         $game->update([
             'state' => GameState::Awaiting,
             'token' => Str::random(32),
+            'size1' => $request->stock1,
+            'size2' => $request->stock2,
         ]);
+
+        Stock::query()->where('id', $request->stock1)->increment('used');
+        Stock::query()->where('id', $request->stock2)->increment('used');
 
         return redirect()->route('thanks');
     }

@@ -140,7 +140,7 @@ const submitForm = () => {
         grecaptcha.execute(siteKey, {action: 'submit'}).then(function(token) {
             form.recaptcha = token;
             form.type = props.type;
-            form.post(route('user-info', props.token), {
+            form.post(route('more-info', props.token), {
                 preserveScroll: true,
                 onError:  () => {
                     //console.log('error');

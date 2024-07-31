@@ -25,6 +25,8 @@ return new class extends Migration
             $table->string('amount')->nullable();
             $table->dateTime('buydate')->nullable();
             $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Loser->value);
+            $table->string('size1')->nullable();
+            $table->string('size2')->nullable();
             $table->string('decline_reason')->nullable();
             $table->timestamp('validated_at', 0)->nullable();
             $table->timestamp('confirmed_at', 0)->nullable();

@@ -28,8 +28,8 @@
             'token',
             'user_id',
             'decline_reason',
-            // 'comment',
-            // 'is_favourite
+            'size1',
+            'size2',
             'validated_at',
             'confirmed_at',
         ];

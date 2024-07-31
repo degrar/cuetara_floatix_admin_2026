@@ -53,7 +53,7 @@ class GameController extends Controller
         }
 
         return match ($result) {
-            GameResult::Winner => Redirect::route('user-info', ['token' => $gameSystem->getGame()->token]),
+            GameResult::Winner => Redirect::route('more-info', ['token' => $gameSystem->getGame()->token]),
             GameResult::WinnerPending => Redirect::route('game-result.winner'),
             GameResult::Won => Redirect::route('game-result.lost'),
             GameResult::Lost => Redirect::route('game-result.lost'),

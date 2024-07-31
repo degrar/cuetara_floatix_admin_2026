@@ -44,7 +44,7 @@ class MoreInfo extends Mailable
             view: $this->type === 1 ? 'emails.moreinfo_dni' : 'emails.moreinfo_all',
             with: [
                 'token' => $this->token,
-                'formLink' => route('user-info', ['token' => $this->token, 'type' => $this->type])
+                'formLink' => route('more-info', ['token' => $this->token, 'type' => $this->type])
             ]
         );
     }

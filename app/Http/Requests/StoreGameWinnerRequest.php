@@ -3,6 +3,8 @@
 namespace App\Http\Requests;
 
 use App\Rules\GoogleRecaptcha;
+use App\Rules\StockUnitsRule;
+use App\Rules\UniqueStockSize;
 use Illuminate\Foundation\Http\FormRequest;
 use Illuminate\Validation\Rule;
 use Illuminate\Validation\Rules\File;
@@ -26,22 +28,23 @@ class StoreGameWinnerRequest extends FormRequest
      */
     public function rules(): array
     {
+        // Accede al valor de stock1
+        $stock1 = $this->input('stock1');
         return [
 
-            'type' => 'required|in:0,3',
+            'stock1' => ['nullable', 'string', 'exists:App\Models\Stock,id', new StockUnitsRule],
+            'stock2' => ['nullable', 'string', 'exists:App\Models\Stock,id', new StockUnitsRule, new UniqueStockSize($stock1) ],
 
-            'file' => ['required_if:type,3,0', 'nullable', File::types(['jpg', 'jpeg', 'png', 'pdf'])->max(8 * 1024)],
-
-            'via' => 'exclude_if:type,3|required|exists:vias,id',
-            'name' => 'exclude_if:type,3|required|string',
-            'number' => 'exclude_if:type,3|required|string',
-            'zipNumber' => ['exclude_if:type,3', 'required', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
-            'city' => 'exclude_if:type,3|required|string',
-            'province' => 'exclude_if:type,3|required|exists:provinces,id',
-            'stair' => 'exclude_if:type,3|nullable|string',
-            'floor' => 'exclude_if:type,3|nullable|string',
-            'door' => 'exclude_if:type,3|nullable|string',
-            'phone' => 'exclude_if:type,3|required|regex:/^[0-9]{9}$/',
+            'via' => 'required|exists:App\Models\Via,id',
+            'name' => 'required|string',
+            'number' => 'required|string',
+            'zipNumber' => ['required', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
+            'city' => 'required|string',
+            'province' => 'required|exists:App\Models\Province,id',
+            'stair' => 'nullable|string',
+            'floor' => 'nullable|string',
+            'door' => 'nullable|string',
+            'phone' => 'required|regex:/^[0-9]{9}$/',
             'privacy' => 'required|accepted',
 
             'recaptcha' => new GoogleRecaptcha(),
