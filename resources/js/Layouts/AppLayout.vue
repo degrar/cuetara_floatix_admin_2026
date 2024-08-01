@@ -104,7 +104,7 @@ const logout = () => {
                                 <ul class="space-y-1 pl-4 my-2">
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.home')" :active="route().current('admin.games.home')">
-                                            Todas las participaciones
+                                            Todas
                                         </NavLink>
                                     </li>
                                 </ul>
@@ -114,7 +114,7 @@ const logout = () => {
                                 <ul class="space-y-1 pl-4 mt-2">
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.pending')" :active="route().current('admin.games.pending')">
-                                            Validar Pack
+                                            Validar Ticket
                                         </NavLink>
                                     </li>
                                     <li>
@@ -124,7 +124,7 @@ const logout = () => {
                                     </li>
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.awaiting')" :active="route().current('admin.games.awaiting')">
-                                            Validar DNI/Dirección
+                                            Validar Dirección Envio / Talla
                                         </NavLink>
                                     </li>
                                     <li>

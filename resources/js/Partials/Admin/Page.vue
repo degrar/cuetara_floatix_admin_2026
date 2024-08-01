@@ -9,7 +9,7 @@
                 </div>
             </div>
 
-            <div class="bg-snow min-h-[50vh] px-8 py-8 rounded-3xl">
+            <div class="bg-snow min-h-[50vh] px-2 py-4 rounded-3xl">
                 <div>
                     <slot name="content" />
                 </div>

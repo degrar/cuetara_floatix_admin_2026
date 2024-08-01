@@ -21,11 +21,11 @@ class GameController extends Controller
     public function show(): Response
     {
         $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
-            //->leftJoin('mmggs', 'games.user_id', '=', 'mmggs.user_id')
+            ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('users', 'games.user_id', '=', 'users.id')
             ->where('role', '=', 'user')
             ->orderBy('games.created_at', 'asc')
-            ->paginate(self::ITEMS_PER_PAGE);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'game_id']);
 
         return Inertia::render('Admin/Games', [
             'items' => $items,
@@ -35,13 +35,14 @@ class GameController extends Controller
                 'ID Participación',
                 'Usuario',
                 'Archivos',
-                'Fecha de participación',
+                'Datos de participación',
+                'Fechas',
                 'MMGG',
             ]
         ]);
     }
 
-    public function pending(): Response //MMGG pendent de validar pack
+    public function pending(): Response //MMGG pendent de validar imatge
     {
         $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
             ->where('state', GameState::Pending->value)
@@ -55,10 +56,11 @@ class GameController extends Controller
             'pack' => true,
             'personalImage' => false,
             'tableHeader' => [
-                'ID Participación',
-                'Información Usuario',
+                'Id Participación',
+                'Usuario',
                 'Archivos',
-                'Fecha de participación',
+                'Datos de participación',
+                'Fechas',
                 'Momento Ganador',
                 'Acciones',
             ]
@@ -68,7 +70,7 @@ class GameController extends Controller
     public function requested(): Response
     {
         $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
-            ->where('state', GameState::Valid->value)
+            ->where('state', GameState::Requested->value)
             ->orderByDesc('games.created_at')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
 
@@ -77,10 +79,11 @@ class GameController extends Controller
             'hideActions' => true,
             'tableHeader' => [
                 'ID Participación',
-                'Información Usuario',
+                'Usuario',
                 'Archivos',
-                'Fecha de participación',
-                'Fecha de validación',
+                'Datos de participación',
+                'Fechas',
+                'MMGG',
                 //'Acciones'
             ]
         ]);
@@ -88,14 +91,15 @@ class GameController extends Controller
 
     public function awaiting(): Response //Validat el pack pendent de validar documentació personal
     {
-        $items = Game::with(['user', 'files' => function($query) {$query->select('id', 'hash', 'game_id')->where('type', 3);}, 'address', 'address.via:id,name', 'address.province:id,name'])
+        $items = Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name'])
             ->where('state', GameState::Awaiting->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('addresses', 'games.user_id', '=', 'addresses.user_id')
-            ->join('files', 'games.id', '=', 'files.game_id')
-            ->where('files.type', '=', '3')
+            ->leftJoin('stocks as stock1', 'games.size1', '=', 'stock1.id')
+            ->leftJoin('stocks as stock2', 'games.size2', '=', 'stock2.id')
             ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id']);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id', 'stock1.name as size1',
+                'stock2.name as size2']);
 
 
         return Inertia::render('Admin/GamesAddress', [
@@ -107,7 +111,7 @@ class GameController extends Controller
             'tableHeader' => [
                 'ID Participación',
                 'Información Usuario',
-                'DNI',
+                'Jerseis',
                 'Dirección',
                 'Fecha de participación',
                 'Acciones'
@@ -118,14 +122,16 @@ class GameController extends Controller
     public function winners(): Response //TOT ESTÀ VALIDAT (adreça, dni i pack)
     {
 
-        $items = Game::with(['user', 'files:id,hash,game_id', 'address', 'address.via:id,name', 'address.province:id,name'])
+        $items = Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name'])
             ->where('state', GameState::Winner->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('addresses', 'games.user_id', '=', 'addresses.user_id')
-            ->join('files', 'games.id', '=', 'files.game_id')
-            ->where('files.type', '=', '3')
+            ->leftJoin('stocks as stock1', 'games.size1', '=', 'stock1.id')
+            ->leftJoin('stocks as stock2', 'games.size2', '=', 'stock2.id')
             ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id', 'stock1.name as size1',
+                'stock2.name as size2']);
+
 
         return Inertia::render('Admin/GamesAddress', [
             'items' => $items,
@@ -136,12 +142,14 @@ class GameController extends Controller
             'tableHeader' => [
                 'ID Participación',
                 'Información Usuario',
-                'Archivos',
+                'Jerseis',
                 'Dirección',
-                'Fecha de confirmación',
+                'Fecha de participación',
                 //'Acciones'
-            ]
+            ],
+
         ]);
+
     }
 
 
@@ -158,10 +166,11 @@ class GameController extends Controller
             'hideActions' => true,
             'tableHeader' => [
                 'ID Participación',
-                'Información Usuario',
+                'Usuario',
                 'Archivos',
-                'Fecha de validación',
-                'Motivo rechazo',
+                'Datos de participación',
+                'Fechas',
+                'MMGG',
                 //'Acciones'
             ]
         ]);

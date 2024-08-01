@@ -75,4 +75,14 @@
             return $this->hasMany(Address::class);
         }
 
+        public function size1Stock(): BelongsTo
+        {
+            return $this->belongsTo(Stock::class, 'size1');
+        }
+
+        public function size2Stock(): BelongsTo
+        {
+            return $this->belongsTo(Stock::class, 'size2');
+        }
+
     }

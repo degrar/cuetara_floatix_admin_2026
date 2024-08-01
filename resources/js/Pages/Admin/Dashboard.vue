@@ -7,7 +7,7 @@
                 </template>
             </SectionTitle>
 
-            <div class="bg-snow min-h-[50vh] px-8 py-8 rounded-3xl">
+            <div class="bg-snow min-h-[50vh] px-2 py-4 rounded-3xl">
 
                 <h4 class="text-xl font-medium mb-2">Campaña</h4>
 

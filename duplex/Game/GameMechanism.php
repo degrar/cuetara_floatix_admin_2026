@@ -9,6 +9,7 @@ use App\Models\Game as GameModel;
 use App\Models\GameLog;
 use App\Models\Mmgg;
 use App\Models\User;
+use Carbon\Carbon;
 use Duplex\Enums\{FileType, Game, GameResult, Game as GameType, GameState};
 use Illuminate\Support\Facades\Session;
 use Str;
@@ -52,7 +53,7 @@ class GameMechanism
                 Session::put('winner', true);
                 if($this->request->option == '1') //Code
                 {
-                    $this->game->update(['state' => GameState::Requested]);
+                    $this->game->update(['state' => GameState::Requested, 'validated_at' => Carbon::now()]);
                     return GameResult::Winner;
                 }
                 else if ($this->request->option == '2'){ //Ticket

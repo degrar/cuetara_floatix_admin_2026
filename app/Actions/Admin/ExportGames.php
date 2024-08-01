@@ -12,17 +12,18 @@ class ExportGames
 {
     public function __invoke()
     {
-      /*  var_dump('<pre>');
-        var_dump(Game::with(['user', 'files:id,hash,game_id,type', 'address', 'address.via:id,name', 'address.province:id,name'])
-            ->get()->toArray());
-        var_dump('</pre>');
-        die();*/
+//        var_dump('<pre>');
+//        var_dump(Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:id,name', 'size2Stock:id,name'])
+//                ->get()
+//                ->toArray());
+//        var_dump('</pre>');
+//        die();
 
         $filename = sprintf('%s_%s_participaciones.xlsx', config('app.name'), date('dmY_His'));
         $excel = SimpleExcelWriter::streamDownload($filename);
 
         $excel->addRows(
-            Game::with(['user', 'files:id,hash,game_id,type', 'address', 'address.via:id,name', 'address.province:id,name'])
+            Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:name', 'size2Stock:name'])
                 ->get()
                 ->map([self::class, 'transform'])
                 ->toArray()
@@ -49,6 +50,11 @@ class ExportGames
             // game
             'id_participacion' => $game->id,
             'momento_ganador' => $game->mmgg?->date_moment,
+            'option' => $game->option,
+            'codigo' => $game->code ?? '-',
+            'importe' => $game->amount ?? '-',
+            'Fecha de ticket' => $game->buydate ?? '-',
+
             'fecha_participacion' => Carbon::parse($game->created_at)->format('d-m-Y H:i:s'),
             'estado' => trans('gamestate.' . $game->state->name),
             'fecha_validacion' => Carbon::parse($game->validated_at)->format('d-m-Y H:i:s'),
@@ -63,9 +69,12 @@ class ExportGames
             'telefono' => $address?->phone,
             'provincia' => $address?->province->name,
 
+            // talla
+            'jersei1' => $game->size1_stock,
+            'jersei2' => $game->size2_stock,
+
             // files
             'imagen_0' => '',
-            'imagen_1' => ''
 
         ];
 
