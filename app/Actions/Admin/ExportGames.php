@@ -12,18 +12,23 @@ class ExportGames
 {
     public function __invoke()
     {
-//        var_dump('<pre>');
-//        var_dump(Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:id,name', 'size2Stock:id,name'])
-//                ->get()
-//                ->toArray());
-//        var_dump('</pre>');
-//        die();
-
+/*
+        var_dump('<pre>');
+        var_dump(Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:name', 'size2Stock:name'])
+                ->join('users', 'games.user_id', '=', 'users.id')
+                ->where('role', '=', 'user')
+                ->get()
+                ->toArray());
+        var_dump('</pre>');
+        die();
+*/
         $filename = sprintf('%s_%s_participaciones.xlsx', config('app.name'), date('dmY_His'));
         $excel = SimpleExcelWriter::streamDownload($filename);
 
         $excel->addRows(
             Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:name', 'size2Stock:name'])
+                ->join('users', 'games.user_id', '=', 'users.id')
+                ->where('role', '=', 'user')
                 ->get()
                 ->map([self::class, 'transform'])
                 ->toArray()
@@ -69,9 +74,9 @@ class ExportGames
             'telefono' => $address?->phone,
             'provincia' => $address?->province->name,
 
-            // talla
-            'jersei1' => $game->size1_stock,
-            'jersei2' => $game->size2_stock,
+            // jersey
+            'talla1' => $game->size1_stock != NULL ? $game->size1_stock->name : '-',
+            'talla2' => $game->size2_stock != NULL ? $game->size2_stock->name : '-',
 
             // files
             'imagen_0' => '',

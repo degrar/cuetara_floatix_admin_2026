@@ -205,9 +205,7 @@ const logout = () => {
                     </div>
                 </nav>
 
-                <div class="absolute bottom-0 text-[10px] text-center w-full">
-                    <a  href="https://icons8.com/icon/zD0tmPYdiLK3/digital-signature" target="_blank">Icons</a> by <a target="_blank" href="https://icons8.com">Icons8</a>
-                </div>
+
             </div>
 
             <div class="md:w-[85%] basis-min-h-screen bg-gray-100 md:px-8 page-content">

@@ -1,0 +1,52 @@
+[
+    {
+        "name": "XS",
+        "units": 65,
+        "country": "es"
+    },
+    {
+        "name": "S",
+        "units": 153,
+        "country": "es"
+    },
+    {
+        "name": "M",
+        "units": 482,
+        "country": "es"
+    },
+    {
+        "name": "L",
+        "units": 502,
+        "country": "es"
+    },
+    {
+        "name": "XL",
+        "units": 98,
+        "country": "es"
+    },
+    {
+        "name": "XS",
+        "units": 35,
+        "country": "pt"
+    },
+    {
+        "name": "S",
+        "units": 87,
+        "country": "pt"
+    },
+    {
+        "name": "M",
+        "units": 258,
+        "country": "pt"
+    },
+    {
+        "name": "L",
+        "units": 268,
+        "country": "pt"
+    },
+    {
+        "name": "XL",
+        "units": 52,
+        "country": "pt"
+    }
+]

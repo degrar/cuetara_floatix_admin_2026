@@ -56,13 +56,13 @@ class GameController extends Controller
             'pack' => true,
             'personalImage' => false,
             'tableHeader' => [
-                'Id Participación',
+                'ID Participación',
                 'Usuario',
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'Momento Ganador',
-                'Acciones',
+                'MMGG',
+                'Acciones'
             ]
         ]);
     }

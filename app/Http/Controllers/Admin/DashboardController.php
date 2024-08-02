@@ -3,6 +3,7 @@
     namespace App\Http\Controllers\Admin;
 
     use App\Http\Controllers\Controller;
+    use App\Models\Stock;
     use DB;
     use Illuminate\Http\Request;
     use Inertia\Inertia;
@@ -21,6 +22,7 @@
                 'timezone' => config('duplex.promo.date.timezone'),
                 'attempts_day' => config('duplex.promo.attemps.day'),
                 'attempts_total' => config('duplex.promo.attemps.total'),
+                'stock' => Stock::query()->orderBy('id')->get(['id', 'name', 'units', 'used']),
                 ]);
         }
 

@@ -17,12 +17,12 @@ return [
 
         'date' => [
             'start' => Carbon\Carbon::create(2024, 6, 9, 00, 00, 00, env('APP_TIMEZONE')),
-            'end' => Carbon\Carbon::create(2024, 11, 9, 23,59,59, env('APP_TIMEZONE')),
+            'end' => Carbon\Carbon::create(2025, 01, 8, 23,59,59, env('APP_TIMEZONE')),
             'timezone' => env('APP_TIMEZONE')
         ],
 
         'attemps' => [
-            'day' => 10,
+            'day' => 5,
             'total' => 10000
         ],
 
