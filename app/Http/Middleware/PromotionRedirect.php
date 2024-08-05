@@ -26,9 +26,9 @@ class PromotionRedirect
         $end = config('duplex.promo.date.end');
         $now = now();
 
-        if ($now->lt($start) && !$request->routeIs( 'legal', 'privacy')) return redirect()->route(Route::PromoSoon->value);
+        if ($now->lt($start) && !$request->routeIs( 'legal', 'privacy', 'faqs')) return redirect()->route(Route::PromoSoon->value);
 
-        if ($now->gt($end) && !$request->routeIs('contact','legal', 'privacy')) return redirect()->route(Route::PromoEnded->value);
+        if ($now->gt($end) && !$request->routeIs('contact','legal', 'privacy', 'more-info', 'thanks', 'faqs')) return redirect()->route(Route::PromoEnded->value);
 
         return $next($request);
     }
