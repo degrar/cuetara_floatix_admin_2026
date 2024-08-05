@@ -22,7 +22,7 @@
                 'timezone' => config('duplex.promo.date.timezone'),
                 'attempts_day' => config('duplex.promo.attemps.day'),
                 'attempts_total' => config('duplex.promo.attemps.total'),
-                'stock' => Stock::query()->orderBy('id')->get(['id', 'name', 'units', 'used']),
+                'stock' => Stock::query()->where('country', '=', 'es')->orderBy('id')->get(['id', 'name', 'units', 'used']),
                 ]);
         }
 
