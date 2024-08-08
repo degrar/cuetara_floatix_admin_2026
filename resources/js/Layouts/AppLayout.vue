@@ -34,7 +34,7 @@ const logout = () => {
         </Head>
 
         <div class="flex font-montserrat">
-            <div class="md:w-[15%] bg-snow border-r border-gray-100 md:h-[100vh] overflow-hidden scrollbar hover:overflow-y-auto pt-8 sticky top-0 sidebar">
+            <div class="md:w-[20%] bg-snow border-r border-gray-100 md:h-[100vh] overflow-hidden scrollbar hover:overflow-y-auto pt-8 sticky top-0 sidebar">
                 <nav>
                     <!-- Primary Navigation Menu -->
                     <div class="container mx-auto px-2">
@@ -140,14 +140,14 @@ const logout = () => {
 
                                 </ul>
                             </li>
-                            <li>
-                                <NavLink :href="route('admin.messages')" :active="route().current('admin.messages')">
-                                    <img class="h-[24px]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzklEQVR4nO1YW0gVQRjeEgp66CV1/lm1iE5Uxy7Ug3Rzfo9dNOkOJhVFPVhQREQEBYJFUSHpbiRFiVl0twtFVEREBKHtVvTQ5cGHIsgoipDwsgvpxG7nnHbXczx62nPU2g/mZXZm9vvm//7ZnV8QPHjw8P+BULafAOpAkbvT2E+g+AkoKoTigbSMwLSECgCKP9wjjxEbAbyRmsHGJ0QAobiPANMSLQIoawFgRcLAR3FKamouTRfZUqB4BSh22uwFbJEwmEBIbg4B/GCNRFpaYFw8C+UDxfpggpm7QgC/U5q70DmW0ty1QFlrXAkM2Gy8hxAWCK03Kmu2aBVBKF7vNXG/3z8MgJ2O+lJgl7qJpfjYFd8D1hrvN9ZMT8eZQLEr+Kyr16cTUFbXw+ngcgQw0gbV/OFiOiAYBba/t7b5Q5jiGUpxoiAIQ4XEYCgAm0QoO2cXkYe/NwaXW+zWGHM1u2I8KyQRBPC8xUqXQ7lg6WuOuUgwYc0JohiYkAziIRiR6E62OMWa8EIsBD/r5gRjsvO5rOhrJFVrlFWtXVZ17maretoRthAVsbOcc9O2Vmv1QkD0wbKqHXebtOxo1vfLin61vp6nuCLA2PlEk5edAoy+Z9oOdwSoWkN/CJBU/Z0rAiRFa+uXCKj2vr+IQOLJy54AwYsA9yxEvSRG7xSSvWMU/60PGRXzgnUo1hL373QyyFdZfqfFjEC4f3LO+s1A2SMALO7ThSZ4lUyagLLrTWEBvuyV4f5jL9rEmMSjXKLPJVPAvJJ9YQGB4vL4BBi1GUcV4jzAXL8R3kTZpuxaE89ftdfm/511z+ITYEYBsDZayUPMzOcrtp3okVTF4xZesO4wzxy9oNvYgw++8CmzNvRYVincUGGbc/QpH9knAcHCVk1UEVnzo5LfffEV989YEx6bNbbA9rz0yL2Y5Csb2qxz3vaJvD0SeWgUWwmwj8YlO9IRF2qSovHVey6Y4qzjlm2t7jECYkbATFjD81bbWNrGuAV0ExRFgEFqzpJdNuJjxhXx0oq7f5UfkqqdcI28U0Doirn9VCP3Za+wkZ/ONvHyW+/jI61obbKiPZFUvcRV8k4BPl/hcAA8bK3lUzGPLy6VeFVDayRiauWLDp/rpPoC+/HKXtoEZa/kO2rVSMS7ZFU/Wv6amxXnfgUBbI90crDlu/mhh18jeFj/LCkdBcJAAVB22/GRawdgWyInoH6/WmkFYSCBkFnphOIdAuwbALtJCE42+h0nR4esats550OEwQLpt8+NXX8jN+pThcEGWdElo518zkf0NxdhsOEXmjkw3EriwiMAAAAASUVORK5CYII=">
-                                    <span class="ml-3">
-                                        Mensajes
-                                    </span>
-                                </NavLink>
-                            </li>
+<!--                            <li>-->
+<!--                                <NavLink :href="route('admin.messages')" :active="route().current('admin.messages')">-->
+<!--                                    <img class="h-[24px]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADzklEQVR4nO1YW0gVQRjeEgp66CV1/lm1iE5Uxy7Ug3Rzfo9dNOkOJhVFPVhQREQEBYJFUSHpbiRFiVl0twtFVEREBKHtVvTQ5cGHIsgoipDwsgvpxG7nnHbXczx62nPU2g/mZXZm9vvm//7ZnV8QPHjw8P+BULafAOpAkbvT2E+g+AkoKoTigbSMwLSECgCKP9wjjxEbAbyRmsHGJ0QAobiPANMSLQIoawFgRcLAR3FKamouTRfZUqB4BSh22uwFbJEwmEBIbg4B/GCNRFpaYFw8C+UDxfpggpm7QgC/U5q70DmW0ty1QFlrXAkM2Gy8hxAWCK03Kmu2aBVBKF7vNXG/3z8MgJ2O+lJgl7qJpfjYFd8D1hrvN9ZMT8eZQLEr+Kyr16cTUFbXw+ngcgQw0gbV/OFiOiAYBba/t7b5Q5jiGUpxoiAIQ4XEYCgAm0QoO2cXkYe/NwaXW+zWGHM1u2I8KyQRBPC8xUqXQ7lg6WuOuUgwYc0JohiYkAziIRiR6E62OMWa8EIsBD/r5gRjsvO5rOhrJFVrlFWtXVZ17maretoRthAVsbOcc9O2Vmv1QkD0wbKqHXebtOxo1vfLin61vp6nuCLA2PlEk5edAoy+Z9oOdwSoWkN/CJBU/Z0rAiRFa+uXCKj2vr+IQOLJy54AwYsA9yxEvSRG7xSSvWMU/60PGRXzgnUo1hL373QyyFdZfqfFjEC4f3LO+s1A2SMALO7ThSZ4lUyagLLrTWEBvuyV4f5jL9rEmMSjXKLPJVPAvJJ9YQGB4vL4BBi1GUcV4jzAXL8R3kTZpuxaE89ftdfm/511z+ITYEYBsDZayUPMzOcrtp3okVTF4xZesO4wzxy9oNvYgw++8CmzNvRYVincUGGbc/QpH9knAcHCVk1UEVnzo5LfffEV989YEx6bNbbA9rz0yL2Y5Csb2qxz3vaJvD0SeWgUWwmwj8YlO9IRF2qSovHVey6Y4qzjlm2t7jECYkbATFjD81bbWNrGuAV0ExRFgEFqzpJdNuJjxhXx0oq7f5UfkqqdcI28U0Doirn9VCP3Za+wkZ/ONvHyW+/jI61obbKiPZFUvcRV8k4BPl/hcAA8bK3lUzGPLy6VeFVDayRiauWLDp/rpPoC+/HKXtoEZa/kO2rVSMS7ZFU/Wv6amxXnfgUBbI90crDlu/mhh18jeFj/LCkdBcJAAVB22/GRawdgWyInoH6/WmkFYSCBkFnphOIdAuwbALtJCE42+h0nR4esats550OEwQLpt8+NXX8jN+pThcEGWdElo518zkf0NxdhsOEXmjkw3EriwiMAAAAASUVORK5CYII=">-->
+<!--                                    <span class="ml-3">-->
+<!--                                        Mensajes-->
+<!--                                    </span>-->
+<!--                                </NavLink>-->
+<!--                            </li>-->
                             <li>
                                 <hr class="md:w-[50%] mx-auto bg-gray-200">
                             </li>
@@ -208,7 +208,7 @@ const logout = () => {
 
             </div>
 
-            <div class="md:w-[85%] basis-min-h-screen bg-gray-100 md:px-8 page-content">
+            <div class="md:w-[80%] basis-min-h-screen bg-gray-100 md:px-8 page-content">
                 <!-- Page Heading -->
                 <header v-if="$slots.header" class="bg-white">
                     <div class="container mx-auto py-6 px-4 sm:px-6 lg:px-8">

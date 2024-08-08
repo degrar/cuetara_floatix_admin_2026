@@ -14,7 +14,7 @@
         @inertiaHead
 
     </head>
-    <body class="!font-montserrat  " lang="es-ES">
+    <body class="!font-montserrat admin " lang="es-ES">
         @inertia
     </body>
 </html>
