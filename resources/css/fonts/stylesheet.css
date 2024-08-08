@@ -38,3 +38,13 @@
         url('Teko-Regular.svg#Teko-Regular') format('svg');
 }
 
+@font-face {
+    font-family: 'Nutella';
+    src: url('Nutella.eot');
+    src: url('Nutella.eot?#iefix') format('embedded-opentype'),
+    url('Nutella.woff2') format('woff2'),
+    url('Nutella.woff') format('woff'),
+    url('Nutella.ttf') format('truetype'),
+    url('Nutella.svg#Nutella') format('svg');
+}
+

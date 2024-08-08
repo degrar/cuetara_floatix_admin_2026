@@ -1,8 +1,10 @@
 <template>
-    <footer id="duplex" class="bg-white py-8 relative after:absolute after:top-[-92px] after:right-0 after:left-0 after:w-full after:mx-auto after:bg-curveFooter after:bg-no-repeat after:bg-center after:bg-[length:2560px_92px] after:h-[92px]">
+    <footer id="duplex" class="bg-white py-[60px]">
         <div class="container mx-auto px-[15px]">
-
-            <nav>
+            <p class="text-center w-full max-w-[1024px] mx-auto mt-[20px] ">
+                Promoción válida para residentes en España mayores de 18 años del 17/10/2024 al 8/01/2025. Imprescindible conservar el ticket de compra original. Máximo 5 participaciones diarias por persona. Limitada a 1 premio de 2 jerséis por persona en todo el período promocional. Se entregan 650 premios por momento ganador de 2 jerséis, en total se ofrecen 1.300 jerséis. Consulta bases legales y detalles de la promoción <a class="underline text-black font-bold" :href="route('legal')">aquí</a>.
+            </p>
+            <nav class="mt-5">
                 <ul>
                     <li>
                         <PrimaryLinkFooter :href="route('home')" :active="route().current('home')">Inicio</PrimaryLinkFooter>
@@ -19,9 +21,7 @@
 
                 </ul>
             </nav>
-            <p class="text-center w-full max-w-[1024px] mx-auto mt-[20px]">
-                Promoción válida en España para mayores de 18 años del 9/9/2024 al 9/11/2024. Máximo 1 participación al día por persona durante la promoción. Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción <a class="underline" :href="route('legal')">aquí</a>.
-            </p>
+
         </div>
     </footer>
 </template>

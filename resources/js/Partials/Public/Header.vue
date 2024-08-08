@@ -10,7 +10,7 @@
     </header>
 
     <header id="duplex-header" class="" :class="{ '!sticky': inside, 'hidden': !menu }">
-        <div class="container wrapper-menu">
+        <div class="container mx-auto wrapper-menu">
             <div class="wrapper-mobile">
                 <div id="menu-btn" v-on:click="toggleMenu">
                     <div class="hamburger hamburger--squeeze js-hamburger">
@@ -25,11 +25,12 @@
                     <li>
                         <PrimaryLink :href="route('home')">Inicio</PrimaryLink>
                     </li>
-                    <li>
-                        <PrimaryLink scroll="#como-participar" @click="toggleMenu">Cómo participar</PrimaryLink>
-                    </li>
+
                     <li>
                         <PrimaryLink scroll="#participa" @click="toggleMenu">Participa</PrimaryLink>
+                    </li>
+                    <li>
+                        <PrimaryLink scroll="#como-participar" @click="toggleMenu">Cómo participar</PrimaryLink>
                     </li>
                     <li>
                         <PrimaryLink scroll="#premio" @click="toggleMenu">Premio</PrimaryLink>
@@ -57,7 +58,7 @@ defineProps({
 const toggleMenu = (e) => {
     let menuBtn = e.target;
     let wrapperMenuNav = document.querySelector(".wrapper-menu nav");
-    let header = document.querySelector("header");
+    let header = document.querySelector("header#duplex-header");
     let hamburger = document.querySelector(".hamburger");
 
     if (hamburger.classList.contains("is-active")) {

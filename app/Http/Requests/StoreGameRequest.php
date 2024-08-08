@@ -30,6 +30,7 @@ class StoreGameRequest extends FormRequest
             'nombre' => 'required|string',
             'first_surname' => 'required|string',
             'email' => 'required|email:dns',
+            'email_repeat' => 'required|email:dns|same:email',
             'phone' => 'required|regex:/^[0-9]{9}$/', // 9 digits
             'option' => 'required|numeric|in:1,2',
 

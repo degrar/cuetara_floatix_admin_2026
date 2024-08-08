@@ -27,12 +27,16 @@ export default {
                 tekoMedium: ['TekoMedium', ...defaultTheme.fontFamily.sans],
                 tekoSemiBold: ['TekoSemiBold', ...defaultTheme.fontFamily.sans],
                 tekoRegular: ['TekoRegular', ...defaultTheme.fontFamily.sans],
+
+                nutella: ['Nutella', ...defaultTheme.fontFamily.sans],
+                montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
             },
             dropShadow: {
                 'menu': '0px 2px 2px rgba(0, 0, 0, 0.25)',
             },
             boxShadow: {
                 'menu': '0px 4px 4px 0px rgba(0, 0, 0, 0.25)',
+                'customOrange': '0 4px 0 0 rgba(253, 178, 0, 1)',
             },
             backgroundImage: {
                 'home': "url('/resources/images/desktop.jpg')",
@@ -42,8 +46,13 @@ export default {
                 'curveYellow': "url('/resources/images/curve-yellow.png')",
                 'curveFooter': "url('/resources/images/curve-white.png')",
                 'AdminBackground': "url('/resources/images/admin/background-image-admin.jpg')",
-            },
 
+                'nPattern': "url('/resources/images/pattern/nPattern.jpg')",
+                'nPatternReverse': "url('/resources/images/pattern/nPatternReverse.jpg')",
+                'redPattern': "url('/resources/images/pattern/redPattern.jpg')",
+
+
+            },
         },
         container: {
             screens: {
@@ -53,13 +62,13 @@ export default {
             },
         },colors: {
             ...colors,
-            red: '#C82800',
-
-            'error': '#FF0202',
+            'red': '#E1251B',
+            'error': '#E1251B',
+            'yellow': '#FEDA1C',
+            'grey': '#666',
+            'softGrey': '#ccc',
             'brown': '#7D2A25',
             'blue': '#11368F',
-            'yellow': '#FEE900',
-            'grey': '#919090',
             'orange': '#F39B00',
 
             // Admin

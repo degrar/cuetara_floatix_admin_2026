@@ -25,7 +25,7 @@ const scrollToSection = (scroll) => {
 
     const sectionElement = document.getElementById(scroll);
     if (sectionElement) {
-        const headerHeight = document.querySelector('#header').offsetHeight;
+        const headerHeight = document.querySelector('#nutella-header').offsetHeight;
         let nav = 0;
         if (window.innerWidth >= 1024) nav = document.querySelector('#duplex-header').offsetHeight;
         else  nav = document.querySelector('div.wrapper-mobile').offsetHeight;

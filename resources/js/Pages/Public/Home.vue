@@ -1,14 +1,16 @@
 <template>
-    <GuestLayout title="Kinder" useRecaptcha menu>
+    <GuestLayout title="Nutella" useRecaptcha menu>
         <Intro />
+
+        <div class="" id="participa">
+            <Game />
+        </div>
 
         <div class="" id="como-participar">
             <HowToPlay />
         </div>
 
-        <div class="" id="participa">
-            <Game />
-        </div>
+
 
         <div class="" id="premio">
             <Prize />

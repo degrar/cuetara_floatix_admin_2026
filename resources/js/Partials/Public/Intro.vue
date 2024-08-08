@@ -1,15 +1,22 @@
 <template>
-    <div class="relative bg-yellow bg-transparent bg-[url('/resources/images/mobile.jpg')] lg:bg-[url('/resources/images/image-lg.jpg')] xl:bg-[url('/resources/images/image-xl.jpg')] bg-cover bg-top md:bg-cover md:bg-center bg-no-repeat min-h-[800px] lg:min-h-[980px] bg-yellow">
+    <div class="relative nPattern w-full redPattern mt-[15px]">
 
-        <div class="container mx-auto">
-            <img :src="imageToShow" alt="home" class=" max-w-[350px] md:max-w-[500px] lg:max-w-[800px] w-full mx-auto pb-5" @load="handleResize"/>
-        </div>
+        <div class="container mx-auto flex flex-row items-center justify-center py-[100px]">
+            <div class="w-6/12">
+                <img src="../../../../resources/images/nutella/puedes-ganar.png" alt="Puedes Ganar" class="max-w-[360px] w-full mx-auto" />
+                <h1 class="font-nutella rem:text-[99px] rem:tracking-[0.15px] rem:leading-[99px] text-white uppercase text-center">2 jerséis</h1>
+                <h2 class="font-montserrat rem:text-[39px] rem:tracking-[0.15px] rem:leading-[40px] text-white uppercase font-bold text-center py-4" >navideños NUTELLA<sup>&reg;</sup></h2>
+                <div class="max-w-[440px] w-full mx-auto text-center">
+                    <p class="font-montserrat rem:text-[25px] rem:leading-[28px] text-white font-bold">Uno para ti y otro para esa persona tan especial</p>
+                    <p class="font-montserrat rem:text-[25px] rem:leading-[28px] text-white font-bold pt-4">¡Regalamos <span class="text-yellow">más de 1.000 jerséis!</span></p>
+                </div>
+                <div class="text-center pt-10">
+                    <PrimaryButton scroll="#participa" class="inline-block">Participa</PrimaryButton>
+                </div>
+            </div>
 
-        <div class="container mx-auto py-[30px] md:py-[50px] md:pb-[100px] ">
-            <div class="text-center mb-[100px]">
-                <PrimaryButton scroll="#participa" class="text-[25px] py-[20px] px-[35px] inline-block">¡Participa ya!</PrimaryButton>
-                <img src="../../../../resources/images/tele.png" alt="home" class="max-w-[177px] w-full mx-auto pb-5 mt-[25px] lg:hidden" />
-
+            <div class="w-6/12">
+                <img src="../../../../resources/images/nutella/jersey.png" alt="Jerseys" class="max-w-[600px] w-full mx-auto" />
             </div>
         </div>
     </div>

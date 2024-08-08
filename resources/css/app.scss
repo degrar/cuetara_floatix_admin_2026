@@ -2,10 +2,18 @@
 @tailwind components;
 @tailwind utilities;
 
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
+
 @import "fonts/stylesheet.css";
 @import 'hamburgers/hamburgers.scss';
 @import 'hamburgers/_base.scss';
 
+
+@layer utilities {
+    .no-ligatures {
+        font-feature-settings: 'liga' off, 'clig' off;
+    }
+}
 
 sapn.sr-only{
     display: none;
@@ -48,14 +56,13 @@ html {
 body {
     font-size: 16px;
     background-color: #ffffff;
-
-    background-image: url("/resources/images/pattern/whitePattern..jpg");
-    background-size: 25px 31px;
+    background-image: url("/resources/images/pattern/whitePattern.jpg");
+    background-size: 384px 190px;
     background-repeat: repeat;
-    height: 31px;
+
 
     &.admin{
-       @apply bg-white bg-none;
+       @apply bg-white bg-none ;
     }
 }
 
@@ -66,21 +73,76 @@ h1, h2, h3, h4, h5, h6{
 }
 
 .whitePattern{
-    background-image: url("/resources/images/pattern/whitePattern..jpg");
-    background-size: 25px 31px;
+    @apply bg-white;
+    background-image: url("/resources/images/pattern/whitePattern.jpg");
+    background-size: 384px 190px;
     background-repeat: repeat;
-    height: 31px;
 }
+
+
+.redPattern{
+    @apply bg-red;
+    background-image: url("/resources/images/pattern/redPattern.jpg");
+    background-size: 383px 207px;
+    background-repeat: repeat;
+}
+
+.stroke-text {
+    --stroke-width: 5px;
+    --color-white: #000000;
+    text-shadow: var(--stroke-width) 0 0 var(--color-white),
+    calc(var(--stroke-width) * -1) 0 0 var(--color-white),
+    0 var(--stroke-width) 0 var(--color-white),
+    0 calc(var(--stroke-width) * -1) 0 var(--color-white);
+}
+
+.smooth-16 {
+    text-shadow: calc(var(--stroke-width) * 1) calc(var(--stroke-width) * 0) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * 0.3827) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0.7071) calc(var(--stroke-width) * 0.7071) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0.3827) calc(var(--stroke-width) * 0.9239) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0) calc(var(--stroke-width) * 1) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -0.3827) calc(var(--stroke-width) * 0.9239) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -0.7071) calc(var(--stroke-width) * 0.7071) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -0.9239) calc(var(--stroke-width) * 0.3827) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -1) calc(var(--stroke-width) * 0) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -0.9239) calc(var(--stroke-width) * -0.3827) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -0.7071) calc(var(--stroke-width) * -0.7071) 0
+    var(--color-white),
+    calc(var(--stroke-width) * -0.3827) calc(var(--stroke-width) * -0.9239) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0) calc(var(--stroke-width) * -1) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0.3827) calc(var(--stroke-width) * -0.9239) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0.7071) calc(var(--stroke-width) * -0.7071) 0
+    var(--color-white),
+    calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * -0.3827) 0
+    var(--color-white);
+}
+
 /* -------- HEADER -------- */
 
-div#header {
+div#nutella-header {
     z-index: 4;
 }
 
 header#duplex-header {
-    position: relative;
+    position: sticky;
     z-index: 3;
     top: 80px;
+    left:0px;
+    right: 0;
     &.scroll {
         position: sticky;
         //position: -webkit-sticky;
@@ -88,15 +150,12 @@ header#duplex-header {
 
     .wrapper-menu {
         .wrapper-mobile {
-
             @apply flex justify-center items-center;
-
         }
         #menu-btn {
             display: block;
             padding: 13px 20px 10px 20px;
-            @apply rounded-[8px] bg-white;
-
+            @apply rounded-[8px] bg-red shadow-lg;
         }
         nav {
             display: none;
@@ -115,7 +174,8 @@ header#duplex-header {
                 list-style: none;
                 margin: 0;
                 padding: 25px 0;
-                @apply flex justify-center items-center flex-col rounded-[90px] ;
+                box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+                @apply flex justify-center items-start flex-col rounded-[90px];
                 li {
                     display: block;
                     padding: 15px 0;
@@ -124,15 +184,14 @@ header#duplex-header {
                     text-align: center;
 
                     a {
-                        @apply text-[18px] leading-[21px] font-hermes text-brown;
-                        text-transform: uppercase;
+                        @apply font-nutella font-semibold text-[17px] leading-[21px] uppercase;
                         background-color: transparent;
                         cursor: pointer;
                         &.active {
-                            @apply text-brown;
+                            @apply text-yellow;
                         }
                         &:hover {
-                            @apply text-white;
+                            @apply text-yellow;
                         }
                     }
                     &:first-child {
@@ -142,7 +201,7 @@ header#duplex-header {
             }
         }
     }
-    @screen sm {
+    @screen md {
         padding-top: 0.75em;
         top: 70px;
         position: sticky;
@@ -154,16 +213,29 @@ header#duplex-header {
             nav {
                 display: block;
                 text-align: center;
+
+                &.active {
+                    display: block;
+                    position: unset;
+                    right: unset;
+                    left: unset;
+                    margin: auto;
+                    @apply rounded-none shadow-none bg-transparent;
+                    ul.menu-header {
+                        @apply rounded-[20px];
+                    }
+                }
+
                 &.active {
                     @apply bg-transparent;
                 }
                 ul.menu-header {
-                    @apply flex justify-center items-center flex-row bg-white;
+                    @apply inline-flex justify-center items-center flex-row bg-red;
                     margin: 0 auto;
                     padding: 0;
                     li {
                         display: inline-block;
-                        padding: 0 5px;
+                        padding: 0 7px;
                         border: none;
                         width: auto;
                         &:first-child {
@@ -174,9 +246,8 @@ header#duplex-header {
                         }
                         a{
                             display: block;
-                            padding: 15px 20px;
-                            font-weight: 900;
-                            @apply text-[18px] leading-[21px] text-brown;
+                            padding: 15px 20px 17px;
+                            @apply text-[17px] leading-[21px] text-white font-bold no-ligatures;
                         }
                     }
                 }
@@ -205,7 +276,7 @@ header#duplex-header {
 /* -------- FOOTER -------- */
 footer#duplex{
     p{
-        @apply font-tekoMedium text-[16px] leading-[21px] text-brown;
+        @apply font-montserrat rem:text-[13px] rem:leading-[16px] rem:tracking-[0.15px];
     }
     nav{
         ul {
@@ -269,7 +340,7 @@ footer#duplex{
             display: none;
             &+label {
                 position: relative;
-                margin: 3px 10px 0 0;
+                margin: 0 10px 0 0;
                 padding-left: 0;
                 width: auto;
                 background-color: transparent;
@@ -298,11 +369,11 @@ footer#duplex{
                 &:before {
                     content: '';
                     display: inline-block;
-                    width: 18px;
-                    height: 18px;
+                    width: 20px;
+                    height: 20px;
                     cursor: pointer;
                     background-color: theme('colors.white');
-                    border: 2px solid theme('colors.white');
+                    border: 1px solid #BDBDBD;
                     @apply rounded-md;
 
                 }
@@ -310,7 +381,7 @@ footer#duplex{
             }
             &:checked+label {
                 &:after {
-                    background-color: theme('colors.brown');
+                    background-color: theme('colors.black');
                 }
                 &:before {
                     &+label {}
@@ -332,14 +403,20 @@ footer#duplex{
         .wrapper-radiobutton {
             input[type="radio"] {
                 &+label {
-                    margin: 0 0 0 5px;
+                    margin: 0 5px 0 0 ;
                     &:after {
                         width: 8px;
                         height: 8px;
+
                     }
                     &:before {
-                        width: 16px;
-                        height: 16px;
+                        width: 20px;
+                        height: 20px;
+                    }
+                }
+                &:checked+label {
+                    &:after {
+                        background-color: #000000;
                     }
                 }
             }
@@ -361,8 +438,8 @@ footer#duplex{
                 &:after {
                     display: inline-block;
                     position: absolute;
-                    width: 10px;
-                    height: 10px;
+                    width: 8px;
+                    height: 8px;
                     left: 0;
                     right: 0;
                     bottom: 0;
@@ -380,13 +457,13 @@ footer#duplex{
                     height: 20px;
                     cursor: pointer;
                     background-color: theme('colors.white');
-                    border: 2px solid theme('colors.black');
+                    border: 2px solid #636366;
                     @apply rounded-full;
                 }
             }
             &:checked+label {
                 &:after {
-                    background-color: theme('colors.black');
+                    background-color: #636366;
                 }
                 &:before {
                     &+label {}
@@ -395,4 +472,33 @@ footer#duplex{
         }
 
     }
+}
+
+/* -------- PATTERNS -------- */
+.nPattern::before {
+    content: '';
+    display: block;
+    @apply bg-nPatternReverse;
+    background-repeat: repeat-x;
+    background-size: 851px 80px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
+}
+
+.nPattern::after {
+    content: '';
+    display: block;
+    @apply bg-nPattern;
+    background-repeat: repeat-x;
+    background-size: 851px 80px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 80px;
+
 }
