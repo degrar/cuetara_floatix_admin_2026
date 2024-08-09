@@ -31,7 +31,7 @@ const close = () => {
         @close="close"
     >
         <div>
-            <div class="text-lg border-b-2 px-6 py-4 relative font-semibold uppercase font-poppins">
+            <div class=" relative ">
                 <slot name="title" />
 
                 <button @click="close" class="absolute right-4 top-4" v-if="$slots?.title">
@@ -44,7 +44,7 @@ const close = () => {
             </div>
         </div>
 
-        <div class="flex flex-row justify-end px-6 py-4 bg-gray-100 text-right" v-if="$slots?.footer">
+        <div class="flex flex-row justify-end px-4 py-2 bg-gray-100 text-right" v-if="$slots?.footer">
             <slot name="footer" />
         </div>
     </Modal>

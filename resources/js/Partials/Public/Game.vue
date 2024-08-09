@@ -81,7 +81,7 @@
                                 <div class="relative">
                                     <div class="grid gap-5 grid-cols-1 lg:grid-cols-2">
                                         <div class="w-full lg:col-span-2">
-                                            <TextInput type="text" :error="form.errors.code" v-model="form.code" label="Código*"/>
+                                            <TextInput type="text" :error="form.errors.code" v-model="form.code" label="Código*" help="¿Dónde está el código?"  :modal="true" @trigger="handleTrigger"/>
                                         </div>
                                     </div>
                                 </div>
@@ -150,6 +150,43 @@
 
             </div>
         </div>
+
+        <DialogModal closeable :show="showCodeModal" @close="showCodeModal = false">
+            <template #content>
+                <div class="w-full mx-auto bg-white p-[70px] pb-[30px] shadow-custom rounded-[12px] relative">
+                    <div class="absolute top-[25px] right-[25px] cursor-pointer m-auto" @click="showCodeModal = false">
+                        <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" viewBox="0 0 71 70" fill="none">
+                            <g filter="url(#filter0_d_16_908)">
+                                <rect x="10" y="6" width="51" height="50" rx="25" fill="#E30613"/>
+                                <rect x="7" y="3" width="57" height="56" rx="28" stroke="white" stroke-width="6"/>
+                                <path d="M41.875 24.75L29.125 37.25" stroke="#FAF5ED" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                                <path d="M29.125 24.75L41.875 37.25" stroke="#FAF5ED" stroke-width="7" stroke-linecap="round" stroke-linejoin="round"/>
+                            </g>
+                            <defs>
+                                <filter id="filter0_d_16_908" x="0" y="0" width="71" height="70" filterUnits="userSpaceOnUse" color-interpolation-filters="sRGB">
+                                    <feFlood flood-opacity="0" result="BackgroundImageFix"/>
+                                    <feColorMatrix in="SourceAlpha" type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 127 0" result="hardAlpha"/>
+                                    <feOffset dy="4"/>
+                                    <feGaussianBlur stdDeviation="2"/>
+                                    <feComposite in2="hardAlpha" operator="out"/>
+                                    <feColorMatrix type="matrix" values="0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0 0.25 0"/>
+                                    <feBlend mode="normal" in2="BackgroundImageFix" result="effect1_dropShadow_16_908"/>
+                                    <feBlend mode="normal" in="SourceGraphic" in2="effect1_dropShadow_16_908" result="shape"/>
+                                </filter>
+                            </defs>
+                        </svg>
+                    </div>
+                    <img src="../../../../resources/images/nutella/codigo.png" alt="paso 1" class="max-w-[200px] lg:max-w-[510px] w-full mx-auto pb-2"/>
+                    <h4 class="font-montserrat font-extrabold rem:text-[41px] rem:leading-[45px] text-center text-red my-[15px] max-w-[630px] w-full mx-auto">¿Dónde está el código?</h4>
+                    <div class="max-w-[524px] w-full mx-auto">
+                        <p class="text-center font-montserrat text-[16px] leading-[18px] text-black font-medium"><span class="font-extrabold">Lo encontrarás en los tarros navideños de Nutella<sup>®</sup></span> 200g, 350g, 450g, 750g y 1000g</p>
+                        <p class="text-center font-montserrat text-[16px] leading-[18px] text-black font-extrabold mt-[15px]">¿No tienes un código?</p>
+                        <p class="text-center font-montserrat text-[16px] leading-[18px] text-black font-medium">Participa con tu ticket de compra</p>
+                    </div>
+                </div>
+            </template>
+        </DialogModal>
+
     </div>
 </template>
 
@@ -166,6 +203,15 @@ import InputLabel from "@/Components/InputLabel.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import RadioButton from "@/Components/RadioButton.vue";
 
+
+import DialogModal from "@/Components/Admin/DialogModal.vue";
+import {ref} from 'vue';
+
+const showCodeModal = ref(false);
+
+const handleTrigger = () => {
+    showCodeModal.value = true;
+}
 
 addIcons(BiUpload, FaCircleNotch);
 

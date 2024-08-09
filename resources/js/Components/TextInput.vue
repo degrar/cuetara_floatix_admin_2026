@@ -4,7 +4,7 @@
         <input :id="id" ref="input" v-bind="{ ...$attrs, class: null }" class="text-grey font-montserrat rem:text-[14px] rem:leading-[16px] std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[1px] border-softGrey placeholder-softGrey placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-softGrey focus:shadow-none"
                :class="{ '!border-error text-error': error }" :type="type" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" />
 
-        <div v-if="help" class="rem:text-[12px] text-black font-montserrat">{{ help }}</div>
+        <div v-if="help" class="rem:text-[12px] text-black font-montserrat" :class="{ 'font-extrabold underline :hover:no-underline cursor-pointer': modal }"><span v-if="modal" @click="$emit('trigger')">{{ help }}</span></div>
         <div v-if="error && !noErrorLabel" class="rem:text-[12px] font-bold font-montserrat text-error inline-block">{{ error }}</div>
 
 
@@ -14,6 +14,7 @@
 <script>
 import {v4 as uuid} from 'uuid'
 import InputLabel from "@/Components/InputLabel.vue";
+
 
 export default {
     components: {InputLabel},
@@ -44,8 +45,12 @@ export default {
             type: String,
             default: null
         },
+        modal: {
+            type: Boolean,
+            default: 0
+        },
         placeholder: String
     },
-    emits: ['update:modelValue']
+    emits: ['update:modelValue', 'click:showCodeModal']
 }
 </script>
