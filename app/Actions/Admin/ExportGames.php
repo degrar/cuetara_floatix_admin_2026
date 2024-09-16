@@ -48,7 +48,7 @@ class ExportGames
             'id_usuario' => $game->user->id,
             'role' => $game->user->role,
             'nombre' => $game->user->name,
-            'apellidos' => $game->user->surname,
+            'apellidos' => $game->user->first_surname.' '.$game->user->second_surname,
             'email' => $game->user->email,
             'anuncios' => $game->user->ads ? 'Sí' : 'No',
 

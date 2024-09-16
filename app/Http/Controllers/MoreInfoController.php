@@ -29,7 +29,7 @@ class MoreInfoController extends Controller
             'lang' => config('duplex.recaptcha.lang'),
             'provinces' => Province::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
             'vias' => Via::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
-            'stock' => Stock::query()->orderBy('id')->get(['id', 'name', 'units', 'used']),
+            'stock' => Stock::query()->where('country', config('duplex.recaptcha.lang'))->orderBy('id')->get(['id', 'name', 'units', 'used']),
         ]);
     }
 

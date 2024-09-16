@@ -32,8 +32,8 @@ class StoreGameWinnerRequest extends FormRequest
         $stock1 = $this->input('stock1');
         return [
 
-            'stock1' => ['nullable', 'string', 'exists:App\Models\Stock,id', new StockUnitsRule],
-            'stock2' => ['nullable', 'string', 'exists:App\Models\Stock,id', new StockUnitsRule, new UniqueStockSize($stock1) ],
+            'stock1' => [ 'required', 'string', 'exists:App\Models\Stock,id', new StockUnitsRule],
+            'stock2' => [ 'required', 'string', 'exists:App\Models\Stock,id', new StockUnitsRule, new UniqueStockSize($stock1) ],
 
             'via' => 'required|exists:App\Models\Via,id',
             'name' => 'required|string',
@@ -45,7 +45,6 @@ class StoreGameWinnerRequest extends FormRequest
             'floor' => 'nullable|string',
             'door' => 'nullable|string',
             'phone' => 'required|regex:/^[0-9]{9}$/',
-            'privacy' => 'required|accepted',
 
             'recaptcha' => new GoogleRecaptcha(),
         ];

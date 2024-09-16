@@ -91,56 +91,54 @@
     <tbody>
     <tr>
         <td>
-            <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #000000;">
+            <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ececec;">
                 <tbody>
                 <tr>
                     <td>
-                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FFEA01; color: #7D2A25; width: 600px;" width="750">
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; color: #000000; width: 600px;" width="750">
                             <tbody>
                             <tr>
                                 <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
                                     <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerWinner.png') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="338"></div>
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerWinner.png') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="356"></div>
                                             </td>
                                         </tr>
                                     </table>
                                     <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                <p style="color: #7D2A25;text-align: center;font-family: Arial, 'sans-serif'; font-size: 27px; text-transform: uppercase">
-                                                    <strong>Nos alegra confirmarte que has <span style="color:#FF0202 ">ganado un telescopio.</span></strong>
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 21px;">
+                                                    <strong>¡Hemos validado tu participación y dos jerséis navideños ya son tuyos!</strong>
+
                                                 </p>
-                                                <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
-                                                    Por favor, accede a nuestro formulario en un plazo máximo de 10 días y sube una <strong>imagen de tu DNI y la dirección</strong> en la que deseas recibir tu premio.
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                     Para proceder con el envío de tu premio necesitamos que accedas a nuestro formulario y completes estos datos:
                                                 </p>
-                                                <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
+                                                <ul style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;list-style-type: disc; ">
+                                                    <li>Las tallas de tus jerséis navideños.</li>
+                                                    <li>Dirección donde quieres recibir tu premio.</li>
+                                                </ul>
+                                                <br>
+                                                <div style="text-align: left">
+                                                    <a href="{{ $formLink }}">
+                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 48px; width: 298px;" height="48" width="298">
+                                                    </a>
+                                                </div>
+                                                <br>
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                    Dispones de <strong>6 días laborables para adjuntar la información.</strong> Una vez validados estos documentos te enviaremos tu fantástico premio en un plazo máximo de 20 días.
+                                                </p>
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
                                                 <br>
-                                                <div style="text-align: left">
-                                                    <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 59px; width: 223px;" height="59" width="223">
-                                                    </a>
-                                                </div>
-                                                <br>
-                                                <div style="text-align: left">
-                                                    <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/email.png') }}" alt="Kinder" style="height: 200px; width: 247px;" height="200" width="247">
-                                                    </a>
-                                                </div>
-                                                <br>
                                                 <div>
                                                     <a href="{{ route('home') }}">
-                                                        <img src="{{ asset('assets/email/footer.png') }}" alt="Equipo Kinder" style="height: 38px; width: 204px;" height="38" width="204">
+                                                        <img src="{{ asset('assets/email/footer.png') }}" alt="Nutella" style="height: 51px; width: 165px;" height=51" width="165">
                                                     </a>
                                                 </div>
-                                                <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 12px">
-                                                    Promoción válida en España para mayores de 18 años del 9/9/2024 al 9/11/2024. Máximo 1 participación por persona durante la promoción.
-                                                    Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción
-                                                    <a href="{{ route('legal') }}" style="font-size: 12px;font-weight: bold;text-decoration: underline;color: #6B330F">aquí</a>.
-                                                </p>
                                                 <br>
                                             </td>
                                         </tr>

@@ -8,6 +8,8 @@
 
         <link rel="preload" href="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson" as="script">
 
+        <script src="https://unpkg.com/floating-vue@^2.0.0-beta.1"></script>
+        <link rel="stylsheet" href="https://unpkg.com/floating-vue@^2.0.0-beta.1/dist/style.css" />
 
         <!-- Ferrero -->
         <link rel="apple-touch-icon" sizes="180x180"href='{{ asset('ferrero/images/favicon/apple-touch-icon.png') }}'>
@@ -76,7 +78,7 @@
                 "changecountryblock", "headersociallinksblock_2", "copyright", "badges"
             ];
 
-            jQuery(document).ready(function () {
+            window.addEventListener('load', function () {
                 jQuery('#nutella-embed-header').bdiHeader();
                 jQuery('#nutella-embed-header-top').bdiTopHeader();
                 jQuery('#nutella-embed-footer-pre').bdiPreFooter();
@@ -86,8 +88,6 @@
         </script>
 
         <script type="application/javascript" src="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson"></script>
-
-
 
 
     </body>

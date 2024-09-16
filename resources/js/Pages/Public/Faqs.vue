@@ -1,12 +1,12 @@
 <template>
     <GuestLayout title="FAQS" menu inside>
-        <InsideHeaderPage />
-        <div class="bg-yellow pb-[100px]">
+        <whitePatternInside />
+        <div class="bg-white py-[50px]">
             <div class="container mx-auto px-[15px] flex justify-center items-center flex-col py-[40px] lg:flex-row lg:py-[80px] ">
                 <div class="w-12/12  pt-[15px]">
 
                     <div class="px-4 font- font-tekoRegular text-grey">
-                        <h1 class="rem:text-[60px] font-hermes text-brown uppercase rem:leading-[62px] tracking-[-0.6px] text-center mb-[50px] block">Preguntas Frecuentes</h1>
+                        <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-6 block">Preguntas frecuentes</h1>
 
                         <h4 id="1" @click="toggleCollapsible(1)"><span>1- Normas de la promoci&oacute;n</span></h4>
                         <div class="collapsible" :class="{'active': active === 1}" data-parent="#1">
@@ -241,23 +241,23 @@
 <style scoped>
 
 h4 {
-    @apply text-brown font-tekoSemiBold rem:text-[20px] rem:leading-[24px] lg:rem:text-[30px] tracking-[1px] p-0 my-5;
+    @apply text-black font-montserrat font-extrabold rem:text-[22px] rem:leading-[24px] lg:rem:text-[24px] lg:rem:leading-[28px] p-0 mb-5 mt-10;
 }
 
 h5 {
-    @apply text-brown font-tekoSemiBold rem:text-[18px] rem:leading-[24px] lg:rem:text-[24px] tracking-[1px] p-0 mb-2 mt-6;
+    @apply text-black font-montserrat font-extrabold rem:text-[20px] rem:leading-[22px] lg:rem:text-[22px] lg:rem:leading-[26px] p-0 mb-2 mt-8;
 }
 
 h6 {
-    @apply text-brown font-tekoMedium rem:text-[18px] rem:leading-[24px] lg:rem:text-[20px] tracking-[1px] p-0 mb-2 mt-5;
+    @apply text-black font-montserrat font-semibold rem:text-[18px] rem:leading-[22px] lg:rem:text-[20px] lg:rem:leading-[22px] p-0 mb-2 mt-5;
 }
 
 p {
-    @apply text-brown font-tekoRegular rem:text-[20px] rem:leading-[18px] lg:rem:text-[20px] lg:rem:leading-[22px] tracking-[0.5px] mb-4 mt-2;
+    @apply text-black font-montserrat rem:text-[16px] rem:leading-[20px] lg:rem:text-[18px] lg:rem:leading-[22px] mb-2 mt-2;
 }
 
 a {
-    @apply text-brown font-tekoRegular rem:text-[20px] rem:leading-[18px] lg:rem:text-[20px] lg:rem:leading-[22px] tracking-[0.5px] underline;
+    @apply text-black font-montserrat underline ;
 }
 
 ul {
@@ -266,7 +266,7 @@ ul {
 }
 
 ul > li {
-    @apply text-brown font-tekoRegular rem:text-[20px] rem:leading-[18px] lg:rem:text-[20px] lg:rem:leading-[22px] tracking-[0.5px] mb-2 mt-2;
+    @apply text-black font-montserrat rem:text-[16px] rem:leading-[20px] lg:rem:text-[18px] lg:rem:leading-[22px] mb-2 mt-2;
 }
 
 .collapsible {
@@ -302,7 +302,7 @@ table {
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
 import { ref } from 'vue';
-import InsideHeaderPage from "@/Components/inside/insideHeaderPage.vue";
+import whitePatternInside from "@/Components/inside/whitePatternInside.vue";
 
 const active = ref(null);
 

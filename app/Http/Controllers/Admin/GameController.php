@@ -20,7 +20,7 @@ class GameController extends Controller
 
     public function show(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('users', 'games.user_id', '=', 'users.id')
             ->where('role', '=', 'user')
@@ -44,7 +44,7 @@ class GameController extends Controller
 
     public function pending(): Response //MMGG pendent de validar imatge
     {
-        $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Pending->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->orderBy('games.created_at', 'asc')
@@ -69,7 +69,7 @@ class GameController extends Controller
 
     public function requested(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Requested->value)
             ->orderByDesc('games.created_at')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
@@ -156,7 +156,7 @@ class GameController extends Controller
 
     public function denied(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Denied->value)
             ->orderByDesc('games.created_at')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*']);

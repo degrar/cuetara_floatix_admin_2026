@@ -109,42 +109,28 @@
                                     <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
-                                                    ¡Hola!
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 21px;">
+                                                    <strong>¡Dos jerséis navideños ya son tuyos!</strong>
+
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
-                                                    Tu participación <strong>ha sido validada y tu premio será enviado</strong> a la dirección que nos facilitaste en un plazo máximo de 20 días naturales.
+                                                    Si todavía no has rellenado el formulario de ganadores, accede ahora y complétalo para que podamos proceder al envío de tu premio. Indícanos ahí:
                                                 </p>
+                                                <ul style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;list-style-type: disc; ">
+                                                    <li>Las tallas de tus jerséis navideños.</li>
+                                                    <li>Dirección donde quieres recibir tu premio.</li>
+                                                </ul>
                                                 <br>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;background-color: #F9D3D1">
-                                        <tr>
-                                            <td class="pad" style="padding: 20px 60px;">
-                                                <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation">
-                                                    <tr>
-                                                        <td>
-                                                            <img src="{{ asset('assets/email/instagram.png') }}" alt="Instagram" style="height: 57px; width: 57px;" height=57" width="57">
-                                                        </td>
-                                                        <td style="padding: 20px;>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 16px;">
-                                                                Si quieres, puedes compartir una foto en Instagram luciendo tu premio con el hashtag <strong>#nutellawithlove</strong> y etiquetándonos en ella <span style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 16px;"><strong>@nutella.es</strong></span>
-                                                            </p>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                            </td>
-                                        </tr>
-                                    </table>
-                                    <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
-                                        <tr>
-                                            <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
+                                                <div style="text-align: left">
+                                                    <a href="{{ $formLink }}">
+                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 48px; width: 298px;" height="48" width="298">
+                                                    </a>
+                                                </div>
                                                 <br>
                                                 <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
                                                     Dispones de <strong>6 días laborables para adjuntar la información.</strong> Una vez validados estos documentos te enviaremos tu fantástico premio en un plazo máximo de 20 días.
                                                 </p>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                <p style="color: #000000;text-align: center;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
                                                 <br>

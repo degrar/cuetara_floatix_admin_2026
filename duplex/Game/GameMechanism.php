@@ -55,6 +55,9 @@ class GameMechanism
                 {
                     $this->game->update(['state' => GameState::Requested, 'validated_at' => Carbon::now()]);
                     return GameResult::Winner;
+
+
+
                 }
                 else if ($this->request->option == '2'){ //Ticket
                     $this->game->update(['state' => GameState::Pending]);

@@ -1,6 +1,7 @@
- import defaultTheme from 'tailwindcss/defaultTheme';
+import defaultTheme from 'tailwindcss/defaultTheme';
 import forms from '@tailwindcss/forms';
 import typography from '@tailwindcss/typography';
+
 
 const colors = require('tailwindcss/colors');
 const convertpttorem = require('tailwindcss-convert-px-to-rem');
@@ -50,6 +51,7 @@ export default {
                 'nPattern': "url('/resources/images/pattern/nPattern.jpg')",
                 'nPatternReverse': "url('/resources/images/pattern/nPatternReverse.jpg')",
                 'redPattern': "url('/resources/images/pattern/redPattern.jpg')",
+                'insidePattern': "url('/resources/images/pattern/simplePatternWhite.png')",
 
 
             },

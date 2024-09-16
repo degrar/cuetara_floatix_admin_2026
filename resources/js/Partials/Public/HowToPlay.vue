@@ -8,7 +8,7 @@
                 <div class="rem:max-w-[370px] w-full box rem:p-[30px] rem:mx-[15px] rem:mb-[10px] rounded-lg whitePattern">
                     <img src="../../../../resources/images/htw/1.png" alt="paso 1" class="max-w-[80px] lg:max-w-[80px] w-full mx-auto pb-2"/>
                     <img src="../../../../resources/images/htw/step1.png" alt="paso 1" class="max-w-[200px] lg:max-w-[300px] w-full mx-auto pb-2"/>
-                    <p class="font-montserrat font-extrabold text-black rem:text-[25px] rem:leading-[28px] max-w-[270px] w-full mx-auto mb-[15px]">Compra cualquier producto</p>
+                    <p class="font-montserrat font-extrabold text-black rem:text-[25px] rem:leading-[28px] max-w-[270px] w-full mx-auto mb-[15px] text-center">Compra cualquier producto</p>
                     <p class="underline hover:no-underline cursor-pointer font-montserrat font-bold text-black rem:text-[15px] rem:leading-[22px] rem:tracking-[0.16px] text-center max-w-[270px] w-full mx-auto" @click="showListModal = true">¿Con qué productos puedo participar?</p>
                 </div>
 
@@ -26,12 +26,13 @@
 
             </div>
             <div class="my-[50px]">
+                <div class="flex justify-center">
+                    <p class="font-montserrat font-extrabold text-white rem:text-[15px] rem:leading-[21px] max-w-[915px] w-full mx-auto text-center">Recuerda guardar el comprobante con el que has participado (ticket de compra o código promocional), podríamos solicitártelo si resultas ganador/a.</p>
+                </div>
                 <div class="flex justify-center py-4">
                     <PrimaryButton scroll="#participa" class="">Participa</PrimaryButton>
                 </div>
-                <div class="flex justify-center">
-                    <p class="font-montserrat font-extrabold text-white rem:text-[13px] rem:leading-[21px]">RECUERDA GUARDAR EL TICKET DE COMPRA ORIGINAL, PODRÍAMOS SOLICITÁRTELO SI RESULTAS GANADOR.</p>
-                </div>
+
             </div>
         </div>
 

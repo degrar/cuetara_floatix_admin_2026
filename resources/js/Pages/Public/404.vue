@@ -1,18 +1,18 @@
 <template>
     <GuestLayout title="404" menu>
-        <InsideHeaderPage />
-        <div class="bg-yellow pb-[100px]">
-
-                <div class="container mx-auto px-[15px] py-5 pb-[100px] lg:py-10 flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
-                    <div class="max-w-[230px] lg:max-w-[400px] w-full mx-auto">
-                        <img src="../../../images/404.png" alt="kinder" class=""/>
+        <whitePatternInside />
+        <div class="bg-white">
+            <div class="container mx-auto px-[15px] py-10">
+                <div class="flex flex-col justify-center">
+                    <div class="max-w-[200px] lg:max-w-[180px] w-full mx-auto ">
+                        <img src="../../../images/nutella/404.png" alt="404" class="my-[50px] lg:my-0"/>
                     </div>
-                    <div class="max-w-[570px] w-full mx-auto">
-                        <h1 class="font-hermes text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:leading-[62px] lg:tracking-[.6px] text-center my-6">PÁGINA NO ENCONTRADA</h1>
-                        <p class="max-w-[470px] w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[.35px] text-center">La página que buscas no existe o ha sido eliminada. Por favor, ve al inicio y vuelve a intentarlo.</p>
+                    <div class="max-w-[600px] w-full mx-auto">
+                        <h1 class="max-w-[460px] w-full mx-auto stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-12 block">EN ESTE ARMARIO NO HAY JERSÉIS</h1>
+                        <p class="w-full mx-auto text-center font-montserrat rem:text-[21px] rem:leading-[21px] font-medium mb-6 ">Parece que la página que buscas no existe. <br>Vuelve al inicio e inténtalo de nuevo.</p>
                     </div>
                 </div>
-
+            </div>
         </div>
     </GuestLayout>
 </template>
@@ -20,7 +20,7 @@
 <script setup>
 import { ref, onMounted, onUnmounted } from 'vue';
 import GuestLayout from '@/Layouts/GuestLayout.vue';
-import InsideHeaderPage from "@/Components/inside/insideHeaderPage.vue";
+import whitePatternInside from "@/Components/inside/whitePatternInside.vue";
 
 const headerHeight = ref(0);
 

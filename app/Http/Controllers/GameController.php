@@ -89,7 +89,7 @@ class GameController extends Controller
     private function sendWinnerMail(\App\Models\Game $game)
     {
         dispatch(function () use ($game) {
-            \Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new MoreInfo($game->token, '0'));
+            \Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new Winner($game->token, '0'));
         })->afterResponse();
     }
 

@@ -19,7 +19,8 @@ class Winner extends Mailable
      * Create a new message instance.
      */
     public function __construct(
-        private readonly string $gameToken,
+        private string $token,
+        private int $type
     )
     { }
 
@@ -39,9 +40,10 @@ class Winner extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.moreinfo_all',
+            view: 'emails.winner_code',
             with: [
-                'formLink' => route('winner-form', $this->gameToken),
+                'token' => $this->token,
+                'formLink' => route('more-info', ['token' => $this->token, 'type' => $this->type])
             ]
         );
     }

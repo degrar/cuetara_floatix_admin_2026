@@ -1,20 +1,22 @@
-<template>
+ <template>
     <GuestLayout title="Contacto" useRecaptcha menu>
-        <InsideHeaderPage />
+        <whitePatternInside />
+
         <template v-if="!sent">
 
-            <div class="bg-yellow">
-                <div class="container mx-auto px-[15px] py-10">
-                    <div class="flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
-                        <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
-                            <img src="../../../images/contact.png" alt="kinder" class="mt-[50px] lg:mt-0"/>
-                        </div>
-                        <div class="max-w-[600px] w-full mx-auto ">
-                            <h1 class="font-hermes text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:rem:leading-[62px] lg:rem:tracking-[-0.6px] text-center mb-6">¿EN QUÉ PODEMOS AYUDARTE?</h1>
-                            <p class="w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[-0.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[-0.35px] text-center mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
-                            <div class="flex justify-center flex-col">
-                                <div class="w-full mx-auto">
-                                    <form @submit.prevent="submitForm">
+            <div class="bg-white py-[20px]">
+                <form @submit.prevent="submitForm">
+                    <div class="container mx-auto px-[15px] pt-10">
+                        <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-12 block">¿Tienes alguna duda?</h1>
+
+                        <div class="flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
+                            <div class="max-w-[200px] lg:max-w-[460px] w-full mx-auto ">
+                                <img src="../../../images/nutella/contact.png" alt="Nutella" class="mt-[50px] lg:mt-0"/>
+                            </div>
+                            <div class="max-w-[600px] w-full mx-auto ">
+                                <p class="w-full mx-auto  font-montserrat rem:text-[21px] rem:leading-[21px] font-medium mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
+                                <div class="flex justify-center flex-col">
+                                    <div class="w-full mx-auto">
                                         <div class="grid grid-cols-2 gap-4">
                                             <TextInput type="text" v-model="form.nombre" label="Nombre" :error="form.errors.nombre" />
                                             <TextInput type="text" v-model="form.email" label="E-mail" class="" :error="form.errors.email" />
@@ -24,48 +26,47 @@
                                             <div class="wrapper-checkbox flex flex-row items-start justify-start rem:mt-[15px] cursor-pointer">
                                                 <Checkbox v-model:checked="form.legal" :error="form.errors.legal" id="privacy" />
                                                 <label class="flex flex-row items-center justify-center cursor-pointer" for="privacy" v-on:click="onClickLabel" :class="{ 'error': form.errors.legal }"></label>
-                                                <InputLabelCheckbox for="legal" class="" :error="form.errors.legal">Acepto el tratamiento de mis datos personales de conformidad con la <a class="underline hover:underline-none" target="_blank" :href="route('privacy')">política de privacidad</a> de Ferrero</InputLabelCheckbox>
+                                                <InputLabelCheckbox for="legal" class="text-black" :error="form.errors.legal">Acepto el tratamiento de mis datos personales de conformidad con la <a class="underline hover:underline-none" target="_blank" :href="route('privacy')">política de protección de datos </a> de Ferrero</InputLabelCheckbox>
                                             </div>
                                         </div>
-                                        <div class="mt-2 flex">
-                                            <FormButton type="submit" class="mx-auto" :disabled="form.processing">
-                                                Enviar
-                                                <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
-                                            </FormButton>
-                                        </div>
-                                    </form>
-                                </div>
-                                <div class="mx-auto  w-12/12 lg:w-10/12 ">
-                                    <div v-if="form.hasErrors" id="error" class="mx-auto text-center px-2 py-4 my-[15px] border-error bg-error border-[1px] mt-8 rounded-md">
-                                        <span class="text-white block font-hermes rem:text-[14px] rem:leading-[21px] uppercase">Formulario incompleto o erróneo.</span>
-                                        <span class="text-white block font-hermes rem:text-[14px] rem:leading-[21px]">Por favor, revisa o completa los campos remarcados. Gracias.</span>
                                     </div>
                                 </div>
-
-
                             </div>
                         </div>
                     </div>
-                </div>
-                <div class="container mx-auto px-[15px] pb-10 flex flex-row justify-center">
-                    <div class="mx-auto  w-12/12 lg:w-10/12 my-[30px]">
-                        <p class="text-brown font-tekoRegular rem:text-[17px] rem:leading-[18px] mb-[15px] text-center"><span class="font-tekoSemiBold">Ferrero Ibérica, S.A.</span> (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="font-tekoSemiBold">link</a></p>
+                    <div class="container mx-auto px-[15px] flex flex-row justify-center">
+                        <div class="mx-auto  w-12/12 lg:w-10/12 my-[15px]">
+                            <p class="rem:text-[12px] text-grey font-montserrat font-medium mb-[15px] text-center">Ferrero Ibérica, S.A. (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="underline">link</a></p>
+
+                        </div>
+                    </div>
+                    <div class="container mx-auto px-[15px] flex flex-row justify-center">
+                        <div class="mt-2 flex">
+                            <FormButton type="submit" class="mx-auto" :disabled="form.processing">
+                                Enviar
+                                <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
+                            </FormButton>
+                        </div>
+                    </div>
+                    <div class="container mx-auto px-[15px] flex flex-row justify-center">
+                        <div class="mx-auto w-12/12 lg:w-10/12" v-if="form.hasErrors">
+                            <ErrorMessage />
+                        </div>
 
                     </div>
-                </div>
-
+                </form>
             </div>
         </template>
         <template v-else>
-            <div class="bg-yellow">
+            <div class="bg-white">
                 <div class="container mx-auto px-[15px] py-10">
-                    <div class="flex flex-col-reverse lg:flex-row justify-center">
+                    <div class="flex flex-col justify-center">
                         <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
-                            <img src="../../../images/contact.png" alt="kinder" class="my-[50px] lg:my-0"/>
+                            <img src="../../../images/nutella/contact.png" alt="kinder" class="my-[50px] lg:my-0"/>
                         </div>
                         <div class="max-w-[600px] w-full mx-auto">
-                            <h1 class="font-hermes text-brown uppercase rem:text-[33px] leading-[35px] tracking-[-0.33px] lg:rem:text-[60px] lg:rem:leading-[62px] lg:rem:tracking-[-0.6px] text-center mb-6">¡Mensaje recibido!</h1>
-                            <p class="w-full mx-auto  font-tekoMedium text-brown rem:text-[31px] rem:leading-[31px] rem:tracking-[-0.35px] lg:rem:text-[35px] lg:rem:leading-[36px] lg:rem:tracking-[-0.35px] text-center mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
+                            <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-12 block">¡Mensaje recibido!</h1>
+                            <p class="w-full mx-auto text-center font-montserrat rem:text-[21px] rem:leading-[21px] font-medium mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
                         </div>
                     </div>
                 </div>
@@ -87,10 +88,12 @@ import SubmitButton from "@/Components/SubmitButton.vue";
 import {OhVueIcon, addIcons} from "oh-vue-icons";
 import {BiUpload, FaCircleNotch} from "oh-vue-icons/icons";
 import { useToast } from "vue-toastification";
-import InsideHeaderPage from "@/Components/inside/insideHeaderPage.vue";
+import whitePatternInside from "@/Components/inside/whitePatternInside.vue";
+import whitePatternInsideDown from "@/Components/inside/whitePatternInsideDown.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import SecondaryButton from "@/Components/SecondaryButton.vue";
 import FormButton from "@/Components/FormButton.vue";
+import ErrorMessage from "@/Components/ErrorMessage.vue";
 addIcons(BiUpload, FaCircleNotch);
 
 const form = useForm({

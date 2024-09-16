@@ -1,7 +1,7 @@
 <template>
     <div class="relative nPattern w-full redPattern mt-[15px]">
 
-        <div class="container mx-auto flex flex-row items-center justify-center py-[100px]">
+        <div class="container mx-auto flex flex-row items-center justify-center pt-[100px]">
             <div class="w-6/12">
                 <img src="../../../../resources/images/nutella/puedes-ganar.png" alt="Puedes Ganar" class="max-w-[360px] w-full mx-auto" />
                 <h1 class="font-nutella rem:text-[99px] rem:tracking-[0.15px] rem:leading-[99px] text-white uppercase text-center">2 jerséis</h1>
@@ -18,6 +18,9 @@
             <div class="w-6/12">
                 <img src="../../../../resources/images/nutella/jersey.png" alt="Jerseys" class="max-w-[600px] w-full mx-auto" />
             </div>
+        </div>
+        <div class="container mx-auto pb-[100px]">
+            <p class="text-white max-w-[970px] mx-auto w-full text-center rem:text-[13px] font-montserrat">Promoción válida para residentes en España, mayores de 18 años del 17/10/2024 al 08/01/2025. Conserva el ticket de compra. Máximo 5 participaciones diarias por persona. Máximo 1 premio por persona. Bases legales y detalles de la promoción <a class="underline hover:no-underline" :href="route('legal')">aquí</a>.</p>
         </div>
     </div>
 </template>
