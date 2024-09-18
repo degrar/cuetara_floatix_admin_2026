@@ -2,17 +2,17 @@
     <GuestLayout title="Ganador" menu useRecaptcha>
         <whitePatternInside />
 
-        <div class="bg-whitePattern py-[50px]">
-            <div class="container mx-auto px-[15px] py-5 pb-[100px] lg:py-10 flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
+        <div class="bg-whitePattern lg:py-[20px] lg:py-[50px]">
+            <div class="container mx-auto px-[15px] py-5 pb-[100px] lg:py-10 flex flex-col lg:flex-row justify-center items-center lg:items-start">
 
                 <div class="mx-auto w-5/12">
                     <img src="../../../../images/nutella/jerseis.png" alt="Nutella" class="max-w-[384px] w-full mx-auto"/>
                 </div>
 
                 <div class=" w-12/12 lg:w-7/12 mx-auto ">
-                    <h4 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[46px] rem:tracking-[0.5px] mb-6">¡HAS GANADO 2 JERSÉIS NAVIDEÑOS NUTELLA<sup class="rem:text-[25px]">®</sup>!</h4>
-                    <h5 class="font-montserrat uppercase rem:text-[21px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.21px] mb-6">COMPLETA ESTOS DATOS PARA RECIBIRLOS</h5>
-                    <h5 class="font-montserrat rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] mb-6">Indica las tallas de tus 2 jerséis navideños</h5>
+                    <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[36px] lg:rem:text-[41px] lg:rem:leading-[46px] rem:tracking-[0.5px] mb-6">¡HAS GANADO 2 JERSÉIS NAVIDEÑOS NUTELLA<sup class="rem:text-[25px]">®</sup>!</h4>
+                    <h5 class="text-center lg:text-left font-montserrat uppercase text-black font-extrabold rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[25px] rem:tracking-[0.21px] mb-6">COMPLETA ESTOS DATOS PARA RECIBIRLOS</h5>
+                    <h5 class="text-center lg:text-left font-montserrat rem:text-[16px] lg:rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] mb-6">Indica las tallas de tus 2 jerséis navideños</h5>
                     <form @submit.prevent="submitForm" class="mx-auto">
                         <div class="space-y-4">
                             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 block">
@@ -20,7 +20,7 @@
                                 <SelectInputStock v-model:select="form.stock2" :options="stock" :default-value="-1" :error="form.errors.stock2" value="id" placeholder="Jersey 2*" label="name"  units="" used=""/>
                             </div>
                             <p class="text-[#666666] font-montserrat underline hover_no-underline cursor-pointer rem:text-[12px] block" @click="showListModal = true">Guia de tallas</p>
-                            <h5 class="font-montserrat rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] !mt-8 !mb-6 block">Indica la dirección donde quieres recibir tu premio</h5>
+                            <h5 class="text-center lg:text-left font-montserrat rem:text-[16px] lg:rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] !mt-8 !mb-6 block">Indica la dirección donde quieres recibir tu premio</h5>
                             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 block">
 
                                 <SelectInput v-model:select="form.via" :options="vias" :default-value="-1" :error="form.errors.via" value="id" placeholder="Tipo de vía*" label="name" />
@@ -50,7 +50,7 @@
                             </div>
 
 
-                            <div class="mt-[25px] flex-row ">
+                            <div class="mt-[25px] flex flex-row justify-center lg:justify-start">
                                 <FormButton type="submit" class="mx-auto lg:mx-0" :disabled="form.processing">
                                     Enviar
                                     <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />

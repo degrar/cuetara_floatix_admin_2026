@@ -8,8 +8,8 @@
                 </div>
                 <form @submit.prevent="submitForm" class="mx-auto w-full lg:w-6/12 ml-0">
 
-                    <h4 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px]">Participa</h4>
-                    <h4 class="font-montserrat rem:text-[21px] rem:leading-[25px] rem:tracking-[0.21px] text-black uppercase font-extrabold mt-2">Y Descubre al momento si has ganado</h4>
+                    <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-0">Participa</h4>
+                    <h4 class="text-center lg:text-left font-montserrat rem:text-[21px] rem:leading-[25px] rem:tracking-[0.21px] text-black uppercase font-extrabold mt-2 mx-auto max-w-[320px] lg:max-w-max lg:mx-0 ">Y Descubre al momento si has ganado</h4>
 
                     <h5 class="font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-extrabold rem:mt-[25px] rem:mb-[10px]">Indica tus datos personales</h5>
                     <div class="grid gap-4 grid-cols-1 lg:grid-cols-2">
@@ -34,7 +34,7 @@
                                         <RadioButton v-model:checked="form.option" :value=1 :id ="1"/>
                                         <label class="flex flex-row items-center justify-center cursor-pointer " :for="1" v-on:click="onClickLabel"></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 1">Código promocional </span>
-                                        <VTooltip :distance="9" placement="right-start">
+                                        <VTooltip :distance="9" placement="right-start" :triggers="['hover', 'focus', 'touch']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
 
                                             <template #popper>

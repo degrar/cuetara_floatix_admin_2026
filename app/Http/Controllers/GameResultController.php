@@ -12,8 +12,8 @@ class GameResultController extends Controller
     {
         if (Session::has('winner')) {
             Session::remove('winner');
-            return Inertia::render('Public/Game/Winner');
         }
+        return Inertia::render('Public/Game/Winner');
         return redirect()->route('home');
 
     }

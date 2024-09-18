@@ -168,9 +168,9 @@ header#duplex-header {
                 right: 15px;
                 left: 15px;
                 margin: 10px auto 0;
-                @apply rounded-[20px] bg-white;
+                @apply rounded-[20px] bg-red;
                 ul.menu-header {
-                    @apply rounded-none;
+                    //@apply rounded-none;
                 }
             }
             ul.menu-header {
@@ -181,13 +181,13 @@ header#duplex-header {
                 @apply flex justify-center items-start flex-col rounded-[90px];
                 li {
                     display: block;
-                    padding: 15px 0;
+                    padding: 10px 0;
                     position: relative;
                     width: 100%;
                     text-align: center;
 
                     a {
-                        @apply font-nutella font-semibold text-[17px] leading-[21px] uppercase;
+                        @apply font-nutella font-semibold text-[21px] leading-[24px] uppercase;
                         background-color: transparent;
                         cursor: pointer;
                         &.active {
@@ -225,7 +225,7 @@ header#duplex-header {
                     margin: auto;
                     @apply rounded-none shadow-none bg-transparent;
                     ul.menu-header {
-                        @apply rounded-[20px];
+                        //@apply rounded-[20px];
                     }
                 }
 

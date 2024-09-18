@@ -4,17 +4,17 @@
 
         <template v-if="!sent">
 
-            <div class="bg-white py-[20px]">
+            <div class="bg-whitePattern py-[20px] lg:py-[50px]">
                 <form @submit.prevent="submitForm">
                     <div class="container mx-auto px-[15px] pt-10">
-                        <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-12 block">¿Tienes alguna duda?</h1>
+                        <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-0 lg:mb-12 block">¿Tienes alguna duda?</h1>
 
-                        <div class="flex flex-col-reverse lg:flex-row justify-center items-center lg:items-start">
+                        <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start">
                             <div class="max-w-[200px] lg:max-w-[460px] w-full mx-auto ">
-                                <img src="../../../images/nutella/contact.png" alt="Nutella" class="mt-[50px] lg:mt-0"/>
+                                <img src="../../../images/nutella/contact.png" alt="Nutella" class="lg:mt-0"/>
                             </div>
                             <div class="max-w-[600px] w-full mx-auto ">
-                                <p class="w-full mx-auto  font-montserrat rem:text-[21px] rem:leading-[21px] font-medium mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
+                                <p class="text-center lg:text-left w-full mx-auto  font-montserrat rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
                                 <div class="flex justify-center flex-col">
                                     <div class="w-full mx-auto">
                                         <div class="grid grid-cols-2 gap-4">
@@ -58,21 +58,21 @@
             </div>
         </template>
         <template v-else>
-            <div class="bg-white">
-                <div class="container mx-auto px-[15px] py-10">
+            <div class="bg-whitePattern py-[10px] lg:py-[20px]">
+                <div class="container mx-auto px-[15px] py-4">
                     <div class="flex flex-col justify-center">
                         <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
-                            <img src="../../../images/nutella/contact.png" alt="kinder" class="my-[50px] lg:my-0"/>
+                            <img src="../../../images/nutella/contact.png" alt="kinder" class="my-0"/>
                         </div>
                         <div class="max-w-[600px] w-full mx-auto">
-                            <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-12 block">¡Mensaje recibido!</h1>
-                            <p class="w-full mx-auto text-center font-montserrat rem:text-[21px] rem:leading-[21px] font-medium mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
+                            <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-4 lg:mb-12 block">¡Mensaje recibido!</h1>
+                            <p class="w-full mx-auto text-center font-montserrat rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
                         </div>
                     </div>
                 </div>
             </div>
-
         </template>
+        <whitePatternInsideDown />
     </GuestLayout>
 </template>
 

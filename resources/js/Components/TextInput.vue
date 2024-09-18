@@ -5,7 +5,7 @@
                :class="{ '!border-error text-error': error }" :type="type" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" />
 
         <div v-if="help" class="rem:text-[12px] text-black font-montserrat" :class="{ 'font-extrabold underline :hover:no-underline cursor-pointer': modal }"><span v-if="modal" @click="$emit('trigger')">{{ help }}</span></div>
-        <div v-if="error" class="rem:text-[16px] font-tekoSemiBold text-error inline-block">{{ error }}</div>
+        <div v-if="error" class="rem:text-[12px] font-semibold font-montserrat text-error inline-block">{{ error }}</div>
 
 
     </div>
