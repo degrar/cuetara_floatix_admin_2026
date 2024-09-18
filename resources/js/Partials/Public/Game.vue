@@ -1,5 +1,5 @@
 <template>
-    <div class="bg-whitePattern py-[50px]">
+    <div class="bg-whitePattern nPattern py-[50px] relative">
         <div class="container mx-auto px-[15px]">
             <div class="flex flex-row justify-center items-start">
 

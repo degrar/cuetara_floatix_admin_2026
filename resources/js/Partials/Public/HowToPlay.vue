@@ -1,5 +1,5 @@
 <template>
-    <div class="relative nPattern w-full redPattern ">
+    <div class="relative Flower w-full boteNutellaPattern redPattern ">
         <div class="container mx-auto py-[150px]">
             <div class="flex items-center justify-center mb-8">
                 <h4 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px]">Cómo participar</h4>

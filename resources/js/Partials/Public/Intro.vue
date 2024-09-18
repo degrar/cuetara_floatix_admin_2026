@@ -1,5 +1,5 @@
 <template>
-    <div class="relative nPattern w-full redPattern mt-[15px]">
+    <div class="relative nPatternReverse nPatternFull w-full redPattern mt-[15px]">
 
         <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center pt-[100px]">
             <div class="w-12/12 lg:w-6/12">

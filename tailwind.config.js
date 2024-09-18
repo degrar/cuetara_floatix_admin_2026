@@ -40,18 +40,16 @@ export default {
                 'customOrange': '0 4px 0 0 rgba(253, 178, 0, 1)',
             },
             backgroundImage: {
-                'home': "url('/resources/images/desktop.jpg')",
-                'nextEnd': "url('/resources/images/nextEnd.png')",
-                'inside': "url('/resources/images/insideHeader.jpg')",
-                'curveOrange': "url('/resources/images/curve-orange.png')",
-                'curveYellow': "url('/resources/images/curve-yellow.png')",
-                'curveFooter': "url('/resources/images/curve-white.png')",
                 'AdminBackground': "url('/resources/images/admin/background-image-admin.jpg')",
 
-                'nPattern': "url('/resources/images/pattern/nPattern.jpg')",
+                'nPattern': "url('/resources/images/pattern/nPattern.png')",
+                'nPatternFull': "url('/resources/images/pattern/nPatternFull.png')",
                 'nPatternReverse': "url('/resources/images/pattern/nPatternReverse.jpg')",
                 'redPattern': "url('/resources/images/pattern/redPattern.jpg')",
                 'insidePattern': "url('/resources/images/pattern/simplePatternWhite.png')",
+                'flowerPattern': "url('/resources/images/pattern/flower.png')",
+                'nFlowerPattern': "url('/resources/images/pattern/nFlowerPattern.png')",
+                'boteNutellaPattern': "url('/resources/images/pattern/boteNutellaPattern.png')",
 
 
             },

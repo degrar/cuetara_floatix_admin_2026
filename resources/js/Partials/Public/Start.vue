@@ -7,7 +7,7 @@
         </div>
     </div>
 
-    <div class="relative nPattern w-full redPattern">
+    <div class="relative nPatternReverse nPatternFull w-full redPattern">
 
         <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center py-[100px]">
             <div class="w-12/12 lg:w-6/12">

@@ -1,6 +1,6 @@
 <template>
-    <div class="relative w-full redPattern ">
-        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center pt-[50px]">
+    <div class="relative w-full nPatternFull redPattern ">
+        <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center pt-[50px] pb-[100px]">
             <div class="w-12/12 lg:w-6/12">
                 <img src="../../../../resources/images/nutella/puedes-ganar.png" alt="Puedes Ganar" class="max-w-[200px] lg:max-w-[360px] w-full mx-auto" />
                 <h1 class="font-nutella rem:text-[59px] lg:rem:text-[99px] rem:tracking-[0.15px] rem:leading-[69px] lg:rem:leading-[99px] text-white uppercase text-center"><span class="rem:text-[89px] lg:rem:text-[99px]">2</span> jerséis</h1>

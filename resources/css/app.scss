@@ -478,30 +478,86 @@ footer#duplex{
 }
 
 /* -------- PATTERNS -------- */
-.nPattern::before {
+.nPatternReverse::before {
     content: '';
     display: block;
     @apply bg-nPatternReverse;
     background-repeat: repeat-x;
-    background-size: 851px 80px;
+    background-size: 731px 72px;
     position: absolute;
     top: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 72px;
 
 }
 
-.nPattern::after {
+.nPatternFull::after {
     content: '';
     display: block;
-    @apply bg-nPattern;
+    @apply bg-nPatternFull;
     background-repeat: repeat-x;
-    background-size: 851px 80px;
+    background-size: 764px 76px;
     position: absolute;
     bottom: 0;
     left: 0;
     width: 100%;
-    height: 80px;
+    height: 76px;
+
+}
+
+.nFlowerPattern::before {
+    content: '';
+    display: block;
+    @apply bg-nFlowerPattern;
+    background-repeat: repeat-x;
+    background-size: 559px 89px;
+    position: absolute;
+    top: -15px;
+    left: 0;
+    width: 100%;
+    height: 89px;
+
+}
+
+.nPattern::before {
+    content: '';
+    display: block;
+    @apply bg-nPattern;
+    background-repeat: repeat-x;
+    background-size: 559px 46px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 46px;
+
+}
+
+.Flower::before {
+    content: '';
+    display: block;
+    @apply bg-flowerPattern;
+    background-repeat: repeat-x;
+    background-size: 551px 40px;
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 40px;
+
+}
+
+.boteNutellaPattern::after {
+    content: '';
+    display: block;
+    @apply bg-boteNutellaPattern;
+    background-repeat: repeat-x;
+    background-size: 645px 124px;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 100%;
+    height: 124px;
 
 }
