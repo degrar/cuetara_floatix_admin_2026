@@ -34,7 +34,7 @@
                                         <RadioButton v-model:checked="form.option" :value=1 :id ="1"/>
                                         <label class="flex flex-row items-center justify-center cursor-pointer " :for="1" v-on:click="onClickLabel"></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 1">Código promocional </span>
-                                        <VTooltip :distance="9" :placement="'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
+                                        <VTooltip :distance="9" :placement="isMobile ? 'top' : 'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
                                             <template #popper>
                                                 <div class="flex flex-row items-center justify-center">
@@ -53,7 +53,7 @@
                                         <RadioButton v-model:checked="form.option" :value=2 :id ="2"/>
                                         <label class="flex flex-row items-center justify-center cursor-pointer " :for="2" v-on:click="onClickLabel"></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 2">Ticket de compra</span>
-                                        <VTooltip :distance="9" :placement="'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
+                                        <VTooltip :distance="9" :placement="isMobile ? 'top' : 'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
 
                                             <template #popper>
@@ -61,8 +61,6 @@
                                                     <p class="font-montserrat text-white rem:text-[11px] font-semibold max-w-[180px] w-full mr-2">Participa subiendo una imagen del ticket de compra en el que se indique el producto Nutella adquirido y la fecha de compra.</p>
                                                     <img src="../../../images/nutella/tooltip-ticket.png" alt="ticket" class="max-w-[43px] w-full mx-auto"/>
                                                 </div>
-                                                <!-- You can put other components too -->
-                                                <ExampleComponent char="=" />
                                             </template>
                                         </VTooltip>
                                     </div>
@@ -224,7 +222,7 @@ import {BiUpload, FaCircleNotch} from "oh-vue-icons/icons";
 import InputLabel from "@/Components/InputLabel.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import RadioButton from "@/Components/RadioButton.vue";
-import { Dropdown, Tooltip, Menu, vTooltip } from 'floating-vue'
+import { ref, onMounted, onBeforeUnmount } from 'vue';
 
 
 import DialogModal from "@/Components/Admin/DialogModal.vue";
@@ -307,11 +305,29 @@ if (new Date().getMonth() === 8) {
     maxDate = new Date().toISOString().split('T')[0];
 }
 
+//
+
+const isMobile = ref(window.innerWidth <= 768);
+
+const checkIfMobile = () => {
+    isMobile.value = window.innerWidth <= 768;
+};
+
+onMounted(() => {
+    window.addEventListener('resize', checkIfMobile);
+});
+
+onBeforeUnmount(() => {
+    window.removeEventListener('resize', checkIfMobile);
+});
 
 </script>
 
 <style scoped>
-.v-popper__inner {
-    max-width: 100px;
+@media (max-width: 768px) {
+    .v-tooltip {
+        max-width: 90vw;
+        padding: 8px;
+    }
 }
 </style>
