@@ -223,10 +223,7 @@ import InputLabel from "@/Components/InputLabel.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import RadioButton from "@/Components/RadioButton.vue";
 import { ref, onMounted, onBeforeUnmount } from 'vue';
-
-
-import DialogModal from "@/Components/Admin/DialogModal.vue";
-import {ref} from 'vue';
+import DialogModal from "@/Components/DialogModal.vue";
 import ErrorMessage from "@/Components/ErrorMessage.vue";
 
 const showCodeModal = ref(false);
