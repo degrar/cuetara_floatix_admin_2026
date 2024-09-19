@@ -2,7 +2,7 @@
     <GuestLayout title="Contacto" useRecaptcha menu>
         <whitePatternInside />
 
-        <template v-if="sent">
+        <template v-if="!sent">
 
             <div class="bg-whitePattern py-[20px] lg:py-[50px]">
                 <form @submit.prevent="submitForm">
