@@ -20,8 +20,8 @@ class GameController extends Controller
 
     public function show(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
-            ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid'])
+            ->leftJoin('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('users', 'games.user_id', '=', 'users.id')
             ->where('role', '=', 'user')
             ->orderBy('games.created_at', 'asc')
