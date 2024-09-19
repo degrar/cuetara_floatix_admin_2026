@@ -173,7 +173,7 @@
 
         <DialogModal closeable :show="showCodeModal" @close="showCodeModal = false">
             <template #content>
-                <div class="w-full mx-auto bg-white p-[70px] pb-[30px] shadow-custom rounded-[12px] relative">
+                <div class="w-full mx-auto bg-white p-[30px] pb-[30px] shadow-custom rounded-[12px] relative">
                     <div class="absolute top-[25px] right-[25px] cursor-pointer m-auto" @click="showCodeModal = false">
                         <svg xmlns="http://www.w3.org/2000/svg" width="51" height="50" viewBox="0 0 71 70" fill="none">
                             <g filter="url(#filter0_d_16_908)">
@@ -196,8 +196,8 @@
                             </defs>
                         </svg>
                     </div>
-                    <img src="../../../../resources/images/nutella/codigo.png" alt="paso 1" class="max-w-[200px] lg:max-w-[510px] w-full mx-auto pb-2"/>
-                    <h4 class="font-montserrat font-extrabold rem:text-[41px] rem:leading-[45px] text-center text-red my-[15px] max-w-[630px] w-full mx-auto">¿Dónde está el código?</h4>
+                    <img src="../../../../resources/images/nutella/codigo.png" alt="paso 1" class="max-w-[250px] lg:max-w-[400px] w-full mx-auto pb-2"/>
+                    <h4 class="font-montserrat font-extrabold rem:text-[22px] rem:leading-[24px] lg:rem:text-[41px] lg:rem:leading-[45px] text-center text-red my-[15px] max-w-[630px] w-full mx-auto">¿Dónde está el código?</h4>
                     <div class="max-w-[524px] w-full mx-auto">
                         <p class="text-center font-montserrat text-[16px] leading-[18px] text-black font-medium"><span class="font-extrabold">Lo encontrarás en los tarros navideños de Nutella<sup>®</sup></span> 200g, 350g, 450g, 750g y 1000g</p>
                         <p class="text-center font-montserrat text-[16px] leading-[18px] text-black font-extrabold mt-[15px]">¿No tienes un código?</p>
