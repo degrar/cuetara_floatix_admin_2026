@@ -196,7 +196,7 @@ const updateGameState = async (action, message) => {
     }
 
     try {
-        resp = await axios.patch(route('admin.games.state', {
+        resp = await axios.post(route('admin.games.state', {
             game: props.data.id,
             action: action
         }), data);

@@ -34,7 +34,7 @@ Route::as('games.')->prefix('games')->group(function () {
     Route::get('denied', [GameController::class, 'denied'])->name('denied');
     Route::get('search', [GameController::class, 'search'])->name('search');
 
-    Route::patch('/state/{game}/{action}', ChangeGameState::class)->name('state');
+    Route::post('/state/{game}/{action}', ChangeGameState::class)->name('state');
 
     Route::get('export', ExportGames::class)->name('export');
 });

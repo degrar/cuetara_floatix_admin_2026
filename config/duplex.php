@@ -27,6 +27,7 @@ return [
         ],
 
         'url_project_name' => env('URL_PROJECT_NAME', ''),
+        'url_prefix' => env('URL_PREFIX', ''),
 
         'onepage' => true,
     ],
