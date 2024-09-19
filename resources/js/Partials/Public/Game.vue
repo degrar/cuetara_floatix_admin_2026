@@ -34,16 +34,15 @@
                                         <RadioButton v-model:checked="form.option" :value=1 :id ="1"/>
                                         <label class="flex flex-row items-center justify-center cursor-pointer " :for="1" v-on:click="onClickLabel"></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 1">Código promocional </span>
-                                        <VTooltip :distance="9" placement="right-start" :triggers="['hover', 'focus', 'touch']">
+                                        <VTooltip :distance="9" :placement="'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
-
                                             <template #popper>
                                                 <div class="flex flex-row items-center justify-center">
-                                                    <p class="font-montserrat text-white rem:text-[11px] font-semibold max-w-[180px] w-full">Despega el adhesivo humedeciéndolo y participa con el código de 10 dígitos que encontrarás en la tapa de los tarros navideños de Nutella®</p>
+                                                    <p class="font-montserrat text-white rem:text-[11px] font-semibold max-w-[180px] w-full">
+                                                        Despega el adhesivo humedeciéndolo y participa con el código de 10 dígitos que encontrarás en la tapa de los tarros navideños de Nutella®
+                                                    </p>
                                                     <img src="../../../images/nutella/product-tooltip.png" alt="Código" class="max-w-[97px] w-full mx-auto"/>
                                                 </div>
-                                                <!-- You can put other components too -->
-                                                <ExampleComponent char="=" />
                                             </template>
                                         </VTooltip>
                                     </div>
@@ -54,7 +53,7 @@
                                         <RadioButton v-model:checked="form.option" :value=2 :id ="2"/>
                                         <label class="flex flex-row items-center justify-center cursor-pointer " :for="2" v-on:click="onClickLabel"></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 2">Ticket de compra</span>
-                                        <VTooltip :distance="9" placement="right-start">
+                                        <VTooltip :distance="9" :placement="'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
 
                                             <template #popper>
