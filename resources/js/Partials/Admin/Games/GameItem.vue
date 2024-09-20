@@ -1,4 +1,5 @@
 <template>
+
     <div>
         <div class="rem:text-[14px] game-item grid grid-cols-8 py-4 px-4 border-b divide-gray-200 divide-x last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-9': !hideActions, '!bg-green-200': data.state === 3 , '!bg-rose-200': data.state === 7 }" v-bind="$attrs">
             <div class="field scrollbar overflow-x-auto px-2 ">
@@ -53,7 +54,7 @@
 
             <div class="field scrollbar overflow-x-auto px-2">
                  <span>
-                     <span v-if="data?.mmgg"><span class="font-semibold">MMGG:</span> {{ formatDate(data.date_moment) }}<br></span>
+                     <span v-if="data?.mmgg"><span class="font-semibold">MMGG:</span> {{ formatDate(data.mmgg.date_moment) }}<br></span>
                      <span v-if="data.decline_reason"><span class="font-semibold">Razón rechazado:</span> {{ data.decline_reason }} <br></span>
                  </span>
             </div>
@@ -193,7 +194,7 @@ const updateGameState = async (action, message) => {
     }
 
     try {
-        resp = await axios.psot(route('admin.games.state', {
+        resp = await axios.post(route('admin.games.state', {
             game: props.data.id,
             action: action
         }), data);
