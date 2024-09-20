@@ -53,7 +53,7 @@ class GameMechanism
                 Session::put('winner', true);
                 if($this->request->option == '1') //Code
                 {
-                    $this->game->update(['state' => GameState::Requested, 'validated_at' => Carbon::now()]);
+                    $this->game->update(['state' => GameState::Valid, 'validated_at' => Carbon::now()]);
                     return GameResult::Winner;
 
 
