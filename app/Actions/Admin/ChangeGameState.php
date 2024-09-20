@@ -5,6 +5,7 @@ namespace App\Actions\Admin;
 use App\Jobs\SendMail;
 use App\Mail\Confirmed;
 use App\Mail\MoreInfo;
+use App\Mail\Winner;
 use App\Models\Game;
 use Carbon\Carbon;
 use Duplex\Enums\GameState;
@@ -42,7 +43,11 @@ class ChangeGameState
 
         $type = $futureState === GameState::Valid ? ( (int)request('type') ) : null;
 
-        if ( $futureState === GameState::Valid || $futureState === GameState::Denied )
+        if ( $futureState === GameState::Valid ){
+            $game->update(['validated_at' => Carbon::now()]);
+            $this->sendWinnerMail($game);
+        }
+        if ( $futureState === GameState::Denied )
             $game->update(['validated_at' => Carbon::now()]);
 
         if ( $futureState === GameState::Winner ){
@@ -57,6 +62,11 @@ class ChangeGameState
     private function sendConfirmedMail(Game $game): void
     {
         Mail::to([['email' => $game->user->email, 'name' => $game->user->name]])->send(new Confirmed());
+    }
+
+    private function sendWinnerMail(Game $game)
+    {
+            Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new MoreInfo($game->token, '0'));
     }
 
 }
