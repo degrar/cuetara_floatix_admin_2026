@@ -144,7 +144,7 @@ const submitForm = () => {
                 preserveScroll: true,
                 onError:  () => {
                     //console.log('error');
-                    setTimeout(() => { scrollToError();}, 100);
+                   // setTimeout(() => { scrollToError();}, 100);
                 },
                 onSuccess: () => {
                     //console.log('great');
