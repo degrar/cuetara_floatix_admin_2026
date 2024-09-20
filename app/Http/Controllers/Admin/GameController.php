@@ -71,6 +71,7 @@ class GameController extends Controller
     {
         $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Requested->value)
+            ->orWhere('state', GameState::Valid->value)
             ->orderByDesc('games.created_at')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
 
