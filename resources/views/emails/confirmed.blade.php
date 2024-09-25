@@ -127,8 +127,8 @@
                                                         <td>
                                                             <img src="{{ asset('assets/email/instagram.png') }}" alt="Instagram" style="height: 57px; width: 57px;" height=57" width="57">
                                                         </td>
-                                                        <td style="padding: 20px;>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 16px;">
+                                                        <td style="padding: 20px;">
+                                                            <p style="color: #000000;text-align: left; font-family: Tahoma, 'sans-serif'; font-size: 16px;">
                                                                 Si quieres, puedes compartir una foto en Instagram luciendo tu premio con el hashtag <strong>#nutellawithlove</strong> y etiquetándonos en ella <span style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 16px;"><strong>@nutella.es</strong></span>
                                                             </p>
                                                         </td>
@@ -141,11 +141,9 @@
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
                                                 <br>
+
                                                 <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
-                                                    Dispones de <strong>6 días laborables para adjuntar la información.</strong> Una vez validados estos documentos te enviaremos tu fantástico premio en un plazo máximo de 20 días.
-                                                </p>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
-                                                    Un saludo y de nuevo ¡felicidades!
+                                                    ¡Un saludo!
                                                 </p>
                                                 <br>
                                                 <div>
