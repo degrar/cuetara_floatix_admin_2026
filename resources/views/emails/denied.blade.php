@@ -111,7 +111,7 @@
                                                     <tr>
                                                         <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
                                                             <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
-                                                                ¡Hola de nuevo!
+                                                                ¡Hola!
                                                                 <br>
                                                                 <br>
                                                                 Lamentamos mucho comunicarte que tu participación no se ha validado correctamente porque no cumple con las condiciones especificadas en las bases de la promoción y que puedes
