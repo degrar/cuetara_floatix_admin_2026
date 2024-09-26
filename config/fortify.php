@@ -86,8 +86,7 @@ return [
     | subdomain under which all of the Fortify routes will be available.
     |
     */
-
-    'prefix' => '',
+    'prefix' => env('URL_PREFIX', ''),
 
     'domain' => null,
 
