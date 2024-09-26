@@ -35,7 +35,10 @@ class ChangeGameState
             'type' => 'required_if:action,=,request|integer|in:0,1'
         ]);
 
-        if ( $futureState === GameState::Denied ) $game->decline_reason = (string)request('message');
+        if ( $futureState === GameState::Denied ) {
+            $game->decline_reason = (string)request('message');
+            $game->update(['validated_at' => Carbon::now()]);
+        }
 
         $game->update([
             'state' => $futureState
@@ -47,8 +50,6 @@ class ChangeGameState
             $game->update(['validated_at' => Carbon::now()]);
             $this->sendWinnerMail($game);
         }
-        if ( $futureState === GameState::Denied )
-            $game->update(['validated_at' => Carbon::now()]);
 
         if ( $futureState === GameState::Winner ){
             $game->update(['confirmed_at' => Carbon::now()]);
