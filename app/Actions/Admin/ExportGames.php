@@ -12,26 +12,33 @@ class ExportGames
 {
     public function __invoke()
     {
-/*
-        var_dump('<pre>');
-        var_dump(Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:name', 'size2Stock:name'])
-                ->join('users', 'games.user_id', '=', 'users.id')
-                ->where('role', '=', 'user')
-                ->get()
-                ->toArray());
-        var_dump('</pre>');
-        die();
-*/
+
+//        var_dump('<pre>');
+//        var_dump(Game::with(['user' => function  ($query) {
+//            return $query->where('role', '=', 'user');
+//        }, 'address', 'address.via:id,name', 'address.province:id,name', 'sizeOneStock:id,name', 'sizeTwoStock:id,name'])
+//                //->join('users', 'games.user_id', '=', 'users.id')
+//                //->where('user.role', '=', 'user')
+//                ->where('games.id', '=', 1)
+//                ->get()
+//                ->toArray());
+//        var_dump('</pre>');
+//        die();
+
         $filename = sprintf('%s_%s_participaciones.xlsx', config('app.name'), date('dmY_His'));
         $excel = SimpleExcelWriter::streamDownload($filename);
 
         $excel->addRows(
-            Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name', 'size1Stock:name', 'size2Stock:name'])
-                ->join('users', 'games.user_id', '=', 'users.id')
-                ->where('role', '=', 'user')
+            Game::with(['user' => function  ($query) {
+                return $query->where('role', '=', 'user');
+            }, 'address', 'address.via:id,name', 'address.province:id,name', 'sizeOneStock:id,name', 'sizeTwoStock:id,name'])
+                //->join('users', 'games.user_id', '=', 'users.id')
+                //->where('user.role', '=', 'user')
+//                ->where('games.id', '=', 1)
                 ->get()
                 ->map([self::class, 'transform'])
                 ->toArray()
+
         );
 
         $excel->toBrowser();
@@ -75,8 +82,8 @@ class ExportGames
             'provincia' => $address?->province->name,
 
             // jersey
-            'talla1' => $game->size1_stock != NULL ? $game->size1_stock->name : '-',
-            'talla2' => $game->size2_stock != NULL ? $game->size2_stock->name : '-',
+            'talla1' => $game->sizeOneStock?->getAttribute('name'),
+            'talla2' => $game->sizeTwoStock?->getAttribute('name'),
 
             // files
             'imagen_0' => '',

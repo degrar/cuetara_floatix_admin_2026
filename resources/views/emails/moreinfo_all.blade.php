@@ -109,14 +109,14 @@
                                     <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 21px;">
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px;">
                                                     <strong>¡Hemos validado tu participación y dos jerséis navideños ya son tuyos!</strong>
 
                                                 </p>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                      Para proceder con el envío de tu premio necesitamos que accedas a nuestro formulario y completes estos datos:
                                                 </p>
-                                                <ul style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;list-style-type: disc; ">
+                                                <ul style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;list-style-type: disc; ">
                                                     <li>Las tallas de tus jerséis navideños.</li>
                                                     <li>Dirección donde quieres recibir tu premio.</li>
                                                 </ul>
@@ -127,10 +127,10 @@
                                                     </a>
                                                 </div>
                                                 <br>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                     Dispones de <strong>6 días laborables para adjuntar la información.</strong> Una vez validados estos documentos te enviaremos tu fantástico premio en un plazo máximo de 20 días.
                                                 </p>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
                                                 <br>

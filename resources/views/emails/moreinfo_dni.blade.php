@@ -109,13 +109,13 @@
                                     <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                <p style="color: #7D2A25;text-align: center;font-family: Arial, 'sans-serif'; font-size: 27px; text-transform: uppercase">
+                                                <p style="color: #7D2A25;text-align: center;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;; font-size: 27px; text-transform: uppercase">
                                                     Nos alegra confirmarte que has <span style="color:#FF0202 ">ganado un telescopio.</span>
                                                 </p>
-                                                <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
+                                                <p style="color: #7D2A25;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;;font-size: 18px;">
                                                     Por favor, accede a nuestro formulario en un plazo máximo de 10 días y sube una <strong>imagen de tu DNI y la dirección</strong> en la que deseas recibir tu premio.
                                                 </p>
-                                                <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 18px;">
+                                                <p style="color: #7D2A25;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;;font-size: 18px;">
                                                     Un saludo y de nuevo ¡felicidades!
                                                 </p>
                                                 <div style="text-align: left">
@@ -136,7 +136,7 @@
                                                         <img src="{{ asset('assets/email/footer.png') }}" alt="Equipo Kinder" style="height: 38px; width: 204px;" height="38" width="204">
                                                     </a>
                                                 </div>
-                                                <p style="color: #7D2A25;text-align: left;font-family: Arial, 'sans-serif';font-size: 12px">
+                                                <p style="color: #7D2A25;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;;font-size: 12px">
                                                     Promoción válida en España para mayores de 18 años del 9/9/2024 al 9/11/2024. Máximo 1 participación por persona durante la promoción.
                                                     Se entregan por momento ganador 2 premios cada semana. Limitada a 1 premio por persona. Consulta bases legales y detalles de la promoción
                                                     <a href="{{ route('legal') }}" style="font-size: 12px;font-weight: bold;text-decoration: underline;color: #6B330F">aquí</a>.

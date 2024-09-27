@@ -31,5 +31,11 @@ class AppServiceProvider extends ServiceProvider
         if (config('app.env') === 'production') {
             \URL::forceRootUrl(str_replace(config('duplex.promo.url_project_name'), '', config('app.url')));
         }
+
+//        \DB::listen(function ($query) {
+//            var_dump('<pre>');
+//            var_dump($query->sql, $query->bindings);
+//            var_dump('</pre>');
+//        });
     }
 }

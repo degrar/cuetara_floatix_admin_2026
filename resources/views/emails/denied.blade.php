@@ -110,22 +110,22 @@
                                                 <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                                     <tr>
                                                         <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                                 ¡Hola!
                                                                 <br>
                                                                 <br>
                                                                 Lamentamos mucho comunicarte que tu participación no se ha validado correctamente porque no cumple con las condiciones especificadas en las bases de la promoción y que puedes
-                                                                <a href="{{ route('legal') }}" style="text-decoration: underline;color: #000000"><strong>consultar aquí</strong></a>.
+                                                                <a href="{{ route('legal') }}" style="text-decoration: underline;color: #000000;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;"><strong>consultar aquí</strong></a>.
                                                             </p>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                                 Tu premio se ha descartado por esta razón:
                                                             </p>
                                                             <br>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 16px;">
+                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
                                                                 {{ $declineReason }}
                                                             </p>
                                                             <br>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, 'sans-serif'; font-size: 18px;">
+                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                                 Muchas gracias.
                                                             </p>
                                                             <br>

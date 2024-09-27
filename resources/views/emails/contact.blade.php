@@ -59,15 +59,15 @@
                             <div style="height: 100%;width: 100% !important;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;">
                                 <!--[if (!mso)&(!IE)]><!--><div style="box-sizing: border-box; height: 100%; padding: 0px;border-top: 0px solid transparent;border-left: 0px solid transparent;border-right: 0px solid transparent;border-bottom: 0px solid transparent;border-radius: 0px;-webkit-border-radius: 0px; -moz-border-radius: 0px;"><!--<![endif]-->
 
-                                    <table style="font-family:arial,helvetica,sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
+                                    <table style="font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;" role="presentation" cellpadding="0" cellspacing="0" width="100%" border="0">
                                         <tbody>
                                         <tr>
-                                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family: Arial,helvetica,sans-serif;" align="left">
+                                            <td style="overflow-wrap:break-word;word-break:break-word;padding:10px;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;" align="left">
 
                                                 <div style="line-height: 140%; text-align: left; word-wrap: break-word;">
-                                                    <p style="line-height: 140%;"><span style="color: #7D2A25; line-height: 18px; font-size: 18px;">From: {{ $name }} ({{ $email }})</span></p>
+                                                    <p style="line-height: 140%;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;"><span style="font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;color: #000000; line-height: 18px; font-size: 18px;">From: {{ $name }} ({{ $email }})</span></p>
                                                     <p style="line-height: 140%;">&nbsp;</p>
-                                                    <p style="line-height: 140%;"><span style="color: #7D2A25; line-height: 18px; font-size: 18px;">{{ $mensaje }}</span></p>
+                                                    <p style="line-height: 140%;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;"><span style="color: #000000; line-height: 18px; font-size: 18px;">{{ $mensaje }}</span></p>
                                                     <p style="line-height: 140%;">&nbsp;</p>
                                                 </div>
 

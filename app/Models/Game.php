@@ -75,14 +75,14 @@
             return $this->hasMany(Address::class);
         }
 
-        public function size1Stock(): BelongsTo
+        public function sizeOneStock(): HasOne
         {
-            return $this->belongsTo(Stock::class, 'size1');
+            return $this->hasOne(Stock::class, 'id', 'size1' );
         }
 
-        public function size2Stock(): BelongsTo
+        public function sizeTwoStock(): HasOne
         {
-            return $this->belongsTo(Stock::class, 'size2');
+            return $this->hasOne(Stock::class, 'id', 'size2');
         }
 
     }
