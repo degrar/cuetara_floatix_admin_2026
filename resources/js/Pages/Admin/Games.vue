@@ -81,7 +81,7 @@ const data = shallowRef([...props.items.data]);
 const links = shallowRef(props.items.links);
 
 const onItemDeleted = id => {
-    data.value = props.items.data.splice(props.items.data.findIndex(e => e.id !== id));
+    data.value = data.filter(e => e.id !== id);
 }
 
 const doSearch = async (e) => {
