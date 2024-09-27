@@ -1,4 +1,10 @@
 <template>
+    <div v-if="isLoading" class="fixed bg-black opacity-50 h-screen top-0 left-0 w-full h-full flex justify-center items-center z-50">
+        <div class="inline-block h-8 w-8 animate-spin rounded-full border-4 border-solid border-current border-e-transparent align-[-0.125em] text-surface motion-reduce:animate-[spin_1.5s_linear_infinite] dark:text-white" role="status">
+            <span class="!absolute !-m-px !h-px !w-px !overflow-hidden !whitespace-nowrap !border-0 !p-0 ![clip:rect(0,0,0,0)]" >Loading...</span>
+        </div>
+    </div>
+
     <div>
 
         <div class="rem:text-[14px] game-item grid grid-cols-7 py-4 px-4 border-b divide-gray-200 divide-x last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-8': !hideActions, 'bg-green-200': data.state === 3 , 'bg-rose-200': data.state === 7 }" v-bind="$attrs">
@@ -158,6 +164,8 @@ const personalImage = typeof usePage().props.personalImage !== 'undefined' ? use
 
 const emailLink = computed(() => `mailto:${props.data.user.email}`);
 
+const isLoading = ref(false);
+
 function formatDate (dateString)  {
     const date = dayjs(dateString);
     return date.format('DD-MM-YYYY HH:mm:ss');
@@ -178,6 +186,8 @@ const updateGameState = async (action, message) => {
     let data = {};
     let error = null;
     let shouldEmit = action === 'winner' || action === 'denied' || action === 'valid' || action === 'request'
+
+    isLoading.value = true;
 
     if (action === 'denied')
     {
@@ -203,6 +213,8 @@ const updateGameState = async (action, message) => {
     } catch (e) {
         error = e;
     }
+
+    isLoading.value = false;
 
     if (resp?.status == 200)
     {
