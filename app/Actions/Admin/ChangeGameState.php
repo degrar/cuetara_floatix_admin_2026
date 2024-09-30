@@ -43,7 +43,7 @@ class ChangeGameState
         if ( $futureState === GameState::Denied ) {
             $game->decline_reason = (string)request('message');
             $game->update(['validated_at' => Carbon::now()]);
-            $this->sendLoserMail($game);
+            //$this->sendLoserMail($game);
         }
 
         $game->update([
@@ -84,7 +84,7 @@ class ChangeGameState
 
         if ( $futureState === GameState::Valid ){
             $game->update(['validated_at' => Carbon::now()]);
-            $this->sendWinnerMail($game);
+            //$this->sendWinnerMail($game);
         }
 
         if ( $futureState === GameState::Winner ){
