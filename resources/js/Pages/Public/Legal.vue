@@ -24,7 +24,7 @@
 
                     <h4>IV. Mecánica de la promoción</h4>
                     <p>4.1 Todas las personas que cumplan con los requisitos anteriormente mencionados y que deseen participar en la Promoción deberán adquirir uno de los productos Nutella<sup>®</sup>.</p>
-                    <p>4.2 El participante deberá acceder a la página oficial de la Promoción https://www.nutella.com/es/es/ durante el PERIODO PROMOCIONAL y rellenar un formulario de registro, donde se recabarán los siguientes datos: nombre y apellidos, email y teléfono.</p>
+                    <p>4.2 El participante deberá acceder a la página oficial de la Promoción https://www.nutella.com/es/es/ durante el PERIODO PROMOCIONAL y rellenar un formulario de registro, donde se recabarán los siguientes datos: nombre, apellidos y email</p>
                     <p>4.3 En este momento deberá decidir si quiere realizar su participación a través del código alfanumérico del pack o a través del ticket de compra.</p>
                     <ul>
                         <li>
