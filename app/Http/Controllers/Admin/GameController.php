@@ -164,7 +164,10 @@ class GameController extends Controller
 
         return Inertia::render('Admin/Games', [
             'items' => $items,
-            'hideActions' => true,
+            'hideActions' => false,
+            'pack' => false,
+            'personalImage' => false,
+            'reload' => true,
             'tableHeader' => [
                 'ID Participación',
                 'Usuario',
@@ -172,7 +175,7 @@ class GameController extends Controller
                 'Datos de participación',
                 'Fechas',
                 'MMGG',
-                //'Acciones'
+                'Acciones'
             ]
         ]);
     }
