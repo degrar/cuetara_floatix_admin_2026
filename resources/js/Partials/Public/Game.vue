@@ -23,7 +23,7 @@
 
                         <TextInput type="text" v-model="form.email_repeat" label="Repetir correo electrónico*" :error="form.errors.email_repeat" />
 
-                        <TextInput type="text" v-model="form.phone" label="Teléfono*" :error="form.errors.phone" />
+<!--                        <TextInput type="text" v-model="form.phone" label="Teléfono*" :error="form.errors.phone" />-->
                     </div>
                     <h5 class="font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-extrabold rem:mt-[25px] rem:mb-[10px]">¿Cómo quieres participar?</h5>
                     <div class="grid gap-4 grid-cols-1 lg:grid-cols-2">

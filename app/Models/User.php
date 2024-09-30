@@ -28,7 +28,7 @@
             'first_surname',
             'second_surname',
             'email',
-            'phone',
+            //'phone',
             'password',
             'ads',
             'legal',

@@ -31,7 +31,7 @@ class StoreGameRequest extends FormRequest
             'first_surname' => 'required|string',
             'email' => 'required|email:dns',
             'email_repeat' => 'required|email:dns|same:email',
-            'phone' => 'required|regex:/^[0-9]{9}$/', // 9 digits
+            //'phone' => 'required|regex:/^[0-9]{9}$/', // 9 digits
             'option' => 'required|numeric|in:1,2',
 
             // OPTION 1 - Código
