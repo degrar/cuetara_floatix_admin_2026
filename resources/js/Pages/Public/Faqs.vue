@@ -29,12 +29,8 @@
                             <p>Aquí tienes una imagen de nuestro producto para que puedas identificarlo fácilmente en el supermercado o tienda de alimentación.</p>
 
                             <div class="flex items-center justify-evenly ">
-                                <img src="../../../images/Imagen1.png" alt="Kinder Sorpresa" class="max-w-[89px] w-full" />
-                                <img src="../../../images/Imagen2.png" alt="Kinder Sorpresa" class="max-w-[153px] w-full" />
-                                <img src="../../../images/Imagen3.png" alt="Kinder Sorpresa" class="max-w-[289px] w-full" />
+                                <img src="../../../../resources/images/htw/productos.png" alt="Productos" class="max-w-[250px] lg:max-w-[520px] w-full mx-auto pb-2"/>
                             </div>
-
-
 
                             <h6>1.2.3-Dónde comprarlo</h6>
                             <p>Puedes adquirir los productos en los principales supermercados y tiendas de alimentación.</p>
