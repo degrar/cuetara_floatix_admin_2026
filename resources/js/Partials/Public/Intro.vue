@@ -20,7 +20,7 @@
             </div>
         </div>
         <div class="container mx-auto px-[15px] pb-[100px]">
-            <p class="text-white max-w-[970px] mx-auto w-full text-center rem:text-[13px] font-montserrat">Promoción válida para residentes en España, mayores de 18 años del 17/10/2024 al 08/01/2025. Conserva el ticket de compra. Máximo 5 participaciones diarias por persona. Máximo 1 premio por persona. Bases legales y detalles de la promoción <a class="underline hover:no-underline" :href="route('legal')">aquí</a>.</p>
+            <p class="text-white max-w-[970px] mx-auto w-full text-center rem:text-[13px] font-montserrat">Promoción válida para residentes en España, mayores de 18 años del 17/10/2024 al 08/01/2025. Conserva el ticket de compra o código. Máximo 5 participaciones diarias por persona. Máximo 1 premio por persona. Bases legales y detalles de la promoción <a class="underline hover:no-underline" :href="route('legal')">aquí</a>.</p>
         </div>
     </div>
 </template>

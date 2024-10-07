@@ -31,13 +31,11 @@
                             Participación por código alfanumérico.<br>
                             Únicamente los formatos 200G, 350G, 450G, 750G, 1000G llevarán comunicada la promoción en el pack y contendrán un código formado por 10 dígitos que podrá ser utilizado una (1) sola vez por un (1) único participante y equivaldrá a una única (1) participación.<br>
                             En este momento el participante deberá introducir el código alfanumérico de 10 dígitos que encontrará en el interior del adhesivo promocional, ubicado sobre la tapa del producto Nutella<sup>®</sup>.<br>
-                            Una misma persona podrá participar hasta un máximo de cinco (5) veces por día con códigos alfanuméricos diferentes y que no hayan sido utilizados anteriormente. Una vez utilizado el código quedará automáticamente invalidado.
                         </li>
                         <li>
                             Participación por ticket de compra.<br>
                             El participante deberá subir una imagen del ticket de compra y detallar la fecha del ticket y el importe.<br>
                             Un mismo ticket de compra únicamente podrá ser utilizado una vez, por un único consumidor.<br>
-                            Una misma persona podrá participar hasta un máximo de cinco (5) veces por día con tickets de compra diferentes y que no hayan sido utilizados anteriormente.<br>
                             El participante deberá conservar el ticket de compra original, con el que haya participado en la Promoción, hasta la finalización de la presente Promoción, ya que podrá ser solicitado si resulta ganador.<br>
                         </li>
                     </ul>
@@ -47,8 +45,7 @@
                     <p>4.5 Una vez introducidos todos los datos anteriormente requeridos, el participante quedará registrado y conocerá al instante si ha sido premiado a través del sistema de momento ganador. El Momento Ganador estará compuesto de un día, una hora, minuto y segundo concreto.</p>
                     <p>4.6 No está permitido utilizar nicknames, iniciales, nombre falsos, incompletos o erróneos puesto que la persona no queda correctamente identificada. En caso de resultar ganador no se le podrá validar como participante y por tanto, podrá perder el derecho al premio.</p>
                     <p>4.7 Una misma persona podrá participar hasta un máximo de cinco (5) veces por día con tickets de compra diferentes y que no hayan sido utilizados anteriormente. Una vez utilizado el ticket de compra quedará automáticamente invalidado.</p>
-                    <p>4.8 Así mismo, si una misma persona elige participar mediante un código alfanumérico podrá participar hasta un máximo de cinco (5) veces por día con códigos alfanuméricos diferentes y que no hayan sido utilizados anteriormente. Una vez utilizados, quedarán automáticamente invalidados.</p>
-                    <p>4.9 Si se participa con la compra de producto a través de una modalidad (código alfanumérico), no se podrá participar con la otra modalidad (ticket de compra) utilizando la misma compra de producto.</p>
+                    <p>4.8 Si se participa con la compra de producto a través de una modalidad (código alfanumérico), no se podrá participar con la otra modalidad (ticket de compra) utilizando la misma compra de producto.</p>
 
                     <h4>V. Premio</h4>
                     <p>5.1 El premio objeto de la presente Promoción es el que a continuación se detalla:</p>

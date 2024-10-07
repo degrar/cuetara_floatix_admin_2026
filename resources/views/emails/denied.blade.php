@@ -121,7 +121,7 @@
                                                                 Tu premio se ha descartado por esta razón:
                                                             </p>
                                                             <br>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
                                                                 {{ $declineReason }}
                                                             </p>
                                                             <br>
