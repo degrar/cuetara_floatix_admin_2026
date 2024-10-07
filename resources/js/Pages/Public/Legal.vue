@@ -44,7 +44,7 @@
                     <p>Adicionalmente, el consumidor deberá cumplimentar correctamente los dígitos alfanuméricos que se soliciten en el formulario del sistema Captcha.</p>
                     <p>4.5 Una vez introducidos todos los datos anteriormente requeridos, el participante quedará registrado y conocerá al instante si ha sido premiado a través del sistema de momento ganador. El Momento Ganador estará compuesto de un día, una hora, minuto y segundo concreto.</p>
                     <p>4.6 No está permitido utilizar nicknames, iniciales, nombre falsos, incompletos o erróneos puesto que la persona no queda correctamente identificada. En caso de resultar ganador no se le podrá validar como participante y por tanto, podrá perder el derecho al premio.</p>
-                    <p>4.7 Una misma persona podrá participar hasta un máximo de cinco (5) veces por día con tickets de compra diferentes y que no hayan sido utilizados anteriormente. Una vez utilizado el ticket de compra quedará automáticamente invalidado.</p>
+                    <p>4.7 Una misma persona podrá participar hasta un máximo de 5 (cinco) veces por día. La participación puede realizarse con códigos o tickets de compra diferentes y no utilizados previamente. Una vez utilizado el código o el ticket de compra, será automáticamente invalidado.</p>
                     <p>4.8 Si se participa con la compra de producto a través de una modalidad (código alfanumérico), no se podrá participar con la otra modalidad (ticket de compra) utilizando la misma compra de producto.</p>
 
                     <h4>V. Premio</h4>
