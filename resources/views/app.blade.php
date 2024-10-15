@@ -5,7 +5,9 @@
         <meta charset="utf-8">
         <meta http-equiv="X-UA-Compatible" content="IE=edge">
         <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-
+        <meta name="robots" content="noindex,nofollow">
+        <meta name="description" content="Participa comprando cualquier producto Nutella®. Podrás ganar 2 jerséis navideños, ¡uno para ti y otro para regalar a quien más quieras!">
+        <meta name="keywords" content="Nutella®, promoción, sorteo, regalo, tique, tiquet, ticket, compra, jersey, jerséi, jersei, navideño, Navidad">
         <link rel="preload" href="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson" as="script">
 
         <script src="https://unpkg.com/floating-vue@^2.0.0-beta.1"></script>
@@ -24,6 +26,16 @@
 
         <link rel="stylesheet" href='{{ asset('ferrero/css/header-footer.css') }}' >
 
+        <!-- Google Tag Manager -->
+        <script type="text/plain" data-cookiecategory="analytics_cookies">
+            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
+                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
+                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
+                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
+            })(window,document,'script','dataLayer','GTM-PBPR2VV');
+        </script>
+        <!-- End Google Tag Manager -->
+
         @routes
         @if(app()->isProduction())
             <script type='application/javascript'>
@@ -36,7 +48,9 @@
 
     </head>
     <body class="font-roboto antialiased" lang="es-ES">
-
+        <!-- Google Tag Manager (noscript) -->
+        <noscript> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBPR2VV" height="0" width="0" style="display:none;visibility:hidden"></iframe> </noscript>
+        <!-- End Google Tag Manager (noscript) -->
         @inertia
         
 
