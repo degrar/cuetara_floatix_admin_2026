@@ -16,7 +16,7 @@ class LegalPrivacyController extends Controller
 
     #[NoReturn] public function privacy()
     {
-        header('Location: https://www.kinder.com/es/es/politica-de-privacidad');
+        header('Location: https://www.nutella.com/es/es/politica-de-privacidad');
         die();
     }
 

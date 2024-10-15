@@ -62,7 +62,7 @@
                 <div class="container mx-auto px-[15px] py-4">
                     <div class="flex flex-col justify-center">
                         <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
-                            <img src="../../../images/nutella/contact.png" alt="kinder" class="my-0"/>
+                            <img src="../../../images/nutella/contact.png" alt="Nutella" class="my-0"/>
                         </div>
                         <div class="max-w-[600px] w-full mx-auto">
                             <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-4 lg:mb-12 block">¡Mensaje recibido!</h1>

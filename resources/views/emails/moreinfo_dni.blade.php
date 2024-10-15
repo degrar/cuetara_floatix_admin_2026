@@ -126,7 +126,7 @@
                                                 <br>
                                                 <div style="text-align: left">
                                                     <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/email.png') }}" alt="Kinder" style="height: 200px; width: 247px;" height="200" width="247">
+                                                        <img src="{{ asset('assets/email/email.png') }}" alt="Nutella" style="height: 200px; width: 247px;" height="200" width="247">
                                                     </a>
                                                 </div>
                                                 <br>
