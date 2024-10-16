@@ -31,8 +31,8 @@
                             <div class="radiobutton line flex flex-col items-start  justify-start">
 
                                     <div class="wrapper-radiobutton flex flex-row items-center justify-center cursor-pointer mb-[5px] " >
-                                        <RadioButton v-model:checked="form.option" :value=1 :id ="1"/>
-                                        <label class="flex flex-row items-center justify-center cursor-pointer " :for="1" v-on:click="onClickLabel"></label>
+                                        <RadioButton v-model:checked="form.option" :value=1 :id ="1" :error="form.errors.option"/>
+                                        <label class="flex flex-row items-center justify-center cursor-pointer " :for="1" v-on:click="onClickLabel" :class="{ 'before:!border-error': form.errors.option }" ></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 1">Código promocional </span>
                                         <VTooltip :distance="9" :placement="isMobile ? 'top' : 'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
@@ -50,8 +50,8 @@
 
 
                                     <div class="wrapper-radiobutton flex flex-row items-center justify-center cursor-pointer mb-[5px]" >
-                                        <RadioButton v-model:checked="form.option" :value=2 :id ="2"/>
-                                        <label class="flex flex-row items-center justify-center cursor-pointer " :for="2" v-on:click="onClickLabel"></label>
+                                        <RadioButton v-model:checked="form.option" :value=2 :id ="2" :error="form.errors.option"/>
+                                        <label class="flex flex-row items-center justify-center cursor-pointer " :for="2" v-on:click="onClickLabel" :class="{ 'before:!border-error': form.errors.option }"></label>
                                         <span class="radio-text font-montserrat rem:text-[18px] rem:leading-[25px] rem:tracking-[0.18px] text-black font-medium" v-on:click="onClickText" @click="form.option = 2">Ticket de compra</span>
                                         <VTooltip :distance="9" :placement="isMobile ? 'top' : 'right-start'" :triggers="['hover', 'focus', 'touch', 'click']">
                                             <a><img src="../../../images/nutella/informacion.png" alt="i" class="max-w-[18px] w-full mx-auto ml-2"/></a>
@@ -293,14 +293,11 @@ const onClickLabel = (e) => {
 }
 
 //DATE TICKET
-const minDate = '2024-05-01';
+const minDate = '2024-10-17';
 
 let maxDate;
-if (new Date().getMonth() === 8) {
-    maxDate = '2024-08-31';
-} else {
-    maxDate = new Date().toISOString().split('T')[0];
-}
+maxDate = new Date().toISOString().split('T')[0];
+
 
 //
 
