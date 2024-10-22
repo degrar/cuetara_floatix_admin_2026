@@ -51,6 +51,18 @@ class ExportGames
 
         $participation = [
 
+            // game
+            'id_participacion' => $game->id,
+            'momento_ganador' => $game->mmgg?->date_moment,
+            'option' => $game->option,
+            'codigo' => $game->code ?? '-',
+            'importe' => $game->amount ?? '-',
+            'Fecha de ticket' => $game->buydate ?? '-',
+            'fecha_participacion' => Carbon::parse($game->created_at)->format('d-m-Y H:i:s'),
+            'estado' => trans('gamestate.' . $game->state->name),
+            'fecha_validacion' => Carbon::parse($game->validated_at)->format('d-m-Y H:i:s'),
+            'fecha_confirmacion' => Carbon::parse($game->confirmed_at)->format('d-m-Y H:i:s'),
+
             //user
             'id_usuario' => $game->user->id,
             'role' => $game->user->role,
@@ -59,27 +71,16 @@ class ExportGames
             'email' => $game->user->email,
             'anuncios' => $game->user->ads ? 'Sí' : 'No',
 
-            // game
-            'id_participacion' => $game->id,
-            'momento_ganador' => $game->mmgg?->date_moment,
-            'option' => $game->option,
-            'codigo' => $game->code ?? '-',
-            'importe' => $game->amount ?? '-',
-            'Fecha de ticket' => $game->buydate ?? '-',
-
-            'fecha_participacion' => Carbon::parse($game->created_at)->format('d-m-Y H:i:s'),
-            'estado' => trans('gamestate.' . $game->state->name),
-            'fecha_validacion' => Carbon::parse($game->validated_at)->format('d-m-Y H:i:s'),
-            'fecha_confirmacion' => Carbon::parse($game->confirmed_at)->format('d-m-Y H:i:s'),
-
             // address
             'direccion' => $address?->via->name.' '.$address?->name,
             'numero' => $address?->number,
-            'escalera' => $address?->strair,
+            'escalera' => $address?->stair,
+            'piso' => $address?->floor,
             'puerta' => $address?->door,
             'codigo_postal' => $address?->postal_code,
-            'telefono' => $address?->phone,
+            'poblacion' => $address?->city,
             'provincia' => $address?->province->name,
+            'telefono' => $address?->phone,
 
             // jersey
             'talla1' => $game->sizeOneStock?->getAttribute('name'),
