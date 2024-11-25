@@ -10,17 +10,17 @@
                 </div>
 
                 <div class=" w-12/12 lg:w-7/12 mx-auto ">
-                    <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[36px] lg:rem:text-[41px] lg:rem:leading-[46px] rem:tracking-[0.5px] mb-6">¡HAS GANADO 2 JERSÉIS NAVIDEÑOS NUTELLA<sup class="rem:text-[25px]">®</sup>!</h4>
-                    <h5 class="text-center lg:text-left font-montserrat uppercase text-black font-extrabold rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[25px] rem:tracking-[0.21px] mb-6">COMPLETA ESTOS DATOS PARA RECIBIRLOS</h5>
-                    <h5 class="text-center lg:text-left font-montserrat rem:text-[16px] lg:rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] mb-6">Indica las tallas de tus 2 jerséis navideños</h5>
+                    <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[28px] rem:leading-[36px] lg:rem:text-[41px] lg:rem:leading-[46px] rem:tracking-[0.5px] mb-6">¡HAS GANADO 2 JERSÉIS NAVIDEÑOS NUTELLA<sup class="rem:text-[25px]">®</sup>!</h4>
+                    <h5 class="text-center lg:text-left font-roboto uppercase text-black font-extrabold rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[25px] rem:tracking-[0.21px] mb-6">COMPLETA ESTOS DATOS PARA RECIBIRLOS</h5>
+                    <h5 class="text-center lg:text-left font-roboto rem:text-[16px] lg:rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] mb-6">Indica las tallas de tus 2 jerséis navideños</h5>
                     <form @submit.prevent="submitForm" class="mx-auto">
                         <div class="space-y-4">
                             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 block">
                                 <SelectInputStock v-model:select="form.stock1" :options="stock" :default-value="-1" :error="form.errors.stock1" value="id" placeholder="Jersey 1*" label="name"  units="" used=""/>
                                 <SelectInputStock v-model:select="form.stock2" :options="stock" :default-value="-1" :error="form.errors.stock2" value="id" placeholder="Jersey 2*" label="name"  units="" used=""/>
                             </div>
-                            <p class="text-[#666666] font-montserrat underline hover_no-underline cursor-pointer rem:text-[12px] block" @click="showListModal = true">Guia de tallas</p>
-                            <h5 class="text-center lg:text-left font-montserrat rem:text-[16px] lg:rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] !mt-8 !mb-6 block">Indica la dirección donde quieres recibir tu premio</h5>
+                            <p class="text-[#666666] font-roboto underline hover_no-underline cursor-pointer rem:text-[12px] block" @click="showListModal = true">Guia de tallas</p>
+                            <h5 class="text-center lg:text-left font-roboto rem:text-[16px] lg:rem:text-[18px] text-black font-extrabold rem:leading-[25px] rem:tracking-[0.18px] !mt-8 !mb-6 block">Indica la dirección donde quieres recibir tu premio</h5>
                             <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 block">
 
                                 <SelectInput v-model:select="form.via" :options="vias" :default-value="-1" :error="form.errors.via" value="id" placeholder="Tipo de vía*" label="name" />
@@ -46,7 +46,7 @@
                             </div>
 
                             <div id="legals" class="!my-8">
-                                <p class="text-[#6B6B6B] font-montserrat font-semibold rem:text-[12px] rem:leading-[18px] text-justify">* Campos obligatorios</p>
+                                <p class="text-[#6B6B6B] font-roboto font-semibold rem:text-[12px] rem:leading-[18px] text-justify">* Campos obligatorios</p>
                             </div>
 
 
@@ -66,7 +66,7 @@
                 </div>
             </div>
             <div class="container mx-auto px-[15px] max-w-[970px]">
-                <p class="rem:text-[12px] text-grey font-montserrat font-medium mb-[15px] text-center">Ferrero Ibérica, S.A. (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="underline">link</a></p>
+                <p class="rem:text-[12px] text-grey font-roboto font-medium mb-[15px] text-center">Ferrero Ibérica, S.A. (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="underline">link</a></p>
             </div>
         </div>
         <whitePatternInsideDown />
@@ -97,10 +97,10 @@
                         </svg>
                     </div>
 
-                    <h4 class="font-montserrat font-extrabold rem:text-[41px] rem:leading-[45px] text-center text-black my-[15px] max-w-[630px] w-full mx-auto"><span class="text-red">Guía de tallas</span></h4>
+                    <h4 class="font-roboto font-extrabold rem:text-[41px] rem:leading-[45px] text-center text-black my-[15px] max-w-[630px] w-full mx-auto"><span class="text-red">Guía de tallas</span></h4>
 
 
-                    <table class="bg-red table-auto w-full text-center rounded-2xl table-auto text-center font-montserrat text-[16px] leading-[18px] text-black font-medium gap-4">
+                    <table class="bg-red table-auto w-full text-center rounded-2xl table-auto text-center font-roboto text-[16px] leading-[18px] text-black font-medium gap-4">
                         <thead class="text-black rem:text-[21px] rem:leading-[28px] font-bold p-4">
                             <tr class="bg-white">
                                 <th class="px-6 py-3 tracking-wider rem:text-[16px]">Talla</th>

@@ -1,8 +1,8 @@
 <template>
-    <GuestLayout title="Bases legales" menu>
+    <GuestLayout title="Política de privacidad" menu>
         <div class="container mx-auto px-4 flex justify-center items-center flex-col py-[40px] lg:flex-row lg:py-[80px] ">
             <div class="w-12/12  pt-4">
-                <h1 class="stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-6 block">BASES LEGALES DE LA PROMOCIÓN</h1>
+                <h1 class="stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[41px] rem:leading-[41px] rem:tracking-[0px] text-center mb-6 block">Política de privacidad</h1>
             </div>
         </div>
     </GuestLayout>

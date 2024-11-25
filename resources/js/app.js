@@ -10,7 +10,8 @@ import Toast from "vue-toastification";
 import { ZiggyVue } from '../../vendor/tightenco/ziggy/dist/vue.m';
 import FloatingVue from 'floating-vue'
 import 'floating-vue/dist/style.css'
-// import Cookieconsent from "@/plugins/cookieconsent";
+import CookieConsentVue from "/resources/js/plugins/cookieconsent";
+
 
 const appName = import.meta.env.VITE_APP_NAME || 'Laravel';
 
@@ -23,7 +24,7 @@ createInertiaApp({
             .use(Toast)
             .use(ZiggyVue)
             .use(FloatingVue)
-            // .use(Cookieconsent)
+            .use(CookieConsentVue)
             .mount(el);
     },
     progress: {

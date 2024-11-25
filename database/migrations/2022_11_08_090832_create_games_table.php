@@ -20,13 +20,13 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignIdFor(User::class);
             $table->string('token');
-            $table->integer('option'); //code = 1 / Ticket = 2
-            $table->string('code')->nullable();
-            $table->string('amount')->nullable();
-            $table->dateTime('buydate')->nullable();
+            $table->string('store');
+            $table->string('other_store')->nullable();
+            $table->integer('product');
+            $table->dateTime('buydate');
+            $table->string('amount');
+            $table->string('iban', 24)->nullable();
             $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Loser->value);
-            $table->string('size1')->nullable();
-            $table->string('size2')->nullable();
             $table->string('decline_reason')->nullable();
             $table->timestamp('validated_at', 0)->nullable();
             $table->timestamp('confirmed_at', 0)->nullable();
@@ -45,12 +45,8 @@ return new class extends Migration
      */
     function createMmggBlueprint(Blueprint $table): void
     {
-//        $table->boolean('is_mmgg');
-//        $table->dateTime('date_mmgg')->nullable();
-//        $table->boolean('is_valid')->nullable();
-//        $table->dateTime('date_valid')->nullable();
-//        $table->boolean('is_winner')->nullable();
-//        $table->boolean('date_winner')->nullable();
+//        $table->dateTime('date_validated')->nullable();
+//        $table->boolean('date_confirmed')->nullable();
     }
 
     /**

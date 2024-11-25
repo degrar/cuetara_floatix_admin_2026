@@ -1,108 +1,51 @@
 <!DOCTYPE html>
-<html dir="ltr" lang="es-ES">
-    <head>
-        <title inertia>{{ config('app.name', 'Laravel') }}</title>
-        <meta charset="utf-8">
-        <meta http-equiv="X-UA-Compatible" content="IE=edge">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
-        <meta name="robots" content="noindex,nofollow">
-        <meta name="description" content="Participa comprando cualquier producto Nutella®. Podrás ganar 2 jerséis navideños, ¡uno para ti y otro para regalar a quien más quieras!">
-        <meta name="keywords" content="Nutella®, promoción, sorteo, regalo, tique, tiquet, ticket, compra, jersey, jerséi, jersei, navideño, Navidad">
-        <link rel="preload" href="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson" as="script">
+<html lang="{{ str_replace('_', '-', app()->getLocale()) }}">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no">
 
-        <script src="https://unpkg.com/floating-vue@^2.0.0-beta.1"></script>
-        <link rel="stylsheet" href="https://unpkg.com/floating-vue@^2.0.0-beta.1/dist/style.css" />
+    <title inertia>{{ config('app.name', 'Laravel') }}</title>
+    <meta name="robots" content="noindex,nofollow">
+    <meta name="keywords" content="">
+    <meta name="description" content="">
 
-        <!-- Ferrero -->
-        <link rel="apple-touch-icon" sizes="180x180"href='{{ asset('ferrero/images/favicon/apple-touch-icon.png') }}'>
-        <link rel="icon" type="image/png" sizes="32x32" href='{{ asset('ferrero/images/favicon/favicon-32x32.png') }}'>
-        <link rel="icon" type="image/png" sizes="16x16" href='{{ asset('ferrero/images/favicon/favicon-16x16.png') }}'>
-        <link rel="manifest" href='{{ asset('ferrero/images/favicon/site.webmanifest') }}'>
-        <link rel="mask-icon" href='{{ asset('ferrero/images/favicon/safari-pinned-tab.svg') }}' color="#5bbad5">
-        <link rel="shortcut icon" href='{{ asset('ferrero/images/favicon/favicon.ico') }}'>
-        <meta name="msapplication-TileColor" content="#ffffff">
-        <meta name="msapplication-config" content='{{ asset('ferrero/images/favicon/browserconfig.xml') }}'>
-        <meta name="theme-color" content="#e20019">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:ital,wght@0,100;0,300;0,400;0,500;0,700;0,900;1,100;1,300;1,400;1,500;1,700;1,900&display=swap" rel="stylesheet">
 
-        <link rel="stylesheet" href='{{ asset('ferrero/css/header-footer.css') }}' >
+{{--    <!-- Favicon -->--}}
 
-        <!-- Google Tag Manager -->
-        <script type="text/plain" data-cookiecategory="analytics_cookies">
-            (function(w,d,s,l,i){w[l]=w[l]||[];w[l].push({'gtm.start':
-                    new Date().getTime(),event:'gtm.js'});var f=d.getElementsByTagName(s)[0],
-                j=d.createElement(s),dl=l!='dataLayer'?'&l='+l:'';j.async=true;j.src=
-                'https://www.googletagmanager.com/gtm.js?id='+i+dl;f.parentNode.insertBefore(j,f);
-            })(window,document,'script','dataLayer','GTM-PBPR2VV');
-        </script>
-        <!-- End Google Tag Manager -->
+{{--    <link rel="apple-touch-icon" sizes="57x57" href="{{ asset('assets/images/favicon/apple-icon-57x57.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="60x60" href="{{ asset('assets/images/favicon/apple-icon-60x60.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="72x72" href="{{ asset('assets/images/favicon/apple-icon-72x72.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="76x76" href="{{ asset('assets/images/favicon/apple-icon-76x76.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="114x114" href="{{ asset('assets/images/favicon/apple-icon-114x114.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="120x120" href="{{ asset('assets/images/favicon/apple-icon-120x120.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="144x144" href="{{ asset('assets/images/favicon/apple-icon-144x144.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="152x152" href="{{ asset('assets/images/favicon/apple-icon-152x152.png') }}">--}}
+{{--    <link rel="apple-touch-icon" sizes="180x180" href="{{ asset('assets/images/favicon/apple-icon-180x180.png') }}">--}}
+{{--    <link rel="icon" type="image/png" sizes="192x192"  href="{{ asset('assets/images/favicon/android-icon-192x192.png') }}">--}}
+{{--    <link rel="icon" type="image/png" sizes="32x32" href="{{ asset('assets/images/favicon/favicon-32x32.png') }}">--}}
+{{--    <link rel="icon" type="image/png" sizes="96x96" href="{{ asset('assets/images/favicon/favicon-96x96.png') }}">--}}
+{{--    <link rel="icon" type="image/png" sizes="16x16" href="{{ asset('assets/images/favicon/favicon-16x16.png') }}">--}}
+{{--    <link rel="manifest" href="{{ asset('assets/images/favicon/manifest.json') }}">--}}
+{{--    <meta name="msapplication-TileImage" content="{{ asset('assets/images/favicon/ms-icon-144x144.png') }}">--}}
+{{--    <meta name="theme-color" content="#ffffff">--}}
 
-        @routes
-        @if(app()->isProduction())
-            <script type='application/javascript'>
-                Ziggy.url = 'https://www.nutella.com'
-            </script>
-        @endif
-	    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
-        @inertiaHead
+    <script>
+        const GlobalAppInfo = {
+            name: '{{ Str::lower(config('app.name')) }}'
+        };
+    </script>
 
+    @routes
+    @vite(['resources/js/app.js', "resources/js/Pages/{$page['component']}.vue"])
+    @inertiaHead
 
-    </head>
-    <body class="font-roboto antialiased" lang="es-ES">
-        <!-- Google Tag Manager (noscript) -->
-        <noscript> <iframe src="https://www.googletagmanager.com/ns.html?id=GTM-PBPR2VV" height="0" width="0" style="display:none;visibility:hidden"></iframe> </noscript>
-        <!-- End Google Tag Manager (noscript) -->
-        @inertia
-        
+</head>
+<body class="font-rubik font-normal text-brown antialiased " lang="es-ES">
 
+@inertia
 
-        <!-- Nutella -->
-
-        <div class="region-footer-pre" id="nutella-embed-footer-pre"></div>
-        <footer id="nutella-footer" class="nutella-embed-container">
-            <div class="container">
-                <div class="region-footer" id="nutella-embed-footer"></div>
-                <div class="region-copywrite" id="nutella-embed-copywrite"></div>
-            </div>
-        </footer>
-
-
-
-        <script src="https://code.jquery.com/jquery-3.7.0.min.js" integrity="sha256-2Pmvv0kuTBOenSvLm6bvfBSSHrUJ+3A7x6P5Ebd07/g=" crossorigin="anonymous"></script>
-
-        <script src="https://www.nutella.com/es/es/header-footer.js"></script>
-
-        <script src="https://static.addtoany.com/menu/page.js?t=1624611617" async></script>
-
-        <script>
-            // You are allowed to override block's configuration. List here blocks which you want to attach to header and footer.
-            bdiHeaderFooterConfig.header_top.blocks = [
-                "headersociallinksblock"
-            ];
-            bdiHeaderFooterConfig.header.blocks = [
-                "nutella20_theme_branding", "nutella20_theme_main_menu"
-            ];
-            bdiHeaderFooterConfig.footer_pre.blocks = [
-                "addtoanybuttons", "newslettersubscription"
-            ];
-
-            bdiHeaderFooterConfig.footer.blocks = [
-                "nutella20_theme_footer", "mainnavigation", //scripts,
-            ];
-            bdiHeaderFooterConfig.copywrite.blocks = [
-                "changecountryblock", "headersociallinksblock_2", "copyright", "badges"
-            ];
-
-            window.addEventListener('load', function () {
-                jQuery('#nutella-embed-header').bdiHeader();
-                jQuery('#nutella-embed-header-top').bdiTopHeader();
-                jQuery('#nutella-embed-footer-pre').bdiPreFooter();
-                jQuery('#nutella-embed-footer').bdiFooter();
-                jQuery('#nutella-embed-copywrite').bdiCopy();
-            });
-        </script>
-
-        <script type="application/javascript" src="https://www.nutella.com/es/es/header-footer.html?callback=localActivationProcessJson"></script>
-
-
-    </body>
+</body>
 </html>

@@ -7,6 +7,7 @@ use App\Mail\MoreInfo;
 use App\Mail\Winner;
 use App\Models\Address;
 use App\Models\Province;
+use App\Models\Retailer;
 use App\Models\User;
 
 use Duplex\Game\GameMechanism;
@@ -22,9 +23,8 @@ class GameController extends Controller
 {
     public function show(): Response
     {
-        return Inertia::render('Public/Game', [
-            'site_key' => config('duplex.recaptcha.public'),
-            'lang' => config('duplex.recaptcha.lang'),
+        return Inertia::render('Public/Game',[
+            'retailers' => Retailer::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
         ]);
     }
 

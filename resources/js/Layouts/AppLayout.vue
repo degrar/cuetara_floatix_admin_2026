@@ -33,7 +33,7 @@ const logout = () => {
             <link href="https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap" rel="stylesheet">
         </Head>
 
-        <div class="flex font-montserrat">
+        <div class="flex font-roboto">
             <div class="md:w-[20%] bg-snow border-r border-gray-100 md:h-[100vh] overflow-hidden scrollbar hover:overflow-y-auto pt-8 sticky top-0 sidebar">
                 <nav>
                     <!-- Primary Navigation Menu -->

@@ -2,7 +2,9 @@
 
 namespace App\Http\Controllers;
 
+use App\Models\Product;
 use App\Models\Province;
+use App\Models\Retailer;
 use Illuminate\Http\Request;
 use Inertia\Inertia;
 use Inertia\Response;
@@ -17,8 +19,8 @@ class HomeController extends Controller
     public function __invoke() : Response
     {
         return Inertia::render('Public/Home', [
-            'site_key' => config('duplex.recaptcha.public'),
-            'lang' => config('duplex.recaptcha.lang'),
+            'retailers' => Retailer::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
+            'products' => Product::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
         ]);
     }
 

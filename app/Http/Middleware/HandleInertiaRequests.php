@@ -38,6 +38,7 @@ class HandleInertiaRequests extends Middleware
     {
         return array_merge(parent::share($request), [
             'site_key' => config('duplex.recaptcha.public'),
+            'lang' => config('duplex.recaptcha.lang'),
         ]);
     }
 

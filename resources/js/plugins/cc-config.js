@@ -1,140 +1,246 @@
 /**
  * @type {import('vanilla-cookieconsent').CookieConsentConfig}
  */
+
+/**
+ * All config. options available here:
+ * https://cookieconsent.orestbida.com/reference/configuration-reference.html
+ */
 const config = {
+
+    // root: 'body',
+    // autoShow: true,
+    // disablePageInteraction: true,
+    // hideFromBots: true,
+    // mode: 'opt-in',
+    // revision: 0,
+
+    cookie: {
+        name: 'cc_cookie_text',
+        // domain: location.hostname,
+        // path: '/',
+        // sameSite: "Lax",
+        // expiresAfterDays: 365,
+    },
+
+    // https://cookieconsent.orestbida.com/reference/configuration-reference.html#guioptions
     guiOptions: {
         consentModal: {
-            layout: 'cloud', // box/cloud/bar
+            layout: 'cloud',
             position: 'middle center', // bottom/middle/top + left/right/center
+            equalWeightButtons: true,
+            flipButtons: false
         },
         preferencesModal: {
             layout: 'box',
+            equalWeightButtons: true,
+            flipButtons: false
         },
         force_consent: true,
     },
     manageScriptTags: true,
     disablePageInteraction: true,
-    onFirstConsent: () => {
+
+    onFirstConsent: ({cookie}) => {
         location.reload();
+    },
+
+    onConsent: ({cookie}) => {
+        console.log('onConsent fired!', cookie)
+    },
+
+    onChange: ({changedCategories, changedServices}) => {
+        console.log('onChange fired!', changedCategories, changedServices);
+    },
+
+    onModalReady: ({modalName}) => {
+        console.log('ready:', modalName);
+    },
+
+    onModalShow: ({modalName}) => {
+        console.log('visible:', modalName);
+    },
+
+    onModalHide: ({modalName}) => {
+        console.log('hidden:', modalName);
     },
 
     categories: {
         necessary: {
-            readOnly: true,
-            enabled: true,
+            enabled: true,  // this category is enabled by default
+            readOnly: true  // this category cannot be disabled
         },
         analytics: {
             autoClear: {
                 cookies: [
                     {
-                        name: /^(_ga|_gid|_gat)/,
+                        name: /^_ga/,   // regex: match all cookies starting with '_ga'
                     },
-                ],
+                    {
+                        name: '_gid',   // string: exact cookie name
+                    }
+                ]
             },
+
+            // https://cookieconsent.orestbida.com/reference/configuration-reference.html#category-services
+            services: {
+                ga: {
+                    label: 'Google Analytics',
+                    onAccept: () => {},
+                    onReject: () => {}
+                },
+                youtube: {
+                    label: 'Youtube Embed',
+                    onAccept: () => {},
+                    onReject: () => {}
+                },
+            }
         },
+        ads: {}
     },
 
     language: {
         default: 'es',
         translations: {
-            es: {
+            en: {
                 consentModal: {
-                    title: "🍪 Nuestras cookies!",
-                    description:
-                        'Hola, este sitio web utiliza cookies esenciales para garantizar su correcto funcionamiento y las otras cookies para saber como interactuar con la web.',
-                    acceptAllBtn: 'Aceptar todas',
-                    acceptNecessaryBtn: 'Aceptar necesarias',
-                    // acceptNecessaryBtn: 'Reject',
-                    showPreferencesBtn: 'Configuración',
-                    closeIconLabel: 'Reject all and close',
-                  //   footer: `
-                  //     <a href="#link">Privacy Policy</a>
-                  //     <a href="#link">Impressum</a>
-                  // `,
+                    title: 'We use cookies',
+                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
+                    acceptAllBtn: 'Accept all',
+                    acceptNecessaryBtn: 'Reject all',
+                    showPreferencesBtn: 'Manage Individual preferences',
+                    // closeIconLabel: 'Reject all and close modal',
+                    footer: `
+                        <a href="#path-to-impressum.html" target="_blank">Impressum</a>
+                        <a href="#path-to-privacy-policy.html" target="_blank">Privacy Policy</a>
+                    `,
                 },
                 preferencesModal: {
-                    title: 'Cookie preferences',
-                    acceptAllBtn: 'Aceptar todas',
-                    acceptNecessaryBtn: 'Rechazar todas',
-                    savePreferencesBtn: 'Guardar configuración',
+                    title: 'Manage cookie preferences',
+                    acceptAllBtn: 'Accept all',
+                    acceptNecessaryBtn: 'Reject all',
+                    savePreferencesBtn: 'Accept current selection',
+                    closeIconLabel: 'Close modal',
+                    serviceCounterLabel: 'Service|Services',
                     sections: [
                         {
-                            title : "Esta página web usa cookies 📢",
-                            description: 'Las cookies de este sitio web se usan para personalizar el contenido y los anuncios, ofrecer funciones de redes sociales y analizar el tráfico. Además, compartimos información sobre el uso que haga del sitio web con nuestros partners de redes sociales, publicidad y análisis web, quienes pueden combinarla con otra información que les haya proporcionado o que hayan recopilado a partir del uso que haya hecho de sus servicios.'
+                            title: 'Your Privacy Choices',
+                            description: `In this panel you can express some preferences related to the processing of your personal information. You may review and change expressed choices at any time by resurfacing this panel via the provided link. To deny your consent to the specific processing activities described below, switch the toggles to off or use the “Reject all” button and confirm you want to save your choices.`,
                         },
                         {
-                            title: "Cookies necesarias",
-                            description: 'Las cookies necesarias ayudan a hacer una página web utilizable activando funciones básicas como la navegación en la página y el acceso a áreas seguras de la página web. La página web no puede funcionar adecuadamente sin estas cookies.',
-                            linkedCategory: 'necessary',
-                            cookieTable: {
-                                headers: {
-                                    name: 'Cookie',
-                                    domain: 'Domain',
-                                    desc: 'Description',
-                                },
-                                body: [
-                                    {
-                                        name: GlobalAppInfo.name + '_session',
-                                        domain: '/',
-                                        desc: 'Esta cookie encriptada que sirve para controlar que todos los envíos de formularios son realizados por el usuario actualmente en sesión, evitando ataques CSRF (Cross-Site Request Forgery).',
-                                    },
-                                    {
-                                        name: `XSRF-TOKEN`,
-                                        domain: '/',
-                                        desc: 'Esta cookie se utiliza para distinguir entre humanos y bots. Esto es beneficioso para la web con el objeto de elaborar informes válidos sobre el uso de su web.',
-                                    },
-                                    {
-                                        name: 'rc::a',
-                                        domain: 'google.com',
-                                        desc: 'Esta cookie se utiliza para distinguir entre humanos y bots. Esto es beneficioso para la web con el objeto de elaborar informes válidos sobre el uso de su web.',
-                                    },
-                                    {
-                                        name: 'rc::c',
-                                        domain: 'google.com',
-                                        desc: 'Esta cookie se utiliza para distinguir entre humanos y bots.',
-                                    },
-                                    {
-                                        name: 'cc_cookie',
-                                        domain: '/',
-                                        desc: 'Almacena el estado de consentimiento de cookies del usuario para el dominio actual',
-                                    },
-                                ]
-                            }
+                            title: 'Strictly Necessary',
+                            description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
+
+                            //this field will generate a toggle linked to the 'necessary' category
+                            linkedCategory: 'necessary'
                         },
                         {
-                            title: "Cookies estadísticas",
-                            description: 'Las cookies estadísticas ayudan a los propietarios de páginas web a comprender cómo interactúan los visitantes con las páginas web reuniendo y proporcionando información de forma anónima.',
+                            title: 'Performance and Analytics',
+                            description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
                             linkedCategory: 'analytics',
                             cookieTable: {
+                                caption: 'Cookie table',
                                 headers: {
                                     name: 'Cookie',
                                     domain: 'Domain',
-                                    desc: 'Description',
+                                    desc: 'Description'
                                 },
                                 body: [
                                     {
                                         name: '_ga',
-                                        domain: 'google.com',
-                                        desc: 'Registra una identificación única que se utiliza para generar datos estadísticos acerca de cómo utiliza el visitante el sitio web.',
+                                        domain: location.hostname,
+                                        desc: 'Description 1',
                                     },
                                     {
                                         name: '_gid',
-                                        domain: 'google.com',
-                                        desc: 'Utilizado por Google Analytics para controlar la tasa de peticiones',
+                                        domain: location.hostname,
+                                        desc: 'Description 2',
+                                    }
+                                ]
+                            }
+                        },
+                        {
+                            title: 'Targeting and Advertising',
+                            description: 'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.',
+                            linkedCategory: 'ads',
+                        },
+                        {
+                            title: 'More information',
+                            description: 'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
+                        }
+                    ]
+                }
+            },
+            es: {
+                consentModal: {
+                    title: '🍪 Nuestras cookies!',
+                    description: 'Hola, este sitio web utiliza cookies esenciales para garantizar su correcto funcionamiento y las otras cookies para saber como interactuar con la web.',
+                    acceptAllBtn: 'Aceptar todas',
+                    acceptNecessaryBtn: 'Rechazar todas',
+                    showPreferencesBtn: 'Gestionar preferencias individuales',
+                    // closeIconLabel: 'Rechazar todas y cerrar el modal',
+                    // footer: `
+                    //     <a href="#path-to-impressum.html" target="_blank">Aviso legal</a>
+                    //     <a href="#path-to-privacy-policy.html" target="_blank">Política de privacidad</a>
+                    // `,
+                },
+                preferencesModal: {
+                    title: 'Gestionar preferencias de cookies',
+                    acceptAllBtn: 'Aceptar todas',
+                    acceptNecessaryBtn: 'Rechazar todas',
+                    savePreferencesBtn: 'Aceptar la selección actual',
+                    closeIconLabel: 'Cerrar',
+                    serviceCounterLabel: 'Servicio|Servicios',
+                    sections: [
+                        {
+                            title: 'Tus opciones de privacidad',
+                            description: `En este panel puedes expresar algunas preferencias relacionadas con el tratamiento de tu información personal. Puedes revisar y cambiar las opciones expresadas en cualquier momento volviendo a este panel mediante el enlace proporcionado. Para denegar tu consentimiento a las actividades de tratamiento específicas descritas a continuación, cambia los interruptores a la posición de apagado o utiliza el botón "Rechazar todas" y confirma que deseas guardar tus elecciones.`,
+                        },
+                        {
+                            title: 'Estríctamente necesarias',
+                            description: 'Estas cookies son esenciales para el correcto funcionamiento del sitio web y no pueden ser desactivadas.',
+                            linkedCategory: 'necessary'
+                        },
+                        {
+                            title: 'Rendimiento y análisis',
+                            description: 'Estas cookies recopilan información sobre cómo usas nuestro sitio web. Todos los datos están anonimizados y no se pueden utilizar para identificarte.',
+                            linkedCategory: 'analytics',
+                            cookieTable: {
+                                caption: 'Tabla de cookies',
+                                headers: {
+                                    name: 'Cookie',
+                                    domain: 'Dominio',
+                                    desc: 'Descripción'
+                                },
+                                body: [
+                                    {
+                                        name: '_ga',
+                                        domain: location.hostname,
+                                        desc: 'Descripción 1',
                                     },
                                     {
-                                        name: '_gat',
-                                        domain: 'google.com',
-                                        desc: 'Utilizado por Google Analytics para controlar la tasa de peticiones.',
-                                    },
-                                ],
-                            },
+                                        name: '_gid',
+                                        domain: location.hostname,
+                                        desc: 'Descripción 2',
+                                    }
+                                ]
+                            }
                         },
-                    ],
-                },
-            },
-        },
-    },
+                        {
+                            title: 'Segmentación y publicidad',
+                            description: 'Estas cookies se utilizan para que los mensajes publicitarios sean más relevantes para ti y tus intereses. La intención es mostrar anuncios que sean relevantes y atractivos para el usuario individual y, por lo tanto, más valiosos para los editores y anunciantes de terceros.',
+                            linkedCategory: 'ads',
+                        },
+                        {
+                            title: 'Más información',
+                            description: 'Para cualquier consulta relacionada con mi política de cookies y tus elecciones, por favor <a href="contacto">contáctanos</a>'
+                        }
+                    ]
+                }
+            }
+        }
+    }
 };
 
 export default config;
+

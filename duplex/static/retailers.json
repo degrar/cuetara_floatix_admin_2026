@@ -1,140 +1,192 @@
 [
     {
-
-        "name": "Otros",
+        "name": "Otro",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Ahorramás",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Alcampo",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Aldi",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
+        "name": "Alimerka",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Amazon",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "BM",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
+        "name": "Bon Area",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Bon Preu",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
-        "name": "Carrefour",
-        "description": null,
-        "show": 1,
-        "country": "es"
-    },
-    {
-
         "name": "Caprabo",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Carrefour",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Clarel",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
         "name": "Condis",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
         "name": "Consum",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Coviran",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Día",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Dinosol",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "El Corte Inglés",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
         "name": "Eroski",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Esclat",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
+        "name": "Froiz",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Gadis",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
         "name": "Hipercor",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
         "name": "HiperDino/SuperDino",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Leclerc",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Lidl",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Makro",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Simply",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
+        "name": "Spar",
+        "description": null,
+        "show": 1,
+        "country": "es"
+    },
+    {
         "name": "Sorli",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
         "name": "Supersol",
         "description": null,
         "show": 1,
         "country": "es"
     },
     {
-
-        "name": "Ahorramás",
+        "name": "Uvesco",
         "description": null,
         "show": 1,
         "country": "es"

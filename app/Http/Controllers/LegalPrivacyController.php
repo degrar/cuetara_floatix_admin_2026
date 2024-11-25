@@ -9,18 +9,17 @@ use JetBrains\PhpStorm\NoReturn;
 
 class LegalPrivacyController extends Controller
 {
-    public function legal()
+    public function legal(): Response
     {
         return Inertia::render('Public/Legal');
     }
 
-    #[NoReturn] public function privacy()
+    public function privacy(): Response
     {
-        header('Location: https://www.nutella.com/es/es/politica-de-privacidad');
-        die();
+        return Inertia::render('Public/Privacy');
     }
 
-    public function faqs()
+    public function faqs(): Response
     {
         return Inertia::render('Public/Faqs');
     }

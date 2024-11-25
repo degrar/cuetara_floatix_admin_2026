@@ -2,8 +2,8 @@
 
     <div class="container mx-auto px-[15px] py-8" :style="{ marginTop: headerHeight + 'px' }">
         <div class="box bg-[#FEDA1C] rounded-[40px] lg:rounded-full w-12/12 lg:w-9/12 mx-auto text-center py-4 shadow-lg px-8">
-            <p class="font-montserrat font-extrabold rem:text-[16px] rem:leading-[22px] lg:rem:text-[22px] lg:rem:leading-[28px] text-red uppercase">Esta promoción comienza el 17 de octubre</p>
-            <p class="font-montserrat rem:text-[16px] rem:leading-[22px] lg:rem:text-[22px] lg:rem:leading-[28px] text-black uppercase">Conserva tus tickets de compra para participar</p>
+            <p class="font-roboto font-extrabold rem:text-[16px] rem:leading-[22px] lg:rem:text-[22px] lg:rem:leading-[28px] text-red uppercase">Esta promoción comienza el 17 de octubre</p>
+            <p class="font-roboto rem:text-[16px] rem:leading-[22px] lg:rem:text-[22px] lg:rem:leading-[28px] text-black uppercase">Conserva tus tickets de compra para participar</p>
         </div>
     </div>
 
@@ -12,11 +12,11 @@
         <div class="container mx-auto flex flex-col lg:flex-row items-center justify-center py-[100px]">
             <div class="w-12/12 lg:w-6/12">
                 <img src="../../../../resources/images/nutella/puedes-ganar.png" alt="Puedes Ganar" class="max-w-[200px] lg:max-w-[360px] w-full mx-auto" />
-                <h1 class="font-nutella rem:text-[59px] lg:rem:text-[99px] rem:tracking-[0.15px] rem:leading-[69px] lg:rem:leading-[99px] text-white uppercase text-center"><span class="rem:text-[89px] lg:rem:text-[119px]">2</span> jerséis</h1>
-                <h2 class="font-montserrat rem:text-[24px] lg:rem:text-[39px] rem:tracking-[0.15px] rem:leading-[40px] text-white uppercase font-bold text-center py-1 lg:py-4" >navideños NUTELLA<sup>&reg;</sup></h2>
+                <h1 class="font-roboto rem:text-[59px] lg:rem:text-[99px] rem:tracking-[0.15px] rem:leading-[69px] lg:rem:leading-[99px] text-white uppercase text-center"><span class="rem:text-[89px] lg:rem:text-[119px]">2</span> jerséis</h1>
+                <h2 class="font-roboto rem:text-[24px] lg:rem:text-[39px] rem:tracking-[0.15px] rem:leading-[40px] text-white uppercase font-bold text-center py-1 lg:py-4" >navideños NUTELLA<sup>&reg;</sup></h2>
                 <div class="max-w-[440px] w-full mx-auto text-center">
-                    <p class="font-montserrat rem:text-[16px] rem:leading-[21px] lg:rem:text-[25px] lg:rem:leading-[28px] text-white font-bold">Uno para ti y otro para esa persona tan especial</p>
-                    <p class="font-montserrat rem:text-[16px] rem:leading-[21px] lg:rem:text-[25px] lg:rem:leading-[28px] text-white font-bold pt-2 lg:pt-4">¡Regalamos <span class="text-yellow">más de 1.000 jerséis!</span></p>
+                    <p class="font-roboto rem:text-[16px] rem:leading-[21px] lg:rem:text-[25px] lg:rem:leading-[28px] text-white font-bold">Uno para ti y otro para esa persona tan especial</p>
+                    <p class="font-roboto rem:text-[16px] rem:leading-[21px] lg:rem:text-[25px] lg:rem:leading-[28px] text-white font-bold pt-2 lg:pt-4">¡Regalamos <span class="text-yellow">más de 1.000 jerséis!</span></p>
                 </div>
             </div>
 

@@ -2,38 +2,13 @@
 @tailwind components;
 @tailwind utilities;
 
-@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
-
 @import "fonts/stylesheet.css";
 @import 'hamburgers/hamburgers.scss';
 @import 'hamburgers/_base.scss';
 
-
-
-
-
-@layer utilities {
-    .no-ligatures {
-        font-feature-settings: 'liga' off, 'clig' off;
-    }
-}
-
-sapn.sr-only{
-    display: none;
-}
 [x-cloak] {
     display: none;
 }
-.bdi-local-activation-menu--main a.bdi-local-activation-skip-link {
-    position: absolute;
-    z-index: -1;
-}
-.bdi-local-activation-menu--main a.bdi-local-activation-skip-link:focus-visible,
-.bdi-local-activation-menu--main a.bdi-local-activation-skip-link:focus-within {
-    z-index: 1;
-}
-
-
 
 input {
     --tw-ring-shadow: 0 0 transparent !important;
@@ -57,13 +32,7 @@ html {
 }
 
 body {
-    font-size: 16px;
-    background-color: #ffffff;
-    background-image: url("/resources/images/pattern/whitePattern.jpg");
-    background-size: 384px 190px;
-    background-repeat: repeat;
-
-
+    background-color: theme('colors.red');
     &.admin{
        @apply bg-white bg-none ;
     }
@@ -75,200 +44,75 @@ h1, h2, h3, h4, h5, h6{
     padding: 0;
 }
 
-.whitePattern{
-    @apply bg-white;
-    background-image: url("/resources/images/pattern/whitePattern.jpg");
-    background-size: 384px 190px;
-    background-repeat: repeat;
-}
-
-
-.redPattern{
-    @apply bg-red;
-    background-image: url("/resources/images/pattern/redPattern.jpg");
-    background-size: 383px 207px;
-    background-repeat: repeat;
-}
-
-.stroke-text {
-    --stroke-width: 5px;
-    --color-white: #000000;
-    text-shadow: var(--stroke-width) 0 0 var(--color-white),
-    calc(var(--stroke-width) * -1) 0 0 var(--color-white),
-    0 var(--stroke-width) 0 var(--color-white),
-    0 calc(var(--stroke-width) * -1) 0 var(--color-white);
-}
-
-.smooth-16 {
-    text-shadow: calc(var(--stroke-width) * 1) calc(var(--stroke-width) * 0) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * 0.3827) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0.7071) calc(var(--stroke-width) * 0.7071) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0.3827) calc(var(--stroke-width) * 0.9239) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0) calc(var(--stroke-width) * 1) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -0.3827) calc(var(--stroke-width) * 0.9239) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -0.7071) calc(var(--stroke-width) * 0.7071) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -0.9239) calc(var(--stroke-width) * 0.3827) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -1) calc(var(--stroke-width) * 0) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -0.9239) calc(var(--stroke-width) * -0.3827) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -0.7071) calc(var(--stroke-width) * -0.7071) 0
-    var(--color-white),
-    calc(var(--stroke-width) * -0.3827) calc(var(--stroke-width) * -0.9239) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0) calc(var(--stroke-width) * -1) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0.3827) calc(var(--stroke-width) * -0.9239) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0.7071) calc(var(--stroke-width) * -0.7071) 0
-    var(--color-white),
-    calc(var(--stroke-width) * 0.9239) calc(var(--stroke-width) * -0.3827) 0
-    var(--color-white);
-}
-
 /* -------- HEADER -------- */
-
-div#nutella-header {
-    z-index: 4;
-}
-
-header#duplex-header {
-    position: sticky;
-    z-index: 3;
-    top: 80px;
-    left:0px;
-    right: 0;
-    &.scroll {
-        position: sticky;
-        //position: -webkit-sticky;
+header{
+    @apply flex justify-between items-center px-[20px] ;
+    .logo{
+        @apply py-[10px]
     }
-
     .wrapper-menu {
-        .wrapper-mobile {
-            @apply flex justify-center items-center;
+        .wrapper-mobile{
+            padding: 15px 20px;
+            @apply flex justify-end items-end;
         }
-        #menu-btn {
+        #menu-btn{
             display: block;
-            padding: 13px 20px 10px 20px;
-            @apply rounded-[8px] bg-red shadow-lg;
         }
         nav {
             display: none;
-            &.active {
+
+            &.active{
                 display: block;
-                position: absolute;
-                right: 15px;
-                left: 15px;
-                margin: 10px auto 0;
-                @apply rounded-[20px] bg-red;
-                ul.menu-header {
-                    //@apply rounded-none;
-                }
+                // @apply bg-white bg-opacity-70;
             }
             ul.menu-header {
                 list-style: none;
                 margin: 0;
-                padding: 25px 0;
-                //box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
-                @apply flex justify-center items-start flex-col;
+                padding: 0;
+                @apply  bg-white bg-opacity-90 flex items-start flex-col absolute left-0 right-0;
+                @apply pb-[20px];
                 li {
                     display: block;
-                    padding: 10px 0;
+                    padding: 15px 30px;
                     position: relative;
                     width: 100%;
-                    text-align: center;
-
-                    a {
-                        @apply font-nutella font-semibold text-[21px] leading-[24px] uppercase;
-                        background-color: transparent;
-                        cursor: pointer;
-                        &.active {
-                            @apply text-yellow;
-                        }
-                        &:hover {
-                            @apply text-yellow;
-                        }
-                    }
-                    &:first-child {
-                        border-top: none;
-                    }
+                    text-align: right;
                 }
             }
         }
     }
-    @screen md {
-        padding-top: 0.75em;
-        top: 70px;
-        position: sticky;
-        //position: -webkit-sticky;
+
+    @screen lg  {
+        @apply px-[60px];
+        .logo{
+            @apply py-[15px]
+        }
         .wrapper-menu {
-            #menu-btn {
+            @apply flex justify-center items-center;
+            //margin-top: 0;
+            #menu-btn{
                 display: none;
             }
             nav {
                 display: block;
-                text-align: center;
 
-                &.active {
-                    display: block;
-                    position: unset;
-                    right: unset;
-                    left: unset;
-                    margin: auto;
-                    @apply rounded-none shadow-none bg-transparent;
-                    ul.menu-header {
-                        //@apply rounded-[20px];
-                    }
-                }
-
-                &.active {
-                    @apply bg-transparent;
-                }
                 ul.menu-header {
-                    @apply inline-flex justify-center items-center flex-row bg-red rounded-[90px];
-                    margin: 0 auto;
-                    padding: 0;
-                    box-shadow: 0px 5px 5px rgba(0, 0, 0, 0.2);
+                    margin: 0;
+                    @apply flex justify-center items-center flex-row relative bg-transparent;
+                    @apply pb-0;
                     li {
                         display: inline-block;
-                        padding: 0 7px;
+                        margin: 0 20px ;
                         border: none;
                         width: auto;
-                        &:first-child {
-                            margin-left: 30px;
+                        text-align: center;
+                        padding: 0;
+                        &:first-child{
+                            margin-left: 0;
                         }
-                        &:last-child {
-                            margin-right: 30px;
+                        &:last-child{
+                            margin-right: 0;
                         }
-                        a{
-                            display: block;
-                            padding: 15px 20px 17px;
-                            @apply text-[17px] leading-[21px] text-white font-bold no-ligatures;
-                        }
-                    }
-                }
-            }
-        }
-    }
-    @screen lg {
-        top: 80px;
-    }
-    @screen xl {
-        top: 90px;
-        .wrapper-menu {
-            //max-width: 970px;
-            nav {
-                ul.menu-header {
-                    li {
-                        //margin: 0 15px;
                     }
                 }
             }
@@ -280,7 +124,7 @@ header#duplex-header {
 /* -------- FOOTER -------- */
 footer#duplex{
     p{
-        @apply font-montserrat rem:text-[13px] rem:leading-[16px] rem:tracking-[0.15px];
+        @apply font-roboto rem:text-[13px] rem:leading-[16px] rem:tracking-[0.15px];
     }
     nav{
         ul {
@@ -476,89 +320,4 @@ footer#duplex{
         }
 
     }
-}
-
-/* -------- PATTERNS -------- */
-.nPatternReverse::before {
-    content: '';
-    display: block;
-    @apply bg-nPatternReverse;
-    background-repeat: repeat-x;
-    background-size: 731px 72px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 72px;
-
-}
-
-.nPatternFull::after {
-    content: '';
-    display: block;
-    @apply bg-nPatternFull;
-    background-repeat: repeat-x;
-    background-size: 764px 76px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 76px;
-
-}
-
-.nFlowerPattern::before {
-    content: '';
-    display: block;
-    @apply bg-nFlowerPattern;
-    background-repeat: repeat-x;
-    background-size: 559px 89px;
-    position: absolute;
-    top: -15px;
-    left: 0;
-    width: 100%;
-    height: 89px;
-
-}
-
-.nPattern::before {
-    content: '';
-    display: block;
-    @apply bg-nPattern;
-    background-repeat: repeat-x;
-    background-size: 559px 46px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 46px;
-
-}
-
-.Flower::before {
-    content: '';
-    display: block;
-    @apply bg-flowerPattern;
-    background-repeat: repeat-x;
-    background-size: 551px 40px;
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 40px;
-
-}
-
-.boteNutellaPattern::after {
-    content: '';
-    display: block;
-    @apply bg-boteNutellaPattern;
-    background-repeat: repeat-x;
-    background-size: 645px 124px;
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 100%;
-    height: 124px;
-
 }

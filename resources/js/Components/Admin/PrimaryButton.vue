@@ -21,7 +21,7 @@ const onClick = e => {
 </script>
 
 <template>
-    <button @click="onClick" :type="type" class="font-montserrat py-2 px-6 bg-duplex text-white rounded hover:opacity-80 focus:opacity-80" v-bind="$attrs">
+    <button @click="onClick" :type="type" class="font-roboto py-2 px-6 bg-duplex text-white rounded hover:opacity-80 focus:opacity-80" v-bind="$attrs">
         <slot />
     </button>
 </template>

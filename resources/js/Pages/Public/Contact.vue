@@ -7,14 +7,14 @@
             <div class="bg-whitePattern py-[20px] lg:py-[50px]">
                 <form @submit.prevent="submitForm">
                     <div class="container mx-auto px-[15px] pt-10">
-                        <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-0 lg:mb-12 block">¿Tienes alguna duda?</h1>
+                        <h1 class="stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-0 lg:mb-12 block">¿Tienes alguna duda?</h1>
 
                         <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start">
                             <div class="max-w-[200px] lg:max-w-[460px] w-full mx-auto ">
                                 <img src="../../../images/nutella/contact.png" alt="Nutella" class="lg:mt-0"/>
                             </div>
                             <div class="max-w-[600px] w-full mx-auto ">
-                                <p class="text-center lg:text-left w-full mx-auto  font-montserrat rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
+                                <p class="text-center lg:text-left w-full mx-auto  font-roboto rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
                                 <div class="flex justify-center flex-col">
                                     <div class="w-full mx-auto">
                                         <div class="grid grid-cols-2 gap-4">
@@ -36,7 +36,7 @@
                     </div>
                     <div class="container mx-auto px-[15px] flex flex-row justify-center">
                         <div class="mx-auto  w-12/12 lg:w-10/12 my-[15px]">
-                            <p class="rem:text-[12px] text-grey font-montserrat font-medium mb-[15px] text-center">Ferrero Ibérica, S.A. (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="underline">link</a></p>
+                            <p class="rem:text-[12px] text-grey font-roboto font-medium mb-[15px] text-center">Ferrero Ibérica, S.A. (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="underline">link</a></p>
 
                         </div>
                     </div>
@@ -65,8 +65,8 @@
                             <img src="../../../images/nutella/contact.png" alt="Nutella" class="my-0"/>
                         </div>
                         <div class="max-w-[600px] w-full mx-auto">
-                            <h1 class="stroke-text smooth-16 text-yellow font-montserrat font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-4 lg:mb-12 block">¡Mensaje recibido!</h1>
-                            <p class="w-full mx-auto text-center font-montserrat rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
+                            <h1 class="stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-4 lg:mb-12 block">¡Mensaje recibido!</h1>
+                            <p class="w-full mx-auto text-center font-roboto rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
                         </div>
                     </div>
                 </div>
