@@ -2,10 +2,10 @@
     <div :class="$attrs.class">
         <InputLabel v-if="label" :for="id">{{ label }}</InputLabel>
         <input :id="id" ref="input" v-bind="{ ...$attrs, class: null }" class="text-grey font-roboto rem:text-[14px] rem:leading-[16px] std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[1px] border-softGrey placeholder-softGrey placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-softGrey focus:shadow-none"
-               :class="{ '!border-error text-error': error }" :type="type" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" />
+               :class="{ '!border-yellow text-error': error }" :type="type" :value="modelValue" @input="$emit('update:modelValue', $event.target.value)" :placeholder="placeholder" />
 
         <div v-if="help" class="rem:text-[12px] text-black font-roboto" :class="{ 'font-extrabold underline :hover:no-underline cursor-pointer': modal }"><span v-if="modal" @click="$emit('trigger')">{{ help }}</span></div>
-        <div v-if="error" class="rem:text-[12px] font-semibold font-roboto text-error inline-block">{{ error }}</div>
+        <div v-if="error" class="rem:text-[12px] font-semibold font-roboto text-white inline-block">{{ error }}</div>
 
 
     </div>

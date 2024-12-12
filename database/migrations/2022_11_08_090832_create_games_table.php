@@ -20,10 +20,10 @@ return new class extends Migration
             $table->timestamps();
             $table->foreignIdFor(User::class);
             $table->string('token');
-            $table->string('store');
-            $table->string('other_store')->nullable();
-            $table->integer('product');
+            $table->string('retailer_id');
+            $table->string('other_retailer')->nullable();
             $table->dateTime('buydate');
+            $table->integer('product_id');
             $table->string('amount');
             $table->string('iban', 24)->nullable();
             $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Loser->value);

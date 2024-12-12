@@ -124,7 +124,7 @@ const logout = () => {
                                     </li>
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.awaiting')" :active="route().current('admin.games.awaiting')">
-                                            Validar Dirección Envio / Talla
+                                            Validar IBAN / DNI
                                         </NavLink>
                                     </li>
                                     <li>

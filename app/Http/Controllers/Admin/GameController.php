@@ -20,12 +20,14 @@ class GameController extends Controller
 
     public function show(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'retailer', 'product', 'mmgg'])
             ->leftJoin('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('users', 'games.user_id', '=', 'users.id')
             ->where('role', '=', 'user')
             ->orderBy('games.created_at', 'asc')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'game_id']);
+
+        //dd($items);
 
         return Inertia::render('Admin/Games', [
             'items' => $items,
@@ -44,13 +46,12 @@ class GameController extends Controller
 
     public function pending(): Response //MMGG pendent de validar imatge
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
             ->where('state', GameState::Pending->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->orderBy('games.created_at', 'asc')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'game_id']);
-//            ->ddRawSql();
-
+            //->ddRawSql();
         return Inertia::render('Admin/Games', [
             'items' => $items,
             'pack' => true,
@@ -69,7 +70,7 @@ class GameController extends Controller
 
     public function requested(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
             ->where('state', GameState::Requested->value)
             ->orWhere('state', GameState::Valid->value)
             ->orderByDesc('games.created_at')
@@ -92,15 +93,11 @@ class GameController extends Controller
 
     public function awaiting(): Response //Validat el pack pendent de validar documentació personal
     {
-        $items = Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
             ->where('state', GameState::Awaiting->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
-            ->join('addresses', 'games.user_id', '=', 'addresses.user_id')
-            ->leftJoin('stocks as stock1', 'games.size1', '=', 'stock1.id')
-            ->leftJoin('stocks as stock2', 'games.size2', '=', 'stock2.id')
             ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id', 'stock1.name as size1',
-                'stock2.name as size2']);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id']);
 
 
         return Inertia::render('Admin/GamesAddress', [
@@ -111,11 +108,12 @@ class GameController extends Controller
             'showExportActions' => false,
             'tableHeader' => [
                 'ID Participación',
-                'Información Usuario',
-                'Jerseis',
-                'Dirección',
-                'Fecha de participación',
-                'Acciones'
+                'Usuario',
+                'Archivos',
+                'Datos de participación',
+                'Fechas',
+                'Acciones',
+
             ],
 
         ]);
@@ -123,15 +121,11 @@ class GameController extends Controller
     public function winners(): Response //TOT ESTÀ VALIDAT (adreça, dni i pack)
     {
 
-        $items = Game::with(['user', 'address', 'address.via:id,name', 'address.province:id,name'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
             ->where('state', GameState::Winner->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
-            ->join('addresses', 'games.user_id', '=', 'addresses.user_id')
-            ->leftJoin('stocks as stock1', 'games.size1', '=', 'stock1.id')
-            ->leftJoin('stocks as stock2', 'games.size2', '=', 'stock2.id')
             ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id', 'stock1.name as size1',
-                'stock2.name as size2']);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id']);
 
 
         return Inertia::render('Admin/GamesAddress', [
@@ -142,10 +136,11 @@ class GameController extends Controller
             'showExportActions' => false,
             'tableHeader' => [
                 'ID Participación',
-                'Información Usuario',
-                'Jerseis',
-                'Dirección',
-                'Fecha de participación',
+                'Usuario',
+                'Archivos',
+                'Datos de participación',
+                'Fechas',
+
                 //'Acciones'
             ],
 
@@ -157,7 +152,7 @@ class GameController extends Controller
 
     public function denied(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
             ->where('state', GameState::Denied->value)
             ->orderByDesc('games.created_at')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*']);

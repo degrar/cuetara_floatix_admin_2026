@@ -21,7 +21,8 @@
                 <a v-for="(item, key) in files" :key="key" :href="route('admin.files.' + (item.hash.endsWith('.pdf') ? 'pdf' : 'image'), item.id)" target="_blank" class="w-1/4 group">
                     <div>
                         <span v-if="item.type === 1" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">Ticket</span>
-                        <span v-if="item.type === 3" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">DNI</span>
+                        <span v-if="item.type === 3" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">DNI/NIE Cara</span>
+                        <span v-if="item.type === 4" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">DNI/NIE Dorso</span>
                         <span v-if="item.type === 2" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">Carta Aceptación</span>
 
                         <span v-if="item.is_valid"  class="flex decoration-dotted justify-center pb-4 group-hover:text-charm text-[12px] transition">{{ statusText(item.is_valid)  }}</span>

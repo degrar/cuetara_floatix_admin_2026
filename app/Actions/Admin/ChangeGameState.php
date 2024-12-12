@@ -91,6 +91,7 @@ class ChangeGameState
             $game->update(['confirmed_at' => Carbon::now()]);
             $this->sendConfirmedMail($game);
         } else
+
             SendMail::dispatchAfterResponse($game, $type);
 
         return response(null, 200);

@@ -25,42 +25,24 @@
                     <span class="font-semibold">ID:</span> {{ data.user.id }} <br>
                     <span class="font-semibold">Nombre:</span> {{ data.user.name }} {{ data.user.surname }} <br>
                     <span class="font-semibold">Email:</span> <span class="break-all">{{ data.user.email }} </span><br>
-                    <span class="font-semibold">Teléfono: </span>{{ data.user.phone }}
+                    <!--                    <span class="font-semibold">Teléfono: </span>{{ data.user.phone }}-->
                 </div>
 
 
             </div>
 
             <div class="field scrollbar overflow-x-auto px-2">
-                <div class="break-word">
-                    <span class="font-semibold">Talla 1:</span> {{ data.size1 }} <br>
-                    <span class="font-semibold">Talla 2:</span> {{ data.size2 }} <br>
-                </div>
+                <span v-if="data.files && data.files.length > 0" class="w-[28px] cursor-pointer" @click="$emit('dialog', data.files)">
+                    <img title="Archivos" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkElEQVR4nO1Z628UVRTfpH+ClnvvbqFL20UrD9s0qYDsTIfdEmgjlEcLBSpBq/WDpjaVgK1LIS0Ild1ttbQGDKAEGx6pu2KU+PjANzV+ML5iTDSLBtF+kNIdMSQkx5yRmd7dzi4zOzu7jdmTnNzMff5+55577tm7DkdBClKQgsxpYUx8kDBhlFDhN8qEu5SJYK8KdwkVfyVMfJNSqdQSeEIEiTLhD/tBi6l0mhDv6owtn2fwgEqYOEnIinnmrc+EMW0SKl7D3XA4mosctktzEaVegTAhxpE4bnoa9ENtAgV8bmWes843Q0CImZ6AP7C5sXyyNBfxB9thVng/TG67NXTZEw9FPoyHIn/L4SjYpZTDMBWMVmSFAIKXQ9G4EQBTwfcg1PoK+KuboWyBXynxG+uNjHfP9ynrYymHo9NTwxPllgnEw9EPjILf8NgO3ciyvnaHIRIjO/tg+SNNSonfuLZ1AgbdJritN214xJ2QTbpUPByRLRMwuhi6izp+cGsPTB69BIMtPVpdfXVLRuciZwTKS+u18X8evajUYanWYbt8nzm+73sbhrcHlDLnBNDC2g60ZLYDtZUblL5Y5pwA+rjVM0C5/jkngFEGo40eeIxORqIQtUKAUPHOvTzoDl8/OXgJRtsOwG7pGfBVtcDT0rNwavcATIciuiTQ0uguZaV+pQxvCxi+B6ilHaDCYUKFf7BU64qLpfIVi5t0rbq2Ziv8sP+djCKLbAeBZHE6Vy3670dNar9e5mmAr3tPzT0CjIkPUyb+rk62cIEfTuzqhy9fPqmEOfxW2yrL1sIX+06kBfbd/jOwq64dHvU0wpKKddDmfQq+CZy2h4ACnorXefCfvPhGwkJXu0ehwr1GW8zjroerL43pgr/Y8VoCYcrNe6FjMLsEKBUqKRNucGmt/GnXiC6wz/eeVKyv9sXk7Urn6wl9EGCJS0rpgiUuCc5zJCwRYEzaTqh4mwM/Vez0rkznGl/1vKW4hDqmtMQHl58f0gXvXboJvg2cUQ7+qqWbdElYvQe0HzSECjcJ8dZi/f0OHoKqWtSoLTzftRp613cngF+5eCP80v+uNubaoXEQlm3W2l2uOjjXfiR7FxljUo1abyR6/HjgrJYGJCtaPjYwPmtMbGB81k7k9Sb+uf8cPL5k46wwqwdeTkEirwRQr796HnxVM2k1c4ow1BpIOyaWgkReCKDeOHIBGmpaE8D0Ne0xTULOFwFUzJ82L29LALSnsRPiOvkTT2LOEED969iEcuPy83ate0E3CVR1ThFAvRmcgCfF9gRgY20H7SKg/7BlhQAqptId/uc0YIe37EvZj78XTBPgnxYZE7zZIoCKboOWP7Rlr3I+9Pp81nVcI1Dz0BMZEEh63MW3StyJbBBIp7eCEQU8glbX727ozIAAEd34Pp8q8cqVetz18NPBs+YJzLwQ89lobrXCvQY+5lJ3Uw9bqjidvgcoE0fQjXLxF5PLVae4D7oNb/l7BD5yWBV8JcaHVrvPgpyk8XD0tnwsUm2ZgEJieKI8Ho6+j1tqP/CIHA9Fr2QNfEEK8j+TfwHFqJqel8JZLQAAAABJRU5ErkJggg==">
+                </span>
+                <span v-else> - </span>
             </div>
 
             <div class="field scrollbar overflow-x-auto col-span-2 px-2">
                 <div class="flex justify-center items-center">
-                <span>
-                    <span class="font-semibold" >Dirección: </span>{{ data.address[0].via.name }} {{ data.address[0].name }}<br>
-                    <span class="font-semibold">Número: </span> {{ data.address[0].number }}<br>
+                <span class="break-word">
 
-                    <span  v-if="data?.address[0].stair">
-                        <span class="font-semibold">Escalera: </span> {{ data.address[0].stair }}<br>
-                    </span>
-
-                    <span  v-if="data?.address[0].floor">
-                        <span class="font-semibold">Piso: </span> {{ data.address[0].floor }}<br>
-                    </span>
-
-                    <span  v-if="data?.address[0].door">
-                        <span class="font-semibold">Puerta: </span> {{ data.address[0].door }}<br>
-                    </span>
-
-                    <span class="font-semibold">Código postal: </span> {{ data.address[0].postal_code }}<br>
-                    <span class="font-semibold">Ciudad: </span> {{ data.address[0].city }}<br>
-                    <span class="font-semibold">Provincia: </span> {{ data.address[0].province.name }}<br>
-                    <span class="font-semibold">Teléfono: </span> {{ data.address[0].phone }}<br>
-
+                    <span><span class="font-semibold">Iban:</span> {{ data.iban }} <br></span>
                 </span>
 
                 </div>

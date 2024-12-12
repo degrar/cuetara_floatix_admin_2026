@@ -27,42 +27,43 @@ class MoreInfoController extends Controller
             'type' => request('type', 0),
             'site_key' => config('duplex.recaptcha.public'),
             'lang' => config('duplex.recaptcha.lang'),
-            'provinces' => Province::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
-            'vias' => Via::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
-            'stock' => Stock::query()->where('country', config('duplex.recaptcha.lang'))->orderBy('id')->get(['id', 'name', 'units', 'used']),
         ]);
     }
 
     public function store(StoreGameWinnerRequest $request)
     {
 
+        $type = (int) request('type');
+        $iban = (string) request('iban');
+
         $game = Game::query()->where('token', $request->token)->firstOrFail();
 
-        Address::query()->create([
-            'user_id' => $game->user_id,
-            'type' => 'prize', // 'game', 'prize'
-            'via_id' => $request->via,
-            'name' => $request->name,
-            'number' => $request->number,
-            'stair' => $request->stair,
-            'floor' => $request->floor,
-            'door' => $request->door,
-            'postal_code' => $request->zipNumber,
-            'phone' => $request->phone,
-            'city' => $request->city,
-            'province_id' => $request->province,
-            'game_id' => $game->id,
-        ]);
+        if ($type === 0 || $type === 3 || $type === 4)
+        {
+            $hashDniFront = request()->file('front')->store('files');
+            File::query()->create([
+                'user_id' => $game->user_id,
+                'game_id' => $game->id,
+                'type' => FileType::FrontDni,
+                'hash' => $hashDniFront,
+            ]);
+
+            $hashDniBack = request()->file('back')->store('files');
+            File::query()->create([
+                'user_id' => $game->user_id,
+                'game_id' => $game->id,
+                'type' => FileType::BackDni,
+                'hash' => $hashDniBack,
+            ]);
+        }
 
         $game->update([
             'state' => GameState::Awaiting,
             'token' => Str::random(32),
-            'size1' => $request->stock1,
-            'size2' => $request->stock2,
+            'iban' => $iban,
         ]);
 
-        Stock::query()->where('id', $request->stock1)->increment('used');
-        Stock::query()->where('id', $request->stock2)->increment('used');
+
 
         return redirect()->route('thanks');
     }

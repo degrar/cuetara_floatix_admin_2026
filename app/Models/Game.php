@@ -15,24 +15,24 @@
 
     class Game extends Model
     {
-        use HasFactory;
-
-
-
         protected $fillable = [
-            'state',
-            'option',
-            'code',
+            'retailer_id',
+            'other_retailer',
             'amount',
             'buydate',
+            'product_id',
+            'iban',
+            'state',
             'token',
             'user_id',
             'decline_reason',
-            'size1',
-            'size2',
             'validated_at',
             'confirmed_at',
         ];
+
+
+
+        use HasFactory;
 
         protected function casts(): array
         {
@@ -43,16 +43,29 @@
 
         public static function getTotalPlaysForUser(int $userId): \stdClass
         {
-            $totalToday = DB::table('games')
+//            $totalToday = DB::table('games')
+//                ->selectRaw('COUNT(*) total')
+//                ->where('user_id', $userId)
+//                ->where('created_at', '>=', now()->format('Y-m-d'));
+//
+//            return DB::table('games')
+//                ->selectSub($totalToday, 'today')
+//                ->selectRaw('COUNT(*) total')
+//                ->where('user_id', $userId)
+//                ->get()->first();
+
+            $totalMonth = DB::table('games')
                 ->selectRaw('COUNT(*) total')
                 ->where('user_id', $userId)
-                ->where('created_at', '>=', now()->format('Y-m-d'));
+                ->whereYear('created_at', now()->year)
+                ->whereMonth('created_at', now()->month);
 
             return DB::table('games')
-                ->selectSub($totalToday, 'today')
-                ->selectRaw('COUNT(*) total')
+                ->selectSub($totalMonth, 'month') // Subconsulta que obtiene el total del mes actual
+                ->selectRaw('COUNT(*) total') // Para obtener el total general
                 ->where('user_id', $userId)
-                ->get()->first();
+                ->get()
+                ->first();
         }
 
         public function user(): BelongsTo
@@ -75,14 +88,13 @@
             return $this->hasMany(Address::class);
         }
 
-        public function sizeOneStock(): HasOne
+        public function retailer(): HasOne
         {
-            return $this->hasOne(Stock::class, 'id', 'size1' );
+            return $this->hasOne(Retailer::class, 'id', 'retailer_id');
         }
 
-        public function sizeTwoStock(): HasOne
+        public function product(): HasOne
         {
-            return $this->hasOne(Stock::class, 'id', 'size2');
+            return $this->hasOne(Product::class, 'id', 'product_id');
         }
-
     }

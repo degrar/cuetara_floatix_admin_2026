@@ -22,7 +22,7 @@
                     <TextInput v-if="form.retailer === '1'" type="text" v-model="form.other_retailer" label="Otro establecimiento*" :error="form.errors.other_retailer" />
                     <TextInput :error="form.errors.buydate"  type="date" :min="minDate" :max="maxDate" v-model="form.buydate" label="Fecha de ticket de compra*" />
                     <TextInput :error="form.errors.amount" type="number" v-model="form.amount" label="Importe de ticket de compra*" />
-                    <FileUpload v-model="form.file" label="Sube tu ticket de compra*" :error="form.errors.file" />
+                    <FileUpload v-model:select="form.file"  :error="form.errors.file" :form="form" label="Imagen de ticket de compra*"/>
                     <SelectInput v-model:select="form.product" :options="products" :default-value="-1" :error="form.errors.product" value="id" placeholder="Producto comprado*" label="name" />
                 </div>
 
@@ -86,15 +86,15 @@ const products = usePage().props.products;
 const form = useForm({
     nombre: null,
     first_surname: null,
-    second_surname: null,
     email: null,
     email_repeat: null,
+
     // Ticket
-    file: null,
-    buydate: null,
-    amount: null,
     retailer: null,
     other_retailer: null,
+    buydate: null,
+    amount: null,
+    file: null,
     product: null,
 
     // Legals

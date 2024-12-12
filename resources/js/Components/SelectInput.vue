@@ -48,7 +48,7 @@ let selected = props.defaultValue;
             <option :value="defaultValue" disabled></option>
             <option :value="option[value]" v-for="option in options">{{ option[label] }}</option>
         </select>
-        <div v-if="error" class="rem:text-[12px] font-semibold font-roboto text-error inline-block">{{ error }}</div>
+        <div v-if="error" class="rem:text-[12px] font-semibold font-roboto text-white inline-block">{{ error }}</div>
     </div>
 
 </template>

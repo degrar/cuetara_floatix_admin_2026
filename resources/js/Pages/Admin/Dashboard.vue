@@ -27,10 +27,11 @@
                         <span class="text-gray-600">{{ $page.props.timezone }} </span>
                     </div>
                     <br>
+
                     <br>
                     <div class="inline-flex items-center">
-                        <span class="text-black mr-2"><strong>Límite participaciones diarias: </strong></span>
-                        <span class="text-gray-600">{{ $page.props.attempts_day }} </span>
+                        <span class="text-black mr-2"><strong>Límite participaciones al mes: </strong></span>
+                        <span class="text-gray-600">{{ $page.props.attempts_month }} </span>
                     </div>
                     <br>
                     <div class="inline-flex items-center">
@@ -40,28 +41,6 @@
 
                 </div>
 
-                <hr class="my-4">
-
-                <h4 class="text-xl font-medium mb-2">Stock</h4>
-
-                <table class="table-auto bg-white rounded-xl border-separate border-spacing-2 border border-slate-400 p-2">
-                    <thead>
-                        <tr class="font-semibold text-center px-2 rem:text-[14px] ">
-                            <th>Talla (id)</th>
-                            <th>Unidades totales</th>
-                            <th>Unidades utilizadas</th>
-                            <th>Unidades restantes</th>
-                        </tr>
-                    </thead>
-                    <tbody>
-                        <tr class="font-semibold text-center px-2 text-gray-600 rem:text-[14px] py-4 px-4 border-b divide-gray-200 last:border-none group relative bg-white/50 hover:bg-gray-100" v-for="(item, key) in $page.props.stock" :key="key">
-                            <td class="text-black">{{ item.name }} <span class="rem:text-[12px] text-normal text-gray-600">({{ item.id }})</span> </td>
-                            <td>{{ item.units }}</td>
-                            <td>{{ item.used }}</td>
-                            <td>{{ item.units - item.used }}</td>
-                        </tr>
-                    </tbody>
-                </table>
 
                 <hr class="my-4">
 

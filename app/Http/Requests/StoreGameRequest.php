@@ -31,21 +31,17 @@ class StoreGameRequest extends FormRequest
             'first_surname' => 'required|string',
             'email' => 'required|email:dns',
             'email_repeat' => 'required|email:dns|same:email',
-            //'phone' => 'required|regex:/^[0-9]{9}$/', // 9 digits
-            'option' => 'required|numeric|in:1,2',
 
-            // OPTION 1 - Código
-            'code' => ['required_if:option,1', 'nullable', 'string', 'exists:App\Models\Code,code,status,0'],
-
-            // OPTION 2 - Ticket
-            'file' => ['required_if:option,2', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-            'buydate' => 'required_if:option,2|nullable|date',
-            'amount' => 'required_if:option,2|nullable|regex:/^\d+(\,\d{1,2})?$/',
+            // Ticket
+            'retailer' => ['required', 'string', 'exists:App\Models\Retailer,id'],
+            'other_retailer' => ['required_if:retailer,1', 'nullable', 'string'],
+            'amount' => 'required|regex:/^\d+(\,\d{1,2})?$/',
+            'buydate' => 'required|date',
+            'file' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            'product' => ['required', 'string', 'exists:App\Models\Product,id'],
 
             // Legal
-            'adult' => 'required|accepted',
             'legal' => 'required|accepted',
-            'privacy' => 'required|accepted',
             'recaptcha' => new GoogleRecaptcha(),
         ];
     }
