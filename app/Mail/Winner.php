@@ -20,7 +20,8 @@ class Winner extends Mailable
      */
     public function __construct(
         private string $token,
-        private int $type
+        private int $type,
+        private int $prize
     )
     { }
 
@@ -40,7 +41,7 @@ class Winner extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.winner_code',
+            view: $this->prize === 1 ? 'emails.winner_switch' : 'emails.winner_cards',
             with: [
                 'token' => $this->token,
                 'formLink' => route('more-info', ['token' => $this->token, 'type' => $this->type])

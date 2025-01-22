@@ -1,5 +1,5 @@
 <template>
-    <GuestLayout title="Ganador" menu useRecaptcha>
+    <GuestLayout title="¡HAS GANADO UNA NINTENDO SWITCH!" menu useRecaptcha>
         <div class="container mx-auto p-4 pb-[100px] lg:py-10 flex flex-col lg:flex-row justify-center items-center lg:items-start">
             <div class=" w-12/12 lg:w-7/12 mx-auto ">
                 <form @submit.prevent="submitForm" class="mx-auto">

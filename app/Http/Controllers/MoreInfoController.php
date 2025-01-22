@@ -22,8 +22,10 @@ class MoreInfoController extends Controller
         if (!Game::query()->where('token', $token)->first())
             return redirect()->route('home');
 
-        return Inertia::render('Public/Game/WinnerInfo', [
+        $view = Game::query()->where('token', $token)->first()->prize_id === 1 ? 'MoreInfoSwitch' : 'MoreInfoCard';
+        return Inertia::render('Public/Game/'.$view, [
             'token' => $token,
+            'prize' => Game::query()->where('token', $token)->first()->prize_id,
             'type' => request('type', 0),
             'site_key' => config('duplex.recaptcha.public'),
             'lang' => config('duplex.recaptcha.lang'),

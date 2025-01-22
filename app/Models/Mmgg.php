@@ -14,6 +14,7 @@
             'user_id',
             'game_id',
             'assigned',
+            'prize_id',
             'date_assigned'
         ];
 

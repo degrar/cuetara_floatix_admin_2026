@@ -17,6 +17,7 @@ return new class extends Migration
             $table->dateTime('date_moment');
             $table->dateTime('date_assigned')->nullable();
             $table->boolean('assigned')->default(0);
+            $table->string('prize_id');
             $table->timestamps();
             $table->foreignIdFor(Game::class)->nullable();
             $table->foreignIdFor(User::class)->nullable();

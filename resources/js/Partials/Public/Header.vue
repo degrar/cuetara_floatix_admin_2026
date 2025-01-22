@@ -1,5 +1,5 @@
 <template>
-    <header id="header" class="bg-white">
+    <header>
         <div class="logo">
             <a :href="route('home')">
                 <ApplicationMark  class="rem:w-[115px] rem:h-[47px] lg:rem:w-[144px] lg:rem:h-[59px]" />
@@ -19,6 +19,9 @@
             <nav>
                 <ul class="menu-header">
                     <li>
+                        <PrimaryLink :href="route('home')">Inicio</PrimaryLink>
+                    </li>
+                    <li>
                         <PrimaryLink scroll="#como-participar">Cómo participar</PrimaryLink>
                     </li>
                     <li>
@@ -35,6 +38,7 @@
 <script setup>
 import ApplicationMark from "@/Components/ApplicationMark.vue";
 import PrimaryLink from "@/Components/PrimaryLink.vue";
+import PrimaryLinkFooter from "@/Components/PrimaryLinkFooter.vue";
 defineProps({
     menu: Boolean,
     header: Boolean,

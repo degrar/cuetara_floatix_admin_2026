@@ -16,12 +16,8 @@
     class Game extends Model
     {
         protected $fillable = [
-            'retailer_id',
-            'other_retailer',
-            'amount',
             'buydate',
-            'product_id',
-            'iban',
+            'prize_id',
             'state',
             'token',
             'user_id',

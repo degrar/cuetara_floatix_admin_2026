@@ -1,11 +1,12 @@
 <template>
     <GuestLayout title="Máximo de participaciones" menu>
-        <div class="container mx-auto p-4 pb-[100px] flex flex-col lg:flex-row justify-center items-center lg:items-start">
-            <div class="mx-auto w-12/12 lg:w-7/12">
-                <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px]">MÁXIMO DE PARTICIPACIONES SUPERADO</h4>
-                <p class="max-w-[530px] text-center lg:text-left font-roboto rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[26px] uppercase font-medium mt-6">Lo sentimos, esta promoción está limitada a 5 participaciones diarias, pero no te preocupes, <span class="font-extrabold">puedes volver a intentarlo mañana.</span></p>
-                <p class="text-center lg:text-left font-roboto rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[26px] uppercase font-medium  mt-8 mb-4">¡Te esperamos!</p>
-
+        <div class="container mx-auto p-4 py-20 flex flex-col lg:flex-row justify-center items-center lg:items-start text-white">
+            <div class="mx-auto max-w-[420px] w-full">
+                <img src="../../../../../resources/images/game/yatekomo.png" alt="Yatekomo" class="max-w-[220px] w-full mx-auto"/>
+                <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px] drop-shadow-xl">Participa el próximo mes</h1>
+                <p class="text-center font-ferry text-sm lg:text-lg mt-6 text-black">YA has superado el límite de xx participaciones por mes.</p>
+                <p class="text-center font-montserrat text-sm lg:text-base my-2 text-black">¡Pero no te preocupes! El próximo mes seguro que es tu oportunidad.</p>
+                <p class="text-center font-montserrat text-sm lg:text-base mt-6 text-black">¡Gracias!</p>
             </div>
         </div>
     </GuestLayout>

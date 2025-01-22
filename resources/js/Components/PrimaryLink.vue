@@ -34,7 +34,7 @@ const scrollToSection = (scroll) => {
 </script>
 
 <template>
-    <a @click="onClick" class="font-roboto text-red cursor-pointer rem:text-[16px] uppercase">
+    <a @click="onClick" class="font-ferry text-yellow cursor-pointer text-lg uppercase">
         <slot />
     </a>
 </template>

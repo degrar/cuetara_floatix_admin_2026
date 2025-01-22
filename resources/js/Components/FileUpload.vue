@@ -61,9 +61,9 @@ const openFileExplorer = () => fileInput.value.click();
         <InputLabel v-if="label">{{ label }}</InputLabel>
         <div class="">
             <div
-                class="relative bg-white text-grey font-montserrat rem:text-[14px] rem:leading-[16px] std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[1px] border-softGrey placeholder-softGrey placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-softGrey focus:shadow-none"
-                :class="{ '!border-error text-error': error }">
-                <div class="text-ellipsis overflow-hidden whitespace-nowrap placeholder-brown"
+                class="relative bg-white text-black font-montserrat text-sm std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[1px] border-white placeholder-white placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none"
+                :class="{ '!border-red text-red': error }">
+                <div class="text-ellipsis overflow-hidden whitespace-nowrap placeholder-black"
                      @click="openFileExplorer">{{ fileName.value }}
                 </div>
                 <SecondaryButton @click.prevent="openFileExplorer"

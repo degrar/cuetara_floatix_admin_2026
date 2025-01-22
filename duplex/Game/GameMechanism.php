@@ -33,7 +33,7 @@ class GameMechanism
         $this->maxAttemps = config('duplex.promo.attemps.total');
     }
 
-    public function play(): GameResult
+    public function play(): array
     {
 
         $this->createGameLog();
@@ -52,20 +52,31 @@ class GameMechanism
 
             if ($mmggAvailable !== null)
             {
+//                dd($mmggAvailable,  $mmggAvailable->prize_id);
                 $mmggAvailable->assign($this->user->id, $game->id);
-                Session::put('winner', true);
-                $this->game->update(['state' => GameState::Pending]);
-                return GameResult::WinnerPending;
+                Session::flash('winner');
+                Session::flash('prize', $mmggAvailable->prize_id);
+                Session::flash('token', $game->token);
+                $this->game->update(['state' => GameState::Pending], ['prize_id' => $mmggAvailable->prize_id]);
+                return  [
+                    'game' => GameResult::WinnerPending,
+                    'prize' => $mmggAvailable->prize_id,
+                    'token' => $game->token,
+                    ];
             }
             else {
-                return GameResult::Lost;
+                return  [
+                    'game' => GameResult::Lost
+                ];
+
             }
         }
 
+        return  [
+            'game' => GameResult::Won
+        ];
 
-        return GameResult::Won;
     }
-
 
     public function getGame(): ?GameModel
     {
@@ -78,11 +89,7 @@ class GameMechanism
             'user_id' => $this->user->id,
             'token' => Str::random(32),
             'state' => GameState::Loser,
-            'amount' => $this->request->amount,
             'buydate' => $this->request->buydate,
-            'product_id' => $this->request->product,
-            'retailer_id' => $this->request->retailer,
-            'other_retailer' => $this->request->other_retailer ?? null,
         ];
 
         if ($this->type === GameType::Mmgg)
@@ -113,14 +120,20 @@ class GameMechanism
         ]);
     }
 
-    private function hasReachedMaxAttemps(): ?GameResult
+    private function hasReachedMaxAttemps(): ?array
     {
         // Ha guanyat una vegada ya?
-        if (Mmgg::getTotalForUser($this->user->id) > 0) return GameResult::Lost;
+        if (Mmgg::getTotalForUser($this->user->id) > 0)
+            return  [
+                'game' => GameResult::Lost
+            ];
 
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
 
-        if ($attempts->month >= $this->maxMonthlyAttemps) return GameResult::MaxDay;
+        if ($attempts->month >= $this->maxMonthlyAttemps)
+            return  [
+                'game' => GameResult::MaxDay
+            ];
         return null;
     }
 

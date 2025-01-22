@@ -1,12 +1,12 @@
 <template>
-    <GuestLayout title="Vileda" useRecaptcha menu>
+    <GuestLayout title="Yatekomo" useRecaptcha menu>
         <Intro />
 
-        <div class="bg-white" id="como-participar">
+        <div class="bg-black" id="como-participar">
             <HowToPlay />
         </div>
 
-        <div class="!bg-yellow-50" id="participa">
+        <div class="bg-yellow" id="participa">
             <Game />
         </div>
 

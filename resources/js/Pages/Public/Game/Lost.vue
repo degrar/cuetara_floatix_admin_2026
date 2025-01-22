@@ -1,20 +1,27 @@
- <template>
-    <GuestLayout title="No has ganado" menu>
-        <div class="container mx-auto p-4 flex flex-col lg:flex-row justify-center items-center lg:items-start">
-            <div class="mx-auto w-12/12 lg:w-7/12">
-                <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-roboto font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px]">ESTA VEZ NO HA HABIDO SUERTE</h4>
-                <p class="text-center lg:text-left font-roboto rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[25px] uppercase font-medium mt-6">Lo sentimos, <span class="font-extrabold">tu compra no está premiada.</span> Pero no te preocupes ¡puedes volver a participar con otro producto Nutella®!</p>
-                <div class="w-full mx-auto text-center md:text-left">
-                    <p class="font-roboto rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] uppercase font-extrabold mt-8 mb-4">¿Tienes otro código o ticket de compra?</p>
-                    <PrimaryButton :href="route('home')" class="text-[22px] inline-block">Participa</PrimaryButton>
+<template>
+    <GuestLayout title="Tu compra no está premiada" menu>
+        <div class="container mx-auto p-4 py-20 flex flex-col lg:flex-row justify-center items-center lg:items-start text-white">
+            <div class="mx-auto max-w-[750px] w-full">
+                <img src="../../../../../resources/images/game/yatekomo.png" alt="Yatekomo" class="max-w-[220px] w-full mx-auto"/>
+                <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px]">¡YA TIENES UNA PARTICIPACIÓN PARA EL VIAJE A JAPÓN!</h1>
+                <div class="mx-auto max-w-[580px] w-full">
+                    <p class="text-center font-ferry text-sm lg:text-lg mt-4 text-black">Tu compra no está premiada con uno de los regalos diarios que entregamos cada día.</p>
+                    <p class="text-center font-montserrat text-sm lg:text-base mb-4 text-black">¡Pero no te preocupes! Puedes volver a participar con otros Yatekomo.</p>
+                    <p class="text-center font-ferry text-sm lg:text-lg text-black">Además, ya tienes una participación más para el VIAJAZO A JAPÓN.</p>
+                    <p class="text-center font-montserrat text-sm lg:text-base my-4 text-black">¿TIENES OTRO TICKET?</p>
+                    <div class="text-center">
+                        <PrimaryButton :secondary="true" :href="route('home')" class="inline-block">Participa</PrimaryButton>
+                    </div>
                 </div>
-             </div>
+            </div>
         </div>
     </GuestLayout>
 </template>
 
 <script setup>
 import GuestLayout from '@/Layouts/GuestLayout.vue';
+import whitePatternInside from "@/Components/inside/whitePatternInside.vue";
+import whitePatternInsideDown from "@/Components/inside/whitePatternInsideDown.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 </script>

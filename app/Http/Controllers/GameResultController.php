@@ -11,11 +11,13 @@ class GameResultController extends Controller
     public function winner()
     {
         if (Session::has('winner')) {
-            Session::remove('winner');
+        //$token = '1234567890';
+        //$prize = 1;
+            $token = Session::get('token');
+            $prize = Session::get('prize');
+            return Inertia::render('Public/Game/Winner', ['token' => $token, 'prize' => $prize]);
         }
-        //return Inertia::render('Public/Game/Winner');
         return redirect()->route('home');
-
     }
 
     public function lost(): Response

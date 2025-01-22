@@ -1,14 +1,8 @@
 <template>
-    <footer id="duplex" class="bg-white py-[60px]">
-        <div class="container mx-auto px-[15px]">
-            <p class="text-center w-full max-w-[1024px] mx-auto mt-[20px] ">
-                Promoción válida del 3 de marzo al 27 de abril de 2025 para mayores de 18 años y residentes en España. La compra de un producto Vileda en promoción da derecho a una única participación. Máximo 5 participaciones por persona al mes. Entrega de un  premio  de 200 € al día por momento ganador. Premio limitado a 1 por persona e IBAN. Imprescindible conservar el tique de compra original. Bases depositadas ante notario y disponibles <a class="underline text-black font-bold" :href="route('legal')">aquí</a>.
-            </p>
-            <nav class="mt-5">
-                <ul>
-                    <li>
-                        <PrimaryLinkFooter :href="route('home')" :active="route().current('home')">Inicio</PrimaryLinkFooter>
-                    </li>
+    <footer class="bg-black py-[30px]">
+        <div class="container mx-auto px-4">
+            <nav class="">
+                <ul class="flex justify-center items-center flex-col m-0 p-0 xl:flex-row">
                     <li>
                         <PrimaryLinkFooter  :href="route('legal')" :active="route().current('legal')">Bases legales</PrimaryLinkFooter>
                     </li>
@@ -16,17 +10,26 @@
                         <PrimaryLinkFooter :href="route('privacy')" :active="route().current('faqs')">Política de privacidad</PrimaryLinkFooter>
                     </li>
                     <li>
-                        <PrimaryLinkFooter :href="route('legal')" :active="route().current('faqs')">Aviso legal</PrimaryLinkFooter>
+                        <PrimaryLinkFooter :href="route('cookies')" :active="route().current('cookies')">Política de cookies</PrimaryLinkFooter>
                     </li>
                     <li>
-                        <PrimaryLinkFooter :href="route('contact')" :active="route().current('contact')">Contacto</PrimaryLinkFooter>
+                        <PrimaryLinkFooter :href="route('legal')" :active="route().current('legal')">Aviso legal</PrimaryLinkFooter>
+                    </li>
+                    <li>
+                        <PrimaryLinkFooter :href="route('legal')" :active="route().current('faqs')">Preguntas frecuentes</PrimaryLinkFooter>
                     </li>
                     <li>
                         <PrimaryLinkFooter @click="showCcPrefs">Modificar cookies</PrimaryLinkFooter>
                     </li>
+                    <li>
+                        <PrimaryLinkFooter :href="route('contact')" :active="route().current('contact')">Contacto</PrimaryLinkFooter>
+                    </li>
+
                 </ul>
             </nav>
-
+            <p class="text-center mt-[20px] font-montserrat text-sm tracking-tighter text-white mx-auto max-w-6xl w-full">
+                Promoción dirigida a residentes en España mayores de 18 años, válida del 1 de abril al 15 de mayo de 2025, ambos inclusive. Sorteo de 44 códigos de 50 € para suscripciones a plataformas y 9 consolas a través de momentos ganadores, así como un sorteo ante notario de un viaje a Japón para 4 personas valorado en 12.000 €. El sorteo se realizará la primera quincena de junio de 2025. Premio limitado a uno por mecánica de participación. Se requiere conservar el tique original de compra empleado para participar. Bases legales depositadas ante notario y disponibles <a class="hover:underline" :href="route('legal')">aquí</a>.
+            </p>
         </div>
     </footer>
 </template>

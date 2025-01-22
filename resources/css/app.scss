@@ -2,6 +2,16 @@
 @tailwind components;
 @tailwind utilities;
 
+@layer utilities {
+    .text-stroke-3 {
+        -webkit-text-stroke-width: 3px;
+    }
+    .text-stroke-black {
+        -webkit-text-stroke-color: #000;
+    }
+}
+
+@import url('https://fonts.googleapis.com/css2?family=Montserrat:ital,wght@0,100..900;1,100..900&display=swap');
 @import "fonts/stylesheet.css";
 @import 'hamburgers/hamburgers.scss';
 @import 'hamburgers/_base.scss';
@@ -32,25 +42,28 @@ html {
 }
 
 body {
-    background-color: theme('colors.red');
+    background-color: theme('colors.yellow');
     &.admin{
        @apply bg-white bg-none ;
     }
 }
 
 h1, h2, h3, h4, h5, h6{
-    @apply font-roboto;
+    @apply font-ferry;
     margin: 0;
     padding: 0;
 }
 
 /* -------- HEADER -------- */
-header{
-    @apply flex justify-between items-center px-[20px] ;
-    .logo{
-        @apply py-[10px]
+header {
+    @apply flex justify-between items-end px-[20px] bg-black relative;
+
+    .logo {
+        @apply py-[10px];
     }
+
     .wrapper-menu {
+        @apply flex justify-center items-center w-full pb-4;
         .wrapper-mobile{
             padding: 15px 20px;
             @apply flex justify-end items-end;
@@ -63,110 +76,115 @@ header{
 
             &.active{
                 display: block;
-                // @apply bg-white bg-opacity-70;
+                ul.menu-header {
+                    @apply bg-red;
+                }
             }
+
             ul.menu-header {
-                list-style: none;
                 margin: 0;
-                padding: 0;
-                @apply  bg-white bg-opacity-90 flex items-start flex-col absolute left-0 right-0;
-                @apply pb-[20px];
+                @apply flex justify-center items-center flex-row relative bg-transparent;
+                @apply pb-0;
+                //gap: 20px;
+
                 li {
-                    display: block;
-                    padding: 15px 30px;
+                    display: inline-block;
                     position: relative;
-                    width: 100%;
-                    text-align: right;
+                    text-align: center;
+                    padding: 0;
+                    font-size: 16px;
+                    text-transform: uppercase;
+                    color: white;
+
+                    &:not(:last-child)::after {
+                        content: '|';
+                        position: absolute;
+                        right: -18px;
+                        color: white;
+                    }
+                    a {
+                        @apply no-underline;
+                        color: white;
+                        transition: color 0.3s ease;
+
+                        &:hover {
+                            color: yellow;
+                        }
+                    }
                 }
             }
         }
     }
 
-    @screen lg  {
+    @screen lg {
         @apply px-[60px];
-        .logo{
-            @apply py-[15px]
+
+        .logo {
+            @apply py-[15px];
         }
+
         .wrapper-menu {
-            @apply flex justify-center items-center;
-            //margin-top: 0;
+            @apply relative -left-[50px];
+            .wrapper-mobile{
+                display: none;
+            }
             #menu-btn{
                 display: none;
             }
             nav {
                 display: block;
-
                 ul.menu-header {
-                    margin: 0;
-                    @apply flex justify-center items-center flex-row relative bg-transparent;
-                    @apply pb-0;
-                    li {
-                        display: inline-block;
-                        margin: 0 20px ;
-                        border: none;
-                        width: auto;
-                        text-align: center;
-                        padding: 0;
-                        &:first-child{
-                            margin-left: 0;
-                        }
-                        &:last-child{
-                            margin-right: 0;
-                        }
-                    }
+                    gap: 30px;
                 }
             }
         }
     }
 }
+
+
 /* -------- HEADER -------- */
 
 /* -------- FOOTER -------- */
-footer#duplex{
-    p{
-        @apply font-roboto rem:text-[13px] rem:leading-[16px] rem:tracking-[0.15px];
-    }
+footer{
     nav{
         ul {
-            @apply flex justify-center items-center flex-col;
-            margin: 0;
-            padding: 0;
             li {
-                display: inline-block;
-                margin: 5px 0;
-                border: none;
-                width: auto;
-                text-align: center;
-                position: relative;
+                @apply inline-block text-center my-2 border-none relative;
+                &:not(:last-child)::after {
+                    content: '·';
+                    @apply hidden text-white top-0 bottom-0 right-[-10px] absolute;
+                }
                 a{
-                    cursor: pointer;
+                    @apply no-underline text-white;
+
                 }
                 &:first-child{
-                    margin-left: 0;
+                    @apply ml-0;
                 }
                 &:last-child{
-                    margin-right: 0;
+                    @apply mr-0;
                     a{
                         &:after{
-                            display: none;
-
+                            @apply hidden;
                         }
                     }
                 }
             }
         }
     }
-    @screen lg {
+    @screen xl {
         nav {
             ul {
                 @apply flex-row;
                 li {
-                    display: inline-block;
-                    margin: 0 10px;
+                    @apply inline-block my-0 mx-2;
+                    &:not(:last-child)::after {
+                        @apply block;
+                    }
                     a{
-                        text-align: center;
+                        @apply text-center;
                         &:after{
-                            display: inline-block;
+                            @apply inline-block;
                         }
                     }
                 }

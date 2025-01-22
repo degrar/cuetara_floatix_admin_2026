@@ -30,17 +30,13 @@ class StoreGameRequest extends FormRequest
             'nombre' => 'required|string',
             'first_surname' => 'required|string',
             'email' => 'required|email:dns',
-            'email_repeat' => 'required|email:dns|same:email',
 
             // Ticket
-            'retailer' => ['required', 'string', 'exists:App\Models\Retailer,id'],
-            'other_retailer' => ['required_if:retailer,1', 'nullable', 'string'],
-            'amount' => 'required|regex:/^\d+(\,\d{1,2})?$/',
             'buydate' => 'required|date',
             'file' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-            'product' => ['required', 'string', 'exists:App\Models\Product,id'],
 
             // Legal
+            'adult' => 'required|accepted',
             'legal' => 'required|accepted',
             'recaptcha' => new GoogleRecaptcha(),
         ];

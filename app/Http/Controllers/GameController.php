@@ -47,21 +47,20 @@ class GameController extends Controller
 
         $result = $gameSystem->play();
 
-        if ($result === GameResult::Winner)
+        if ($result['game'] === GameResult::Winner)
         {
             $this->sendWinnerMail($gameSystem->getGame());
         }
 
-        return match ($result) {
+        return match ($result['game']) {
             GameResult::Winner => Redirect::route('more-info', ['token' => $gameSystem->getGame()->token]),
             GameResult::WinnerPending => Redirect::route('game-result.winner'),
-            GameResult::Won => Redirect::route('game-result.lost'),
-            GameResult::Lost => Redirect::route('game-result.lost'),
-            GameResult::MaxDay => Redirect::route('game-result.max')
+            GameResult::Won, GameResult::Lost => Redirect::route('game-result.lost'),
+            GameResult::MaxDay, GameResult::MaxMonth => Redirect::route('game-result.max')
         };
     }
 
-    private function createUser(StoreGameRequest $request): User
+    private function createUser(StoreGameRequest $request): \Illuminate\Database\Eloquent\Builder|\Illuminate\Database\Eloquent\Model
     {
 
         $user = User::query()
@@ -70,18 +69,11 @@ class GameController extends Controller
                 'first_surname' => $request->first_surname,
                 'second_surname' => $request->second_surname ?? '',
                 'email' => $request->email,
-                'phone' => $request->phone,
                 'legal' => true,
                 'adult' => true,
                 'ads' => $request->ads ?? false,
                 'role' => Role::User->value,
             ]);
-
-//        Address::query()
-//            ->create([
-//                'province_id' => 0,
-//                'user_id' => $user->id,
-//            ]);
 
         return $user;
     }
@@ -89,7 +81,7 @@ class GameController extends Controller
     private function sendWinnerMail(\App\Models\Game $game)
     {
         dispatch(function () use ($game) {
-            \Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new Winner($game->token, '0'));
+            \Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new Winner($game->token, '0', $game->prize_id));
         })->afterResponse();
     }
 

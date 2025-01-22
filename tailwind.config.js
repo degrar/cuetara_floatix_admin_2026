@@ -20,7 +20,11 @@ export default {
         extend: {
             fontFamily: {
                 roboto: ['Roboto', ...defaultTheme.fontFamily.sans],
-
+                ferry: ['Ferry', ...defaultTheme.fontFamily.sans],
+                montserrat: ['Montserrat', ...defaultTheme.fontFamily.sans],
+            },
+            boxShadow: {
+                'custom-white': '0px 4px 154px #FFF', // Define tu sombra aquí
             },
         },
         container: {
@@ -31,9 +35,10 @@ export default {
             },
         },colors: {
             ...colors,
-            'red': '#E1251B',
+            'red': '#EE4047',
+            'yellow': '#FD0',
+            'black' : '#201E29',
             'error': '#E1251B',
-            'yellow': '#FEDA1C',
 
             // Admin
             duplex: '#f4375b',
@@ -43,5 +48,5 @@ export default {
     },
 
     // plugins: [forms, typography, convertpttorem],
-     plugins: [forms, typography, convertpttorem],
+     plugins: [forms, typography, convertpttorem ],
 };
