@@ -1,50 +1,49 @@
 <template>
     <GuestLayout title="¡HAS GANADO UNA SUSCRIPCIÓN de 50€ A UNA PLATAFORMA DE STREAMING!" menu useRecaptcha>
-        <div class="container mx-auto p-4 pb-[100px] lg:py-10 flex flex-col lg:flex-row justify-center items-center lg:items-start">
-            <div class=" w-12/12 lg:w-7/12 mx-auto ">
-                <form @submit.prevent="submitForm" class="mx-auto">
-                    <div class="space-y-4">
-                        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 block">
-                            <div v-if="!showDniInput">
-                            <TextInput
-                                type="text"
-                                :modelValue="form.iban"
-                                @update:modelValue="updateIban"
-                                @input="handleInput"
-                                @paste="handlePaste"
-                                label="Número de IBAN en el que quieres que ingresemos tu premio"
-                                :error="form.errors.iban"
-                            />
-                            </div>
-                            <FileUpload v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de tu DNI (cara)"/>
-                            <FileUpload v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI (dorso)"/>
+        <div class="container mx-auto p-4 pb-[100px]">
+            <div class="w-10/12 mx-auto">
+                <div class="flex flex-row items-center justify-center mb-10">
+                    <div class="w-12/12 lg:w-3/12">
+                        <img  src="../../../../../resources/images/prizes/cards.png" alt="Tarjetas" class="max-w-[220px] w-full"/>
+                    </div>
+                    <div class=" w-12/12 lg:w-9/12">
+                        <h1 class="text-red font-ferry uppercase text-4xl rem:tracking-[0.15px] mt-6">¡HAS GANADO UNA SUSCRIPCIÓN de 50€ A UNA PLATAFORMA DE STREAMING!</h1>
+                        <p class="font-ferry text-base mt-4 text-black">COMPLETA ESTE FORMULARIO PARA SOLICITARLA</p>
+                        <p class="font-montserrat text-base text-black">Una vez hayamos validado tu participación, procederemos a la entrega de tu premio. Guarda el ticket de compra original, podríamos pedírtelo para validar tu participación.</p>
+                    </div>
+                </div>
 
 
+                <div class="w-12/12 mx-auto">
+
+                    <form @submit.prevent="submitForm" class="mx-auto">
+                        <div class="grid gap-4 lg:grid-cols-2 block">
+                            <FileUpload v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de DNI/NIE (cara)"/>
+                            <FileUpload v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI/NIE (dorso)"/>
+                            <FileUpload v-model:select="form.letter"  :error="form.errors.letter" :form="form" label="Carta de aceptación"/>
+                            <SelectInput v-model:select="form.platform" :options="platform" :default-value="-1" :error="form.errors.platform" value="id" placeholder="Plataforma de streaming" label="name" />
                         </div>
 
-                        <div id="legals" class="my-8 space-y-2 checkbox block">
+                        <p class="mt-4 text-sm text-black">Todos los campos son obligatorios</p>
 
-                            <div class="wrapper-checkbox flex flex-row items-center justify-start cursor-pointer">
-                                <Checkbox v-model:checked="form.privacy" :error="form.errors.privacy" id="privacy" />
-                                <label class="flex flex-row items-center justify-center cursor-pointer" for="privacy" v-on:click="onClickLabel" :class="{ 'error': form.errors.privacy }"></label>
-                                <InputLabelCheckbox for="privacy" class="" :error="form.errors.privacy">Acepto la <a class="underline hover:underline-none" target="_blank" :href="route('privacy')">política de privacidad</a>*</InputLabelCheckbox>
-                            </div>
-
-
-                        </div>
-                        <div class="mt-[25px] flex flex-row justify-center lg:justify-start">
+                        <div class="my-6 flex flex-row justify-center">
                             <FormButton type="submit" class="mx-auto lg:mx-0" :disabled="form.processing">
                                 Enviar
                                 <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
                             </FormButton>
                         </div>
 
+                        <div class="mx-auto max-w-[720px] w-full">
+                            <p class="text-center font-montserrat text-sm mb-4 text-black">Si ahora no puedes rellenarlo, no te preocupes porque <span class="font-bold">te hemos enviado un correo electrónico</span> con un enlace para que lo rellenes en otro momento. Recuerda que dispones de <span class="font-bold">7 días hábiles para solicitar tu premio</span> si no, entenderemos que <span class="font-bold">renuncias al premio.</span></p>
+                        </div>
+
+
                         <div class="mx-auto" v-if="form.hasErrors">
                             <ErrorMessage />
                         </div>
 
-                    </div>
-                </form>
+                    </form>
+                </div>
             </div>
         </div>
     </GuestLayout>
@@ -62,9 +61,13 @@ import Checkbox from "@/Components/Checkbox.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import ErrorMessage from "@/Components/ErrorMessage.vue";
 import {nextTick, computed} from "vue";
+import SelectInput from "@/Components/SelectInput.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 addIcons(BiUpload, FaCircleNotch);
 
+const provinces = usePage().props.provinces;
+const vias = usePage().props.vias;
 const props = defineProps({
     token: String,
     type: {
@@ -74,14 +77,25 @@ const props = defineProps({
 });
 
 const form = useForm({
-    // Data
-    iban: '',
-    front: 'null',
+    //Address
+    via: null,
+    name: null,
+    number: null,
+    stair: null,
+    floor: null,
+    door: null,
+    zipNumber: null,
+    city: null,
+    province: null,
+
+    //User Data
+    front: null,
     back: null,
+    letter: null,
+
+    //Form
     type: 0,
 
-    // Legals
-    privacy: null,
     recaptcha: null,
 });
 

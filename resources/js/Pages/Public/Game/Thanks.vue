@@ -1,9 +1,12 @@
 <template>
-    <GuestLayout title="Datos recibidos" menu>
-        <div class="container mx-auto p-4  flex flex-col lg:flex-row justify-center items-center lg:items-start">
-            <div class="mx-auto w-12/12 lg:w-7/12">
-                <h4 class="text-center lg:text-left stroke-text smooth-16 text-yellow font-ferry font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px]">¡DATOS ENVIADOS CORRECTAMENTE!</h4>
-                <p class="text-center lg:text-left font-ferry rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[26px] uppercase font-medium mt-6">Vamos a validarlos y te enviaremos un Correo electrónico confirmando el envío de tu premio. Revisa también la bandeja de spam, puedes haberlo recibido directamente ahí.</p>
+    <GuestLayout title="¡Ya tenemos lo que necesitábamos!" menu>
+        <div class="container mx-auto p-4 py-20 flex flex-col lg:flex-row justify-center items-center lg:items-start text-white">
+            <div class="mx-auto max-w-[820px] w-full">
+                <img src="../../../../../resources/images/game/yatekomo.png" alt="Yatekomo" class="max-w-[220px] w-full mx-auto"/>
+                <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px] drop-shadow-xl">¡Ya tenemos lo que necesitábamos!</h1>
+                <p class="mx-auto max-w-[650px] w-full text-center font-montserrat text-sm lg:text-base my-2 text-black">Ahora vamos a validar tu participación y, si todo es correcto, recibirás tu premio en en un plazo máximo de 30 días.</p>
+                <p class="mx-auto max-w-[650px] w-full text-center font-ferry text-sm lg:text-lg mt-6 text-black">Y recuerda, ¡puedes seguir sumando participaciones para el viajazo a Japón!</p>
+                <p class="mx-auto max-w-[650px] w-full text-center font-montserrat text-sm lg:text-base mt-6 text-black">Gracias y ¡a seguir disfrutando de tus Yatekomo!</p>
             </div>
         </div>
     </GuestLayout>

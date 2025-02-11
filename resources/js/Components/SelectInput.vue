@@ -44,11 +44,11 @@ let selected = props.defaultValue;
 <template>
     <div>
         <InputLabel v-if="label">{{ placeholder }}</InputLabel>
-        <select v-model="selected" @change="emit('update:select', $event.target.value)" class="text-grey font-ferry rem:text-[14px] rem:leading-[16px] std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-[1px] border-softGrey placeholder-softGrey placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-softGrey focus:shadow-none" :class="{ '!border-error text-error': error }">
+        <select v-model="selected" @change="emit('update:select', $event.target.value)" class="text-black font-montserrat text-sm std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-2 border-white placeholder-white placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none" :class="{ '!border-red text-red': error }">
             <option :value="defaultValue" disabled></option>
             <option :value="option[value]" v-for="option in options">{{ option[label] }}</option>
         </select>
-        <div v-if="error" class="rem:text-[12px] font-semibold font-ferry text-white inline-block">{{ error }}</div>
+        <div v-if="error" class="rem:text-[12px] font-montserrat text-red inline-block">{{ error }}</div>
     </div>
 
 </template>

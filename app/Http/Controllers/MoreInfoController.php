@@ -28,6 +28,8 @@ class MoreInfoController extends Controller
             'prize' => Game::query()->where('token', $token)->first()->prize_id,
             'type' => request('type', 0),
             'site_key' => config('duplex.recaptcha.public'),
+            'provinces' => Province::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
+            'vias' => Via::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
             'lang' => config('duplex.recaptcha.lang'),
         ]);
     }
@@ -36,12 +38,28 @@ class MoreInfoController extends Controller
     {
 
         $type = (int) request('type');
-        $iban = (string) request('iban');
 
         $game = Game::query()->where('token', $request->token)->firstOrFail();
 
-        if ($type === 0 || $type === 3 || $type === 4)
-        {
+        if ($type === 0) {
+            Address::query()->create([
+                'user_id' => $game->user_id,
+                'type' => 'prize',
+                'via_id' => $request->via,
+                'name' => $request->name,
+                'number' => $request->number,
+                'stair' => $request->stair,
+                'floor' => $request->floor,
+                'door' => $request->door,
+                'postal_code' => $request->zipNumber,
+                'phone' => $request->phone,
+                'city' => $request->city,
+                'province_id' => $request->province,
+                'game_id' => $game->id,
+            ]);
+        }
+
+        if ($type === 0 || $type === 3 || $type === 4) {
             $hashDniFront = request()->file('front')->store('files');
             File::query()->create([
                 'user_id' => $game->user_id,
@@ -59,13 +77,21 @@ class MoreInfoController extends Controller
             ]);
         }
 
+        if ($type === 0 || $type === 2)
+        {
+            $hashLetter = request()->file('letter')->store('files');
+            File::query()->create([
+                'user_id' => $game->user_id,
+                'game_id' => $game->id,
+                'type' => FileType::Acceptance,
+                'hash' => $hashLetter,
+            ]);
+        }
+
         $game->update([
             'state' => GameState::Awaiting,
             'token' => Str::random(32),
-            'iban' => $iban,
         ]);
-
-
 
         return redirect()->route('thanks');
     }

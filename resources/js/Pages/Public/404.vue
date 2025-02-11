@@ -1,17 +1,20 @@
 <template>
     <GuestLayout title="404" menu>
-        <div class="container mx-auto px-[15px] py-10">
-            <div class="flex flex-col justify-center">
-                <div class="max-w-[600px] w-full mx-auto">
-                    <h1 class="max-w-[460px] w-full mx-auto stroke-text smooth-16 text-yellow font-ferry font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-4 lg:mb-12 block">404</h1>
-                    <p class="w-full mx-auto text-center font-ferry rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[26px] font-medium mb-6 ">Parece que la página que buscas no existe. <br>Vuelve al inicio e inténtalo de nuevo.</p>
-                </div>
+        <div class="container mx-auto p-4 py-20 flex flex-col lg:flex-row justify-center items-center lg:items-start text-white">
+            <div class="mx-auto max-w-[420px] w-full">
+                <img src="../../../../resources/images/game/yatekomo.png" alt="Yatekomo" class="max-w-[220px] w-full mx-auto"/>
+                <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px] drop-shadow-xl">UPS, PARECE QUE AQUÍ NO HAY NADA</h1>
+                <p class="text-center font-montserrat text-sm lg:text-base my-2 text-black">La página que buscas no existe o ha cambiado de ubicación.</p>
+                <p class="text-center font-montserrat text-sm lg:text-base mt-6 text-black">Vuelve a intentarlo de nuevo. Gracias.</p>
             </div>
         </div>
     </GuestLayout>
 </template>
 
 <script setup>
+import GuestLayout from '@/Layouts/GuestLayout.vue';
+import whitePatternInside from "@/Components/inside/whitePatternInside.vue";
+import whitePatternInsideDown from "@/Components/inside/whitePatternInsideDown.vue";
+import PrimaryButton from "@/Components/PrimaryButton.vue";
 
-import GuestLayout from "@/Layouts/GuestLayout.vue";
 </script>

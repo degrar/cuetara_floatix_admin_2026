@@ -1,77 +1,55 @@
- <template>
+<template>
     <GuestLayout title="Contacto" useRecaptcha menu>
-        <whitePatternInside />
-
-        <template v-if="!sent">
-
-            <div class="bg-whitePattern py-[20px] lg:py-[50px]">
+        <div class="py-[20px] lg:py-[50px]">
+            <template v-if="!sent">
                 <form @submit.prevent="submitForm">
                     <div class="container mx-auto px-[15px] pt-10">
-                        <h1 class="stroke-text smooth-16 text-yellow font-ferry font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-0 lg:mb-12 block">¿Tienes alguna duda?</h1>
-
-                        <div class="flex flex-col lg:flex-row justify-center items-center lg:items-start">
-                            <div class="max-w-[200px] lg:max-w-[460px] w-full mx-auto ">
-                                <img src="../../../images/nutella/contact.png" alt="Nutella" class="lg:mt-0"/>
-                            </div>
-                            <div class="max-w-[600px] w-full mx-auto ">
-                                <p class="text-center lg:text-left w-full mx-auto  font-ferry rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Escríbenos y te contestaremos lo antes posible</p>
-                                <div class="flex justify-center flex-col">
-                                    <div class="w-full mx-auto">
-                                        <div class="grid grid-cols-2 gap-4">
-                                            <TextInput type="text" v-model="form.nombre" label="Nombre" :error="form.errors.nombre" />
-                                            <TextInput type="text" v-model="form.email" label="E-mail" class="" :error="form.errors.email" />
-                                            <TextArea type="text" v-model="form.message" label="Mensaje" class="w-full col-span-2" rows="8" :error="form.errors.message" />
-                                        </div>
-                                        <div id="legals" class="my-8 space-y-2 checkbox block">
-                                            <div class="wrapper-checkbox flex flex-row items-start justify-start rem:mt-[15px] cursor-pointer">
-                                                <Checkbox v-model:checked="form.legal" :error="form.errors.legal" id="privacy" />
-                                                <label class="flex flex-row items-center justify-center cursor-pointer" for="privacy" v-on:click="onClickLabel" :class="{ 'error': form.errors.legal }"></label>
-                                                <InputLabelCheckbox for="legal" class="text-black" :error="form.errors.legal">Acepto el tratamiento de mis datos personales de conformidad con la <a class="underline hover:underline-none" target="_blank" :href="route('privacy')">política de protección de datos </a> de Ferrero</InputLabelCheckbox>
-                                            </div>
+                        <div class="max-w-[600px] w-full mx-auto ">
+                            <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px]">¿Tienes alguna duda sobre esta promoción?</h1>
+                            <p class="text-center font-montserrat text-sm lg:text-lg my-6">Escríbenos y te contestaremos lo antes posible</p>
+                            <div class="flex justify-center flex-col">
+                                <div class="w-full mx-auto">
+                                    <div class="grid grid-cols-1 gap-4">
+                                        <TextInput type="text" v-model="form.nombre" label="Nombre" :error="form.errors.nombre" />
+                                        <TextInput type="text" v-model="form.email" label="E-mail" class="" :error="form.errors.email" />
+                                        <TextArea type="text" v-model="form.message" label="Mensaje"  rows="8" :error="form.errors.message" />
+                                    </div>
+                                    <div id="legals" class="my-8 space-y-2 checkbox block">
+                                        <div class="wrapper-checkbox flex flex-row items-start justify-start rem:mt-[15px] cursor-pointer">
+                                            <Checkbox v-model:checked="form.legal" :error="form.errors.legal" id="privacy" />
+                                            <label class="flex flex-row items-center justify-center cursor-pointer" for="privacy" v-on:click="onClickLabel" :class="{ 'error': form.errors.legal }"></label>
+                                            <InputLabelCheckbox for="legal" class="text-black" :error="form.errors.legal">Acepto la <a class="underline hover:underline-none" target="_blank" :href="route('privacy')">política de protección de datos </a></InputLabelCheckbox>
                                         </div>
                                     </div>
                                 </div>
                             </div>
+                            <div class="mt-2 flex">
+                                <FormButton type="submit" class="mx-auto" :disabled="form.processing">
+                                    Enviar
+                                    <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
+                                </FormButton>
+                            </div>
+                            <div class="mx-auto w-12/12" v-if="form.hasErrors">
+                                <ErrorMessage />
+                            </div>
                         </div>
-                    </div>
-                    <div class="container mx-auto px-[15px] flex flex-row justify-center">
-                        <div class="mx-auto  w-12/12 lg:w-10/12 my-[15px]">
-                            <p class="rem:text-[12px] text-grey font-ferry font-medium mb-[15px] text-center">Ferrero Ibérica, S.A. (en adelante, “Ferrero”) tratará los datos personales que Ud. nos proporcione para la correcta gestión de su solicitud conforme a su consentimiento. Ud. tiene derecho a ejercer sus derechos de acceso, rectificación y supresión, limitación del tratamiento, portabilidad, oposición. Puede ejercer sus derechos mediante petición escrita a <a href="mailto:privacy.es@ferrero.com" class="underline">privacy.es@ferrero.com</a>. En todo caso, si necesita más información, Ud. puede consultar la información adicional y detallada sobre la política de privacidad a través del siguiente <a :href="route('privacy')" class="underline">link</a></p>
-
-                        </div>
-                    </div>
-                    <div class="container mx-auto px-[15px] flex flex-row justify-center">
-                        <div class="mt-2 flex">
-                            <FormButton type="submit" class="mx-auto" :disabled="form.processing">
-                                Enviar
-                                <OhVueIcon v-if="form.processing" name="fa-circle-notch" animation="spin" />
-                            </FormButton>
-                        </div>
-                    </div>
-                    <div class="container mx-auto px-[15px] flex flex-row justify-center">
-                        <div class="mx-auto w-12/12 lg:w-10/12" v-if="form.hasErrors">
-                            <ErrorMessage />
-                        </div>
-
                     </div>
                 </form>
-            </div>
-        </template>
-        <template v-else>
-            <div class="bg-whitePattern py-[10px] lg:py-[20px]">
+
+            </template>
+            <template v-else>
+
                 <div class="container mx-auto px-[15px] py-4">
-                    <div class="flex flex-col justify-center">
-                        <div class="max-w-[200px] lg:max-w-[380px] w-full mx-auto ">
-                            <img src="../../../images/nutella/contact.png" alt="Nutella" class="my-0"/>
-                        </div>
+                    <div class="flex flex-col justify-center items-center h-[calc(100vh-30rem)]">
                         <div class="max-w-[600px] w-full mx-auto">
-                            <h1 class="stroke-text smooth-16 text-yellow font-ferry font-extrabold uppercase rem:text-[28px] rem:leading-[32px] lg:rem:text-[41px] lg:rem:leading-[41px] rem:tracking-[0px] text-center mb-4 lg:mb-12 block">¡Mensaje recibido!</h1>
-                            <p class="w-full mx-auto text-center font-ferry rem:text-[18px] rem:leading-[25px] lg:rem:text-[21px] lg:rem:leading-[21px] font-medium mb-6 ">Te contestaremos lo antes posible. ¡Gracias!</p>
+                            <img src="../../../../resources/images/game/yatekomo.png" alt="Yatekomo" class="max-w-[220px] w-full mx-auto"/>
+                            <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px]">¡MENSAJE RECIBIDO!</h1>
+                            <p class="text-center font-montserrat text-sm lg:text-lg my-6">Te contestaremos en un YA. ¡Muchas gracias!</p>
                         </div>
                     </div>
                 </div>
-            </div>
-        </template>
+            </template>
+        </div>
         <whitePatternInsideDown />
     </GuestLayout>
 </template>

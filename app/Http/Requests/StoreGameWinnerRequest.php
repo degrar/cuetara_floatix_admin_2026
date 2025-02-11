@@ -31,12 +31,22 @@ class StoreGameWinnerRequest extends FormRequest
     {
         return [
             'type' => 'required|in:0,2,3,4', // 0: Documentación + IBAN, 2: CARTA, 3: DNI, 4: DNI Y CARTA (SIN DIRECCIÓN)
-            'iban' => ['required', 'string', $this->validateIban(), 'regex:/^ES\d{2}(\s*\d{4}){5}$/', new ValidIban()],
+
+            'via' => 'required|exists:App\Models\Via,id',
+            'name' => 'required|string',
+            'number' => 'required|string',
+            'zipNumber' => ['required', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
+            'city' => 'required|string',
+            'province' => 'required|exists:App\Models\Province,id',
+            'stair' => 'nullable|string',
+            'floor' => 'nullable|string',
+            'door' => 'nullable|string',
+
+
             'front' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
             'back' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-
-            // Legal
-            'privacy' => 'required|accepted',
+            'letter' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            'phone' => 'required|regex:/^[0-9]{9}$/',
 
             'recaptcha' => new GoogleRecaptcha(),
         ];

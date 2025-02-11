@@ -22,5 +22,7 @@ class DatabaseSeeder extends Seeder
 
         (new RetailerSeeder())->run();
         (new ProductSeeder())->run();
+        (new ProvinceSeeder())->run();
+        (new ViaSeeder())->run();
     }
 }

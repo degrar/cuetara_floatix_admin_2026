@@ -17,14 +17,14 @@ return [
 
         'date' => [
             'start' => Carbon\Carbon::create(2024, 11, 28, 00, 00, 00, env('APP_TIMEZONE')),
-            'end' => Carbon\Carbon::create(2025, 04, 8, 23,59,59, env('APP_TIMEZONE')),
+            'end' => Carbon\Carbon::create(2025, 05, 15, 23,59,59, env('APP_TIMEZONE')),
             'timezone' => env('APP_TIMEZONE')
         ],
 
         'attemps' => [
             'day' => 5,
             'month' => 5,
-            'total' => 10000
+            'total' => 10
         ],
 
         'url_project_name' => env('URL_PROJECT_NAME', ''),

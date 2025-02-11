@@ -57,7 +57,10 @@ class GameMechanism
                 Session::flash('winner');
                 Session::flash('prize', $mmggAvailable->prize_id);
                 Session::flash('token', $game->token);
-                $this->game->update(['state' => GameState::Pending], ['prize_id' => $mmggAvailable->prize_id]);
+                $this->game->update([
+                    'state' => GameState::Pending,
+                    'prize_id' => $mmggAvailable->prize_id
+                ]);
                 return  [
                     'game' => GameResult::WinnerPending,
                     'prize' => $mmggAvailable->prize_id,
