@@ -41,7 +41,7 @@ class MoreInfo extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: $this->type === 1 ? 'emails.moreinfo_dni' : 'emails.moreinfo_all',
+            view: $this->type === 3 ? 'emails.moreinfo_dni' : 'emails.moreinfo_letter',
             with: [
                 'token' => $this->token,
                 'formLink' => route('more-info', ['token' => $this->token, 'type' => $this->type])
@@ -52,10 +52,19 @@ class MoreInfo extends Mailable
     /**
      * Get the attachments for the message.
      *
-     * @return array<int, Attachment>
+     * @return array<int, \Illuminate\Mail\Mailables\Attachment>
      */
     public function attachments(): array
     {
-        return [];
+        if ($this->type === 3) {
+            return [];
+        }
+
+        return [
+            \Illuminate\Mail\Attachment::fromPath(storage_path('app/carta.pdf'))
+                ->as('carta_aceptacion.pdf')
+                ->withMime('application/pdf')
+        ];
     }
+
 }

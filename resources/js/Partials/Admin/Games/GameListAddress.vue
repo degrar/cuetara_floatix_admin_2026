@@ -25,7 +25,7 @@
                         <span v-if="item.type === 4" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">DNI/NIE Dorso</span>
                         <span v-if="item.type === 2" class="flex decoration-dotted justify-center pt-2 group-hover:text-charm transition font-bold">Carta Aceptación</span>
 
-                        <span v-if="item.is_valid"  class="flex decoration-dotted justify-center pb-4 group-hover:text-charm text-[12px] transition">{{ statusText(item.is_valid)  }}</span>
+<!--                        <span v-if="item.is_valid"  class="flex decoration-dotted justify-center pb-4 group-hover:text-charm text-[12px] transition">{{ statusText(item.is_valid)  }}</span>-->
                         <!-- PDF -->
                         <img v-if="item.hash.endsWith('.pdf')" class="mx-auto" src="data:image/png;base64,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">
 
@@ -67,6 +67,19 @@ const imagesDialog = (value) => {
 const onItemDeleted = id => {
     emit('deleted', id);
 }
+
+const statusText = (valid) => {
+    switch(valid) {
+        case 0:
+            return 'Pendiente';
+        case 1:
+            return 'Válido';
+        case 2:
+            return 'Rechazado';
+        default:
+            return '';
+    }
+};
 
 </script>
 

@@ -112,19 +112,19 @@ const logout = () => {
                                     <hr class="md:w-[50%] mx-auto bg-gray-200">
                                 </li>
                                 <ul class="space-y-1 pl-4 mt-2">
-                                    <li>
-                                        <NavLink class="!text-sm" :href="route('admin.games.pending')" :active="route().current('admin.games.pending')">
-                                            Validar Ticket
-                                        </NavLink>
-                                    </li>
+<!--                                    <li>-->
+<!--                                        <NavLink class="!text-sm" :href="route('admin.games.pending')" :active="route().current('admin.games.pending')">-->
+<!--                                            Validar Ticket-->
+<!--                                        </NavLink>-->
+<!--                                    </li>-->
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.requested')" :active="route().current('admin.games.requested')">
-                                            Datos Reclamados
+                                            Pendiente Usuario
                                         </NavLink>
                                     </li>
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.awaiting')" :active="route().current('admin.games.awaiting')">
-                                            Validar IBAN / DNI
+                                            Validar Participación
                                         </NavLink>
                                     </li>
                                     <li>

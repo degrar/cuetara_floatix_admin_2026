@@ -40,12 +40,16 @@
                 <div class="flex justify-center items-center">
                 <span class="break-word">
 
-                    <span><span class="font-semibold">Establecimiento de compra:</span> {{ data.retailer.name }}<br></span>
-                    <span v-if="data.retailer_id == 1"><span class="font-semibold">Otro establecimiento:</span> {{ data.other_retailer }}<br></span>
-                    <span><span class="font-semibold">Producto:</span> {{ data.product.name }}<br></span>
+<!--                    <span><span class="font-semibold">Establecimiento de compra:</span> {{ data.retailer.name }}<br></span>-->
+<!--                    <span v-if="data.retailer_id == 1"><span class="font-semibold">Otro establecimiento:</span> {{ data.other_retailer }}<br></span>-->
+<!--                    <br>-->
+<!--                    <span><span class="font-semibold">Producto:</span> {{ data.product.name }}<br></span>-->
+<!--                    <span><span class="font-semibold">EAN producto:</span> {{ data.product.ean }} <br></span>-->
+<!--                    <br>-->
                     <span><span class="font-semibold">Importe:</span> {{ data.amount }} €<br></span>
                     <span><span class="font-semibold">Fecha ticket:</span> {{ formatDateBuy(data.buydate) }} <br></span>
-                    <span v-if="data.iban != ''"><span class="font-semibold">Iban:</span> {{ data.iban }} <br></span>
+
+<!--                    <span v-if="data.iban != ''"><span class="font-semibold">Iban:</span> {{ data.iban }} <br></span>-->
                 </span>
 
                 </div>
@@ -54,7 +58,7 @@
             <div class="field scrollbar overflow-x-auto px-2">
                 <span class="break-word">
                     <span class="font-semibold">Participación:</span> {{ formatDate(data.created_at) }} <br>
-                    <span v-if="data.validated_at"><span class="font-semibold">Validación:</span> {{ formatDate(data.validated_at) }} <br></span>
+<!--                    <span v-if="data.validated_at"><span class="font-semibold">Validación:</span> {{ formatDate(data.validated_at) }} <br></span>-->
                     <span v-if="data.confirmed_at"><span class="font-semibold">Confirmación:</span> {{ formatDate(data.confirmed_at) }} <br></span>
                 </span>
 
@@ -62,6 +66,10 @@
 
             <div class="field scrollbar overflow-x-auto px-2">
                  <span>
+                     <span v-if="data?.mmgg.prize_id == 1"><span class="font-semibold">Premio:</span> Nintendo Switch</span>
+                     <span v-else-if="data?.mmgg.prize_id == 2"><span class="font-semibold">Premio:</span> Tarjeta Streaming</span>
+                     <br>
+                     <br>
                      <span v-if="data?.mmgg"><span class="font-semibold">MMGG:</span> {{ formatDate(data.mmgg.date_moment) }}<br></span>
                      <span v-if="data.decline_reason"><span class="font-semibold">Razón rechazado:</span> {{ data.decline_reason }} <br></span>
                  </span>
@@ -75,7 +83,7 @@
                     </span>
                 </div>
                 <div v-else class="field scrollbar overflow-x-auto space-x-1 px-2">
-                    <span class="w-[28px] cursor-pointer" @click="updateGameState('awaiting', 3)" v-if="personalImage">
+                    <span class="w-[28px] cursor-pointer" @click="updateGameState('request', 3)" v-if="personalImage">
                         <img title="Pedir DNI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADeUlEQVR4nGNgGAWjYPAAMSk7P3FJu9PiEvY/JSTt/yNjkBhYTtzeh2EwAnEpO190R+PCg9IT4pJ2Z4j2gKT9KYbBBsSRko2wsBUvuryQkBkfcnJiGGxAAimEKVEzYGDUAwMNRmOAesCeRVzSrgxULGKrkIjBuEzGpkZCwj5DXML+G84iF1IBngG5CeQ2go6XkLTbT46jKfDAReLrD7sDeD0hLmlXTqnjQVhQ0IUf3WyQGCJU7X4QGwMSmJ4oI6o2FZO0q9LS0mIjEGXIek+T4MmTxJqrpaXFJiFhV43kgdO4HYGU5klxPFivuL0P0R6QsPMixWwVFQ92ompxbGm0/v9/lp7nHxu7n3981PP80398OHPl3v8GLin/pWRdMBwNEjN0Tf2ftXofXjN6cGBks0Bu6X7+sQHkNoIeADmeHAupjSWQ3AYXf/apnhgPPEY3rOvx+//lhy6CMYg9YB54/ukhER5AGNL97OP/6AnL/supeMDVyat6/o+ZtAIsNwAe+E+SB0KaZ+PMmCEtcwa3B+rP30XJnJrmUWCMnEnrL9wdvB5InrcZLmfqm/O/68kHMDb1yYaLJ8/fgtVy/+op/6VknYgqYqVkncDqqe6BqP5lcDmP/C64AR55nXBxkBpsHpBVciOpJpdVcqO+Bwq3n4DLySi4/Y/sXfI/qncJmA0TL9xxcvDGQPfTD/9NvBHJBR0beWSAk9SgzQMtN56CHYnLA8aemWA1g9IDnY/e/jd0SyUY/Ubu6f+7Hr8dfB6I6F6ESKMyjv99Kyb+L913Hox9yyf8l5R2RGTk3iWDzwNaltF4HRjRtRAur20dO7gycdudl4jSR9ENnJzQDQeJIZdGbXdfDZ5itP78XbiYunEozigGycHUgfQMmhjofPTuv6ZZBFjMObURpwdAciA1ILUgPYMqD7TeegGuyPA1nUFyIDUgtYMuE/cMAiwxIjwgjqVTP9AO74GWcohM7oLHA8hDIxJ21SBPDLTjux6//R/SguhIGTgn4/VAGd4iTsbxv1dhN4YlJXvO/lfWDSCprCcXh3XMx+0B6LjoAXwGgJoN6KWRV3EvXRxvCupIodmN5gGUwV2M2caBiAEpWRdwsgnvWIC1GGcgBIgZ0BpA/ICgB0CDR4PAof+x4mefagl6ADy0CPHEwwF38HM4fghyPMbQ4igYBQwkAwD0ccjeH0bwtgAAAABJRU5ErkJggg==">
                     </span>
     <!--                <span class="w-[28px] cursor-pointer" @click="updateGameState('awaiting', 2)">-->
@@ -85,7 +93,7 @@
                     <span class="mx-2" v-if="personalImage">
                         |
                     </span>
-                    <span class="w-[28px] cursor-pointer" @click="updateGameState('valid', 0)">
+                    <span v-if="!isRequestedGamesPage" class="w-[28px] cursor-pointer" @click="updateGameState('valid', 0)">
                         <img title="Accept" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADPUlEQVR4nO2YT0gUURzHRwnqUgdt9/3errbV2iWIOkn+2fdctSgRRSFiKaIiXYu0QEhELA8lIR6CqIQSEudPDR1DunQwkDpFkjukl6KgS4cOQVlYE29o1tlxxp2VdncG5gO/w+4sO5/v29/7M8txPj4+Pj4+LgChmiDCZBoB+YIw+QBAb0YidAvnBQKBeBQB/QiYqhkFdK68vHYr50l57IEQAZM8Avo9GKLNCJM+wPSPq0NUVDSG18o3NOnXEaa9rg4BQPrt5HUi0eZ+YwiE6SzH0U2cGwiE4/sRkK9aoVij+brwTtguKOKbntEhFYca0nOCtRfnFqqqjmxmZX5fXpIDfEqaFxRJZXV2+MrqpA7TZ0WRDQbrdyOgL1iVV9aG7D4nm+T5BVFtPd2dDlDXkvg8szSzJnRhl0og/U7l284kM5bVgYlRlU9JTzcUIhCK1SKgPGD6HICMlpVVb8tVnk3YUIgesOp5Pot8+7ke7ZpWKVHISR5hehEwWcncaMh7JpiLvNVqI5jlU6La0X0+Q77tdFILlQ6gSKr0Voo6lc9ckw3FBK1C5FueT4krDxflcO7yQOcwjp1gQnYh8i0vaC0kDWWVB4glzfJ63wPECGDybVWSfApU0CqAeIS1lvl4kHXCppzL84p4zYE87cm2lbNRBdzww/hLFGDkRxzI1+9FQJaznUOmFbHj6vTYcuXOJqu5URx5BgAZMqw0L63keUXqFBTpF/viEWFcNYawk8972+ggTK8bvvQxx3GldvJ6sRC79hxSI9Gm39WNx49xxZJfnaAZ/T+ph7CS12tqnteKV0RFXpChKPI6AOS26clocuo1324nv+bGTJidKAvR8zaUMmnjjVpPdS07kTeGKJa8bYgbT245DmDaOQsubwzxgN0wXBn/eWf2vqfkdUqCQXoQ47odgiIN5Eue3+iEzZVEX++jfdXtauLyJetRXOdIzF4XVZ6BgC5mFXKrPANhOr6emKvl/1GCMLln1deu7HmnS2zLyS6t3DzyWUN4SV6nFGFy1yzfmbzgCfk0AOQownSi5nDi1fDUmPWy6lZ5M1abnWfkdXhFHGT/HGiliIOcF5EXZDA+F/j4+HD/nb83fOooKWIiJgAAAABJRU5ErkJggg==">
                     </span>
                     <span class="w-[28px] cursor-pointer" @click="showMessageDialog = true">
@@ -143,13 +151,16 @@ import {router, usePage} from "@inertiajs/vue3";
 import TextInput from "@/Components/Admin/TextInput.vue";
 import dayjs from 'dayjs';
 
+
 const emit = defineEmits([
    'deleted'
 ]);
 
 const props = defineProps({
-    data: Object
+    data: Object,
+    isRequestedGamesPage: Boolean
 });
+
 
 const showMoreInfo = ref(false);
 const showMessageDialog = ref(false);

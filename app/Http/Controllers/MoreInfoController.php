@@ -7,6 +7,7 @@ use App\Models\Address;
 use App\Models\Game;
 use App\Models\Province;
 use App\Models\Stock;
+use App\Models\StreamigsPlatforms;
 use App\Models\Via;
 use App\Models\File;
 use Duplex\Enums\GameState;
@@ -25,6 +26,7 @@ class MoreInfoController extends Controller
         $view = Game::query()->where('token', $token)->first()->prize_id === 1 ? 'MoreInfoSwitch' : 'MoreInfoCard';
         return Inertia::render('Public/Game/'.$view, [
             'token' => $token,
+            'platforms' => StreamigsPlatforms::query()->where('show', 1)->orderBy('name')->get(['id', 'name']),
             'prize' => Game::query()->where('token', $token)->first()->prize_id,
             'type' => request('type', 0),
             'site_key' => config('duplex.recaptcha.public'),
@@ -40,8 +42,11 @@ class MoreInfoController extends Controller
         $type = (int) request('type');
 
         $game = Game::query()->where('token', $request->token)->firstOrFail();
+        $prize = Game::query()->where('token', $request->token)->first()->prize_id;
 
-        if ($type === 0) {
+
+
+        if ($type === 0 && $prize === 1) {
             Address::query()->create([
                 'user_id' => $game->user_id,
                 'type' => 'prize',
@@ -88,10 +93,14 @@ class MoreInfoController extends Controller
             ]);
         }
 
-        $game->update([
+        $updateData = [
             'state' => GameState::Awaiting,
             'token' => Str::random(32),
-        ]);
+        ];
+
+        if ($prize == 2) $updateData['platform_id'] = $request->platforms;
+
+        $game->update($updateData);
 
         return redirect()->route('thanks');
     }

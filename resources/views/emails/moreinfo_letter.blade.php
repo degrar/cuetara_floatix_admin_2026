@@ -95,51 +95,47 @@
                 <tbody>
                 <tr>
                     <td>
-                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; color: #000000; width: 600px;" width="750">
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FD0; color: #000000; width: 600px;" width="600">
                             <tbody>
                             <tr>
                                 <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
                                     <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerWinner.png') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="356"></div>
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerPlatform.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="330"></div>
                                             </td>
                                         </tr>
                                     </table>
                                     <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px;">
-                                                    <strong>¡Hemos validado tu participación y dos jerséis navideños ya son tuyos!</strong>
-
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Para validar tu participación necesitamos que rellenes un formulario con estos datos:
                                                 </p>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                     Para proceder con el envío de tu premio necesitamos que accedas a nuestro formulario y completes estos datos:
-                                                </p>
-                                                <ul style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;list-style-type: disc; ">
-                                                    <li>Las tallas de tus jerséis navideños.</li>
-                                                    <li>Dirección donde quieres recibir tu premio.</li>
+                                                <ul style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;list-style-type: disc; ">
+                                                    <li>Carta de aceptación del premio.</li>
                                                 </ul>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    <strong>Tienes un plazo de 7 días naturales desde el envío de este correo.</strong> Si no recibimos tu documentación, entenderemos que renuncias al premio. En caso de haber completado anteriormente el formulario de ganador, omite este correo.
+                                                </p>
                                                 <br>
                                                 <div style="text-align: left">
                                                     <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 96px; width: 346px;" height="96" width="346">
+                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 44px; width: 292px;" height="44" width="292">
                                                     </a>
                                                 </div>
                                                 <br>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                    Dispones de <strong>6 días laborables para adjuntar la información.</strong> Una vez validados estos documentos te enviaremos tu fantástico premio en un plazo máximo de 20 días.
-                                                </p>
-                                                <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                    Un saludo y de nuevo ¡felicidades!
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Una vez validada tu participación, te enviaremos tu premio en un plazo máximo de 30 días.
                                                 </p>
                                                 <br>
-                                                <div>
-                                                    <a href="{{ route('home') }}">
-                                                        <img src="{{ asset('assets/email/footer.png') }}" alt="Nutella" style="height: 51px; width: 165px;" height=51" width="165">
-                                                    </a>
-                                                </div>
-                                                <br>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                        <tr>
+                                            <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/footer.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="234"></div>
                                             </td>
                                         </tr>
                                     </table>

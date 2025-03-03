@@ -114,6 +114,7 @@
                                                 </p>
                                                 <ul style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;list-style-type: disc; ">
                                                     <li>Imagen de tu DNI.</li>
+                                                    <li>Carta de aceptación del premio.</li>
                                                 </ul>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
                                                     <strong>Tienes un plazo de 7 días naturales desde el envío de este correo.</strong> Si no recibimos tu documentación, entenderemos que renuncias al premio. En caso de haber completado anteriormente el formulario de ganador, omite este correo.
@@ -127,6 +128,12 @@
                                                 <br>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
                                                     Una vez validada tu participación, te enviaremos tu premio en un plazo máximo de 30 días.
+                                                </p>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Recuerda guardar tu ticket de compra original.
+                                                </p>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Un saludo y de nuevo ¡felicidades!
                                                 </p>
                                                 <br>
                                             </td>

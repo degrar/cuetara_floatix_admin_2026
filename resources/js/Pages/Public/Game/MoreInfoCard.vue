@@ -21,7 +21,7 @@
                             <FileUpload v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de DNI/NIE (cara)"/>
                             <FileUpload v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI/NIE (dorso)"/>
                             <FileUpload v-model:select="form.letter"  :error="form.errors.letter" :form="form" label="Carta de aceptación"/>
-                            <SelectInput v-model:select="form.platform" :options="platform" :default-value="-1" :error="form.errors.platform" value="id" placeholder="Plataforma de streaming" label="name" />
+                            <SelectInput v-model:select="form.platforms" :options="platforms" :default-value="-1" :error="form.errors.platforms" value="id" placeholder="Plataforma de streaming" label="name" />
                         </div>
 
                         <p class="mt-4 text-sm text-black">Todos los campos son obligatorios</p>
@@ -68,6 +68,9 @@ addIcons(BiUpload, FaCircleNotch);
 
 const provinces = usePage().props.provinces;
 const vias = usePage().props.vias;
+const platforms = usePage().props.platforms;
+
+
 const props = defineProps({
     token: String,
     type: {
@@ -77,24 +80,15 @@ const props = defineProps({
 });
 
 const form = useForm({
-    //Address
-    via: null,
-    name: null,
-    number: null,
-    stair: null,
-    floor: null,
-    door: null,
-    zipNumber: null,
-    city: null,
-    province: null,
-
     //User Data
     front: null,
     back: null,
     letter: null,
+    platforms: null,
 
     //Form
     type: 0,
+    prize: 2,
 
     recaptcha: null,
 });

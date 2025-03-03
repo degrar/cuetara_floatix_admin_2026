@@ -58,11 +58,11 @@ class GameMechanism
                 Session::flash('prize', $mmggAvailable->prize_id);
                 Session::flash('token', $game->token);
                 $this->game->update([
-                    'state' => GameState::Pending,
+                    'state' => GameState::Requested,
                     'prize_id' => $mmggAvailable->prize_id
                 ]);
                 return  [
-                    'game' => GameResult::WinnerPending,
+                    'game' => GameResult::Winner,
                     'prize' => $mmggAvailable->prize_id,
                     'token' => $game->token,
                     ];

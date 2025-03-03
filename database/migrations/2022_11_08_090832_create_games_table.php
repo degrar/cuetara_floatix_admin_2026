@@ -23,6 +23,7 @@ return new class extends Migration
             $table->dateTime('buydate');
             $table->integer('prize_id')->default(0); //1=switch, 2=card
             $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Loser->value);
+            $table->integer('platform_id')->nullable();
             $table->string('decline_reason')->nullable();
             $table->timestamp('validated_at', 0)->nullable();
             $table->timestamp('confirmed_at', 0)->nullable();

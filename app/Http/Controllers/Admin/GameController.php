@@ -20,7 +20,7 @@ class GameController extends Controller
 
     public function show(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'retailer', 'product', 'mmgg'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->leftJoin('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->join('users', 'games.user_id', '=', 'users.id')
             ->where('role', '=', 'user')
@@ -46,7 +46,7 @@ class GameController extends Controller
 
     public function pending(): Response //MMGG pendent de validar imatge
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Pending->value)
             ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
             ->orderBy('games.created_at', 'asc')
@@ -62,6 +62,7 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
+                'Premio',
                 'MMGG',
                 'Acciones'
             ]
@@ -70,7 +71,7 @@ class GameController extends Controller
 
     public function requested(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Requested->value)
             ->orWhere('state', GameState::Valid->value)
             ->orderByDesc('games.created_at')
@@ -78,33 +79,34 @@ class GameController extends Controller
 
         return Inertia::render('Admin/Games', [
             'items' => $items,
-            'hideActions' => true,
+            'hideActions' => false,
             'tableHeader' => [
                 'ID Participación',
                 'Usuario',
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
+                'Premio',
                 'MMGG',
-                //'Acciones'
+                'Acciones'
             ]
         ]);
     }
 
     public function awaiting(): Response //Validat el pack pendent de validar documentació personal
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'address', 'address.via:id,name', 'address.province:id,name', 'platform'])
             ->where('state', GameState::Awaiting->value)
-            ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
+            ->leftJoin('addresses', 'games.user_id', '=', 'addresses.user_id')
             ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id']);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
 
 
         return Inertia::render('Admin/GamesAddress', [
             'items' => $items,
             'hideActions' => false,
             'pack' => false,
-            'personalImage' => false,
+            'personalImage' => true,
             'showExportActions' => false,
             'tableHeader' => [
                 'ID Participación',
@@ -112,6 +114,7 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
+                'Premio',
                 'Acciones',
 
             ],

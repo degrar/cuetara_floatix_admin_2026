@@ -3,7 +3,7 @@
         <div>
             <div class="md:col-span-1 flex justify-between md:my-4 pt-8">
                 <div class="px-4 sm:px-0">
-                    <h1 class="text-4xl font-medium text-gray-900 font-poppins text-police">
+                    <h1 class="text-4xl font-medium text-gray-900 font-montserrat text-police">
                         <slot name="title" />
                     </h1>
                 </div>

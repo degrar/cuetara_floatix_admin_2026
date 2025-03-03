@@ -25,11 +25,14 @@ class ChangeGameState
         'request',
         'winner',
         'denied',
-        'pending'
+        'pending',
+        'requested',
+        'awaiting'
     ];
 
     public function __invoke(Game $game, string $action)
     {
+
         if ( !in_array($action, self::ACTIONS) )
             return response()->setStatusCode(403);
 
@@ -37,13 +40,12 @@ class ChangeGameState
 
         request()->validate([
             'message' => 'required_if:action,=,denied|min:' . self::MIN_DECLINE_REASON_LENGTH,
-            'type' => 'required_if:action,=,request|integer|in:0,1'
+            'type' => 'required_if:action,=,request|integer|in:0,2,3'
         ]);
 
         if ( $futureState === GameState::Denied ) {
             $game->decline_reason = (string)request('message');
             $game->update(['validated_at' => Carbon::now()]);
-            //$this->sendLoserMail($game);
         }
 
         $game->update([
@@ -53,45 +55,28 @@ class ChangeGameState
         $type = $futureState === GameState::Valid ? ( (int)request('type') ) : null;
 
 
-        if ( $futureState === GameState::Pending) {
-            /**
-             * Updates the game state to pending, sets the validation date, and clears the selected sizes.
-             */
+        if ($futureState === GameState::Pending){
             $game->update([
-                'validated_at' => Carbon::now(), // Sets the current date and time as the validation date.
-                'size1' => null, // Clears the first selected size.
-                'size2' => null, // Clears the second selected size.
+                'state' => 5
             ]);
+        }else{
 
-            /**
-             * If the game option is 2, updates the related files to pending state.
-             */
-            if ($game->option === 2) { // If participated with a ticket, set the files to pending state
-                $file = File::query()->where('game_id', $game->id)->whereIn('type', [1])->where('is_valid', '=', 2);
-                foreach ($file->get() as $f) {
-                    $f->update([
-                        'is_valid' => FileState::Pending,
-                    ]);
-                }
-            }
-
-            /**
-             * Deletes the address associated with the game.
-             */
-            $address = Address::query()->where('game_id', $game->id);
-            $address?->delete();
-        }
-
-        if ( $futureState === GameState::Valid ){
-            $game->update(['validated_at' => Carbon::now()]);
-            //$this->sendWinnerMail($game);
+            $type = $futureState === GameState::Requested ? ( (int)request('type') ) : null;
+            $game->update([
+                'state' => $futureState
+            ]);
         }
 
         if ( $futureState === GameState::Winner ){
             $game->update(['confirmed_at' => Carbon::now()]);
+            $file = File::query()->where('game_id', $game->id)->whereIn('type', [2, 3])->where('is_valid', '=', 0);
+            foreach ($file->get() as $f){
+                $f->update([
+                    'is_valid' => FileState::Valid,
+                ]);
+            }
             $this->sendConfirmedMail($game);
         } else
-
             SendMail::dispatchAfterResponse($game, $type);
 
         return response(null, 200);

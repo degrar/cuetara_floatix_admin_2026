@@ -21,12 +21,6 @@ use \Inertia\Response;
 
 class GameController extends Controller
 {
-    public function show(): Response
-    {
-        return Inertia::render('Public/Game',[
-            'retailers' => Retailer::query()->where('show', 1)->where('country', config('duplex.recaptcha.lang'))->orderBy('name')->get(['id', 'name']),
-        ]);
-    }
 
     public function store(StoreGameRequest $request): RedirectResponse
     {
@@ -80,9 +74,9 @@ class GameController extends Controller
 
     private function sendWinnerMail(\App\Models\Game $game)
     {
-        dispatch(function () use ($game) {
+        //dispatch(function () use ($game) {
             \Mail::to([['name' => $game->user->name, 'email' => $game->user->email]])->send(new Winner($game->token, '0', $game->prize_id));
-        })->afterResponse();
+        //})->afterResponse();
     }
 
 

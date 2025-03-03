@@ -7,7 +7,7 @@
 
     <div>
 
-        <div class="rem:text-[14px] game-item grid grid-cols-7 py-4 px-4 border-b divide-gray-200 divide-x last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-8': !hideActions, 'bg-green-200': data.state === 3 , 'bg-rose-200': data.state === 7 }" v-bind="$attrs">
+        <div class="rem:text-[14px] game-item grid grid-cols-8 py-4 px-4 border-b divide-gray-200 divide-x last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-9': !hideActions, 'bg-green-200': data.state === 3 , 'bg-rose-200': data.state === 7 }" v-bind="$attrs">
             <div class="field scrollbar overflow-x-auto px-2 ">
                 <span class="text-left">
                     <template v-if="route().current('admin.games.pending')">
@@ -23,7 +23,7 @@
 
                 <div class="break-word">
                     <span class="font-semibold">ID:</span> {{ data.user.id }} <br>
-                    <span class="font-semibold">Nombre:</span> {{ data.user.name }} {{ data.user.surname }} <br>
+                    <span class="font-semibold">Nombre:</span> {{ data.user.name }} {{ data.user.first_surname }} <br>
                     <span class="font-semibold">Email:</span> <span class="break-all">{{ data.user.email }} </span><br>
                     <!--                    <span class="font-semibold">Teléfono: </span>{{ data.user.phone }}-->
                 </div>
@@ -42,7 +42,47 @@
                 <div class="flex justify-center items-center">
                 <span class="break-word">
 
-                    <span><span class="font-semibold">Iban:</span> {{ data.iban }} <br></span>
+                    <span><span class="font-semibold">Fecha ticket:</span> {{ formatDateBuy(data.buydate) }} <br></span>
+                    <br>
+                    <template v-if="data?.mmgg.prize_id == 1">
+                        <span class="font-semibold" >Dirección: </span>{{ data.address[0].via.name }} {{ data.address[0].name }}<br>
+                        <span class="font-semibold">Número: </span> {{ data.address[0].number }}<br>
+
+                        <span  v-if="data?.address[0].stair">
+                            <span class="font-semibold">Escalera: </span> {{ data.address[0].stair }}<br>
+                        </span>
+
+                        <span  v-if="data?.address[0].floor">
+                            <span class="font-semibold">Piso: </span> {{ data.address[0].floor }}<br>
+                        </span>
+
+                        <span  v-if="data?.address[0].door">
+                            <span class="font-semibold">Puerta: </span> {{ data.address[0].door }}<br>
+                        </span>
+
+                        <span class="font-semibold">Código postal: </span> {{ data.address[0].postal_code }}<br>
+                        <span class="font-semibold">Ciudad: </span> {{ data.address[0].city }}<br>
+                        <span class="font-semibold">Provincia: </span> {{ data.address[0].province.name }}<br>
+                        <span class="font-semibold">Teléfono: </span> {{ data.address[0].phone }}<br>
+                    </template>
+
+                    <template v-if="data?.mmgg.prize_id == 2">
+                        <span><span class="font-semibold">Plataforma:</span> {{ data.platform.name }} <br></span>
+                    </template>
+
+
+
+
+                </span>
+
+                </div>
+            </div>
+
+            <div class="field scrollbar overflow-x-auto px-2">
+                <div class="flex justify-center items-center">
+                <span class="break-word">
+                    <span v-if="data?.mmgg.prize_id == 1"><span class="font-semibold">Premio:</span> Nintendo Switch</span>
+                    <span v-else-if="data?.mmgg.prize_id == 2"><span class="font-semibold">Premio:</span> Tarjeta Streaming</span>
                 </span>
 
                 </div>
@@ -51,7 +91,7 @@
             <div class="field scrollbar overflow-x-auto px-2">
                 <span class="break-word">
                     <span class="font-semibold">Participación:</span> {{ formatDate(data.created_at) }} <br>
-                    <span v-if="data.validated_at"><span class="font-semibold">Validación:</span> {{ formatDate(data.validated_at) }} <br></span>
+<!--                    <span v-if="data.validated_at"><span class="font-semibold">Validación:</span> {{ formatDate(data.validated_at) }} <br></span>-->
                     <span v-if="data.confirmed_at"><span class="font-semibold">Confirmación:</span> {{ formatDate(data.confirmed_at) }} <br></span>
                 </span>
 
@@ -61,14 +101,13 @@
 
             <div class="field scrollbar overflow-x-auto space-x-1" v-if="!hideActions">
 
-                <span class="w-[28px] cursor-pointer" @click="updateGameState('awaiting', 3)" v-if="personalImage">
+                <span class="w-[28px] cursor-pointer flex flex-row items-center justify-center" @click="updateGameState('requested', 3)">
                     <img title="Pedir DNI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADeUlEQVR4nGNgGAWjYPAAMSk7P3FJu9PiEvY/JSTt/yNjkBhYTtzeh2EwAnEpO190R+PCg9IT4pJ2Z4j2gKT9KYbBBsSRko2wsBUvuryQkBkfcnJiGGxAAimEKVEzYGDUAwMNRmOAesCeRVzSrgxULGKrkIjBuEzGpkZCwj5DXML+G84iF1IBngG5CeQ2go6XkLTbT46jKfDAReLrD7sDeD0hLmlXTqnjQVhQ0IUf3WyQGCJU7X4QGwMSmJ4oI6o2FZO0q9LS0mIjEGXIek+T4MmTxJqrpaXFJiFhV43kgdO4HYGU5klxPFivuL0P0R6QsPMixWwVFQ92ompxbGm0/v9/lp7nHxu7n3981PP80398OHPl3v8GLin/pWRdMBwNEjN0Tf2ftXofXjN6cGBks0Bu6X7+sQHkNoIeADmeHAupjSWQ3AYXf/apnhgPPEY3rOvx+//lhy6CMYg9YB54/ukhER5AGNL97OP/6AnL/supeMDVyat6/o+ZtAIsNwAe+E+SB0KaZ+PMmCEtcwa3B+rP30XJnJrmUWCMnEnrL9wdvB5InrcZLmfqm/O/68kHMDb1yYaLJ8/fgtVy/+op/6VknYgqYqVkncDqqe6BqP5lcDmP/C64AR55nXBxkBpsHpBVciOpJpdVcqO+Bwq3n4DLySi4/Y/sXfI/qncJmA0TL9xxcvDGQPfTD/9NvBHJBR0beWSAk9SgzQMtN56CHYnLA8aemWA1g9IDnY/e/jd0SyUY/Ubu6f+7Hr8dfB6I6F6ESKMyjv99Kyb+L913Hox9yyf8l5R2RGTk3iWDzwNaltF4HRjRtRAur20dO7gycdudl4jSR9ENnJzQDQeJIZdGbXdfDZ5itP78XbiYunEozigGycHUgfQMmhjofPTuv6ZZBFjMObURpwdAciA1ILUgPYMqD7TeegGuyPA1nUFyIDUgtYMuE/cMAiwxIjwgjqVTP9AO74GWcohM7oLHA8hDIxJ21SBPDLTjux6//R/SguhIGTgn4/VAGd4iTsbxv1dhN4YlJXvO/lfWDSCprCcXh3XMx+0B6LjoAXwGgJoN6KWRV3EvXRxvCupIodmN5gGUwV2M2caBiAEpWRdwsgnvWIC1GGcgBIgZ0BpA/ICgB0CDR4PAof+x4mefagl6ADy0CPHEwwF38HM4fghyPMbQ4igYBQwkAwD0ccjeH0bwtgAAAABJRU5ErkJggg==">
                 </span>
-<!--                <span class="w-[28px] cursor-pointer" @click="updateGameState('awaiting', 2)">-->
-<!--                    <img title="Pedir Carta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEWklEQVR4nO2ZXWwUVRSARxNNiBiDZPeeO21Fg1hTiZbaBIPsPbt16WIFY0xa0hcMlV+BNEACJpgKD6WW3RrKT3wAGpAYQx+qD/7wY/lp/CeWKPhAGo2UZJeAEHcfNAT0mjvt7p5Zdt2d2Zl1m/QkJzc7d+fc882599wzdzRtUiZlUgqQZ+8DwLcY4DADvAUcZXEqbgNgr6Zp92puS01Nzf3AxTfFO51FAQ+6DqGevCvOlwqCAQ6nBxMb1XQqxl7JIRiZ82o6FWuv5JEAMojT9hgX75khRJ/jELkAekbllEg0sScci1+PxBKyUKX2wtG4bFy7429XIXIBhKPxvVYczwYQiSUMiND6d6RrEDkBYvFrdgD0qmDKXufIVfchcgHYcV5p7QuvF5xiORfnyg5gzdFBS/uEVm4ASYja4HLTdJpQAFYWes+onDKhAcLRxImiIADEyHhWGPk/ACJj1w7ZBmDM9xgAblBtJsDW7y/J6voW24VcdX2LYSMfQDgW/1NzWpThJd2Hi65Gl3Qfvgvg0ScXGX2qTV6z7KDHg8B0XAaAuwBEBwAu1DTtnlJEYN1HQzLQ1mG0tgC8HFsZ4M0sgw7quq8qCVBK1QoVzv3PA0dzgUUrSMAf1DtB2QIAFxfT9Qj+6OWinXERZiD+Sl/3rSpLgMrK5x5OP23xh/qdnlainYB9UMga4BUBo0grGQAfmz7jU0V8Sft0HWtJ33krWaj78u+WnF22/2NZF1pptJYAAPyYcpKLnwGwOa1iI4nORTcj8MjMkHG/am0D/JcyXVh6C3NgJ5aOAgAX8bIHYByvAcf+pDLA42QNXJoAAOIM7WMMZ5MIXJhwAN6K+U/T/cGqUxuOfWdkle0XLrsHwFTlycWdcScP0D5dF3PIbjxsxfnFb/amHKqYsUAu3dfvDoASxtDPOK6fPn3egxoRAKwn0TmXz+nNp8/LQNvbcu4r7VkTQV1olcSlWw19aVOP7Pr1ujMAuYQx/1yyBr7NBzCnccVdTs+qbsqZ2VojR9wF8Oi+eWQNfJUPoGH5NpMjjWu7ZOdITDZt6pF6VYN5w9P98o3+U8UDeDw4VX0LUKW0V8cg7eNc+MgaGMoHsPPKDblu4Kxc/eEJ2TH8i6lPgbR/8rVc8f5ncuWRz+WWoZ+cykKiidzcb+7zCbJHnC3LNMoYLiKb1TFzBPwhYviUW87vvHIj5bw6N7I2hSrxcbJQ76jUmYoAx0ESgX1uOd/S1ZcCeKahzUYa5fgpXazqPdioRtNgtxkLPJU5+JqjX8gZT7xYUHldqDZ3HrQO4PEEZma+fTEufiN7wLvqf5kA81s3O+p83cLVsnv0pr00CoCdxNg/5OlfnTYt+FC243UnIqBXBY1p07yjz+S8GssSAGMLHmCAowRgDAJ8ryX/o77OuJmJIlSjCfVN2Zp4dfGy6XQCxEl6LqTOK8PRxG67HzoK0bCyHU302j4bBRCvMsABdSqRWRtNiuaM/Au4R4MR8XcE5wAAAABJRU5ErkJggg==">-->
-<!--                </span>-->
-
-                <span class="mx-2" v-if="personalImage">
+                <span class="w-[28px] cursor-pointer" @click="updateGameState('requested', 2)">
+                    <img title="Pedir Carta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEWklEQVR4nO2ZXWwUVRSARxNNiBiDZPeeO21Fg1hTiZbaBIPsPbt16WIFY0xa0hcMlV+BNEACJpgKD6WW3RrKT3wAGpAYQx+qD/7wY/lp/CeWKPhAGo2UZJeAEHcfNAT0mjvt7p5Zdt2d2Zl1m/QkJzc7d+fc882599wzdzRtUiZlUgqQZ+8DwLcY4DADvAUcZXEqbgNgr6Zp92puS01Nzf3AxTfFO51FAQ+6DqGevCvOlwqCAQ6nBxMb1XQqxl7JIRiZ82o6FWuv5JEAMojT9hgX75khRJ/jELkAekbllEg0sScci1+PxBKyUKX2wtG4bFy7429XIXIBhKPxvVYczwYQiSUMiND6d6RrEDkBYvFrdgD0qmDKXufIVfchcgHYcV5p7QuvF5xiORfnyg5gzdFBS/uEVm4ASYja4HLTdJpQAFYWes+onDKhAcLRxImiIADEyHhWGPk/ACJj1w7ZBmDM9xgAblBtJsDW7y/J6voW24VcdX2LYSMfQDgW/1NzWpThJd2Hi65Gl3Qfvgvg0ScXGX2qTV6z7KDHg8B0XAaAuwBEBwAu1DTtnlJEYN1HQzLQ1mG0tgC8HFsZ4M0sgw7quq8qCVBK1QoVzv3PA0dzgUUrSMAf1DtB2QIAFxfT9Qj+6OWinXERZiD+Sl/3rSpLgMrK5x5OP23xh/qdnlainYB9UMga4BUBo0grGQAfmz7jU0V8Sft0HWtJ33krWaj78u+WnF22/2NZF1pptJYAAPyYcpKLnwGwOa1iI4nORTcj8MjMkHG/am0D/JcyXVh6C3NgJ5aOAgAX8bIHYByvAcf+pDLA42QNXJoAAOIM7WMMZ5MIXJhwAN6K+U/T/cGqUxuOfWdkle0XLrsHwFTlycWdcScP0D5dF3PIbjxsxfnFb/amHKqYsUAu3dfvDoASxtDPOK6fPn3egxoRAKwn0TmXz+nNp8/LQNvbcu4r7VkTQV1olcSlWw19aVOP7Pr1ujMAuYQx/1yyBr7NBzCnccVdTs+qbsqZ2VojR9wF8Oi+eWQNfJUPoGH5NpMjjWu7ZOdITDZt6pF6VYN5w9P98o3+U8UDeDw4VX0LUKW0V8cg7eNc+MgaGMoHsPPKDblu4Kxc/eEJ2TH8i6lPgbR/8rVc8f5ncuWRz+WWoZ+cykKiidzcb+7zCbJHnC3LNMoYLiKb1TFzBPwhYviUW87vvHIj5bw6N7I2hSrxcbJQ76jUmYoAx0ESgX1uOd/S1ZcCeKahzUYa5fgpXazqPdioRtNgtxkLPJU5+JqjX8gZT7xYUHldqDZ3HrQO4PEEZma+fTEufiN7wLvqf5kA81s3O+p83cLVsnv0pr00CoCdxNg/5OlfnTYt+FC243UnIqBXBY1p07yjz+S8GssSAGMLHmCAowRgDAJ8ryX/o77OuJmJIlSjCfVN2Zp4dfGy6XQCxEl6LqTOK8PRxG67HzoK0bCyHU302j4bBRCvMsABdSqRWRtNiuaM/Au4R4MR8XcE5wAAAABJRU5ErkJggg==">
+                </span>
+                <span class="mx-2">
                     |
                 </span>
                 <span class="w-[28px] cursor-pointer" @click="updateGameState('winner')">
@@ -148,10 +187,17 @@ const emailLink = computed(() => `mailto:${props.data.user.email}`);
 
 const isLoading = ref(false);
 
+
 function formatDate (dateString)  {
     const date = dayjs(dateString);
     return date.format('DD-MM-YYYY HH:mm:ss');
 }
+
+function formatDateBuy (dateString)  {
+    const date = dayjs(dateString);
+    return date.format('DD-MM-YYYY');
+}
+
 
 const changeStateToLoser = () => {
     updateGameState('denied', declineMessage.value);
@@ -167,7 +213,7 @@ const updateGameState = async (action, message) => {
     let resp = null;
     let data = {};
     let error = null;
-    let shouldEmit = action === 'winner' || action === 'denied' || action === 'valid' || action === 'request'
+    let shouldEmit = action === 'winner' || action === 'denied' || action === 'valid' || action === 'requested'
 
     isLoading.value = true;
 
@@ -182,7 +228,7 @@ const updateGameState = async (action, message) => {
         }
     }
 
-    if (action === 'valid' || action === 'request')
+    if (action === 'valid' || action === 'requested')
     {
         data['type'] = message;
     }

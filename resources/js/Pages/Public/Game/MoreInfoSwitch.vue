@@ -106,9 +106,11 @@ const form = useForm({
     front: null,
     back: null,
     letter: null,
+    phone: null,
 
     //Form
     type: 0,
+    prize: 1,
 
     recaptcha: null,
 });

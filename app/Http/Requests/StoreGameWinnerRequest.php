@@ -31,22 +31,24 @@ class StoreGameWinnerRequest extends FormRequest
     {
         return [
             'type' => 'required|in:0,2,3,4', // 0: Documentación + IBAN, 2: CARTA, 3: DNI, 4: DNI Y CARTA (SIN DIRECCIÓN)
+            'prize' => 'required|in:1,2', //1 = switch, 2 = platform
 
-            'via' => 'required|exists:App\Models\Via,id',
-            'name' => 'required|string',
-            'number' => 'required|string',
-            'zipNumber' => ['required', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
-            'city' => 'required|string',
-            'province' => 'required|exists:App\Models\Province,id',
+            'via' => 'required_if:prize,1|nullable|exists:App\Models\Via,id',
+            'name' => 'required_if:prize,1|nullable|string',
+            'number' => 'required_if:prize,1|nullable|string',
+            'zipNumber' => ['required_if:prize,1', 'nullable', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
+            'city' => 'required_if:prize,1|nullable|string',
+            'province' => 'required_if:prize,1|nullable|exists:App\Models\Province,id',
             'stair' => 'nullable|string',
             'floor' => 'nullable|string',
             'door' => 'nullable|string',
+            'phone' => 'required_if:prize,1|nullable|regex:/^[0-9]{9}$/',
 
+            'platforms' => 'required_if:prize,2|nullable|exists:App\Models\StreamigsPlatforms,id',
 
             'front' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
             'back' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
             'letter' => ['required', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-            'phone' => 'required|regex:/^[0-9]{9}$/',
 
             'recaptcha' => new GoogleRecaptcha(),
         ];

@@ -24,6 +24,7 @@
             'decline_reason',
             'validated_at',
             'confirmed_at',
+            'platform_id',
         ];
 
 
@@ -92,5 +93,10 @@
         public function product(): HasOne
         {
             return $this->hasOne(Product::class, 'id', 'product_id');
+        }
+
+        public function platform(): HasOne
+        {
+            return $this->hasOne(StreamigsPlatforms::class, 'id', 'platform_id');
         }
     }

@@ -41,7 +41,7 @@ class Winner extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: $this->prize === 1 ? 'emails.winner_switch' : 'emails.winner_cards',
+            view: $this->prize === 1 ? 'emails.moreinfo_switch' : 'emails.moreinfo_cards',
             with: [
                 'token' => $this->token,
                 'formLink' => route('more-info', ['token' => $this->token, 'type' => $this->type])
