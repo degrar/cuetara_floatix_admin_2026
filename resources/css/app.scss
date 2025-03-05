@@ -3,6 +3,10 @@
 @tailwind utilities;
 
 @layer utilities {
+    .text-stroke-2 {
+        -webkit-text-stroke-width: 2px;
+    }
+
     .text-stroke-3 {
         -webkit-text-stroke-width: 3px;
     }
@@ -56,14 +60,14 @@ h1, h2, h3, h4, h5, h6{
 
 /* -------- HEADER -------- */
 header {
-    @apply flex justify-between items-end px-[20px] bg-black relative;
+    @apply flex justify-between items-end px-4 bg-black top-0 sticky;
 
     .logo {
         @apply py-[10px];
     }
 
     .wrapper-menu {
-        @apply flex justify-center items-center w-full pb-4;
+
         .wrapper-mobile{
             padding: 15px 20px;
             @apply flex justify-end items-end;
@@ -77,31 +81,26 @@ header {
             &.active{
                 display: block;
                 ul.menu-header {
-                    @apply bg-red;
+                    @apply bg-black;
                 }
             }
 
             ul.menu-header {
+                list-style: none;
                 margin: 0;
-                @apply flex justify-center items-center flex-row relative bg-transparent;
-                @apply pb-0;
-                //gap: 20px;
-
+                padding: 0;
+                @apply  flex items-center flex-col absolute left-0 right-0;
+                @apply pb-[20px];
                 li {
                     display: inline-block;
                     position: relative;
                     text-align: center;
-                    padding: 0;
+                    padding: 5px 0;
                     font-size: 16px;
                     text-transform: uppercase;
                     color: white;
 
-                    &:not(:last-child)::after {
-                        content: '|';
-                        position: absolute;
-                        right: -18px;
-                        color: white;
-                    }
+
                     a {
                         @apply no-underline;
                         color: white;
@@ -116,15 +115,16 @@ header {
         }
     }
 
-    @screen lg {
-        @apply px-[60px];
+    @screen md {
+        @apply px-[30px];
 
         .logo {
             @apply py-[15px];
         }
 
         .wrapper-menu {
-            @apply relative -left-[50px];
+            @apply relative -left-[50px] w-full;
+            @apply  pb-4;
             .wrapper-mobile{
                 display: none;
             }
@@ -135,9 +135,32 @@ header {
                 display: block;
                 ul.menu-header {
                     gap: 30px;
+                    margin: 0;
+                    @apply flex justify-center items-center flex-row relative bg-transparent;
+                    @apply pb-0;
+                    //gap: 20px;
+                    li{
+                        display: inline-block;
+                        position: relative;
+                        text-align: center;
+                        padding: 0;
+                        font-size: 16px;
+                        text-transform: uppercase;
+                        color: white;
+                        &:not(:last-child)::after {
+                            content: '|';
+                            position: absolute;
+                            right: -18px;
+                            color: white;
+
+                        }
+                    }
                 }
             }
         }
+    }
+    @screen lg {
+        @apply px-[60px];
     }
 }
 

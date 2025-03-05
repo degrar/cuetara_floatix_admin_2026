@@ -46,11 +46,11 @@ Route::middleware(PromotionRedirect::class)->group(function () {
         Route::get('thanks', 'thanks')->name('thanks');
     });
 
-    // Contact
-    Route::controller(ContactController::class)->group(function (){
-        Route::get('contacto', 'show')->name('contact');
-        Route::post('contacto', 'store');
-    });
+//    // Contact
+//    Route::controller(ContactController::class)->group(function (){
+//        Route::get('contacto', 'show')->name('contact');
+//        Route::post('contacto', 'store');
+//    });
 
     Route::get('legal', [LegalPrivacyController::class, 'legal'])->name('legal');
     Route::get('privacidad', [LegalPrivacyController::class, 'privacy'])->name('privacy');

@@ -1,15 +1,15 @@
 <template>
     <GuestLayout title="¡HAS GANADO UNA SUSCRIPCIÓN de 50€ A UNA PLATAFORMA DE STREAMING!" menu useRecaptcha>
         <div class="container mx-auto p-4 pb-[100px]">
-            <div class="w-10/12 mx-auto">
-                <div class="flex flex-row items-center justify-center mb-10">
+            <div class="w-12/12 lg:w-10/12 mx-auto">
+                <div class="flex flex-col lg:flex-row items-center justify-center mb-10">
                     <div class="w-12/12 lg:w-3/12">
                         <img  src="../../../../../resources/images/prizes/cards.png" alt="Tarjetas" class="max-w-[220px] w-full"/>
                     </div>
                     <div class=" w-12/12 lg:w-9/12">
-                        <h1 class="text-red font-ferry uppercase text-4xl rem:tracking-[0.15px] mt-6">¡HAS GANADO UNA SUSCRIPCIÓN de 50€ A UNA PLATAFORMA DE STREAMING!</h1>
-                        <p class="font-ferry text-base mt-4 text-black">COMPLETA ESTE FORMULARIO PARA SOLICITARLA</p>
-                        <p class="font-montserrat text-base text-black">Una vez hayamos validado tu participación, procederemos a la entrega de tu premio. Guarda el ticket de compra original, podríamos pedírtelo para validar tu participación.</p>
+                        <h1 class="text-red font-ferry uppercase text-2xl lg:text-4xl rem:tracking-[0.15px] mt-6 text-center lg:text-left">¡HAS GANADO UNA SUSCRIPCIÓN de 50€ A UNA PLATAFORMA DE STREAMING!</h1>
+                        <p class="font-ferry text-base mt-4 text-black text-center lg:text-left">COMPLETA ESTE FORMULARIO PARA SOLICITARLA</p>
+                        <p class="font-montserrat text-base text-black text-center lg:text-left">Una vez hayamos validado tu participación, procederemos a la entrega de tu premio. Guarda el ticket de compra original, podríamos pedírtelo para validar tu participación.</p>
                     </div>
                 </div>
 

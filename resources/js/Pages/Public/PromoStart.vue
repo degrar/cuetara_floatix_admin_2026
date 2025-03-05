@@ -1,9 +1,11 @@
 <template>
     <GuestLayout title="Proximamente">
-        <div id="end" class="">
-            <Start />
+
+        <div class="bg-black p-4">
+            <h4 class="text-yellow text-center text-2xl lg:text-4xl">Próximamente</h4>
         </div>
 
+        <Intro :start="true"/>
     </GuestLayout>
 </template>
 

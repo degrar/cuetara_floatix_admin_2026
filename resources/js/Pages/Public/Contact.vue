@@ -5,7 +5,7 @@
                 <form @submit.prevent="submitForm">
                     <div class="container mx-auto px-[15px] pt-10">
                         <div class="max-w-[600px] w-full mx-auto ">
-                            <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px]">¿Tienes alguna duda sobre esta promoción?</h1>
+                            <h1 class="text-center text-red font-ferry uppercase text-2xl lg:text-4xl  rem:tracking-[0.15px]">¿Tienes alguna duda sobre esta promoción?</h1>
                             <p class="text-center font-montserrat text-sm lg:text-lg my-6">Escríbenos y te contestaremos lo antes posible</p>
                             <div class="flex justify-center flex-col">
                                 <div class="w-full mx-auto">
@@ -43,7 +43,7 @@
                     <div class="flex flex-col justify-center items-center h-[calc(100vh-30rem)]">
                         <div class="max-w-[600px] w-full mx-auto">
                             <img src="../../../../resources/images/game/yatekomo.png" alt="Yatekomo" class="max-w-[220px] w-full mx-auto"/>
-                            <h1 class="text-center text-red font-ferry uppercase text-4xl rem:tracking-[0.15px]">¡MENSAJE RECIBIDO!</h1>
+                            <h1 class="text-center text-red font-ferry uppercase text-2xl lg:text-4xl  rem:tracking-[0.15px]">¡MENSAJE RECIBIDO!</h1>
                             <p class="text-center font-montserrat text-sm lg:text-lg my-6">Te contestaremos en un YA. ¡Muchas gracias!</p>
                         </div>
                     </div>

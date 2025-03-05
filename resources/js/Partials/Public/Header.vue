@@ -1,12 +1,12 @@
 <template>
-    <header>
+    <header id="header" class="z-10 shadow">
         <div class="logo">
             <a :href="route('home')">
                 <ApplicationMark  class="rem:w-[115px] rem:h-[47px] lg:rem:w-[144px] lg:rem:h-[59px]" />
             </a>
         </div>
 
-        <div class="wrapper-menu">
+        <div class="wrapper-menu" :class="{ '!hidden': !menu}">
             <div class="wrapper-mobile">
                 <div id="menu-btn" @click="toggleMenu">
                     <div class="hamburger hamburger--squeeze js-hamburger">

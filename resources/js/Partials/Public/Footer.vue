@@ -21,9 +21,9 @@
                     <li>
                         <PrimaryLinkFooter @click="showCcPrefs">Modificar cookies</PrimaryLinkFooter>
                     </li>
-                    <li>
-                        <PrimaryLinkFooter :href="route('contact')" :active="route().current('contact')">Contacto</PrimaryLinkFooter>
-                    </li>
+<!--                    <li>-->
+<!--                        <PrimaryLinkFooter :href="route('contact')" :active="route().current('contact')">Contacto</PrimaryLinkFooter>-->
+<!--                    </li>-->
 
                 </ul>
             </nav>

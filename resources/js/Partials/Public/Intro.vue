@@ -1,8 +1,8 @@
 <template>
-    <div class="relative ">
+    <div class="relative">
         <div class="container mx-auto flex flex-col items-center justify-center p-4">
-            <div>
-                <svg class="" width="702" height="667" viewBox="0 0 702 667" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+            <div class="w-full max-w-lg aspect-[702/667]">
+                <svg class="w-full h-full" viewBox="0 0 702 667" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M602.598 574.515C649.406 518.017 677.718 445.287 677.718 365.888C677.718 186.329 533.768 40.8689 356.222 40.8689C178.676 40.8689 34.6001 186.329 34.6001 365.762C34.6001 445.161 62.7861 518.017 109.721 574.389H602.598V574.515Z" fill="#EE4047"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M580.451 194.13C575.921 192.62 559.186 193.627 559.186 193.627L464.058 227.349L411.713 211.872L405.295 209.985L402.275 209.104L399.885 208.349L385.037 189.726L382.268 191.236L392.209 211.621L402.653 217.786L417.753 226.72L416.746 229.866L422.282 228.23L430.084 235.025L429.832 238.674L433.481 236.912C433.481 236.912 439.144 236.409 434.236 238.171C429.455 239.932 371.573 261.072 371.573 261.072L329.168 233.892L322.499 237.667L341.625 269.754L326.903 266.105L318.724 269.754L337.976 279.066C337.976 279.066 333.572 279.82 332.817 280.827C332.062 281.834 333.572 286.238 334.327 286.741C335.082 287.244 341.625 286.867 341.625 286.867L339.864 291.271L348.546 290.264L351.943 286.489L402.275 280.324L456.005 263.085C456.005 263.085 448.833 276.171 449.336 276.297C450.72 276.801 476.012 258.681 476.012 258.681L477.27 259.939L484.694 257.423L484.82 258.681C484.82 258.681 483.939 260.443 484.065 260.694C484.191 261.072 487.84 261.198 487.84 261.198L489.476 262.833L493.251 262.33C493.251 262.33 493.754 264.343 495.767 264.343C499.29 264.469 512.251 259.184 512.377 256.164C512.503 251.509 509.986 244.966 508.728 242.323C508.224 241.191 506.211 241.568 506.211 241.568C506.211 241.568 575.795 215.395 578.563 213.382C581.332 211.243 589.637 201.428 589.007 198.534C588.63 195.514 584.981 195.64 580.451 194.13Z" fill="#201E29"/>
                     <path fill-rule="evenodd" clip-rule="evenodd" d="M70.2098 312.033L79.3954 290.39V286.238V285.231H77.3822L74.7397 284.35L71.7198 282.085L68.6999 278.94L64.2958 272.9L61.0242 266.608L58.7593 260.569L57.1235 255.409L56.746 252.012L56.6202 249.747V248.489L56.746 247.608L56.2427 244.84L56.3685 233.012L60.5209 221.435L73.7331 218.415L86.3161 223.197L106.575 240.813V269.251L105.065 271.264L105.568 272.145L105.82 272.648L107.707 280.701L109.846 290.013L114.754 297.688L122.052 301.086L121.423 319.457L105.694 340.471L97.3892 337.577L70.4615 315.682L70.2098 312.033Z" fill="white"/>
@@ -80,9 +80,9 @@
 
 
             <div class="w-12/12 pt-4">
-                <h2 class="font-ferry text-4xl rem:tracking-[0.15px] text-black uppercase text-center">¡Participa en el sorteo</h2>
-                <h1 class="font-ferry text-5xl text-white uppercase text-center pb-4 text-stroke-3 text-stroke-black">y gana premios cada día!</h1>
-                <div class="text-center relative inset-x-0 bottom-0">
+                <h2 class="font-ferry text-2xl lg:text-4xl rem:tracking-[0.15px] text-black uppercase text-center">¡Participa en el sorteo</h2>
+                <h1 class="font-ferry font-black text-4xl lg:text-5xl text-white uppercase text-center pb-4 text-stroke-2 lg:text-stroke-3 text-stroke-black">y gana premios cada día!</h1>
+                <div class="text-center relative inset-x-0 bottom-0" v-if="!end && !start">
                     <PrimaryButtonHome scroll="#participa" class="inline-block">Participa</PrimaryButtonHome>
                 </div>
             </div>
@@ -97,6 +97,10 @@ import PrimaryButtonHome from '@/Components/PrimaryButtonHome.vue';
 const props =
     defineProps({
         end: {
+            type: Boolean,
+            default: false
+        },
+        start: {
             type: Boolean,
             default: false
         },

@@ -25,7 +25,7 @@ const scrollToSection = (scroll) => {
 
     const sectionElement = document.getElementById(scroll);
     if (sectionElement) {
-        const headerHeight = document.querySelector('#header').offsetHeight;
+        const headerHeight = document.querySelector('header').offsetHeight;
         let nav = 0;
         if (window.innerWidth < 1024) nav = document.querySelector('div.wrapper-mobile').offsetHeight;
         window.scrollTo({ top: sectionElement.offsetTop - (headerHeight+nav), behavior: 'smooth' });

@@ -1,15 +1,15 @@
 <template>
     <GuestLayout title="¡HAS GANADO UNA NINTENDO SWITCH!" menu useRecaptcha>
         <div class="container mx-auto p-4 pb-[100px]">
-            <div class="w-10/12 mx-auto">
-                <div class="flex flex-row items-center justify-center mb-10">
+            <div class="w-12/12 lg:w-10/12 mx-auto">
+                <div class="flex flex-col lg:flex-row items-center justify-center mb-10">
                     <div class="w-12/12 lg:w-3/12">
-                        <img  src="../../../../../resources/images/prizes/switch.png" alt="Nintendo" class="max-w-[220px] w-full"/>
+                        <img  src="../../../../../resources/images/prizes/switch.png" alt="Nintendo" class=" max-w-[150px] lg:max-w-[220px] w-full"/>
                     </div>
                     <div class=" w-12/12 lg:w-9/12">
-                        <h1 class="text-red font-ferry uppercase text-4xl rem:tracking-[0.15px] mt-6">¡HAS GANADO UNA NINTENDO SWITCH!</h1>
-                        <p class="font-ferry text-base mt-4 text-black">COMPLETA ESTE FORMULARIO PARA SOLICITARLA</p>
-                        <p class="font-montserrat text-base text-black">Una vez hayamos validado tu participación, procederemos a la entrega de tu premio. Guarda el ticket de compra original, podríamos pedírtelo para validar tu participación.</p>
+                        <h1 class="text-red font-ferry uppercase text-2xl lg:text-4xl rem:tracking-[0.15px] mt-6 text-center lg:text-left">¡HAS GANADO UNA NINTENDO SWITCH!</h1>
+                        <p class="font-ferry text-base mt-4 text-black text-center lg:text-left">COMPLETA ESTE FORMULARIO PARA SOLICITARLA</p>
+                        <p class="font-montserrat text-base text-black text-center lg:text-left">Una vez hayamos validado tu participación, procederemos a la entrega de tu premio. Guarda el ticket de compra original, podríamos pedírtelo para validar tu participación.</p>
                     </div>
                 </div>
 
@@ -17,7 +17,7 @@
                 <div class="w-12/12 mx-auto">
 
                     <form @submit.prevent="submitForm" class="mx-auto">
-                        <h4  v-if="type == 0" class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4">Dirección postal donde quieres recibirla</h4>
+                        <h4  v-if="type == 0" class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4 text-center text-left">Dirección postal donde quieres recibirla</h4>
                         <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10"  v-if="type == 0">
                             <SelectInput v-model:select="form.via" :options="vias" :default-value="-1" :error="form.errors.via" value="id" placeholder="Tipo de vía*" label="name" />
                             <TextInput type="text" v-model="form.name" label="Nombre de la vía*" :error="form.errors.name"  />
@@ -30,7 +30,7 @@
                             <SelectInput v-model:select="form.province" :options="provinces" :default-value="-1" :error="form.errors.province" value="id" placeholder="Provincia*" label="name" />
                         </div>
 
-                        <h4 class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4">Tus datos personales</h4>
+                        <h4 class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4 text-center text-left">Tus datos personales</h4>
                         <div class="grid gap-4 lg:grid-cols-2 block">
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de tu DNI (cara)*"/>
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI (dorso)*"/>
