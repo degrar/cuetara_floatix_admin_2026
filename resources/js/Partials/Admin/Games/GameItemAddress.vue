@@ -68,6 +68,7 @@
 
                     <template v-if="data?.mmgg.prize_id == 2">
                         <span><span class="font-semibold">Plataforma:</span> {{ data.platform.name }} <br></span>
+                        <span><span class="font-semibold">Cógido plataforma:</span> {{ data.code }} <br></span>
                     </template>
 
 
@@ -104,13 +105,13 @@
                 <span class="w-[28px] cursor-pointer flex flex-row items-center justify-center" @click="updateGameState('requested', 3)">
                     <img title="Pedir DNI" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADeUlEQVR4nGNgGAWjYPAAMSk7P3FJu9PiEvY/JSTt/yNjkBhYTtzeh2EwAnEpO190R+PCg9IT4pJ2Z4j2gKT9KYbBBsSRko2wsBUvuryQkBkfcnJiGGxAAimEKVEzYGDUAwMNRmOAesCeRVzSrgxULGKrkIjBuEzGpkZCwj5DXML+G84iF1IBngG5CeQ2go6XkLTbT46jKfDAReLrD7sDeD0hLmlXTqnjQVhQ0IUf3WyQGCJU7X4QGwMSmJ4oI6o2FZO0q9LS0mIjEGXIek+T4MmTxJqrpaXFJiFhV43kgdO4HYGU5klxPFivuL0P0R6QsPMixWwVFQ92ompxbGm0/v9/lp7nHxu7n3981PP80398OHPl3v8GLin/pWRdMBwNEjN0Tf2ftXofXjN6cGBks0Bu6X7+sQHkNoIeADmeHAupjSWQ3AYXf/apnhgPPEY3rOvx+//lhy6CMYg9YB54/ukhER5AGNL97OP/6AnL/supeMDVyat6/o+ZtAIsNwAe+E+SB0KaZ+PMmCEtcwa3B+rP30XJnJrmUWCMnEnrL9wdvB5InrcZLmfqm/O/68kHMDb1yYaLJ8/fgtVy/+op/6VknYgqYqVkncDqqe6BqP5lcDmP/C64AR55nXBxkBpsHpBVciOpJpdVcqO+Bwq3n4DLySi4/Y/sXfI/qncJmA0TL9xxcvDGQPfTD/9NvBHJBR0beWSAk9SgzQMtN56CHYnLA8aemWA1g9IDnY/e/jd0SyUY/Ubu6f+7Hr8dfB6I6F6ESKMyjv99Kyb+L913Hox9yyf8l5R2RGTk3iWDzwNaltF4HRjRtRAur20dO7gycdudl4jSR9ENnJzQDQeJIZdGbXdfDZ5itP78XbiYunEozigGycHUgfQMmhjofPTuv6ZZBFjMObURpwdAciA1ILUgPYMqD7TeegGuyPA1nUFyIDUgtYMuE/cMAiwxIjwgjqVTP9AO74GWcohM7oLHA8hDIxJ21SBPDLTjux6//R/SguhIGTgn4/VAGd4iTsbxv1dhN4YlJXvO/lfWDSCprCcXh3XMx+0B6LjoAXwGgJoN6KWRV3EvXRxvCupIodmN5gGUwV2M2caBiAEpWRdwsgnvWIC1GGcgBIgZ0BpA/ICgB0CDR4PAof+x4mefagl6ADy0CPHEwwF38HM4fghyPMbQ4igYBQwkAwD0ccjeH0bwtgAAAABJRU5ErkJggg==">
                 </span>
-                <span class="w-[28px] cursor-pointer" @click="updateGameState('requested', 2)">
+                <span class="w-[28px] cursor-pointer" @click="updateGameState('requested', 2)" v-if="data?.mmgg.prize_id == 1">
                     <img title="Pedir Carta" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEWklEQVR4nO2ZXWwUVRSARxNNiBiDZPeeO21Fg1hTiZbaBIPsPbt16WIFY0xa0hcMlV+BNEACJpgKD6WW3RrKT3wAGpAYQx+qD/7wY/lp/CeWKPhAGo2UZJeAEHcfNAT0mjvt7p5Zdt2d2Zl1m/QkJzc7d+fc882599wzdzRtUiZlUgqQZ+8DwLcY4DADvAUcZXEqbgNgr6Zp92puS01Nzf3AxTfFO51FAQ+6DqGevCvOlwqCAQ6nBxMb1XQqxl7JIRiZ82o6FWuv5JEAMojT9hgX75khRJ/jELkAekbllEg0sScci1+PxBKyUKX2wtG4bFy7429XIXIBhKPxvVYczwYQiSUMiND6d6RrEDkBYvFrdgD0qmDKXufIVfchcgHYcV5p7QuvF5xiORfnyg5gzdFBS/uEVm4ASYja4HLTdJpQAFYWes+onDKhAcLRxImiIADEyHhWGPk/ACJj1w7ZBmDM9xgAblBtJsDW7y/J6voW24VcdX2LYSMfQDgW/1NzWpThJd2Hi65Gl3Qfvgvg0ScXGX2qTV6z7KDHg8B0XAaAuwBEBwAu1DTtnlJEYN1HQzLQ1mG0tgC8HFsZ4M0sgw7quq8qCVBK1QoVzv3PA0dzgUUrSMAf1DtB2QIAFxfT9Qj+6OWinXERZiD+Sl/3rSpLgMrK5x5OP23xh/qdnlainYB9UMga4BUBo0grGQAfmz7jU0V8Sft0HWtJ33krWaj78u+WnF22/2NZF1pptJYAAPyYcpKLnwGwOa1iI4nORTcj8MjMkHG/am0D/JcyXVh6C3NgJ5aOAgAX8bIHYByvAcf+pDLA42QNXJoAAOIM7WMMZ5MIXJhwAN6K+U/T/cGqUxuOfWdkle0XLrsHwFTlycWdcScP0D5dF3PIbjxsxfnFb/amHKqYsUAu3dfvDoASxtDPOK6fPn3egxoRAKwn0TmXz+nNp8/LQNvbcu4r7VkTQV1olcSlWw19aVOP7Pr1ujMAuYQx/1yyBr7NBzCnccVdTs+qbsqZ2VojR9wF8Oi+eWQNfJUPoGH5NpMjjWu7ZOdITDZt6pF6VYN5w9P98o3+U8UDeDw4VX0LUKW0V8cg7eNc+MgaGMoHsPPKDblu4Kxc/eEJ2TH8i6lPgbR/8rVc8f5ncuWRz+WWoZ+cykKiidzcb+7zCbJHnC3LNMoYLiKb1TFzBPwhYviUW87vvHIj5bw6N7I2hSrxcbJQ76jUmYoAx0ESgX1uOd/S1ZcCeKahzUYa5fgpXazqPdioRtNgtxkLPJU5+JqjX8gZT7xYUHldqDZ3HrQO4PEEZma+fTEufiN7wLvqf5kA81s3O+p83cLVsnv0pr00CoCdxNg/5OlfnTYt+FC243UnIqBXBY1p07yjz+S8GssSAGMLHmCAowRgDAJ8ryX/o77OuJmJIlSjCfVN2Zp4dfGy6XQCxEl6LqTOK8PRxG67HzoK0bCyHU302j4bBRCvMsABdSqRWRtNiuaM/Au4R4MR8XcE5wAAAABJRU5ErkJggg==">
                 </span>
                 <span class="mx-2">
                     |
                 </span>
-                <span class="w-[28px] cursor-pointer" @click="updateGameState('winner')">
+                <span class="w-[28px] cursor-pointer" @click="updateGameState('winner', data?.mmgg.prize_id)">
                     <img title="Accept" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADPUlEQVR4nO2YT0gUURzHRwnqUgdt9/3errbV2iWIOkn+2fdctSgRRSFiKaIiXYu0QEhELA8lIR6CqIQSEudPDR1DunQwkDpFkjukl6KgS4cOQVlYE29o1tlxxp2VdncG5gO/w+4sO5/v29/7M8txPj4+Pj4+LgChmiDCZBoB+YIw+QBAb0YidAvnBQKBeBQB/QiYqhkFdK68vHYr50l57IEQAZM8Avo9GKLNCJM+wPSPq0NUVDSG18o3NOnXEaa9rg4BQPrt5HUi0eZ+YwiE6SzH0U2cGwiE4/sRkK9aoVij+brwTtguKOKbntEhFYca0nOCtRfnFqqqjmxmZX5fXpIDfEqaFxRJZXV2+MrqpA7TZ0WRDQbrdyOgL1iVV9aG7D4nm+T5BVFtPd2dDlDXkvg8szSzJnRhl0og/U7l284kM5bVgYlRlU9JTzcUIhCK1SKgPGD6HICMlpVVb8tVnk3YUIgesOp5Pot8+7ke7ZpWKVHISR5hehEwWcncaMh7JpiLvNVqI5jlU6La0X0+Q77tdFILlQ6gSKr0Voo6lc9ckw3FBK1C5FueT4krDxflcO7yQOcwjp1gQnYh8i0vaC0kDWWVB4glzfJ63wPECGDybVWSfApU0CqAeIS1lvl4kHXCppzL84p4zYE87cm2lbNRBdzww/hLFGDkRxzI1+9FQJaznUOmFbHj6vTYcuXOJqu5URx5BgAZMqw0L63keUXqFBTpF/viEWFcNYawk8972+ggTK8bvvQxx3GldvJ6sRC79hxSI9Gm39WNx49xxZJfnaAZ/T+ph7CS12tqnteKV0RFXpChKPI6AOS26clocuo1324nv+bGTJidKAvR8zaUMmnjjVpPdS07kTeGKJa8bYgbT245DmDaOQsubwzxgN0wXBn/eWf2vqfkdUqCQXoQ47odgiIN5Eue3+iEzZVEX++jfdXtauLyJetRXOdIzF4XVZ6BgC5mFXKrPANhOr6emKvl/1GCMLln1deu7HmnS2zLyS6t3DzyWUN4SV6nFGFy1yzfmbzgCfk0AOQownSi5nDi1fDUmPWy6lZ5M1abnWfkdXhFHGT/HGiliIOcF5EXZDA+F/j4+HD/nb83fOooKWIiJgAAAABJRU5ErkJggg==">
                 </span>
                 <span class="w-[28px] cursor-pointer" @click="showMessageDialog = true">
@@ -228,7 +229,7 @@ const updateGameState = async (action, message) => {
         }
     }
 
-    if (action === 'valid' || action === 'requested')
+    if (action === 'valid' || action === 'requested' || action === 'winner')
     {
         data['type'] = message;
     }

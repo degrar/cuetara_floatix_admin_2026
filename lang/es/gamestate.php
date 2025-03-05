@@ -7,4 +7,5 @@ return [
     'Winner' => 'Ganador',
     'Denied' => 'Rechazado',
     'Loser' => 'Perdedor',
+    'Requested' => 'Documentación requerida',
 ];

@@ -39,7 +39,7 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'MMGG',
+                'Premio/MMGG',
             ]
         ]);
     }
@@ -62,8 +62,8 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'Premio',
-                'MMGG',
+                'Premio/MMGG',
+
                 'Acciones'
             ]
         ]);
@@ -86,8 +86,7 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'Premio',
-                'MMGG',
+                'Premio/MMGG',
                 'Acciones'
             ]
         ]);
@@ -124,11 +123,11 @@ class GameController extends Controller
     public function winners(): Response //TOT ESTÀ VALIDAT (adreça, dni i pack)
     {
 
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'address', 'address.via:id,name', 'address.province:id,name', 'platform'])
             ->where('state', GameState::Winner->value)
-            ->join('mmggs', 'games.user_id', '=', 'mmggs.user_id')
+            ->leftJoin('addresses', 'games.user_id', '=', 'addresses.user_id')
             ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*', 'date_moment', 'games.id']);
+            ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
 
 
         return Inertia::render('Admin/GamesAddress', [
@@ -143,7 +142,7 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
-
+                'Premio',
                 //'Acciones'
             ],
 
@@ -155,7 +154,7 @@ class GameController extends Controller
 
     public function denied(): Response
     {
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'retailer', 'product'])
+        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg'])
             ->where('state', GameState::Denied->value)
             ->orderByDesc('games.created_at')
             ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
@@ -172,7 +171,7 @@ class GameController extends Controller
                 'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'MMGG',
+                'Premio',
                 'Acciones'
             ]
         ]);

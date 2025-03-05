@@ -8,6 +8,7 @@ use App\Mail\Lost;
 use App\Mail\MoreInfo;
 use App\Mail\Winner;
 use App\Models\Address;
+use App\Models\CodesPlatforms;
 use App\Models\File;
 use App\Models\Game;
 use Carbon\Carbon;
@@ -40,7 +41,7 @@ class ChangeGameState
 
         request()->validate([
             'message' => 'required_if:action,=,denied|min:' . self::MIN_DECLINE_REASON_LENGTH,
-            'type' => 'required_if:action,=,request|integer|in:0,2,3'
+            'type' => 'required_if:action,=,request|integer|in:0,1,2,3'
         ]);
 
         if ( $futureState === GameState::Denied ) {
@@ -67,24 +68,45 @@ class ChangeGameState
             ]);
         }
 
-        if ( $futureState === GameState::Winner ){
-            $game->update(['confirmed_at' => Carbon::now()]);
+        if ( $futureState === GameState::Winner ) {
+
             $file = File::query()->where('game_id', $game->id)->whereIn('type', [2, 3])->where('is_valid', '=', 0);
-            foreach ($file->get() as $f){
+            foreach ($file->get() as $f) {
                 $f->update([
                     'is_valid' => FileState::Valid,
                 ]);
             }
-            $this->sendConfirmedMail($game);
+
+
+            if ( $game->prize_id == 2 ){
+                $game->update(['confirmed_at' => Carbon::now()]);
+                $codePlatform = CodesPlatforms::query()
+                    ->select('codes_platforms.code', 'streamings_platforms.name')
+                    ->whereNull('user_id')
+                    ->where('status', '=', 0)
+                    ->where('platform_id', '=', $game->platform_id)
+                    ->join( 'streamings_platforms', 'streamings_platforms.id', '=', 'codes_platforms.platform_id')
+                    ->orderBy('id', 'asc')->first();
+                if ( $codePlatform ) {
+                    $game->update(['confirmed_at' => Carbon::now(), 'code' => $codePlatform->code]);
+                    CodesPlatforms::updateStatus($codePlatform->code, 1, $game->user_id, $game->id);
+                    $this->sendConfirmedMail($game, $codePlatform->code, $codePlatform->name);
+                }
+            }else{
+                $this->sendConfirmedMail($game);
+            }
+
+
+
         } else
             SendMail::dispatchAfterResponse($game, $type);
 
         return response(null, 200);
     }
 
-    private function sendConfirmedMail(Game $game): void
+    private function sendConfirmedMail(Game $game, $code = null, $platform = null): void
     {
-        Mail::to([['email' => $game->user->email, 'name' => $game->user->name]])->send(new Confirmed());
+        Mail::to([['email' => $game->user->email, 'name' => $game->user->name]])->send(new Confirmed($game->prize_id, $code, $platform));
     }
 
     private function sendWinnerMail(Game $game)

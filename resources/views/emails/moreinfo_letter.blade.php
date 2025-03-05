@@ -102,7 +102,7 @@
                                     <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerPlatform.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="330"></div>
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerMail.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="142"></div>
                                             </td>
                                         </tr>
                                     </table>
@@ -110,13 +110,14 @@
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Para validar tu participación necesitamos que rellenes un formulario con estos datos:
+                                                    Gracias por participar en nuestra promoción. Lamentablemente no hemos podido validar la imagen de la carta de aceptación del premio. Por favor, comprueba los siguientes aspectos y vuelve a enviarlo:
                                                 </p>
                                                 <ul style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;list-style-type: disc; ">
-                                                    <li>Carta de aceptación del premio.</li>
+                                                    <li>La imagen debe ser nítida.</li>
+                                                    <li>Formatos permitidos: JPG, PNG, PDF.</li>
                                                 </ul>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    <strong>Tienes un plazo de 7 días naturales desde el envío de este correo.</strong> Si no recibimos tu documentación, entenderemos que renuncias al premio. En caso de haber completado anteriormente el formulario de ganador, omite este correo.
+                                                    <strong>Tienes un plazo de 7 días naturales</strong> desde el envío de este correo para volver a enviar la documentación. Si no la recibimos, entenderemos que renuncias al premio.
                                                 </p>
                                                 <br>
                                                 <div style="text-align: left">
@@ -126,7 +127,7 @@
                                                 </div>
                                                 <br>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Una vez validada tu participación, te enviaremos tu premio en un plazo máximo de 30 días.
+                                                    Quedamos a la espera de tu respuesta.
                                                 </p>
                                                 <br>
                                             </td>

@@ -39,17 +39,7 @@
             <div class="field scrollbar overflow-x-auto col-span-2 px-2">
                 <div class="flex justify-center items-center">
                 <span class="break-word">
-
-<!--                    <span><span class="font-semibold">Establecimiento de compra:</span> {{ data.retailer.name }}<br></span>-->
-<!--                    <span v-if="data.retailer_id == 1"><span class="font-semibold">Otro establecimiento:</span> {{ data.other_retailer }}<br></span>-->
-<!--                    <br>-->
-<!--                    <span><span class="font-semibold">Producto:</span> {{ data.product.name }}<br></span>-->
-<!--                    <span><span class="font-semibold">EAN producto:</span> {{ data.product.ean }} <br></span>-->
-<!--                    <br>-->
-                    <span><span class="font-semibold">Importe:</span> {{ data.amount }} €<br></span>
                     <span><span class="font-semibold">Fecha ticket:</span> {{ formatDateBuy(data.buydate) }} <br></span>
-
-<!--                    <span v-if="data.iban != ''"><span class="font-semibold">Iban:</span> {{ data.iban }} <br></span>-->
                 </span>
 
                 </div>

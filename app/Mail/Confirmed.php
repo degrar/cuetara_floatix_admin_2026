@@ -16,7 +16,11 @@ class Confirmed extends Mailable
     /**
      * Create a new message instance.
      */
-    public function __construct()
+    public function __construct(
+        private int $prize_id,
+        private ?string $code = '',
+        private ?string $platform = ''
+    )
     {
         //
     }
@@ -37,7 +41,8 @@ class Confirmed extends Mailable
     public function content(): Content
     {
         return new Content(
-            view: 'emails.confirmed',
+            view: $this->prize_id === 1 ? 'emails.confirmed_switch' : 'emails.confirmed_cards',
+            with: $this->prize_id === 1 ? [] : ['platformCode' => $this->code, 'platform' => $this->platform],
         );
     }
 

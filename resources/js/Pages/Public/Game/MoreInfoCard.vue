@@ -18,10 +18,10 @@
 
                     <form @submit.prevent="submitForm" class="mx-auto">
                         <div class="grid gap-4 lg:grid-cols-2 block">
-                            <FileUpload v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de DNI/NIE (cara)"/>
-                            <FileUpload v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI/NIE (dorso)"/>
-                            <FileUpload v-model:select="form.letter"  :error="form.errors.letter" :form="form" label="Carta de aceptación"/>
-                            <SelectInput v-model:select="form.platforms" :options="platforms" :default-value="-1" :error="form.errors.platforms" value="id" placeholder="Plataforma de streaming" label="name" />
+                            <FileUpload v-if="type == 0 || type == 3" v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de DNI/NIE (cara)"/>
+                            <FileUpload v-if="type == 0 || type == 3" v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI/NIE (dorso)"/>
+                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter" :error="form.errors.letter" :form="form" label="Carta de aceptación"/>
+                            <SelectInput v-if="type == 0" v-model:select="form.platforms" :options="platforms" :default-value="-1" :error="form.errors.platforms" value="id" placeholder="Plataforma de streaming" label="name" />
                         </div>
 
                         <p class="mt-4 text-sm text-black">Todos los campos son obligatorios</p>
@@ -33,7 +33,7 @@
                             </FormButton>
                         </div>
 
-                        <div class="mx-auto max-w-[720px] w-full">
+                        <div class="mx-auto max-w-[720px] w-full"  v-if="type == 0">
                             <p class="text-center font-montserrat text-sm mb-4 text-black">Si ahora no puedes rellenarlo, no te preocupes porque <span class="font-bold">te hemos enviado un correo electrónico</span> con un enlace para que lo rellenes en otro momento. Recuerda que dispones de <span class="font-bold">7 días hábiles para solicitar tu premio</span> si no, entenderemos que <span class="font-bold">renuncias al premio.</span></p>
                         </div>
 
@@ -69,6 +69,7 @@ addIcons(BiUpload, FaCircleNotch);
 const provinces = usePage().props.provinces;
 const vias = usePage().props.vias;
 const platforms = usePage().props.platforms;
+const type = usePage().props.type;
 
 
 const props = defineProps({

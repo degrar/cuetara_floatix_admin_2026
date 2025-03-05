@@ -87,67 +87,65 @@
 </head>
 
 <body style="margin: 0; background-color: #000000; padding: 0; -webkit-text-size-adjust: none; text-size-adjust: none;">
-
 <table class="nl-container" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ececec;">
     <tbody>
-        <tr>
-            <td>
-                <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ececec;">
-                    <tbody>
-                        <tr>
-                            <td>
-                                <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ffffff; color: #000000; width: 600px;" width="750">
-                                    <tbody>
+    <tr>
+        <td>
+            <table class="row row-1" align="center" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #ececec;">
+                <tbody>
+                <tr>
+                    <td>
+                        <table class="row-content stack" align="center" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; background-color: #FD0; color: #000000; width: 600px;" width="600">
+                            <tbody>
+                            <tr>
+                                <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
+                                    <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
-                                            <td class="column column-1" width="100%" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; font-weight: 400; text-align: left; vertical-align: top; border-top: 0px; border-right: 0px; border-bottom: 0px; border-left: 0px;">
-                                                <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
-                                                    <tr>
-                                                        <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                            <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/header.png') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="289"></div>
-                                                        </td>
-                                                    </tr>
-                                                </table>
-                                                <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
-                                                    <tr>
-                                                        <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                                ¡Hola!
-                                                                <br>
-                                                                <br>
-                                                                Lamentamos mucho comunicarte que tu participación no se ha validado correctamente porque no cumple con las condiciones especificadas en las bases de la promoción y que puedes
-                                                                <a href="{{ route('legal') }}" style="text-decoration: underline;color: #000000;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif;"><strong>consultar aquí</strong></a>.
-                                                            </p>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                                Tu premio se ha descartado por esta razón:
-                                                            </p>
-                                                            <br>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                                {{ $declineReason }}
-                                                            </p>
-                                                            <br>
-                                                            <p style="color: #000000;text-align: left;font-family: Tahoma, Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 18px;">
-                                                                Muchas gracias.
-                                                            </p>
-                                                            <br>
-                                                            <div>
-                                                                <a href="{{ route('home') }}">
-                                                                    <img src="{{ asset('assets/email/footer.png') }}" alt="Nutella" style="height: 51px; width: 165px;" height=51" width="165">
-                                                                </a>
-                                                            </div>
-                                                            <br>
-                                                        </td>
-                                                    </tr>
-                                                </table>
+                                            <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/headerMail.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="142"></div>
                                             </td>
                                         </tr>
-                                    </tbody>
-                                </table>
-                            </td>
-                        </tr>
-                    </tbody>
-                </table>
-            </td>
-        </tr>
+                                    </table>
+                                    <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
+                                        <tr>
+                                            <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Hola:
+                                                </p>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Lamentamos comunicarte que tu participación en la promoción de Yatekomo no cumple con los requisitos establecidos en <a href="{{ route('legal') }}" style="text-decoration: underline;color: #000000">las bases promocionales</a>. y, por lo tanto, no recibirás el premio.
+                                                </p>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                El motivo por el que no se ha considerado correcta tu participación es
+                                                </p>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    {{ $declineReason }}
+                                                </p>
+                                                <br>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Un saludo,
+                                                </p>
+                                                <br>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                    <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
+                                        <tr>
+                                            <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/footer.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="234"></div>
+                                            </td>
+                                        </tr>
+                                    </table>
+                                </td>
+                            </tr>
+                            </tbody>
+                        </table>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+        </td>
+    </tr>
     </tbody>
 </table><!-- End -->
 </body>

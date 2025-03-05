@@ -8,7 +8,7 @@ use Carbon\Carbon;
 use Duplex\Enums\GameState;
 use Spatie\SimpleExcel\SimpleExcelWriter;
 
-class ExportGames
+class ExportGamesAnonimous
 {
     public function __invoke()
     {
@@ -46,19 +46,10 @@ class ExportGames
 
     public static function transform(Game $game): array
     {
-
-        $address = $game->address->first();
-
-        foreach ($game->files as $key => $file) {
-            $images[]  = route(str_ends_with($file->hash, '.pdf') ? 'admin.files.pdf' : 'admin.files.image', $file->id);
-        }
-
         $participation = [
 
             //user
             'id_usuario' => $game->user->id,
-            'nombre' => $game->user->name,
-            'apellidos' => $game->user->first_surname,
             'email' => $game->user->email,
             'anuncios' => $game->user->ads ? 'Sí' : 'No',
 
@@ -71,32 +62,10 @@ class ExportGames
             'fecha_validacion' => Carbon::parse($game->validated_at)->format('d-m-Y H:i:s'),
             'fecha_confirmacion' => Carbon::parse($game->confirmed_at)->format('d-m-Y H:i:s'),
 
-
             // prize
             'premio' => $game->prize_id == 1 ? 'Nintendo Switch' : 'Plataforma Streaming',
             'plataforma' => $game->platform?->name ?? '-',
-            'codigo_plataforma' => $game->code ?? '-',
-
-            // address
-            'direccion' => $address?->via->name.' '.$address?->name,
-            'numero' => $address?->number,
-            'escalera' => $address?->stair,
-            'piso' => $address?->floor,
-            'puerta' => $address?->door,
-            'codigo_postal' => $address?->postal_code,
-            'poblacion' => $address?->city,
-            'provincia' => $address?->province->name,
-            'telefono' => $address?->phone,
-
-
-
-            // Files
-            'archivos' => implode(', ', $images),
         ];
-
-        foreach ($game->files as $key => $file) {
-            $participation['imagen_'.$key]  = route(str_ends_with($file->hash, '.pdf') ? 'admin.files.pdf' : 'admin.files.image', $file->id);
-        }
 
         return $participation;
     }

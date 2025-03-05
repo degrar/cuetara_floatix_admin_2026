@@ -56,15 +56,12 @@ class MoreInfo extends Mailable
      */
     public function attachments(): array
     {
-        if ($this->type === 3) {
-            return [];
-        }
-
         return [
-            \Illuminate\Mail\Attachment::fromPath(storage_path('app/carta.pdf'))
-                ->as('carta_aceptacion.pdf')
+            \Illuminate\Mail\Mailables\Attachment::fromPath(storage_path('app/carta.pdf'))
+                ->as('carta.pdf')
                 ->withMime('application/pdf')
         ];
     }
+
 
 }

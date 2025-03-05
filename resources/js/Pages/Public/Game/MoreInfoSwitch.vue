@@ -17,8 +17,8 @@
                 <div class="w-12/12 mx-auto">
 
                     <form @submit.prevent="submitForm" class="mx-auto">
-                        <h4 class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4">Dirección postal donde quieres recibirla</h4>
-                        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10">
+                        <h4  v-if="type == 0" class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4">Dirección postal donde quieres recibirla</h4>
+                        <div class="grid gap-4 md:grid-cols-2 lg:grid-cols-3 mb-10"  v-if="type == 0">
                             <SelectInput v-model:select="form.via" :options="vias" :default-value="-1" :error="form.errors.via" value="id" placeholder="Tipo de vía*" label="name" />
                             <TextInput type="text" v-model="form.name" label="Nombre de la vía*" :error="form.errors.name"  />
                             <TextInput type="text" v-model="form.number" label="Número*" :error="form.errors.number"  />
@@ -32,10 +32,10 @@
 
                         <h4 class="w-full font-ferry text-base lg:text-lg mt-4 text-black border-black border-b-[1px] mt-3 mb-4">Tus datos personales</h4>
                         <div class="grid gap-4 lg:grid-cols-2 block">
-                            <FileUpload v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de tu DNI (cara)*"/>
-                            <FileUpload v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI (dorso)*"/>
-                            <FileUpload v-model:select="form.letter"  :error="form.errors.letter" :form="form" label="Carta de aceptación del premio*"/>
-                            <TextInput type="text" v-model="form.phone" label="Teléfono de contacto*" :error="form.errors.phone"  />
+                            <FileUpload v-if="type == 0 || type == 3" v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de tu DNI (cara)*"/>
+                            <FileUpload v-if="type == 0 || type == 3" v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI (dorso)*"/>
+                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter"  :error="form.errors.letter" :form="form" label="Carta de aceptación del premio*"/>
+                            <TextInput v-if="type == 0" type="text" v-model="form.phone" label="Teléfono de contacto*" :error="form.errors.phone"  />
                         </div>
 
                         <p class="mt-4 text-sm text-black">* Campos obligatorios</p>
@@ -47,7 +47,7 @@
                             </FormButton>
                         </div>
 
-                        <div class="mx-auto max-w-[720px] w-full">
+                        <div class="mx-auto max-w-[720px] w-full"  v-if="type == 0">
                             <p class="text-center font-montserrat text-sm mb-4 text-black">Si ahora no puedes rellenarlo, no te preocupes porque <span class="font-bold">te hemos enviado un correo electrónico</span> con un enlace para que lo rellenes en otro momento. Recuerda que dispones de <span class="font-bold">7 días hábiles para solicitar tu premio</span> si no, entenderemos que <span class="font-bold">renuncias al premio.</span></p>
                         </div>
 

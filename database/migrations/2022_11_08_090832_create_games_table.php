@@ -25,6 +25,7 @@ return new class extends Migration
             $table->integer('state', unsigned: true)->default(\Duplex\Enums\GameState::Loser->value);
             $table->integer('platform_id')->nullable();
             $table->string('decline_reason')->nullable();
+            $table->string('code')->nullable();
             $table->timestamp('validated_at', 0)->nullable();
             $table->timestamp('confirmed_at', 0)->nullable();
 

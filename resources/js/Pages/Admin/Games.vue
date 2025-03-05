@@ -21,10 +21,15 @@
                 </div>
             </div>
 
-            <div class="flex justify-end mt-8 py-4 border-t-gray-100 border-t-2" v-if="showExportActions">
+            <div class="flex justify-end mt-8 py-4 border-t-gray-100 border-t-2 space-x-4" v-if="showExportActions">
                 <PrimaryLink class="flex gap-2 items-center text-xl bg-green-500" :href="route('admin.games.export')">
                     <img class="w-[24px]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADFUlEQVR4nO2ZTWsTQRjHl+IL+AHMbJKmLyiUIhSMilLdTYP1UIrgGwHxFFEQobQiOdTGFgUlglroSbCtbealBw+eeu1FW7DaQ2Q3vhzFLyD24MWRZ1PSTbtJdrM7yRZ24GEgmcz+f/P8Z57NriQFLWhBs9Hi+xFSJ0JI3Qgh9S+SVW4nQkh5L8vxQ+aZEFJX4TtZVtYlSWqTRLfe3t4DSFbW7IreBRE6l6wAMH+P1FnhELDyDYu3ysDOcUgwBNhm+2LKPbCTm/ksYZEyJwzC7Hmwk9v5qmYMCYIwX8T8OdbpXaLTH1ij/4jOuN0wz3fp9h3xEFYAeY2mnYiuBoA1Kh7CCoBodM0LAKIz8RBWAFhjvxoFiLQny/O9/rggHsJrgJOJq7aPYblU7PwFMDGfc1RLJL8BQDyYy/FTA9cq7FQtcHFpwHcAzjY63XQF0XoABvEHf13q38sAHGusuKcBiM4a29ABgB5kgAcWQjY2cWpkhPf0DfPsm1zVzfnk7TQ/Fr/Ih27c8t8m7ukbNsZEY0mj0lqJ7zwyWBrTkeT5L9RfALDyIN4KwixejiT42PSU/zJAAGLhmbG6MBbuc8Znn/LcuxnedfTCtviXU/6uA1kzRDTJY13nHYknOuPH+y8bv4G+JYUMICJbdjLEh+2LJzrjr1bnDJtB3xIAsE2su7TyEOFIwrBTI0WNNBugwvPhBI9EExV7wtcAOYsNa7Wx6wmd38jzR/S50TcNYOdROfpi2/NwpJqPWPhbWQvgzGDKGAt90wCgwlqJt4IA0FqFTA6XbAd90wDg9gCsUqtIwcqD+LND1/1ZB/I1VtXJGNQqAK8CBQB1Hq+LzMBiAZczAMeuawuFkPq5nFKk3gcIUQCLBcxvPsyUAU6oV9wDHJaV8XpPz0RFeiLjHmDrDeWHZos/PZjiiwXiBUAJAjIRkpVPTl6zOo1Ie9KwTTqb2SXeJUBlwxpbF3mMEqvQ2E/PAPI6HW06gM5yngFM8sk2orPHRKO/xQunm1ijM8vflw96BmAGwRruIN9It4hgRda5srKyr5aI/78g8Nh7Mx/wAAAAAElFTkSuQmCC">
                     Exportar
+                </PrimaryLink>
+
+                <PrimaryLink class="flex gap-2 items-center text-xl bg-green-500" :href="route('admin.games.export-account')">
+                    <img class="w-[24px]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADFUlEQVR4nO2ZTWsTQRjHl+IL+AHMbJKmLyiUIhSMilLdTYP1UIrgGwHxFFEQobQiOdTGFgUlglroSbCtbealBw+eeu1FW7DaQ2Q3vhzFLyD24MWRZ1PSTbtJdrM7yRZ24GEgmcz+f/P8Z57NriQFLWhBs9Hi+xFSJ0JI3Qgh9S+SVW4nQkh5L8vxQ+aZEFJX4TtZVtYlSWqTRLfe3t4DSFbW7IreBRE6l6wAMH+P1FnhELDyDYu3ysDOcUgwBNhm+2LKPbCTm/ksYZEyJwzC7Hmwk9v5qmYMCYIwX8T8OdbpXaLTH1ij/4jOuN0wz3fp9h3xEFYAeY2mnYiuBoA1Kh7CCoBodM0LAKIz8RBWAFhjvxoFiLQny/O9/rggHsJrgJOJq7aPYblU7PwFMDGfc1RLJL8BQDyYy/FTA9cq7FQtcHFpwHcAzjY63XQF0XoABvEHf13q38sAHGusuKcBiM4a29ABgB5kgAcWQjY2cWpkhPf0DfPsm1zVzfnk7TQ/Fr/Ih27c8t8m7ukbNsZEY0mj0lqJ7zwyWBrTkeT5L9RfALDyIN4KwixejiT42PSU/zJAAGLhmbG6MBbuc8Znn/LcuxnedfTCtviXU/6uA1kzRDTJY13nHYknOuPH+y8bv4G+JYUMICJbdjLEh+2LJzrjr1bnDJtB3xIAsE2su7TyEOFIwrBTI0WNNBugwvPhBI9EExV7wtcAOYsNa7Wx6wmd38jzR/S50TcNYOdROfpi2/NwpJqPWPhbWQvgzGDKGAt90wCgwlqJt4IA0FqFTA6XbAd90wDg9gCsUqtIwcqD+LND1/1ZB/I1VtXJGNQqAK8CBQB1Hq+LzMBiAZczAMeuawuFkPq5nFKk3gcIUQCLBcxvPsyUAU6oV9wDHJaV8XpPz0RFeiLjHmDrDeWHZos/PZjiiwXiBUAJAjIRkpVPTl6zOo1Ie9KwTTqb2SXeJUBlwxpbF3mMEqvQ2E/PAPI6HW06gM5yngFM8sk2orPHRKO/xQunm1ijM8vflw96BmAGwRruIN9It4hgRda5srKyr5aI/78g8Nh7Mx/wAAAAAElFTkSuQmCC">
+                    Exportar Anónimo
                 </PrimaryLink>
             </div>
 
@@ -43,10 +48,15 @@
 
             <GameList :data="data" :header="tableHeader" @deleted="onItemDeleted" />
 
-            <div class="flex justify-end mt-8 py-4 border-t-gray-100 border-t-2" v-if="showExportActions">
+            <div class="flex justify-end mt-8 py-4 border-t-gray-100 border-t-2 space-x-4" v-if="showExportActions">
                 <PrimaryLink class="flex gap-2 items-center text-xl bg-green-500" :href="route('admin.games.export')">
                     <img class="w-[24px]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADFUlEQVR4nO2ZTWsTQRjHl+IL+AHMbJKmLyiUIhSMilLdTYP1UIrgGwHxFFEQobQiOdTGFgUlglroSbCtbealBw+eeu1FW7DaQ2Q3vhzFLyD24MWRZ1PSTbtJdrM7yRZ24GEgmcz+f/P8Z57NriQFLWhBs9Hi+xFSJ0JI3Qgh9S+SVW4nQkh5L8vxQ+aZEFJX4TtZVtYlSWqTRLfe3t4DSFbW7IreBRE6l6wAMH+P1FnhELDyDYu3ysDOcUgwBNhm+2LKPbCTm/ksYZEyJwzC7Hmwk9v5qmYMCYIwX8T8OdbpXaLTH1ij/4jOuN0wz3fp9h3xEFYAeY2mnYiuBoA1Kh7CCoBodM0LAKIz8RBWAFhjvxoFiLQny/O9/rggHsJrgJOJq7aPYblU7PwFMDGfc1RLJL8BQDyYy/FTA9cq7FQtcHFpwHcAzjY63XQF0XoABvEHf13q38sAHGusuKcBiM4a29ABgB5kgAcWQjY2cWpkhPf0DfPsm1zVzfnk7TQ/Fr/Ih27c8t8m7ukbNsZEY0mj0lqJ7zwyWBrTkeT5L9RfALDyIN4KwixejiT42PSU/zJAAGLhmbG6MBbuc8Znn/LcuxnedfTCtviXU/6uA1kzRDTJY13nHYknOuPH+y8bv4G+JYUMICJbdjLEh+2LJzrjr1bnDJtB3xIAsE2su7TyEOFIwrBTI0WNNBugwvPhBI9EExV7wtcAOYsNa7Wx6wmd38jzR/S50TcNYOdROfpi2/NwpJqPWPhbWQvgzGDKGAt90wCgwlqJt4IA0FqFTA6XbAd90wDg9gCsUqtIwcqD+LND1/1ZB/I1VtXJGNQqAK8CBQB1Hq+LzMBiAZczAMeuawuFkPq5nFKk3gcIUQCLBcxvPsyUAU6oV9wDHJaV8XpPz0RFeiLjHmDrDeWHZos/PZjiiwXiBUAJAjIRkpVPTl6zOo1Ie9KwTTqb2SXeJUBlwxpbF3mMEqvQ2E/PAPI6HW06gM5yngFM8sk2orPHRKO/xQunm1ijM8vflw96BmAGwRruIN9It4hgRda5srKyr5aI/78g8Nh7Mx/wAAAAAElFTkSuQmCC">
                     Exportar
+                </PrimaryLink>
+
+                <PrimaryLink class="flex gap-2 items-center text-xl bg-green-500" :href="route('admin.games.export-account')">
+                    <img class="w-[24px]" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAADFUlEQVR4nO2ZTWsTQRjHl+IL+AHMbJKmLyiUIhSMilLdTYP1UIrgGwHxFFEQobQiOdTGFgUlglroSbCtbealBw+eeu1FW7DaQ2Q3vhzFLyD24MWRZ1PSTbtJdrM7yRZ24GEgmcz+f/P8Z57NriQFLWhBs9Hi+xFSJ0JI3Qgh9S+SVW4nQkh5L8vxQ+aZEFJX4TtZVtYlSWqTRLfe3t4DSFbW7IreBRE6l6wAMH+P1FnhELDyDYu3ysDOcUgwBNhm+2LKPbCTm/ksYZEyJwzC7Hmwk9v5qmYMCYIwX8T8OdbpXaLTH1ij/4jOuN0wz3fp9h3xEFYAeY2mnYiuBoA1Kh7CCoBodM0LAKIz8RBWAFhjvxoFiLQny/O9/rggHsJrgJOJq7aPYblU7PwFMDGfc1RLJL8BQDyYy/FTA9cq7FQtcHFpwHcAzjY63XQF0XoABvEHf13q38sAHGusuKcBiM4a29ABgB5kgAcWQjY2cWpkhPf0DfPsm1zVzfnk7TQ/Fr/Ih27c8t8m7ukbNsZEY0mj0lqJ7zwyWBrTkeT5L9RfALDyIN4KwixejiT42PSU/zJAAGLhmbG6MBbuc8Znn/LcuxnedfTCtviXU/6uA1kzRDTJY13nHYknOuPH+y8bv4G+JYUMICJbdjLEh+2LJzrjr1bnDJtB3xIAsE2su7TyEOFIwrBTI0WNNBugwvPhBI9EExV7wtcAOYsNa7Wx6wmd38jzR/S50TcNYOdROfpi2/NwpJqPWPhbWQvgzGDKGAt90wCgwlqJt4IA0FqFTA6XbAd90wDg9gCsUqtIwcqD+LND1/1ZB/I1VtXJGNQqAK8CBQB1Hq+LzMBiAZczAMeuawuFkPq5nFKk3gcIUQCLBcxvPsyUAU6oV9wDHJaV8XpPz0RFeiLjHmDrDeWHZos/PZjiiwXiBUAJAjIRkpVPTl6zOo1Ie9KwTTqb2SXeJUBlwxpbF3mMEqvQ2E/PAPI6HW06gM5yngFM8sk2orPHRKO/xQunm1ijM8vflw96BmAGwRruIN9It4hgRda5srKyr5aI/78g8Nh7Mx/wAAAAAElFTkSuQmCC">
+                    Exportar Anónimo
                 </PrimaryLink>
             </div>
         </template>

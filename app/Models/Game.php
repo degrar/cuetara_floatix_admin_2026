@@ -99,4 +99,8 @@
         {
             return $this->hasOne(StreamigsPlatforms::class, 'id', 'platform_id');
         }
+        public function platformCode(): HasOne
+        {
+            return $this->hasOne(CodesPlatforms::class,);
+        }
     }

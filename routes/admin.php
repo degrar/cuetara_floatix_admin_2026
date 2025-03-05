@@ -37,6 +37,7 @@ Route::as('games.')->prefix('games')->group(function () {
     Route::post('/state/{game}/{action}', ChangeGameState::class)->name('state');
 
     Route::get('export', ExportGames::class)->name('export');
+    Route::get('export-account', \App\Actions\Admin\ExportGamesAnonimous::class)->name('export-account');
 });
 
 Route::as('files.')->prefix('files')->group(function() {

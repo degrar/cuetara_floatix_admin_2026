@@ -110,25 +110,18 @@
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Gracias por participar en nuestra promoción. Lamentablemente no hemos podido validar la imagen del DNI. Por favor, comprueba los siguientes aspectos y vuelve a enviarlo:
+                                                    ¡Enhorabuena!
                                                 </p>
-                                                <ul style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;list-style-type: disc; ">
-                                                    <li>La imagen debe ser nítida.</li>
-                                                    <li>Formatos permitidos: JPG, PNG, PDF.</li>
-                                                    <li>Envío cara y dorso del DNI.</li>
-                                                </ul>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px;">
+                                                    <strong>¡Tu NINTENDO SWITCH está en camino!</strong>
+                                                </p>
+
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    <strong>Tienes un plazo de 7 días naturales</strong> desde el envío de este correo para volver a enviar la documentación. Si no la recibimos, entenderemos que renuncias al premio.
+                                                    Hemos validado tu participación, por lo que vamos a proceder a enviarte tu NINTENDO SWITCH. Esperamos que la recibas en los próximos 30 días.
                                                 </p>
                                                 <br>
-                                                <div style="text-align: left">
-                                                    <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/cta-winner.png') }}" alt="Acceder" style="height: 44px; width: 292px;" height="44" width="292">
-                                                    </a>
-                                                </div>
-                                                <br>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Quedamos a la espera de tu respuesta.
+                                                    Un saludo y, de nuevo, ¡felicidades!
                                                 </p>
                                                 <br>
                                             </td>
