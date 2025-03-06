@@ -28,6 +28,7 @@
                 </ul>
             </nav>
             <p class="text-center mt-[20px] font-montserrat text-sm tracking-tighter text-white mx-auto max-w-6xl w-full">
+                © 2017 Nintendo Co., Ltd. Nintendo Switch is a trademark of Nintendo.<br>
                 Promoción dirigida a residentes en España mayores de 18 años, válida del 1 de abril al 15 de mayo de 2025, ambos inclusive. Sorteo de 44 códigos de 50 € para suscripciones a plataformas y 9 consolas a través de momentos ganadores, así como un sorteo ante notario de un viaje a Japón para 4 personas valorado en 12.000 €. El sorteo se realizará la primera quincena de junio de 2025. Premio limitado a uno por mecánica de participación. Se requiere conservar el tique original de compra empleado para participar. Bases legales depositadas ante notario y disponibles <a class="hover:underline" :href="route('legal')">aquí</a>.
             </p>
         </div>
