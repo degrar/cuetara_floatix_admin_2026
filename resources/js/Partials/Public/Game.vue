@@ -23,9 +23,9 @@
 
                     <div id="legals" class="my-4 space-y-2.5 checkbox block">
                         <div class="wrapper-checkbox flex flex-row items-center justify-start cursor-pointer">
-                            <Checkbox v-model:checked="form.adult" id="adult" />
-                            <label class="flex flex-row items-center justify-center cursor-pointer" for="adult" v-on:click="onClickLabel"></label>
-                            <InputLabelCheckbox for="adult" >Confirmo que soy mayor de 18 años</InputLabelCheckbox>
+                            <Checkbox v-model:checked="form.adult" :error="form.errors.adult" id="adult" />
+                            <label class="flex flex-row items-center justify-center cursor-pointer" for="adult" v-on:click="onClickLabel" :class="{ 'error': form.errors.adult }"></label>
+                            <InputLabelCheckbox for="adult" :error="form.errors.adult"  >Confirmo que soy mayor de 18 años</InputLabelCheckbox>
                         </div>
 
                         <div class="wrapper-checkbox flex flex-row items-center justify-start cursor-pointer">
