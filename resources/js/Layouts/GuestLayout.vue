@@ -3,6 +3,7 @@ import {ref} from 'vue';
 import { Head, usePage } from '@inertiajs/vue3';
 import Header from "@/Partials/Public/Header.vue";
 import Footer from "@/Partials/Public/Footer.vue";
+import CookieConsent from "@/Partials/CookieConsent.vue";
 
 const siteKey = usePage().props.site_key;
 
