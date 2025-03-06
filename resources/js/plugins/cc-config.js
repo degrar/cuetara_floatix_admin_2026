@@ -16,11 +16,11 @@ const config = {
     // revision: 0,
 
     cookie: {
-        name: 'cc_cookie_text',
+        name: 'cc_cookie',
         // domain: location.hostname,
-        // path: '/',
+        path: '/',
         // sameSite: "Lax",
-        // expiresAfterDays: 365,
+        expiresAfterDays: 15,
     },
 
     // https://cookieconsent.orestbida.com/reference/configuration-reference.html#guioptions
@@ -46,23 +46,23 @@ const config = {
     },
 
     onConsent: ({cookie}) => {
-        console.log('onConsent fired!', cookie)
+        //console.log('onConsent fired!', cookie)
     },
 
     onChange: ({changedCategories, changedServices}) => {
-        console.log('onChange fired!', changedCategories, changedServices);
+        //console.log('onChange fired!', changedCategories, changedServices);
     },
 
     onModalReady: ({modalName}) => {
-        console.log('ready:', modalName);
+        //console.log('ready:', modalName);
     },
 
     onModalShow: ({modalName}) => {
-        console.log('visible:', modalName);
+        //console.log('visible:', modalName);
     },
 
     onModalHide: ({modalName}) => {
-        console.log('hidden:', modalName);
+        //console.log('hidden:', modalName);
     },
 
     categories: {
@@ -74,115 +74,47 @@ const config = {
             autoClear: {
                 cookies: [
                     {
-                        name: /^_ga/,   // regex: match all cookies starting with '_ga'
+                        name: /^(_ga|_gid|_gat)/,
                     },
-                    {
-                        name: '_gid',   // string: exact cookie name
-                    }
-                ]
+                ],
             },
+            onConsent: () => {
+                const script1 = document.createElement("script");
+                script1.src = "https://www.googletagmanager.com/gtag/js?id=G-H25NTYLQXQ";
+                script1.type = "text/plain";
+                script1.setAttribute("data-category", "analytics");
+                script1.setAttribute("data-service", "Google Analytics");
+                document.head.appendChild(script1);
 
-            // https://cookieconsent.orestbida.com/reference/configuration-reference.html#category-services
-            services: {
-                ga: {
-                    label: 'Google Analytics',
-                    onAccept: () => {},
-                    onReject: () => {}
-                },
-                youtube: {
-                    label: 'Youtube Embed',
-                    onAccept: () => {},
-                    onReject: () => {}
-                },
+                const script2 = document.createElement("script");
+                script2.type = "text/plain";
+                script2.setAttribute("data-category", "analytics");
+                script2.setAttribute("data-service", "Google Analytics");
+                script2.innerHTML = `
+                window.dataLayer = window.dataLayer || [];
+                function gtag(){dataLayer.push(arguments);}
+                gtag('js', new Date());
+                gtag('config', 'G-H25NTYLQXQ');
+            `;
+                document.head.appendChild(script2);
             }
         },
-        ads: {}
+        ads: {
+            enabled: false,  // Esta categoría no se activará
+            readOnly: true   // No se puede modificar
+        }
     },
 
     language: {
-        default: 'es',
+        default: 'ca',
         translations: {
-            en: {
-                consentModal: {
-                    title: 'We use cookies',
-                    description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua',
-                    acceptAllBtn: 'Accept all',
-                    acceptNecessaryBtn: 'Reject all',
-                    showPreferencesBtn: 'Manage Individual preferences',
-                    // closeIconLabel: 'Reject all and close modal',
-                    footer: `
-                        <a href="#path-to-impressum.html" target="_blank">Impressum</a>
-                        <a href="#path-to-privacy-policy.html" target="_blank">Privacy Policy</a>
-                    `,
-                },
-                preferencesModal: {
-                    title: 'Manage cookie preferences',
-                    acceptAllBtn: 'Accept all',
-                    acceptNecessaryBtn: 'Reject all',
-                    savePreferencesBtn: 'Accept current selection',
-                    closeIconLabel: 'Close modal',
-                    serviceCounterLabel: 'Service|Services',
-                    sections: [
-                        {
-                            title: 'Your Privacy Choices',
-                            description: `In this panel you can express some preferences related to the processing of your personal information. You may review and change expressed choices at any time by resurfacing this panel via the provided link. To deny your consent to the specific processing activities described below, switch the toggles to off or use the “Reject all” button and confirm you want to save your choices.`,
-                        },
-                        {
-                            title: 'Strictly Necessary',
-                            description: 'These cookies are essential for the proper functioning of the website and cannot be disabled.',
-
-                            //this field will generate a toggle linked to the 'necessary' category
-                            linkedCategory: 'necessary'
-                        },
-                        {
-                            title: 'Performance and Analytics',
-                            description: 'These cookies collect information about how you use our website. All of the data is anonymized and cannot be used to identify you.',
-                            linkedCategory: 'analytics',
-                            cookieTable: {
-                                caption: 'Cookie table',
-                                headers: {
-                                    name: 'Cookie',
-                                    domain: 'Domain',
-                                    desc: 'Description'
-                                },
-                                body: [
-                                    {
-                                        name: '_ga',
-                                        domain: location.hostname,
-                                        desc: 'Description 1',
-                                    },
-                                    {
-                                        name: '_gid',
-                                        domain: location.hostname,
-                                        desc: 'Description 2',
-                                    }
-                                ]
-                            }
-                        },
-                        {
-                            title: 'Targeting and Advertising',
-                            description: 'These cookies are used to make advertising messages more relevant to you and your interests. The intention is to display ads that are relevant and engaging for the individual user and thereby more valuable for publishers and third party advertisers.',
-                            linkedCategory: 'ads',
-                        },
-                        {
-                            title: 'More information',
-                            description: 'For any queries in relation to my policy on cookies and your choices, please <a href="#contact-page">contact us</a>'
-                        }
-                    ]
-                }
-            },
-            es: {
+            ca: {
                 consentModal: {
                     title: '🍪 Nuestras cookies!',
                     description: 'Hola, este sitio web utiliza cookies esenciales para garantizar su correcto funcionamiento y las otras cookies para saber como interactuar con la web.',
                     acceptAllBtn: 'Aceptar todas',
                     acceptNecessaryBtn: 'Rechazar todas',
                     showPreferencesBtn: 'Gestionar preferencias individuales',
-                    // closeIconLabel: 'Rechazar todas y cerrar el modal',
-                    // footer: `
-                    //     <a href="#path-to-impressum.html" target="_blank">Aviso legal</a>
-                    //     <a href="#path-to-privacy-policy.html" target="_blank">Política de privacidad</a>
-                    // `,
                 },
                 preferencesModal: {
                     title: 'Gestionar preferencias de cookies',
@@ -216,31 +148,22 @@ const config = {
                                     {
                                         name: '_ga',
                                         domain: location.hostname,
-                                        desc: 'Descripción 1',
+                                        desc: 'Utilizada para recopilar datos anónimos del uso de sitio web.',
                                     },
                                     {
                                         name: '_gid',
                                         domain: location.hostname,
-                                        desc: 'Descripción 2',
+                                        desc: 'Utilizada para recopilar datos anónimos del uso de sitio web.',
                                     }
                                 ]
                             }
                         },
-                        {
-                            title: 'Segmentación y publicidad',
-                            description: 'Estas cookies se utilizan para que los mensajes publicitarios sean más relevantes para ti y tus intereses. La intención es mostrar anuncios que sean relevantes y atractivos para el usuario individual y, por lo tanto, más valiosos para los editores y anunciantes de terceros.',
-                            linkedCategory: 'ads',
-                        },
-                        {
-                            title: 'Más información',
-                            description: 'Para cualquier consulta relacionada con mi política de cookies y tus elecciones, por favor <a href="contacto">contáctanos</a>'
-                        }
+
                     ]
                 }
-            }
+            },
         }
     }
 };
 
 export default config;
-

@@ -34,6 +34,8 @@ defineProps({
 
     <!-- Recaptcha -->
     <component is="script" v-if="useRecaptcha" :src="'https://www.google.com/recaptcha/api.js?render=' + siteKey"></component>
+
+    <CookieConsent />
 </template>
 
 <style scoped>
