@@ -34,7 +34,7 @@
                         <div class="grid gap-4 lg:grid-cols-2 block">
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de tu DNI (cara)*"/>
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI (dorso)*"/>
-                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter"  :error="form.errors.letter" :form="form" label="Carta de aceptación del premio*"/>
+                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter"  :error="form.errors.letter" :letter="true" :form="form" label="Carta de aceptación del premio.*"/>
                             <TextInput v-if="type == 0" type="text" v-model="form.phone" label="Teléfono de contacto*" :error="form.errors.phone"  />
                         </div>
 
@@ -74,11 +74,17 @@ import FormButton from "@/Components/FormButton.vue";
 import Checkbox from "@/Components/Checkbox.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import ErrorMessage from "@/Components/ErrorMessage.vue";
-import {nextTick, computed} from "vue";
+import {nextTick, computed, onMounted} from "vue";
 import SelectInput from "@/Components/SelectInput.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 
 addIcons(BiUpload, FaCircleNotch);
+
+onMounted(() => {
+    nextTick(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
 
 const provinces = usePage().props.provinces;
 const vias = usePage().props.vias;

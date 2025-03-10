@@ -114,7 +114,7 @@
                                                 </p>
                                                 <ul style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;list-style-type: disc; ">
                                                     <li>Imagen de tu DNI.</li>
-                                                    <li>Dirección postal en la que quieres recibir tu premio..</li>
+                                                    <li>Dirección postal en la que quieres recibir tu premio.</li>
                                                     <li>Carta de aceptación del premio.</li>
                                                 </ul>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">

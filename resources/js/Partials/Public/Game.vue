@@ -1,5 +1,5 @@
 <template>
-    <div class="container mx-auto p-4 py-20">
+    <div class="container mx-auto p-4 py-12 lg:py-20">
         <div class="flex flex-col lg:flex-row justify-center items-start">
 
             <div class="mx-auto w-12/12 lg:w-4/12 xl:w-5/12">

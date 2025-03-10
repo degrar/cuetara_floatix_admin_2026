@@ -1,6 +1,6 @@
 <template>
 
-    <div class="container mx-auto p-4 py-20">
+    <div class="container mx-auto p-4 py-12 lg:py-20 ">
         <div class="flex items-center justify-center mb-8">
             <h4 class="text-yellow font-ferry uppercase text-2xl lg:text-5xl text-center">¡PARTICIPA EN UN YA!</h4>
         </div>
@@ -45,7 +45,7 @@
             </div>
 
         </div>
-        <div class="my-[50px]">
+        <div class="mt-[50px] lg:my-[50px]">
             <div class="flex justify-center py-4">
                 <PrimaryButton scroll="#participa" class="">Participa</PrimaryButton>
             </div>

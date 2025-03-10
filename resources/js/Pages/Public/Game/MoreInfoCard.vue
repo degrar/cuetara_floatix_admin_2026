@@ -20,7 +20,7 @@
                         <div class="grid gap-4 lg:grid-cols-2 block">
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de DNI/NIE (cara)"/>
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI/NIE (dorso)"/>
-                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter" :error="form.errors.letter" :form="form" label="Carta de aceptación"/>
+                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter" :error="form.errors.letter" :letter="true" :form="form" label="Carta de aceptación"/>
                             <SelectInput v-if="type == 0" v-model:select="form.platforms" :options="platforms" :default-value="-1" :error="form.errors.platforms" value="id" placeholder="Plataforma de streaming" label="name" />
                         </div>
 
@@ -60,7 +60,7 @@ import FormButton from "@/Components/FormButton.vue";
 import Checkbox from "@/Components/Checkbox.vue";
 import InputLabelCheckbox from "@/Components/InputLabelCheckbox.vue";
 import ErrorMessage from "@/Components/ErrorMessage.vue";
-import {nextTick, computed} from "vue";
+import {nextTick, computed, onMounted} from "vue";
 import SelectInput from "@/Components/SelectInput.vue";
 import PrimaryButton from "@/Components/PrimaryButton.vue";
 
@@ -71,6 +71,11 @@ const vias = usePage().props.vias;
 const platforms = usePage().props.platforms;
 const type = usePage().props.type;
 
+onMounted(() => {
+    nextTick(() => {
+        window.scrollTo({ top: 0, behavior: 'smooth' });
+    });
+});
 
 const props = defineProps({
     token: String,
@@ -93,6 +98,7 @@ const form = useForm({
 
     recaptcha: null,
 });
+
 
 const submitForm = () => {
     const siteKey = usePage().props.site_key;

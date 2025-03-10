@@ -34,7 +34,7 @@ class MandrillTransport extends AbstractTransport
     {
         $email = MessageConverter::toEmail($message->getOriginalMessage());
 
-        $this->client->messages->send(['message' => [
+        $body = [
             'html' => $email->getHtmlBody(),
             'subject' => $email->getSubject(),
             'from_email' => $email->getFrom()[0]->getAddress(),
@@ -53,7 +53,25 @@ class MandrillTransport extends AbstractTransport
             'track_opens' => 'true',
             'track_clicks' => 'true',
             'auto_text' => true
-        ]]);
+        ];
+
+        $attachments = $email->getAttachments();
+
+        if (count($attachments) > 0)
+        {
+            $body['attachments'] = [];
+
+            foreach ($attachments as $attachment)
+            {
+                $body['attachments'][] = [
+                    'name' => $attachment->getName(),
+                    'type' => $attachment->getContentType(),
+                    'content' => $attachment->bodyToString()
+                ];
+            }
+        }
+
+        $this->client->messages->send(['message' => $body]);
     }
 
     /**

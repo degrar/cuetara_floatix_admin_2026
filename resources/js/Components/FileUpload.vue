@@ -37,6 +37,10 @@ const props = defineProps({
         type: [String, Boolean],
         default: null
     },
+    letter: {
+        type: Boolean,
+        default: false
+    },
 });
 
 const inputChange = () => {
@@ -58,7 +62,7 @@ const openFileExplorer = () => fileInput.value.click();
 <template>
     <div class="relative">
         <input ref="fileInput" type="file" class="hidden" @change="inputChange">
-        <InputLabel v-if="label">{{ label }}</InputLabel>
+        <InputLabel v-if="label" :letter="letter">{{ label }}</InputLabel>
         <div class="">
             <div class="relative bg-white text-black font-montserrat text-sm std-input w-full rounded-[6px] appearance-none px-2 py-3 rem:h-[45px] rem:mt-[5px] rem:mb-[5px] border-2 border-white placeholder-white placeholder-opacity-100 focus:placeholder-opacity-50 focus:outline-none focus:border-white focus:shadow-none" :class="{ '!border-red text-red': error }">
                 <div class="text-ellipsis overflow-hidden whitespace-nowrap placeholder-black"

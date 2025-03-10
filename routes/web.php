@@ -11,6 +11,9 @@
     use App\Http\Controllers\GameController;
     use App\Http\Controllers\MoreInfoController;
 
+    use Illuminate\Support\Facades\Storage;
+    use Symfony\Component\HttpFoundation\StreamedResponse;
+
     /*
     |--------------------------------------------------------------------------
     | Web Routes
@@ -64,6 +67,9 @@ Route::get('proximamente', [HomeController::class, 'start'])->name('proximamente
 Route::get('promo-finalizada', [HomeController::class, 'end'])->name('promo-finalizada');
 
 
+Route::get('carta', function () {
+    return response()->download(storage_path('app/carta.pdf'), 'carta.pdf', ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'attachment; filename="carta_aceptacion.pdf"']);
+})->name('carta');
 //ADMIN
 
 Route::get('mail', function () {
