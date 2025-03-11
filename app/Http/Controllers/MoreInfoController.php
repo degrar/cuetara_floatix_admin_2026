@@ -98,7 +98,7 @@ class MoreInfoController extends Controller
             'token' => Str::random(32),
         ];
 
-        if ($prize == 2) $updateData['platform_id'] = $request->platforms;
+        if ($prize == 2 && $type === 0) $updateData['platform_id'] = $request->platforms;
 
         $game->update($updateData);
 
