@@ -124,6 +124,9 @@
                                                     Un saludo y, de nuevo, ¡felicidades!
                                                 </p>
                                                 <br>
+                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 11px;">
+                                                    © 2017 Nintendo Co., Ltd. Nintendo Switch is a trademark of Nintendo.
+                                                </p>
                                             </td>
                                         </tr>
                                     </table>

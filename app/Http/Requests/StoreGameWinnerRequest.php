@@ -23,16 +23,12 @@ class StoreGameWinnerRequest extends FormRequest
     }
 
     /**
-     * Get the validation rules that apply to the request.
-     *
-     * @return array<string, mixed>
+     * Obtiene las reglas de validación que se aplican a la solicitud.
      */
     public function rules(): array
     {
         return [
-            'type' => 'required|in:0,2,3,4', // 0: Documentación + IBAN, 2: CARTA, 3: DNI, 4: DNI Y CARTA (SIN DIRECCIÓN)
-            'prize' => 'required|in:1,2', //1 = switch, 2 = platform
-
+            // IF PRIZE = 1 y TYPE = 0 (Solo si el premio es un Switch y el tipo es Documentación)
             'via' => [$this->validatePrize(), 'nullable', 'exists:App\Models\Via,id'],
             'name' => [$this->validatePrize(), 'nullable', 'string'],
             'number' => [$this->validatePrize(), 'nullable', 'string'],
@@ -44,12 +40,19 @@ class StoreGameWinnerRequest extends FormRequest
             'door' => 'nullable|string',
             'phone' => [$this->validatePrize(), 'nullable', 'regex:/^[0-9]{9}$/'],
 
-            'platforms' => [$this->validatePrize(), 'nullable', 'exists:App\Models\StreamigsPlatforms,id'],
+            // IF PRIZE = 1 y TYPE = 0 o 2 (Se necesita carta si type es 0 o 2)
+            'letter' => [$this->validateLetter(),'nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)], // el type debe ser un or
 
-            'front' => ['required_if:type,0,3', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-            'back' => ['required_if:type,0,3', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-            'letter' => ['required_if:type,0,2', 'nullable', File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            // IF PRIZE = 2 (Plataformas solo para prize = 2)
+            'platforms' => ['required_if:prize,2', 'nullable', 'exists:App\Models\StreamigsPlatforms,id'],
 
+            // Archivos requeridos según PRIZE y TYPE
+            'front' => ['required_if:type,0','required_if:type,3','nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            'back' => ['required_if:type,0','required_if:type,3','nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+
+            // ALL (Requeridos en todos los casos)
+            'type' => 'required|in:0,2,3,4', // 0: Documentación + IBAN, 2: CARTA, 3: DNI, 4: DNI Y CARTA (SIN DIRECCIÓN)
+            'prize' => 'required|in:1,2', // 1 = switch, 2 = platform
             'recaptcha' => new GoogleRecaptcha(),
         ];
     }
@@ -67,22 +70,29 @@ class StoreGameWinnerRequest extends FormRequest
     protected function validatePrize(): \Closure
     {
         return function ($attribute, $value, $fail) {
-            $prize = request('prize');
-            $type = request('type');
+            $prize = $this->input('prize'); // Usar input() en lugar de request()
+            $type = $this->input('type');
 
-
-            if ($prize == 2 && $type == 0) {
-                if (empty($value)) {
+            if (($prize == 1 || $prize == 2) && $type == 0) {
+                if ($this->has($attribute) && empty($value)) {
                     $fail('Este campo es obligatorio.');
                 }
             }
-
-            if ($prize == 1 && $type == 0) {
-                if (empty($value)) {
-                    $fail('Este campo es obligatorio.');
-                }
-            }
-
         };
     }
+
+    protected function validateLetter(): \Closure
+    {
+        return function ($attribute, $value, $fail) {
+            $prize = $this->input('prize'); // Usar input() en lugar de request()
+            $type = $this->input('type');
+
+            if (($type == 0 || $type == 2) && $prize == 1) {
+                if ($this->has($attribute) && empty($value)) {
+                    $fail('Este campo es obligatorio.');
+                }
+            }
+        };
+    }
+
 }

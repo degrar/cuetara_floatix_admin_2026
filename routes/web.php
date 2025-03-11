@@ -59,6 +59,7 @@ Route::middleware(PromotionRedirect::class)->group(function () {
     Route::get('privacidad', [LegalPrivacyController::class, 'privacy'])->name('privacy');
     Route::get('cookies', [LegalPrivacyController::class, 'cookies'])->name('cookies');
     Route::get('faqs', [LegalPrivacyController::class, 'faqs'])->name('faqs');
+    Route::get('nota-legal', [LegalPrivacyController::class, 'notaLegal'])->name('nota-legal');
 
 
 });

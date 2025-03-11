@@ -20,7 +20,6 @@
                         <div class="grid gap-4 lg:grid-cols-2 block">
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.front"  :error="form.errors.front" :form="form" label="Foto de DNI/NIE (cara)"/>
                             <FileUpload v-if="type == 0 || type == 3" v-model:select="form.back"  :error="form.errors.back" :form="form" label="Foto de tu DNI/NIE (dorso)"/>
-                            <FileUpload v-if="type == 0 || type == 2" v-model:select="form.letter" :error="form.errors.letter" :letter="true" :form="form" label="Carta de aceptación"/>
                             <SelectInput v-if="type == 0" v-model:select="form.platforms" :options="platforms" :default-value="-1" :error="form.errors.platforms" value="id" placeholder="Plataforma de streaming" label="name" />
                         </div>
 
@@ -87,9 +86,9 @@ const props = defineProps({
 
 const form = useForm({
     //User Data
-    front: null,
-    back: null,
-    letter: null,
+    // front: null,
+    // back: null,
+    // letter: null,
     platforms: null,
 
     //Form

@@ -92,7 +92,7 @@ const props = defineProps({
     token: String,
     type: {
         type: String,
-        default: 0,
+        default: '',
     },
 });
 
