@@ -41,7 +41,7 @@ class StoreGameWinnerRequest extends FormRequest
             'phone' => [$this->validatePrize(), 'nullable', 'regex:/^[0-9]{9}$/'],
 
             // IF PRIZE = 1 y TYPE = 0 o 2 (Se necesita carta si type es 0 o 2)
-            'letter' => [$this->validateLetter(),'nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)], // el type debe ser un or
+            'letter' => $this->validateLetter(), // el type debe ser un or
 
             // IF PRIZE = 2 (Plataformas solo para prize = 2)
             'platforms' => ['required_if:prize,2', 'nullable', 'exists:App\Models\StreamigsPlatforms,id'],
@@ -86,9 +86,9 @@ class StoreGameWinnerRequest extends FormRequest
         return function ($attribute, $value, $fail) {
             $prize = $this->input('prize'); // Usar input() en lugar de request()
             $type = $this->input('type');
-
+            
             if (($type == 0 || $type == 2) && $prize == 1) {
-                if ($this->has($attribute) && empty($value)) {
+                if ($this->has($attribute) && $this->file('letter') == null) {
                     $fail('Este campo es obligatorio.');
                 }
             }
