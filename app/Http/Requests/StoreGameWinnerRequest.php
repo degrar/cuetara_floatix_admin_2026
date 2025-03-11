@@ -47,8 +47,8 @@ class StoreGameWinnerRequest extends FormRequest
             'platforms' => ['required_if:prize,2', 'nullable', 'exists:App\Models\StreamigsPlatforms,id'],
 
             // Archivos requeridos según PRIZE y TYPE
-            'front' => ['required_if:type,0','required_if:type,3','nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
-            'back' => ['required_if:type,0','required_if:type,3','nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            'front' => ['required_if:type,0,3',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
+            'back' => ['required_if:type,0,3',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
 
             // ALL (Requeridos en todos los casos)
             'type' => 'required|in:0,2,3,4', // 0: Documentación + IBAN, 2: CARTA, 3: DNI, 4: DNI Y CARTA (SIN DIRECCIÓN)
@@ -86,7 +86,7 @@ class StoreGameWinnerRequest extends FormRequest
         return function ($attribute, $value, $fail) {
             $prize = $this->input('prize'); // Usar input() en lugar de request()
             $type = $this->input('type');
-            
+
             if (($type == 0 || $type == 2) && $prize == 1) {
                 if ($this->has($attribute) && $this->file('letter') == null) {
                     $fail('Este campo es obligatorio.');

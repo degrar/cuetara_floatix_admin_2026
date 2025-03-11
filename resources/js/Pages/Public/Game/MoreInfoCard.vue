@@ -86,8 +86,8 @@ const props = defineProps({
 
 const form = useForm({
     //User Data
-    // front: null,
-    // back: null,
+    front: null,
+    back: null,
     // letter: null,
     platforms: null,
 
