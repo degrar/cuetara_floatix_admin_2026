@@ -56,6 +56,11 @@ class Winner extends Mailable
      */
     public function attachments(): array
     {
+
+        if ($this->prize !== 1) {
+            return [];
+        }
+
         return [
             Attachment::fromPath(storage_path('app/carta.pdf'))
                 ->as('carta_aceptacion.pdf')
