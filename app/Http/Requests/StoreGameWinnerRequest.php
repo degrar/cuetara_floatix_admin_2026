@@ -29,22 +29,22 @@ class StoreGameWinnerRequest extends FormRequest
     {
         return [
             // IF PRIZE = 1 y TYPE = 0 (Solo si el premio es un Switch y el tipo es Documentación)
-            'via' => [$this->validatePrize(), 'nullable', 'exists:App\Models\Via,id'],
-            'name' => [$this->validatePrize(), 'nullable', 'string'],
-            'number' => [$this->validatePrize(), 'nullable', 'string'],
-            'zipNumber' => [$this->validatePrize(), 'nullable', 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
-            'city' => [$this->validatePrize(), 'nullable', 'string'],
-            'province' => [$this->validatePrize(), 'nullable', 'exists:App\Models\Province,id'],
+            'via' => [$this->validateAddress(), 'exists:App\Models\Via,id'],
+            'name' => [$this->validateAddress(), 'string'],
+            'number' => [$this->validateAddress(), 'string'],
+            'zipNumber' => [$this->validateAddress(), 'regex:/^(?:0[1-9]|[1-4]\d|5[0-2])\d{3}$/'],
+            'city' => [$this->validateAddress(), 'string'],
+            'province' => [$this->validateAddress(), 'exists:App\Models\Province,id'],
             'stair' => 'nullable|string',
             'floor' => 'nullable|string',
             'door' => 'nullable|string',
-            'phone' => [$this->validatePrize(), 'nullable', 'regex:/^[0-9]{9}$/'],
+            'phone' => [$this->validateAddress(), 'regex:/^[0-9]{9}$/'],
 
             // IF PRIZE = 1 y TYPE = 0 o 2 (Se necesita carta si type es 0 o 2)
             'letter' => $this->validateLetter(), // el type debe ser un or
 
             // IF PRIZE = 2 (Plataformas solo para prize = 2)
-            'platforms' => ['required_if:prize,2', 'nullable', 'exists:App\Models\StreamigsPlatforms,id'],
+            'platforms' => [$this->validatePrize(), 'nullable', 'exists:App\Models\StreamigsPlatforms,id'],
 
             // Archivos requeridos según PRIZE y TYPE
             'front' => ['required_if:type,0','required_if:type,3','nullable',File::types(['jpeg', 'jpg', 'pdf', 'png'])->max(8 * 1024)],
@@ -89,6 +89,20 @@ class StoreGameWinnerRequest extends FormRequest
             
             if (($type == 0 || $type == 2) && $prize == 1) {
                 if ($this->has($attribute) && $this->file('letter') == null) {
+                    $fail('Este campo es obligatorio.');
+                }
+            }
+        };
+    }
+
+    protected function validateAddress(): \Closure
+    {
+        return function ($attribute, $value, $fail) {
+            $prize = $this->input('prize'); // Usar input() en lugar de request()
+            $type = $this->input('type');
+
+            if ($prize == 1 && $type == 0) {
+                if ($this->has($attribute) && empty($value)) {
                     $fail('Este campo es obligatorio.');
                 }
             }
