@@ -6,7 +6,7 @@
 
     <title inertia>Gana un viaje a Japón y fantásticos regalos cada día.</title>
     <meta name="robots" content="noindex,nofollow">
-    <meta name="keywords" content="Participa con cada Yatekomo. Sorteamos NINTENDOS SWITCH o suscripciones a plataformas de streaming cada día. Además, entre todos los participantes regalamos ¡un viaje a Japón!">
+    <meta name="keywords" content="Participa con cada Yatekomo. Sorteamos <sup>©</sup>NINTENDOS SWITCH o suscripciones a plataformas de streaming cada día. Además, entre todos los participantes regalamos ¡un viaje a Japón!">
     <meta name="description" content="Yatekomo, sorteo, momento ganador, Nintendo, premio, Japón, Netflix.">
 
     <link rel="preconnect" href="https://fonts.googleapis.com">

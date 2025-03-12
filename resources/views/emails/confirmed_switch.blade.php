@@ -113,11 +113,11 @@
                                                     ¡Enhorabuena!
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px;">
-                                                    <strong>¡Tu NINTENDO SWITCH está en camino!</strong>
+                                                    <strong>¡Tu <sup>©</sup>NINTENDO SWITCH está en camino!</strong>
                                                 </p>
 
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Hemos validado tu participación, por lo que vamos a proceder a enviarte tu NINTENDO SWITCH. Esperamos que la recibas en los próximos 30 días.
+                                                    Hemos validado tu participación, por lo que vamos a proceder a enviarte tu <sup>©</sup>NINTENDO SWITCH. Esperamos que la recibas en los próximos 30 días.
                                                 </p>
                                                 <br>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">

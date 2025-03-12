@@ -40,7 +40,7 @@ Route::middleware(PromotionRedirect::class)->group(function () {
         Route::get('winner', 'winner')->name('winner');
         Route::get('lost', 'lost')->name('lost');
         Route::get('max', 'max')->name('max');
-        Route::get('winners', 'winners')->name('winners');
+        //Route::get('winners', 'winners')->name('winners');
     });
 
     Route::controller(MoreInfoController::class)->group(function (){

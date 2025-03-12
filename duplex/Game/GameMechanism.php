@@ -29,7 +29,7 @@ class GameMechanism
     )
     {
         $this->maxDailyAttemps = config('duplex.promo.attemps.day');
-        $this->maxMonthlyAttemps = config('duplex.promo.attemps.day');
+        $this->maxMonthlyAttemps = config('duplex.promo.attemps.month');
         $this->maxAttemps = config('duplex.promo.attemps.total');
     }
 

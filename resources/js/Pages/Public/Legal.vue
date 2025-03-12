@@ -1,7 +1,7 @@
 <template>
     <GuestLayout title="Bases legales" menu>
         <div class="container mx-auto px-4 flex justify-center items-center flex-col py-[40px] lg:flex-row lg:py-[80px] ">
-            <div class="w-12/12  pt-4">
+            <div class="w-12/12  pt-4" >
                 <h1 class="text-center text-red font-ferry uppercase text-2xl lg:text-4xl rem:tracking-[0.15px]">Bases legales de la promoción</h1>
 
                 <h4>EMPRESA ORGANIZADORA</h4>

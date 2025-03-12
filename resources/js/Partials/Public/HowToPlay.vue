@@ -26,7 +26,7 @@
                     <p class="font-ferry text-stroke-2 lg:text-stroke-3 text-stroke-black text-white text-4xl lg:text-5xl">03</p>
                     <img src="../../../../resources/images/htw/3.png" alt="3" class="max-w-[150px] h-auto">
                     <p class="font-ferry text-black text-lg max-w-[360px] w-full leading-5 text-center md:text-left">
-                        ¡Al momento sabrás si has ganado una <span class="text-red">Nintendo Switch</span> o una <span class="text-red">suscripción de 50€</span> a tu plataforma de streaming favorita!
+                        ¡Al momento sabrás si has ganado una <span class="text-red"><sup>©</sup>NINTENDO SWITCH</span> o una <span class="text-red">suscripción de 50€</span> a tu plataforma de streaming favorita!
                     </p>
                 </div>
 
