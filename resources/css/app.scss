@@ -20,6 +20,11 @@
 @import 'hamburgers/hamburgers.scss';
 @import 'hamburgers/_base.scss';
 
+.grecaptcha-badge{
+    bottom: 100px !important;
+}
+
+
 [x-cloak] {
     display: none;
 }
