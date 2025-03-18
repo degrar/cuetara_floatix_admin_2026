@@ -22,7 +22,7 @@ class LegalPrivacyController extends Controller
 
     public function cookies(): Response
     {
-        return Inertia::render('Public/Faqs');
+        return Inertia::render('Public/Cookies');
     }
 
     public function faqs(): Response
