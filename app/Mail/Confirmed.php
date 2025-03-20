@@ -42,7 +42,7 @@ class Confirmed extends Mailable
     {
         return new Content(
             view: $this->prize_id === 1 ? 'emails.confirmed_switch' : 'emails.confirmed_cards',
-            with: $this->prize_id === 1 ? [] : ['platformCode' => $this->code, 'platform' => $this->platform],
+            //with: $this->prize_id === 1 ? [] : ['platformCode' => $this->code, 'platform' => $this->platform],
         );
     }
 

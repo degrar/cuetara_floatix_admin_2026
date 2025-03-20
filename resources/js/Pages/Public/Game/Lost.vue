@@ -7,7 +7,7 @@
                 <div class="mx-auto max-w-[580px] w-full">
                     <p class="text-center font-ferry text-sm lg:text-lg mt-4 text-black">Tu compra no está premiada con uno de los regalos diarios que entregamos cada día.</p>
                     <p class="text-center font-montserrat text-sm lg:text-base mb-4 text-black">¡Pero no te preocupes! Puedes volver a participar con otros Yatekomo.</p>
-                    <p class="text-center font-ferry text-sm lg:text-lg text-black">Además, ya tienes una participación más para el VIAJAZO A JAPÓN.</p>
+                    <p class="text-center font-ferry text-sm lg:text-lg text-black">Además, con cada Yatekomo tienes una participación más para el VIAJAZO A JAPÓN.</p>
                     <p class="text-center font-montserrat text-sm lg:text-base my-4 text-black">¿TIENES OTRO TICKET?</p>
                     <div class="text-center">
                         <PrimaryButton :secondary="true" :href="route('home')" class="inline-block">Participa</PrimaryButton>

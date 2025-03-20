@@ -113,18 +113,13 @@
                                                     ¡Enhorabuena!
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 21px;">
-                                                    <strong>¡Aquí tienes tu suscripción a TU PLATAFORMA DE STREAMING!</strong>
+                                                    <strong>Hemos validado tu participación y todo está correcto.</strong>
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Hemos validado tu participación, por lo que te adjuntamos los datos necesarios para tu suscripción.
+                                                    HVamos a gestionar tu suscripción y, en cuanto la tengamos, te enviaremos un e-mail con los siguientes pasos.
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    ¡Este es tu código!<br>
-                                                    {{ $platformCode }}
-                                                </p>
-
-                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Entra en la web {{ $platform }} y canjea tu premio.
+                                                    ¡Pronto contactaremos de nuevo contigo!
                                                 </p>
                                                 <br>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">

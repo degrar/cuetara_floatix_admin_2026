@@ -80,18 +80,19 @@ class ChangeGameState
 
             if ( $game->prize_id == 2 ){
                 $game->update(['confirmed_at' => Carbon::now()]);
-                $codePlatform = CodesPlatforms::query()
-                    ->select('codes_platforms.code', 'streamings_platforms.name')
-                    ->whereNull('user_id')
-                    ->where('status', '=', 0)
-                    ->where('platform_id', '=', $game->platform_id)
-                    ->join( 'streamings_platforms', 'streamings_platforms.id', '=', 'codes_platforms.platform_id')
-                    ->orderBy('id', 'asc')->first();
-                if ( $codePlatform ) {
-                    $game->update(['confirmed_at' => Carbon::now(), 'code' => $codePlatform->code]);
-                    CodesPlatforms::updateStatus($codePlatform->code, 1, $game->user_id, $game->id);
-                    $this->sendConfirmedMail($game, $codePlatform->code, $codePlatform->name);
-                }
+//                $codePlatform = CodesPlatforms::query()
+//                    ->select('codes_platforms.code', 'streamings_platforms.name')
+//                    ->whereNull('user_id')
+//                    ->where('status', '=', 0)
+//                    ->where('platform_id', '=', $game->platform_id)
+//                    ->join( 'streamings_platforms', 'streamings_platforms.id', '=', 'codes_platforms.platform_id')
+//                    ->orderBy('id', 'asc')->first();
+//                if ( $codePlatform ) {
+//                    $game->update(['confirmed_at' => Carbon::now(), 'code' => $codePlatform->code]);
+//                    CodesPlatforms::updateStatus($codePlatform->code, 1, $game->user_id, $game->id);
+//                    $this->sendConfirmedMail($game, $codePlatform->code, $codePlatform->name);
+//                }
+                $this->sendConfirmedMail($game);
             }else{
                 $this->sendConfirmedMail($game);
             }
