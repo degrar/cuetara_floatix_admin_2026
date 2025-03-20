@@ -21,7 +21,7 @@ class MoreInfoController extends Controller
     public function show(string $token)
     {
         if (!Game::query()->where('token', $token)->first())
-            return redirect()->route('home');
+            return redirect()->route('thanks');
 
         $view = Game::query()->where('token', $token)->first()->prize_id === 1 ? 'MoreInfoSwitch' : 'MoreInfoCard';
         return Inertia::render('Public/Game/'.$view, [

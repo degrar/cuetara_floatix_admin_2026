@@ -14,7 +14,7 @@ class LegalPrivacyController extends Controller
         return Inertia::render('Public/Legal');
     }
 
-    public function privacy(): Response
+    public function privacy(): \Illuminate\Http\RedirectResponse
     {
         return redirect()->away('https://www.yatekomo.es/legal/politica-de-privacidad/');
         //return Inertia::render('Public/Privacy');
