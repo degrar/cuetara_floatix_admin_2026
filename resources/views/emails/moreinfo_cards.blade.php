@@ -113,6 +113,7 @@
                                                     Para validar tu participación necesitamos que rellenes un formulario con estos datos:
                                                 </p>
                                                 <ul style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;list-style-type: disc; ">
+                                                    <li>Imagen de tu DNI</li>
                                                     <li>Nombre de la plataforma streaming a la que deseas suscribirte gratis.</li>
                                                 </ul>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">

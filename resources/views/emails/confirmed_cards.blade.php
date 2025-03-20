@@ -116,7 +116,7 @@
                                                     <strong>Hemos validado tu participación y todo está correcto.</strong>
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    HVamos a gestionar tu suscripción y, en cuanto la tengamos, te enviaremos un e-mail con los siguientes pasos.
+                                                    Vamos a gestionar tu suscripción y, en cuanto la tengamos, te enviaremos un e-mail con los siguientes pasos.
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
                                                     ¡Pronto contactaremos de nuevo contigo!
