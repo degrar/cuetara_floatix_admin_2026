@@ -16,9 +16,9 @@
                         <PrimaryLinkFooter :href="route('nota-legal')" :active="route().current('nota-legal')" target="_blank">Aviso legal</PrimaryLinkFooter>
                     </li>
 
-                    <li>
-                        <PrimaryLinkFooter @click="showCcPrefs">Modificar cookies</PrimaryLinkFooter>
-                    </li>
+<!--                    <li>-->
+<!--                        <PrimaryLinkFooter id="ot-sdk-btn">Modificar cookies</PrimaryLinkFooter>-->
+<!--                    </li>-->
 <!--                    <li>-->
 <!--                        <PrimaryLinkFooter :href="route('contact')" :active="route().current('contact')">Contacto</PrimaryLinkFooter>-->
 <!--                    </li>-->

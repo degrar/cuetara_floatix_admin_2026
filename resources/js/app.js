@@ -24,7 +24,6 @@ createInertiaApp({
             .use(Toast)
             .use(ZiggyVue)
             .use(FloatingVue)
-            .use(CookieConsentVue)
             .mount(el);
     },
     progress: {
