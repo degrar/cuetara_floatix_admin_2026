@@ -96,7 +96,20 @@
 
                 <p>Si el participante resulta ganador de un premio “Momentos Ganador” recibirá en el correo que haya facilitado, un e-mail con un enlace a un formulario donde se solicitarán los siguientes datos:</p>
                 <ul>
-                    <li>50 € en suscripción a una plataforma de contenidos en streaming: Los ganadores recibirán un correo electrónico de confirmación en el que deberán indicar su DNI (cara y dorso) y especificar la plataforma de contenidos en streaming en la que desean canjear el importe del premio.</li>
+                    <li>50 € en suscripción a una plataforma de contenidos en streaming: Los ganadores recibirán un correo electrónico de confirmación en el que deberán indicar la plataforma de contenidos en streaming en la que desean canjear el importe del premio.
+                        <br>
+                        Deberán escoger entre una de las siguientes plataformas:
+                        <ul>
+                            <li>Amazon</li>
+                            <li>Netflix</li>
+                            <li>Twitch</li>
+                            <li>Apple</li>
+                            <li>Rakuten</li>
+                            <li>Kobo</li>
+                            <li>Google Play</li>
+                        </ul>
+                    </li>
+
                     <li>Nintendo Switch: Los ganadores recibirán un correo electrónico de confirmación en el que deberán indicar su nombre, apellidos, dirección postal para el envío de su premio,  imagen de su DNI (cara y dorso) y adjuntar la carta de aceptación del premio, debidamente cumplimentada y firmada.</li>
                 </ul>
                 <p>Si en el plazo máximo de 7 días, el ganador no suministrara los datos necesarios para gestionar el premio, se entenderá la no aceptación del mismo, perdiendo el ganador/a todo derecho de recibir el premio.</p>
