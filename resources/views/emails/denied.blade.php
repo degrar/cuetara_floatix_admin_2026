@@ -116,10 +116,7 @@
                                                     Lamentamos comunicarte que tu participación en la promoción de Yatekomo no cumple con los requisitos establecidos en <a href="{{ route('legal') }}" style="text-decoration: underline;color: #000000">las bases promocionales</a>. y, por lo tanto, no recibirás el premio.
                                                 </p>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                El motivo por el que no se ha considerado correcta tu participación es
-                                                </p>
-                                                <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    {{ $declineReason }}
+                                                El motivo por el que no se ha considerado correcta tu participación es {{ $declineReason }}
                                                 </p>
                                                 <br>
                                                 <p style="color: #000000;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
@@ -132,7 +129,7 @@
                                     <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/footer.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="234"></div>
+                                                <div class="alignment" align="left"><a href="//yatekomo.es/"><img class="big" src="{{ asset('assets/email/footer.jpg') }}" style="display: block; height: auto; border: 0; width: 600px; max-width: 100%;" width="600" height="234"></div></a>
                                             </td>
                                         </tr>
                                     </table>
