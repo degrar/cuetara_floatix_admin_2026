@@ -127,7 +127,7 @@ const submitForm = () => {
 };
 
 //DATE TICKET
-const minDate = '2024-11-20';
+const minDate = '2025-04-01';
 
 let maxDate;
 maxDate = new Date().toISOString().split('T')[0];
