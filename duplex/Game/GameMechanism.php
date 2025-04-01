@@ -38,6 +38,7 @@ class GameMechanism
 
         $this->createGameLog();
 
+        //MAX en la promoción
         $maxAttemps = $this->hasReachedMaxAttemps();
 
         if ($maxAttemps !== null) return $maxAttemps;
@@ -45,6 +46,11 @@ class GameMechanism
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
 
         $game = $this->createGame($attempts->total);
+
+        //MAX Ganador pero hemos guardado la participación
+        $maxAttempsWinner = $this->hasReachedMaxAttempsWinner();
+
+        if ($maxAttempsWinner !== null) return $maxAttempsWinner;
 
         if (GameType::Mmgg === $this->type)
         {
@@ -125,11 +131,6 @@ class GameMechanism
 
     private function hasReachedMaxAttemps(): ?array
     {
-        // Ha guanyat una vegada ya?
-        if (Mmgg::getTotalForUser($this->user->id) > 0)
-            return  [
-                'game' => GameResult::Lost
-            ];
 
         $attempts = GameModel::getTotalPlaysForUser($this->user->id);
 
@@ -137,6 +138,19 @@ class GameMechanism
             return  [
                 'game' => GameResult::MaxDay
             ];
+        return null;
+    }
+
+    private function hasReachedMaxAttempsWinner(): ?array
+    {
+
+        // Ha guanyat una vegada ya?
+        if (Mmgg::getTotalForUser($this->user->id) > 0)
+            return  [
+                'game' => GameResult::Lost
+            ];
+
+
         return null;
     }
 
