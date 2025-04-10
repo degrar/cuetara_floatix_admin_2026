@@ -64,7 +64,7 @@ class MoreInfoController extends Controller
             ]);
         }
 
-        if ( $prize === 1 && ($type === 0 || $type === 3 || $type === 4)) {
+        if (($type === 0 || $type === 3 || $type === 4)) {
             $hashDniFront = request()->file('front')->store('files');
             File::query()->create([
                 'user_id' => $game->user_id,
