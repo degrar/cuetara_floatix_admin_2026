@@ -56,8 +56,9 @@
 
             <div class="field scrollbar overflow-x-auto px-2">
                  <span>
-                     <span v-if="data?.mmgg.prize_id == 1"><span class="font-semibold">Premio:</span> Nintendo Switch</span>
-                     <span v-else-if="data?.mmgg.prize_id == 2"><span class="font-semibold">Premio:</span> Tarjeta Streaming</span>
+                     <span v-if="data.mmgg?.prize_id == 1"><span class="font-semibold">Premio:</span> Nintendo Switch</span>
+                     <span v-else-if="data.mmgg?.prize_id == 2"><span class="font-semibold">Premio:</span> Tarjeta Streaming</span>
+                     <span v-else>-</span>
                      <br>
                      <br>
                      <span v-if="data?.mmgg"><span class="font-semibold">MMGG:</span> {{ formatDate(data.mmgg.date_moment) }}<br></span>
