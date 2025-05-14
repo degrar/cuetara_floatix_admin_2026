@@ -1,7 +1,7 @@
 <template>
     <div class="game-list border-2 rounded-3xl overflow-hidden">
-        <div class="grid grid-flow-col py-2 px-2 border-b gap-2 " :class="`grid-cols-${header.length + 2}`">
-            <div class=" font-semibold text-center px-2 rem:text-[14px] " v-for="(item, key) in header" :key="key" :class="{ '!col-span-2': key === 1 || key === 3  }">{{ item }}</div>
+        <div class="grid grid-flow-col py-2 px-2 border-b gap-2 " :class="`grid-cols-${header.length}`">
+            <div class=" font-semibold text-center px-2 rem:text-[14px] " v-for="(item, key) in header" :key="key" >{{ item }}</div>
         </div>
 
         <GameItemAddress v-for="(item, key) in data" :data="item" :key="key" @dialog="imagesDialog" @deleted="onItemDeleted" />

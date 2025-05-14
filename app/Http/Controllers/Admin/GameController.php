@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Admin;
 
 use App\Http\Controllers\Controller;
+use App\Models\Claim;
 use App\Models\File;
 use App\Models\Game;
 use App\Models\User;
@@ -36,10 +37,8 @@ class GameController extends Controller
             'tableHeader' => [
                 'ID Participación',
                 'Usuario',
-                'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'Premio/MMGG',
             ]
         ]);
     }
@@ -120,14 +119,12 @@ class GameController extends Controller
 
         ]);
     }
-    public function winners(): Response //TOT ESTÀ VALIDAT (adreça, dni i pack)
+    public function winners(): Response // (adreça Flotix)
     {
 
-        $items = Game::with(['user', 'files:id,hash,game_id,type,is_valid', 'mmgg', 'address', 'address.via:id,name', 'address.province:id,name', 'platform'])
-            ->where('state', GameState::Winner->value)
-            ->leftJoin('addresses', 'games.user_id', '=', 'addresses.user_id')
-            ->orderByDesc('games.created_at')
-            ->paginate(self::ITEMS_PER_PAGE, ['games.*']);
+        $items = Claim::with(['user', 'address', 'address.via:id,name', 'address.province:id,name'])
+            ->orderByDesc('claims.created_at')
+            ->paginate(self::ITEMS_PER_PAGE);
 
 
         return Inertia::render('Admin/GamesAddress', [
@@ -139,10 +136,8 @@ class GameController extends Controller
             'tableHeader' => [
                 'ID Participación',
                 'Usuario',
-                'Archivos',
                 'Datos de participación',
                 'Fechas',
-                'Premio',
                 //'Acciones'
             ],
 

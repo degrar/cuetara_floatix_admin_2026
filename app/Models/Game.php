@@ -25,6 +25,8 @@
             'validated_at',
             'confirmed_at',
             'platform_id',
+            'raffle',
+            'date_email',
         ];
 
 

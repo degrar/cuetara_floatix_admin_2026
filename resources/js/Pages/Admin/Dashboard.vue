@@ -9,43 +9,44 @@
 
             <div class="bg-snow min-h-[50vh] px-2 py-4 rounded-3xl">
 
-                <h4 class="text-xl font-medium mb-2">Campaña</h4>
 
+                <h4 class="font-montserrat text-xl font-bold my-2">Stock Solicitado</h4>
                 <div class="border rounded-xl border-dark shadow-sm p-6 bg-white">
-                    <div class="inline-flex items-center">
-                        <span class="text-black mr-2"><strong>Inicio de la campaña: </strong></span>
-                        <span class="text-gray-600">{{ formatDate($page.props.start_date) }} a las {{ formatHours($page.props.start_date) }} - <span class="text-black">Check página</span> <a class="underline" target="_blank" :href="route('proximamente')">Próximamente</a></span>
-                    </div>
-                    <br>
-                    <div class="inline-flex items-center">
-                        <span class="text-black mr-2"><strong>Finalización de la campaña: </strong></span>
-                        <span class="text-gray-600">{{ formatDate($page.props.end_date) }} a las {{ formatHours($page.props.end_date) }} - <span class="text-black">Check página</span> <a class="underline" target="_blank" :href="route('promo-finalizada')">Promo Finalizada</a></span>
-                    </div>
-                    <br>
-                    <div class="inline-flex items-center">
-                        <span class="text-black mr-2"><strong>Timezone: </strong></span>
-                        <span class="text-gray-600">{{ $page.props.timezone }} </span>
-                    </div>
-                    <br>
 
-                    <br>
-                    <div class="inline-flex items-center">
-                        <span class="text-black mr-2"><strong>Límite participaciones al mes: </strong></span>
-                        <span class="text-gray-600">{{ $page.props.attempts_month }} </span>
-                    </div>
-                    <br>
-                    <div class="inline-flex items-center">
-                        <span class="text-black mr-2"><strong>Límite participaciones totales: </strong></span>
-                        <span class="text-gray-600">{{ $page.props.attempts_total }} </span>
-                    </div>
+<!--                    <div class="inline-flex items-center">-->
+<!--                        <span class="text-black mr-2"><strong>Inicio de la campaña: </strong></span>-->
+<!--                        <span class="text-gray-600">{{ formatDate($page.props.start_date) }} a las {{ formatHours($page.props.start_date) }} - <span class="text-black">Check página</span> <a class="underline" target="_blank" :href="route('proximamente')">Próximamente</a></span>-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <div class="inline-flex items-center">-->
+<!--                        <span class="text-black mr-2"><strong>Finalización de la campaña: </strong></span>-->
+<!--                        <span class="text-gray-600">{{ formatDate($page.props.end_date) }} a las {{ formatHours($page.props.end_date) }} - <span class="text-black">Check página</span> <a class="underline" target="_blank" :href="route('promo-finalizada')">Promo Finalizada</a></span>-->
+<!--                    </div>-->
+<!--                    <br>-->
+<!--                    <div class="inline-flex items-center">-->
+<!--                        <span class="text-black mr-2"><strong>Timezone: </strong></span>-->
+<!--                        <span class="text-gray-600">{{ $page.props.timezone }} </span>-->
+<!--                    </div>-->
+<!--                    <br>-->
+
+<!--                    <br>-->
+<!--                    <div class="inline-flex items-center">-->
+<!--                        <span class="text-black mr-2"><strong>Límite participaciones al mes: </strong></span>-->
+<!--                        <span class="text-gray-600">{{ $page.props.attempts_month }} </span>-->
+<!--                    </div>-->
+<!--                    <br>-->
+                    <span v-for="(item, index) in $page.props.items" :key="item.type">
+                        <strong class="text-black mr-4">{{ item.name }}:</strong>
+                        <span class="text-gray-600">{{ item.claimed }} de {{ item.total }}</span><br>
+                    </span>
 
                 </div>
 
 
                 <hr class="my-4">
 
-                <h4 class="text-xl font-medium mb-2">Resumen</h4>
-                <div class="md:grid grid-cols-4 mt-4 gap-5 font-poppins">
+                <h4 class="font-montserrat text-xl font-bold mb-2">Resumen</h4>
+                <div class="md:grid grid-cols-4 mt-4 gap-5 font-montserrat">
                     <div class="border-2 rounded-xl p-4">
                         <div class="flex">
                             <div class="mr-4 bg-[#90caf9] bg-opacity-50 flex justify-center items-center px-3 py-3 rounded-xl">
@@ -77,8 +78,40 @@
                         </div>
                     </div>
                 </div>
+                <hr class="my-4">
+                <h4 class="font-montserrat text-xl font-bold my-2">Ganadores Sorteo</h4>
+                <div class="border rounded-xl border-dark shadow-sm p-6 bg-white my-2 mb-4">
+                    <div class="flex justify-between flex-row py-4">
+                        <div class="w-6/12 mx-auto py-4">
+                            <h6 class="text-md font-roboto font-semibold">Subida fichero CSV</h6>
+                            <form @submit="doWinnerRaffle" class="grid grid-cols-2 gap-4">
+                                <FileUpload v-model:select="form.file"  help="Formatos .csv, .txt" placeholder="Fichero CSV Favoritos" accept=".csv,.txt"/>
+                                <div class="flex items-center">
+                                    <PrimaryButton type="submit" :class="{'oscilate-opacity cursor-wait': processing}">
+                                        Actualizar
+                                    </PrimaryButton>
+                                </div>
+                            </form>
+                        </div>
 
-<!--                <h4 class="text-xl font-semibold font-poppins text-police mt-12">Ultimas participaciones</h4>-->
+                        <div class="w-6/12 mx-auto py-4">
+                            <h6 class="text-md font-roboto font-semibold">Formato CSV Ejemplo</h6>
+                            <pre class="bg-gray-900 text-white  rounded-lg overflow-x-auto">
+                            <code class="language-csv">
+                                id_participacion
+                                1
+                                2
+                                ...
+                                ...
+                                ...
+                                m
+                            </code>
+                        </pre>
+                        </div>
+
+                    </div>
+                </div>
+                <hr>
 
             </div>
         </div>
@@ -86,12 +119,53 @@
 </template>
 
 <script setup>
+import {ref} from "vue";
 import AppLayout from '@/Layouts/AppLayout.vue';
 import {usePage} from "@inertiajs/vue3";
 import {useToast} from "vue-toastification";
 import Banner from "@/Components/Admin/Banner.vue";
 import SectionTitle from "@/Components/Admin/SectionTitle.vue";
 import dayjs from 'dayjs';
+import PrimaryButton from "@/Components/Admin/PrimaryButton.vue";
+import FileUpload from "@/Components/FileUpload.vue";
+
+
+const form = ref({
+    file: null,
+});
+
+const processing = ref(false);
+
+const doWinnerRaffle = async (e) => {
+    if (processing.value) return;
+    e.preventDefault();
+    processing.value = true;
+
+    try {
+        const formData = new FormData();
+        formData.append('file', form.value.file);
+
+        const resp = await axios.post(route('admin.games.doRaffle'), formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+
+        processing.value = false;
+
+        if (resp?.status == 200)
+        {
+            //useToast().success('Acción realizada con éxito');
+            alert('Fichero procesado con éxito');
+            processing.value = false;
+            setTimeout(() => window.location.reload(), 1000)
+        }
+    } catch (e) {
+        processing.value = false;
+        alert('Error en el formato del fitxero. ' + e.message);
+    }
+
+}
 
 if (usePage().props.recent_login)
 {

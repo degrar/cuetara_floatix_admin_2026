@@ -4,6 +4,8 @@
 
     use App\Http\Controllers\Controller;
 
+    use App\Models\Claim;
+    use App\Models\Stock;
     use DB;
     use Illuminate\Http\Request;
     use Inertia\Inertia;
@@ -14,15 +16,15 @@
         public function show(): Response
         {
 
+            $items = Stock::Select('type', 'name', 'total', 'claimed')
+                ->orderBy('type')
+                ->orderBy('name')
+                ->get();
+
             return Inertia::render('Admin/Dashboard', [
                 'recent_login' => session('recent_login'),
                 'stats' => $this->getStats(),
-                'start_date' => config('duplex.promo.date.start'),
-                'end_date' => config('duplex.promo.date.end'),
-                'timezone' => config('duplex.promo.date.timezone'),
-                //'attempts_day' => config('duplex.promo.attemps.day'),
-                'attempts_month' => config('duplex.promo.attemps.month'),
-                'attempts_total' => config('duplex.promo.attemps.total'),
+                'items' => $items,
                 ]);
         }
 

@@ -31,6 +31,7 @@ return [
         'url_prefix' => env('URL_PREFIX', ''),
 
         'onepage' => true,
+        'front' => env('APP_URL_FRONT'),
     ],
 
     /*

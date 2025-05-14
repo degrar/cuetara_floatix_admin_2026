@@ -5,7 +5,7 @@
         </div>
     </div>
     <div>
-        <div class="rem:text-[14px] game-item grid grid-cols-8 py-4 px-4 border-b divide-gray-200 divide-x last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-9': !hideActions, '!bg-green-200': data.state === 3 , '!bg-rose-200': data.state === 7 }" v-bind="$attrs">
+        <div class="rem:text-[14px] game-item grid grid-cols-4 py-4 px-4 border-b divide-gray-200 divide-x last:border-none group relative bg-white/50 hover:bg-gray-100 overflow-x-hidden" :class="{ '!grid-cols-9': !hideActions, '!bg-green-200': data.state === 3 , '!bg-rose-200': data.state === 7 }" v-bind="$attrs">
             <div class="field scrollbar overflow-x-auto px-2 ">
                 <span class="text-left">
                     <template v-if="route().current('admin.games.pending')">
@@ -17,29 +17,19 @@
                 </span>
             </div>
 
-            <div class="field scrollbar overflow-x-auto col-span-2 px-2 !items-start !justify-start w-full">
+            <div class="field scrollbar overflow-x-auto px-2 !items-start !justify-start w-full">
 
                 <div class="break-word">
                     <span class="font-semibold">ID:</span> {{ data.user.id }} <br>
                     <span class="font-semibold">Nombre:</span> {{ data.user.name }} {{ data.user.surname }} <br>
                     <span class="font-semibold">Email:</span> <span class="break-all">{{ data.user.email }} </span><br>
-<!--                    <span class="font-semibold">Teléfono: </span>{{ data.user.phone }}-->
                 </div>
-
-
             </div>
 
-            <div class="field scrollbar overflow-x-auto px-2">
-                <span v-if="data.files && data.files.length > 0" class="w-[28px] cursor-pointer" @click="$emit('dialog', data.files)">
-                    <img title="Archivos" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAADAAAAAwCAYAAABXAvmHAAAACXBIWXMAAAsTAAALEwEAmpwYAAAEkElEQVR4nO1Z628UVRTfpH+ClnvvbqFL20UrD9s0qYDsTIfdEmgjlEcLBSpBq/WDpjaVgK1LIS0Ild1ttbQGDKAEGx6pu2KU+PjANzV+ML5iTDSLBtF+kNIdMSQkx5yRmd7dzi4zOzu7jdmTnNzMff5+55577tm7DkdBClKQgsxpYUx8kDBhlFDhN8qEu5SJYK8KdwkVfyVMfJNSqdQSeEIEiTLhD/tBi6l0mhDv6owtn2fwgEqYOEnIinnmrc+EMW0SKl7D3XA4mosctktzEaVegTAhxpE4bnoa9ENtAgV8bmWes843Q0CImZ6AP7C5sXyyNBfxB9thVng/TG67NXTZEw9FPoyHIn/L4SjYpZTDMBWMVmSFAIKXQ9G4EQBTwfcg1PoK+KuboWyBXynxG+uNjHfP9ynrYymHo9NTwxPllgnEw9EPjILf8NgO3ciyvnaHIRIjO/tg+SNNSonfuLZ1AgbdJritN214xJ2QTbpUPByRLRMwuhi6izp+cGsPTB69BIMtPVpdfXVLRuciZwTKS+u18X8evajUYanWYbt8nzm+73sbhrcHlDLnBNDC2g60ZLYDtZUblL5Y5pwA+rjVM0C5/jkngFEGo40eeIxORqIQtUKAUPHOvTzoDl8/OXgJRtsOwG7pGfBVtcDT0rNwavcATIciuiTQ0uguZaV+pQxvCxi+B6ilHaDCYUKFf7BU64qLpfIVi5t0rbq2Ziv8sP+djCKLbAeBZHE6Vy3670dNar9e5mmAr3tPzT0CjIkPUyb+rk62cIEfTuzqhy9fPqmEOfxW2yrL1sIX+06kBfbd/jOwq64dHvU0wpKKddDmfQq+CZy2h4ACnorXefCfvPhGwkJXu0ehwr1GW8zjroerL43pgr/Y8VoCYcrNe6FjMLsEKBUqKRNucGmt/GnXiC6wz/eeVKyv9sXk7Urn6wl9EGCJS0rpgiUuCc5zJCwRYEzaTqh4mwM/Vez0rkznGl/1vKW4hDqmtMQHl58f0gXvXboJvg2cUQ7+qqWbdElYvQe0HzSECjcJ8dZi/f0OHoKqWtSoLTzftRp613cngF+5eCP80v+uNubaoXEQlm3W2l2uOjjXfiR7FxljUo1abyR6/HjgrJYGJCtaPjYwPmtMbGB81k7k9Sb+uf8cPL5k46wwqwdeTkEirwRQr796HnxVM2k1c4ow1BpIOyaWgkReCKDeOHIBGmpaE8D0Ne0xTULOFwFUzJ82L29LALSnsRPiOvkTT2LOEED969iEcuPy83ate0E3CVR1ThFAvRmcgCfF9gRgY20H7SKg/7BlhQAqptId/uc0YIe37EvZj78XTBPgnxYZE7zZIoCKboOWP7Rlr3I+9Pp81nVcI1Dz0BMZEEh63MW3StyJbBBIp7eCEQU8glbX727ozIAAEd34Pp8q8cqVetz18NPBs+YJzLwQ89lobrXCvQY+5lJ3Uw9bqjidvgcoE0fQjXLxF5PLVae4D7oNb/l7BD5yWBV8JcaHVrvPgpyk8XD0tnwsUm2ZgEJieKI8Ho6+j1tqP/CIHA9Fr2QNfEEK8j+TfwHFqJqel8JZLQAAAABJRU5ErkJggg==">
-                </span>
-                <span v-else> - </span>
-            </div>
-
-            <div class="field scrollbar overflow-x-auto col-span-2 px-2">
+            <div class="field scrollbar overflow-x-auto  px-2">
                 <div class="flex justify-center items-center">
                 <span class="break-word">
-                    <span><span class="font-semibold">Fecha ticket:</span> {{ formatDateBuy(data.buydate) }} <br></span>
+                    <span><span class="font-semibold">Código:</span> {{ data.code }} <br></span>
                 </span>
 
                 </div>
@@ -48,22 +38,8 @@
             <div class="field scrollbar overflow-x-auto px-2">
                 <span class="break-word">
                     <span class="font-semibold">Participación:</span> {{ formatDate(data.created_at) }} <br>
-<!--                    <span v-if="data.validated_at"><span class="font-semibold">Validación:</span> {{ formatDate(data.validated_at) }} <br></span>-->
-                    <span v-if="data.confirmed_at"><span class="font-semibold">Confirmación:</span> {{ formatDate(data.confirmed_at) }} <br></span>
                 </span>
 
-            </div>
-
-            <div class="field scrollbar overflow-x-auto px-2">
-                 <span>
-                     <span v-if="data.mmgg?.prize_id == 1"><span class="font-semibold">Premio:</span> Nintendo Switch</span>
-                     <span v-else-if="data.mmgg?.prize_id == 2"><span class="font-semibold">Premio:</span> Tarjeta Streaming</span>
-                     <span v-else>-</span>
-                     <br>
-                     <br>
-                     <span v-if="data?.mmgg"><span class="font-semibold">MMGG:</span> {{ formatDate(data.mmgg.date_moment) }}<br></span>
-                     <span v-if="data.decline_reason"><span class="font-semibold">Razón rechazado:</span> {{ data.decline_reason }} <br></span>
-                 </span>
             </div>
 
             <div class="field scrollbar overflow-x-auto space-x-1 px-2" v-if="!hideActions">

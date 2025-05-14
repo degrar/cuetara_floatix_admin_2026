@@ -2,17 +2,26 @@
 
 namespace App\Models;
 
+use Duplex\Enums\StockType;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Database\Eloquent\Model;
 
 class Stock extends Model
 {
-    use HasFactory;
-
     protected $fillable = [
+        'type',
         'name',
-        'units',
-        'used',
+        'total',
+        'claimed',
     ];
 
+    protected $casts = [
+        'type' => StockType::class,
+    ];
+
+    public function claims()
+    {
+        return $this->hasMany(Claim::class);
+    }
 }
+

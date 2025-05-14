@@ -1,6 +1,7 @@
 <?php
 
-use App\Actions\Admin\ChangeGameState;
+    use App\Actions\Admin\ChangeGameRaffle;
+    use App\Actions\Admin\ChangeGameState;
 use App\Actions\Admin\ExportGames;
 use App\Http\Controllers\Admin\{DashboardController,
     SettingController,
@@ -33,8 +34,11 @@ Route::as('games.')->prefix('games')->group(function () {
     Route::get('winners', [GameController::class, 'winners'])->name('winners');
     Route::get('denied', [GameController::class, 'denied'])->name('denied');
     Route::get('search', [GameController::class, 'search'])->name('search');
+    Route::post('doRaffle', \App\Actions\Admin\ImportRaffle::class)->name('doRaffle');
 
     Route::post('/state/{game}/{action}', ChangeGameState::class)->name('state');
+
+
 
     Route::get('export', ExportGames::class)->name('export');
     Route::get('export-account', \App\Actions\Admin\ExportGamesAnonimous::class)->name('export-account');

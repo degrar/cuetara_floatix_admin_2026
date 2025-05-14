@@ -25,53 +25,6 @@
     |
     */
 
-Route::middleware(PromotionRedirect::class)->group(function () {
-    Route::get('/', HomeController::class)->name('home');
-
-    // Game
-    Route::get('Game', [GameController::class, 'show']);
-    Route::controller(GameController::class)->group(function (){
-        Route::get('participa', 'show')->name('game');
-        Route::post('participa', 'store');
-    });
-
-    // Game status
-    Route::controller(GameResultController::class)->name('game-result.')->group(function () {
-        Route::get('winner', 'winner')->name('winner');
-        Route::get('lost', 'lost')->name('lost');
-        Route::get('max', 'max')->name('max');
-        //Route::get('winners', 'winners')->name('winners');
-    });
-
-    Route::controller(MoreInfoController::class)->group(function (){
-        Route::get('more-info/{token}', 'show')->name('more-info');
-        Route::post('more-info/{token}', 'store');
-        Route::get('thanks', 'thanks')->name('thanks');
-    });
-
-//    // Contact
-//    Route::controller(ContactController::class)->group(function (){
-//        Route::get('contacto', 'show')->name('contact');
-//        Route::post('contacto', 'store');
-//    });
-
-    Route::get('legal', [LegalPrivacyController::class, 'legal'])->name('legal');
-    Route::get('privacidad', [LegalPrivacyController::class, 'privacy'])->name('privacy');
-    Route::get('cookies', [LegalPrivacyController::class, 'cookies'])->name('cookies');
-    Route::get('faqs', [LegalPrivacyController::class, 'faqs'])->name('faqs');
-    Route::get('nota-legal', [LegalPrivacyController::class, 'notaLegal'])->name('nota-legal');
-
-
-});
-
-Route::get('proximamente', [HomeController::class, 'start'])->name('proximamente');
-Route::get('promo-finalizada', [HomeController::class, 'end'])->name('promo-finalizada');
-
-
-Route::get('carta', function () {
-    return response()->download(storage_path('app/carta.pdf'), 'carta.pdf', ['Content-Type' => 'application/pdf', 'Content-Disposition' => 'attachment; filename="carta_aceptacion.pdf"']);
-})->name('carta');
-//ADMIN
 
 Route::get('mail', function () {
     return new App\Mail\Confirmed('1234567890');
@@ -85,4 +38,7 @@ Route::middleware([
     require __DIR__ . '/admin.php';
 });
 
-Route::any('{catchall}', [HomeController::class, 'notFound'])->name ('404');
+
+    Route::any('{any}', function () {
+        return redirect()->route('admin.dashboard');
+    })->where('any', '.*');

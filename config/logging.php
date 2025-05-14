@@ -126,6 +126,12 @@ return [
         'emergency' => [
             'path' => storage_path('logs/laravel.log'),
         ],
+
+        'raffle' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/raffle.log'),
+            'level' => 'debug',
+        ],
     ],
 
 ];
