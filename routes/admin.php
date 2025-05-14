@@ -42,6 +42,7 @@ Route::as('games.')->prefix('games')->group(function () {
 
     Route::get('export', ExportGames::class)->name('export');
     Route::get('export-account', \App\Actions\Admin\ExportGamesAnonimous::class)->name('export-account');
+    Route::get('export-claim', \App\Actions\Admin\ExportClaim::class)->name('export-claim');
 });
 
 Route::as('files.')->prefix('files')->group(function() {

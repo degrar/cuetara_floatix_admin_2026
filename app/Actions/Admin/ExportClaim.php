@@ -3,35 +3,34 @@
 namespace App\Actions\Admin;
 
 use App\Jobs\SendMail;
+use App\Models\Claim;
 use App\Models\Game;
 use Carbon\Carbon;
 use Duplex\Enums\GameState;
 use Spatie\SimpleExcel\SimpleExcelWriter;
 
-class ExportGames
+class ExportClaim
 {
     public function __invoke()
     {
 
 //        var_dump('<pre>');
-//        var_dump(Game::with(['user' => function  ($query) {
-//            return $query->where('role', '=', 'user');
-//        }, 'address', 'address.via:id,name', 'address.province:id,name', 'sizeOneStock:id,name', 'sizeTwoStock:id,name'])
-//                //->join('users', 'games.user_id', '=', 'users.id')
-//                //->where('user.role', '=', 'user')
-//                ->where('games.id', '=', 1)
+//        var_dump(Claim::with(['user' => function  ($query) {
+//                return $query->where('role', '=', 'user');
+//            }, 'address', 'address.via:id,name', 'address.province:id,name'])
 //                ->get()
+//                ->map([self::class, 'transform'])
 //                ->toArray());
 //        var_dump('</pre>');
 //        die();
 
-        $filename = sprintf('%s_%s_participaciones.xlsx', config('app.name'), date('dmY_His'));
+        $filename = sprintf('%s_%s_flotix.xlsx', config('app.name'), date('dmY_His'));
         $excel = SimpleExcelWriter::streamDownload($filename);
 
         $excel->addRows(
-            Game::with(['user' => function  ($query) {
+            Claim::with(['user' => function  ($query) {
                 return $query->where('role', '=', 'user');
-            }])
+            }, 'address', 'address.via:id,name', 'address.province:id,name'])
                 ->get()
                 ->map([self::class, 'transform'])
                 ->toArray()
@@ -41,10 +40,10 @@ class ExportGames
         $excel->toBrowser();
     }
 
-    public static function transform(Game $game): array
+    public static function transform(Claim $game): array
     {
 
-//        $address = $game->address->first();
+        $address = $game->address->first();
 //
 //        foreach ($game->files as $key => $file) {
 //            $images[]  = route(str_ends_with($file->hash, '.pdf') ? 'admin.files.pdf' : 'admin.files.image', $file->id);
@@ -61,8 +60,20 @@ class ExportGames
 
             // game
             'id_participacion' => $game->id,
-            'code' => $game->code,
-            'fecha_participacion' => Carbon::parse($game->created_at)->format('d-m-Y H:i:s'),
+            'modelo' => $game->stock_id === 1 ? 'Tortuga' : 'Tiburón',
+            'sorteo' => $game->raffle === 0 ? 'No' : 'Si',
+            'fecha_solicitud' => Carbon::parse($game->created_at)->format('d-m-Y H:i:s'),
+
+            // address
+            'direccion' => $address?->via->name.' '.$address?->name,
+            'numero' => $address?->number,
+            'escalera' => $address?->stair,
+            'piso' => $address?->floor,
+            'puerta' => $address?->door,
+            'codigo_postal' => $address?->postal_code,
+            'poblacion' => $address?->city,
+            'provincia' => $address?->province->name,
+            'telefono' => $address?->phone,
 
         ];
 
