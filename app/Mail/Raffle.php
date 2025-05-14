@@ -30,7 +30,7 @@ class Raffle extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: trans('mail.subject.raffle'),
+            subject: 'Has conseguido uno de los 50 FLOTIX',
         );
     }
 
@@ -43,7 +43,7 @@ class Raffle extends Mailable
             view: 'emails.raffle',
             with: [
                 'token' => $this->token,
-                'formLink' => config('duplex.promo.front') . '/' . $this->token,
+                'formLink' => config('duplex.promo.front') . '/pide-tu-flotix/' . $this->token,
             ]
         );
     }

@@ -120,7 +120,7 @@
                                                 </p>
                                                 <div style="text-align: center">
                                                     <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/raffle/cta_raffle.png') }}" alt="Ir al formulario" style="height: 67px; width: 336px;" height="67" width="336">
+                                                        <img src="{{ asset('assets/email/raffle/button_raffle.png') }}" alt="Ir al formulario" style="height: 67px; width: 336px;" height="67" width="336">
                                                     </a>
                                                 </div>
                                                 <br>
