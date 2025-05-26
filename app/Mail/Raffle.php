@@ -43,7 +43,7 @@ class Raffle extends Mailable
             view: 'emails.raffle',
             with: [
                 'token' => $this->token,
-                'formLink' => config('duplex.promo.front') . '/pide-tu-flotix/' . $this->token,
+                'formLink' => config('duplex.promo.front') . 'pide-tu-flotix/' . $this->token,
             ]
         );
     }

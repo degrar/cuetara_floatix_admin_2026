@@ -24,20 +24,20 @@ class Claim extends Model
             ->count();
     }
 
-    public function user(): BelongsTo
+    public function user(): HasOne
     {
-        return $this->belongsTo(User::class);
+        return $this->hasOne(User::class, 'id', 'user_id');
     }
 
-    public function address(): BelongsTo
+    public function address(): hasMany
     {
-        return $this->belongsTo(Address::class);
+        return $this->hasMany(Address::class, 'id', 'address_id');
     }
 
-    public function stock(): BelongsTo
-    {
-        return $this->belongsTo(Stock::class);
-    }
+//    public function stock(): HasOne
+//    {
+//        return $this->hasOne(Stock::class, 'id', 'province_id');
+//    }
 
 
 }

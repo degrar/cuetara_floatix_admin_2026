@@ -60,7 +60,7 @@ class ExportClaim
 
             // game
             'id_participacion' => $game->id,
-            'modelo' => $game->stock_id === 1 ? 'Tortuga' : 'Tiburón',
+            'modelo' => $game->stock_id === 1 ? 'Tiburón' : 'Tortuga',
             'sorteo' => $game->raffle === 0 ? 'No' : 'Si',
             'fecha_solicitud' => Carbon::parse($game->created_at)->format('d-m-Y H:i:s'),
 

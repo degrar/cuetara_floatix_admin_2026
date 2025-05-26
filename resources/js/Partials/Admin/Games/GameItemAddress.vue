@@ -40,25 +40,25 @@
                     <span><span class="font-semibold">Módelo:</span> {{ data.stock_id == 1 ? 'Tiburon' : 'Tortuga' }} <br></span><br>
 
 
-                    <span class="font-semibold" >Dirección: </span>{{ data.address.via?.name }} {{ data.address.name }}<br>
-                    <span class="font-semibold">Número: </span> {{ data.address.number }}<br>
+                    <span class="font-semibold" >Dirección: </span>{{ data.address[0].via?.name }} {{ data.address[0].name }}<br>
+                    <span class="font-semibold">Número: </span> {{ data.address[0].number }}<br>
 
-                    <span  v-if="data?.address.stair">
+                    <span  v-if="data?.address[0].stair">
                         <span class="font-semibold">Escalera: </span> {{ data.address?.stair }}<br>
                     </span>
 
-                    <span  v-if="data?.address.floor">
-                        <span class="font-semibold">Piso: </span> {{ data.address?.floor }}<br>
+                    <span  v-if="data?.address[0].floor">
+                        <span class="font-semibold">Piso: </span> {{ data.address[0]?.floor }}<br>
                     </span>
 
-                    <span  v-if="data?.address.door">
-                        <span class="font-semibold">Puerta: </span> {{ data.address?.door }}<br>
+                    <span  v-if="data?.address[0].door">
+                        <span class="font-semibold">Puerta: </span> {{ data.address[0]?.door }}<br>
                     </span>
-
-                    <span class="font-semibold">Código postal: </span> {{ data.address.postal_code }}<br>
-                    <span class="font-semibold">Ciudad: </span> {{ data.address.city }}<br>
-                    <span class="font-semibold">Provincia: </span> {{ data.address.province.name }}<br>
-                    <span class="font-semibold">Teléfono: </span> {{ data.address.phone }}<br>
+<!--{{ data.address[0].postal_code }}-->
+                    <span class="font-semibold">Código postal: </span> {{ data.address[0].postal_code }}<br>
+                    <span class="font-semibold">Ciudad: </span> {{ data.address[0].city }}<br>
+                    <span class="font-semibold">Provincia: </span> {{ data.address[0].province?.name }}<br>
+                    <span class="font-semibold">Teléfono: </span> {{ data.address[0].phone }}<br>
                 </span>
 
                 </div>
