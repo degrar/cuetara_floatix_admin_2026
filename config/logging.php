@@ -132,6 +132,12 @@ return [
             'path' => storage_path('logs/raffle.log'),
             'level' => 'debug',
         ],
+
+        'reclaim' => [
+            'driver' => 'single',
+            'path' => storage_path('logs/reclaim.log'),
+            'level' => 'debug',
+        ],
     ],
 
 ];

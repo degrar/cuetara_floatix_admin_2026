@@ -111,7 +111,40 @@
 
                     </div>
                 </div>
-                <hr>
+                <hr class="my-4">
+                <h4 class="font-montserrat text-xl font-bold my-2">Reclamación ticket</h4>
+                <div class="border rounded-xl border-dark shadow-sm p-6 bg-white my-2 mb-4">
+                    <div class="flex justify-between flex-row py-4">
+                        <div class="w-6/12 mx-auto py-4">
+                            <h6 class="text-md font-roboto font-semibold">Subida fichero CSV</h6>
+                            <form @submit="doEmailReclaim" class="grid grid-cols-2 gap-4">
+                                <FileUpload v-model:select="form.file"  help="Formatos .csv, .txt" placeholder="Fichero CSV Favoritos" accept=".csv,.txt"/>
+                                <div class="flex items-center">
+                                    <PrimaryButton type="submit" :class="{'oscilate-opacity cursor-wait': processing}">
+                                        Enviar
+                                    </PrimaryButton>
+                                </div>
+                            </form>
+                        </div>
+
+                        <div class="w-6/12 mx-auto py-4">
+                            <h6 class="text-md font-roboto font-semibold">Formato CSV Ejemplo</h6>
+                            <pre class="bg-gray-900 text-white  rounded-lg overflow-x-auto">
+                            <code class="language-csv">
+                                email
+                                ga@duplexmarketing.com
+                                dev@duplexmarketing.com
+                                info@duplexmarketing.com
+                                ...
+                                ...
+                                ...
+                                m
+                            </code>
+                        </pre>
+                        </div>
+
+                    </div>
+                </div>
 
             </div>
         </div>
@@ -146,6 +179,37 @@ const doWinnerRaffle = async (e) => {
         formData.append('file', form.value.file);
 
         const resp = await axios.post(route('admin.games.doRaffle'), formData, {
+            headers: {
+                'Content-Type': 'multipart/form-data'
+            }
+        });
+
+        processing.value = false;
+
+        if (resp?.status == 200)
+        {
+            //useToast().success('Acción realizada con éxito');
+            alert('Fichero procesado con éxito');
+            processing.value = false;
+            setTimeout(() => window.location.reload(), 1000)
+        }
+    } catch (e) {
+        processing.value = false;
+        alert('Error en el formato del fitxero. ' + e.message);
+    }
+
+}
+
+const doEmailReclaim = async (e) => {
+    if (processing.value) return;
+    e.preventDefault();
+    processing.value = true;
+
+    try {
+        const formData = new FormData();
+        formData.append('file', form.value.file);
+
+        const resp = await axios.post(route('admin.games.doReclaim'), formData, {
             headers: {
                 'Content-Type': 'multipart/form-data'
             }

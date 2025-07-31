@@ -35,6 +35,7 @@ Route::as('games.')->prefix('games')->group(function () {
     Route::get('denied', [GameController::class, 'denied'])->name('denied');
     Route::get('search', [GameController::class, 'search'])->name('search');
     Route::post('doRaffle', \App\Actions\Admin\ImportRaffle::class)->name('doRaffle');
+    Route::post('doReclaim', \App\Actions\Admin\ImportReclaim::class)->name('doReclaim');
 
     Route::post('/state/{game}/{action}', ChangeGameState::class)->name('state');
 

@@ -102,30 +102,29 @@
                                     <table class="image_block block-1" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt;">
                                         <tr>
                                             <td class="pad" style="width:100%;padding-right:0px;padding-left:0px;">
-                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/raffle/header_raffle.jpg') }}" style="display: block; border: 0; max-width: 100%;" width="600" height="252"></div>
+                                                <div class="alignment" align="left"><img class="big" src="{{ asset('assets/email/raffle/header_reclaim.jpg') }}" style="display: block; border: 0; max-width: 100%;" width="600" height="173"></div>
                                             </td>
                                         </tr>
                                     </table>
                                     <table class="paragraph_block block-2" width="100%" border="0" cellpadding="0" cellspacing="0" role="presentation" style="mso-table-lspace: 0pt; mso-table-rspace: 0pt; word-break: break-word;">
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
-                                                <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Nos alegra informarte de que has sido uno de los ganadores del sorteo final y has conseguido uno de los 50 FLOTIX.
+                                                <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Hola,
                                                 </p>
-                                                <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Pulsa el siguiente botón y completa el formulario con la dirección postal en la que quieres recibir tu FLOTIX.
+                                                <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Para validar oficialmente tu participación y proceder con la entrega del premio, te solicitamos que nos envíes por esta misma vía los <strong>tickets de compra correspondientes a tu participación en la promoción.</strong>
                                                 </p>
-                                                <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Dispones de 10 días hábiles para aportar tu información o el premio quedará en el desierto.
+                                                <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Tal como se indicaba en las bases legales de la promoción, <i>Cuétara se reserva el derecho a solicitar a los participantes los tickets de compra, para la efectiva comprobación de la veracidad de su participación en caso de resultar ganadores.</i>
                                                 </p>
-                                                <div style="text-align: center">
-                                                    <a href="{{ $formLink }}">
-                                                        <img src="{{ asset('assets/email/raffle/button_raffle.png') }}" alt="Ir al formulario" style="height: 67px; width: 336px;" height="67" width="336">
-                                                    </a>
-                                                </div>
                                                 <br>
-                                                <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Un Saludo, ¡y que disfrutes de tu FLOTIX en la playa o en la piscina!
+                                                <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Te agradeceríamos que respondieras a este correo <strong>adjuntando las imágenes o escaneos legibles de los tickets en el plazo máximo de 5 días naturales</strong> desde la recepción de este mensaje, para así continuar con el proceso de validación y entrega del premio.
+
+                                                </p>
+                                                <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
+                                                    Quedamos a tu disposición para cualquier duda adicional.
                                                 </p>
                                                 <br>
                                                 <div style="text-align: center">
