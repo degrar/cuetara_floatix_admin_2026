@@ -119,8 +119,7 @@
                                                     Tal como se indicaba en las bases legales de la promoción, <i>Cuétara se reserva el derecho a solicitar a los participantes los tickets de compra, para la efectiva comprobación de la veracidad de su participación en caso de resultar ganadores.</i>
                                                 </p>
                                                 <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Te agradeceríamos que respondieras a este correo <strong>adjuntando las imágenes o escaneos legibles de los tickets en el plazo máximo de 5 días naturales</strong> desde la recepción de este mensaje, para así continuar con el proceso de validación y entrega del premio.
-
+                                                    Te agradeceríamos que respondieras a este correo <strong>adjuntando las imágenes o escaneos legibles de los tickets en el plazo máximo de 5 días naturales</strong> desde la recepción de este mensaje, para así continuar con el proceso de validación y entrega del premio. En caso de no recibir los tickets de compra válidos en dicho plazo, perderás el derecho al premio.
                                                 </p>
                                                 <p style="color: #ffffff;text-align: left;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
                                                     Quedamos a tu disposición para cualquier duda adicional.
