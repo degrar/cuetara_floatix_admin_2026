@@ -110,10 +110,10 @@
                                         <tr>
                                             <td class="pad" style="padding-top:20px;padding-right:60px;padding-bottom:20px;padding-left:60px;">
                                                 <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Nos alegra informarte de que has sido uno de los ganadores del sorteo final y has conseguido uno de los 50 FLOTIX.
+                                                    Nos alegra informarte de que has sido uno de los ganadores del sorteo final y has conseguido uno de los 50 FLOATIX.
                                                 </p>
                                                 <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Pulsa el siguiente botón y completa el formulario con la dirección postal en la que quieres recibir tu FLOTIX.
+                                                    Pulsa el siguiente botón y completa el formulario con la dirección postal en la que quieres recibir tu FLOATIX.
                                                 </p>
                                                 <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
                                                     Dispones de 10 días hábiles para aportar tu información o el premio quedará en el desierto.
@@ -125,7 +125,7 @@
                                                 </div>
                                                 <br>
                                                 <p style="color: #ffffff;text-align: center;font-family: Arial, 'Helvetica Neue', Helvetica, sans-serif; font-size: 16px;">
-                                                    Un Saludo, ¡y que disfrutes de tu FLOTIX en la playa o en la piscina!
+                                                    Un Saludo, ¡y que disfrutes de tu FLOATIX en la playa o en la piscina!
                                                 </p>
                                                 <br>
                                                 <div style="text-align: center">

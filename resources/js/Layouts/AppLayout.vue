@@ -129,7 +129,7 @@ const logout = () => {
 <!--                                    </li>-->
                                     <li>
                                         <NavLink class="!text-sm" :href="route('admin.games.winners')" :active="route().current('admin.games.winners')">
-                                            Flotix
+                                            Floatix
                                         </NavLink>
                                     </li>
 <!--                                    <li>-->

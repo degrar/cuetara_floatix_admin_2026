@@ -24,7 +24,7 @@ class ExportClaim
 //        var_dump('</pre>');
 //        die();
 
-        $filename = sprintf('%s_%s_flotix.xlsx', config('app.name'), date('dmY_His'));
+        $filename = sprintf('%s_%s_floatix.xlsx', config('app.name'), date('dmY_His'));
         $excel = SimpleExcelWriter::streamDownload($filename);
 
         $excel->addRows(

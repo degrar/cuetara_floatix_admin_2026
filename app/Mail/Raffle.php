@@ -30,7 +30,7 @@ class Raffle extends Mailable
     public function envelope(): Envelope
     {
         return new Envelope(
-            subject: 'Has conseguido uno de los 50 FLOTIX',
+            subject: 'Has conseguido uno de los 50 FLOATIX',
         );
     }
 
@@ -43,7 +43,7 @@ class Raffle extends Mailable
             view: 'emails.raffle',
             with: [
                 'token' => $this->token,
-                'formLink' => 'https://flotix.oceanix.es/pide-tu-flotix/' . $this->token,
+                'formLink' => 'https://www.oceanix.es/promociones/floatix/' . $this->token,
             ]
         );
     }

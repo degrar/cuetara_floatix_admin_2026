@@ -12,6 +12,6 @@ return [
     */
 
     'subject' => [
-        'raffle' => 'Has conseguido uno de los 50 FLOTIX',
+        'raffle' => 'Has conseguido uno de los 50 FLOATIX',
     ],
 ];
