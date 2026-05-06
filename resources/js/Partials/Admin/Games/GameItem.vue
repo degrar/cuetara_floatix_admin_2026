@@ -117,7 +117,10 @@ import DialogModal from "@/Components/Admin/DialogModal.vue";
 import {router, usePage} from "@inertiajs/vue3";
 import TextInput from "@/Components/Admin/TextInput.vue";
 import dayjs from 'dayjs';
+import utc from 'dayjs/plugin/utc';
 
+// Extend Day.js with the UTC plugin
+dayjs.extend(utc);
 
 const emit = defineEmits([
    'deleted'
