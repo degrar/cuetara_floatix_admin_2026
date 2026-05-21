@@ -29,7 +29,7 @@ import dayjs from 'dayjs';
 
 function formatDate (dateString)  {
     const date = dayjs(dateString);
-    return date.format('D-MM-YYYY HH:MM:s');
+    return date.format('D-MM-YYYY HH:MM:ss');
 }
 
 

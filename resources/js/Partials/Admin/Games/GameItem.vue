@@ -145,7 +145,7 @@ const reload = typeof usePage().props.reload !== 'undefined' ? usePage().props.r
 const emailLink = computed(() => `mailto:${props.data.user.email}`);
 
 function formatDate (dateString)  {
-    const date = dayjs(dateString);
+    const date = dayjs.utc(dateString);
     return date.format('DD-MM-YYYY HH:mm:ss');
 }
 
